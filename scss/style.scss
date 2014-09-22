@@ -1,0 +1,24 @@
+/*!
+Theme Name: P1
+Theme URI: http://perlovs.com/
+Author: Mikhail Perlov
+Author URI: http://perlovs.com/
+Description:
+Version: 0.0.2
+Tags: clean, colors, corporate, creative, flexible, ipad, iphone, isotope, light, modern, page builder, responsive, retina ready, shortcodes, slider, localization
+
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+*/
+
+@import "_app";
+
+// Admin bar
+.admin-bar .fixed {
+  top: 46px;
+}
+@media #{$medium-up} {
+  .admin-bar .fixed {
+    top: 32px;
+  }
+}
