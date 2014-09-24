@@ -18,7 +18,7 @@
 			<nav class="top-bar" data-topbar role="navigation">
 				<ul class="title-area">
 					<li class="name">
-						<h1><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a><small id="topbar-blog-desc" class="show-for-medium-up"><?php bloginfo( 'description' ); ?></small></h1>
+						<h1><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
 					</li>
 
 					<li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
@@ -26,21 +26,7 @@
 
 				<section class="top-bar-section">
 					<!-- Right Nav Section -->
-					<ul class="right">
-						<li class="active"><a href="#">Right Button Active</a></li>
-						<li class="has-dropdown">
-							<a href="#">Right Button Dropdown</a>
-							<ul class="dropdown">
-								<li><a href="#">First link in dropdown</a></li>
-								<li class="active"><a href="#">Active link in dropdown</a></li>
-							</ul>
-						</li>
-					</ul>
-
-					<!-- Left Nav Section -->
-					<ul class="left">
-						<li><a href="#">Left Nav Button</a></li>
-					</ul>
+					<?php menu_top_bar_r(); ?>
 				</section>
 			</nav>
 		</header><!-- #topbar -->
