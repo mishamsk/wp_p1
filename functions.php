@@ -84,12 +84,9 @@ endif; // perlovs_setup
 add_action( 'wp_enqueue_scripts', 'perlovs_scripts' );
 if ( ! function_exists( 'perlovs_scripts' ) ) :
 /**
- * Load all JavaScript to header
+ * Load all JavaScript to header& footer, load styles
  *
  * This function is attached to the 'wp_enqueue_scripts' action hook.
- *
- *
- * @since 0.0.1
  */
 function perlovs_scripts() {
 	// deregister the jquery version bundled with wordpress
@@ -111,4 +108,20 @@ function perlovs_scripts() {
 	// enqueue style
 	wp_enqueue_style( 'theme_stylesheet', get_stylesheet_uri(), array(), null );
 }
-endif; // perlovs_add_js
+endif; // perlovs_scripts
+
+add_filter( 'wp_title', 'perlovs_wp_title_for_home' );
+if ( ! function_exists( 'perlovs_wp_title_for_home' ) ) :
+/**
+ * Load all JavaScript to header& footer, load styles
+ *
+ * This function is attached to the 'wp_enqueue_scripts' action hook.
+ */
+function perlovs_wp_title_for_home( $title )
+{
+  if( empty( $title ) && ( is_home() || is_front_page() ) ) {
+    return get_bloginfo( 'name' ) . ' | ' . get_bloginfo( 'description' );
+  }
+  return $title;
+}
+endif; // perlovs_wp_title_for_home

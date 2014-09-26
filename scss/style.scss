@@ -13,6 +13,11 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 @import "_app";
 
+// Top bar
+body {
+	padding-top: 45px;
+}
+
 // Admin bar
 .admin-bar .fixed {
   top: 46px;
@@ -22,3 +27,5 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
     top: 32px;
   }
 }
+
+// Footer
