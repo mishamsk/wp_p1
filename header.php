@@ -13,36 +13,41 @@
 	<?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
+	<!--[if lt IE 9]>
+	<div class="ie-support">Извините, но этот сайт не поддерживает Internet Explorer 8 и младше. Гораздо лучше и приятнее смотреть его в чем-то более современном!;)</div>
+	<![endif]-->
 	<div class="off-canvas-wrap" data-offcanvas>
-		<div id="page" class="inner-wrap">
-			<header id="topbar" role="banner" class="fixed">
-				<nav class="tab-bar show-for-small-only">
-					<section class="left-small">
-						<a class="left-off-canvas-toggle menu-icon" href="#"><span></span></a>
-					</section>
-					<section class="middle tab-bar-section">
-						<h1 class="title"><?php bloginfo( 'name' ); ?></h1>
+
+		<header id="topbar" role="banner" class="fixed off-canvas-fixed">
+			<nav class="tab-bar show-for-small-only">
+				<section class="left-small">
+					<a class="left-off-canvas-toggle menu-icon" href="#"><span></span></a>
+				</section>
+				<section class="middle tab-bar-section">
+					<h1 class="title"><?php bloginfo( 'name' ); ?></h1>
+				</section>
+			</nav>
+			<aside class="left-off-canvas-menu" aria-hidden="true">
+			    <?php menu_mobile_off_canvas(); ?>
+			</aside>
+			<div class="contain-to-grid">
+				<nav class="top-bar show-for-medium-up" data-topbar role="navigation">
+					<ul class="title-area">
+						<li class="name">
+							<h1><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+						</li>
+
+						<li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
+					</ul>
+
+					<section class="top-bar-section">
+						<!-- Right Nav Section -->
+						<?php menu_top_bar_r(); ?>
 					</section>
 				</nav>
-				<aside class="left-off-canvas-menu" aria-hidden="true">
-				    <?php menu_mobile_off_canvas(); ?>
-				</aside>
-				<div class="contain-to-grid">
-					<nav class="top-bar show-for-medium-up" data-topbar role="navigation">
-						<ul class="title-area">
-							<li class="name">
-								<h1><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-							</li>
+			</div>
+			<a class="exit-off-canvas"></a>
+		</header><!-- #topbar -->
 
-							<li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
-						</ul>
-
-						<section class="top-bar-section">
-							<!-- Right Nav Section -->
-							<?php menu_top_bar_r(); ?>
-						</section>
-					</nav>
-				</div>
-			</header><!-- #topbar -->
-
+		<div id="page" class="inner-wrap">
 			<section id="main" role="main">

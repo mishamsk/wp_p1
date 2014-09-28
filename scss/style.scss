@@ -13,9 +13,39 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 @import "_app";
 
-// Top bar
-body {
+// IE8 and lower support
+.ie-support {
+	width: 100%;
+	height: 100%;
+	background-color: $white;
+	font-size: $h1-font-size;
+}
+
+// Header
+
+// shift down content area for fixed header
+#main {
 	padding-top: 45px;
+}
+
+.off-canvas-fixed {
+  -webkit-transition: -webkit-transform 500ms ease;
+  transition: transform 500ms ease;
+}
+
+.move-right > .off-canvas-fixed {
+  height: 100%;
+  -webkit-transform: translate3d(15.625rem, 0, 0);
+  transform: translate3d(15.625rem, 0, 0);
+}
+
+.left-off-canvas-menu {
+  -webkit-transform: none;
+  transform: none;
+  margin-left: -15.625rem;
+  /* vh UNITS NICER THAN JS LISTENER */
+  //height: 100vh;
+  /* (BUT LESS SUPPORTED) */
 }
 
 // Admin bar
