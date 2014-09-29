@@ -525,14 +525,14 @@ $row-width: rem-calc(990);
 // $f-dropdown-bg: $white;
 
 // We use this to set the border styles for dropdowns.
-// $f-dropdown-border-style: solid;
+ $f-dropdown-border-style: none;
 // $f-dropdown-border-width: 1px;
 // $f-dropdown-border-color: scale-color($white, $lightness: -20%);
 
 // We use these to style the triangle pip.
-// $f-dropdown-triangle-size: 6px;
+ $f-dropdown-triangle-size: 0px;
 // $f-dropdown-triangle-color: $white;
-// $f-dropdown-triangle-side-offset: 10px;
+ $f-dropdown-triangle-side-offset: 0px;
 
 // We use these to control styles for the list elements.
 // $f-dropdown-list-style: none;

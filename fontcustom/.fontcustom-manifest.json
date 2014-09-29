@@ -1,0 +1,110 @@
+{
+  "checksum": {
+    "previous": "7277bfeb7542d164d34708010e5429fb79bb3a536118199e75f37ad73e0439f7",
+    "current": "7277bfeb7542d164d34708010e5429fb79bb3a536118199e75f37ad73e0439f7"
+  },
+  "fonts": [
+    "../fonts/p1icons_7277bfeb7542d164d34708010e5429fb.ttf",
+    "../fonts/p1icons_7277bfeb7542d164d34708010e5429fb.svg",
+    "../fonts/p1icons_7277bfeb7542d164d34708010e5429fb.woff",
+    "../fonts/p1icons_7277bfeb7542d164d34708010e5429fb.eot"
+  ],
+  "glyphs": {
+    "at-sign": {
+      "codepoint": 61761,
+      "source": "vectors/at-sign.svg"
+    },
+    "info": {
+      "codepoint": 61762,
+      "source": "vectors/info.svg"
+    },
+    "link": {
+      "codepoint": 61763,
+      "source": "vectors/link.svg"
+    },
+    "magnifying-glass": {
+      "codepoint": 61764,
+      "source": "vectors/magnifying-glass.svg"
+    },
+    "pencil": {
+      "codepoint": 61765,
+      "source": "vectors/pencil.svg"
+    },
+    "rss": {
+      "codepoint": 61766,
+      "source": "vectors/rss.svg"
+    },
+    "share": {
+      "codepoint": 61767,
+      "source": "vectors/share.svg"
+    },
+    "social-facebook": {
+      "codepoint": 61753,
+      "source": "vectors/social-facebook.svg"
+    },
+    "social-flickr": {
+      "codepoint": 61754,
+      "source": "vectors/social-flickr.svg"
+    },
+    "social-google-plus": {
+      "codepoint": 61755,
+      "source": "vectors/social-google-plus.svg"
+    },
+    "social-instagram": {
+      "codepoint": 61756,
+      "source": "vectors/social-instagram.svg"
+    },
+    "social-linkedin": {
+      "codepoint": 61757,
+      "source": "vectors/social-linkedin.svg"
+    },
+    "social-skype": {
+      "codepoint": 61758,
+      "source": "vectors/social-skype.svg"
+    },
+    "social-twitter": {
+      "codepoint": 61759,
+      "source": "vectors/social-twitter.svg"
+    },
+    "social-vk": {
+      "codepoint": 61760,
+      "source": "vectors/social-vk.svg"
+    },
+    "torso": {
+      "codepoint": 61768,
+      "source": "vectors/torso.svg"
+    },
+    "unlock": {
+      "codepoint": 61769,
+      "source": "vectors/unlock.svg"
+    }
+  },
+  "options": {
+    "autowidth": true,
+    "config": "fontcustom.yml",
+    "css_selector": ".icon-{{glyph}}",
+    "debug": false,
+    "font_name": "p1icons",
+    "force": false,
+    "input": {
+      "templates": "templates",
+      "vectors": "vectors"
+    },
+    "no_hash": false,
+    "output": {
+      "css": "../scss",
+      "fonts": "../fonts",
+      "preview": "."
+    },
+    "preprocessor_path": "",
+    "quiet": false,
+    "templates": [
+      "scss",
+      "preview"
+    ]
+  },
+  "templates": [
+    "../scss/_p1icons.scss",
+    "./p1icons-preview.html"
+  ]
+}

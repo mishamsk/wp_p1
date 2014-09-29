@@ -1,0 +1,73 @@
+//
+// Icon Font: p1icons
+//
+
+@font-face {
+  font-family: "p1icons";
+  src: font-url("http://perlovs.com/wp-content/themes/p1/fonts/p1icons_7277bfeb7542d164d34708010e5429fb.eot");
+  src: font-url("http://perlovs.com/wp-content/themes/p1/fonts/p1icons_7277bfeb7542d164d34708010e5429fb.eot?#iefix") format("embedded-opentype"),
+       font-url("http://perlovs.com/wp-content/themes/p1/fonts/p1icons_7277bfeb7542d164d34708010e5429fb.woff") format("woff"),
+       font-url("http://perlovs.com/wp-content/themes/p1/fonts/p1icons_7277bfeb7542d164d34708010e5429fb.ttf") format("truetype"),
+       font-url("http://perlovs.com/wp-content/themes/p1/fonts/p1icons_7277bfeb7542d164d34708010e5429fb.svg#p1icons") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: "p1icons";
+    src: font-url("http://perlovs.com/wp-content/themes/p1/fonts/p1icons_7277bfeb7542d164d34708010e5429fb.svg#p1icons") format("svg");
+  }
+}
+
+[data-icon]:before { content: attr(data-icon); }
+
+[data-icon]:before,
+.icon-at-sign:before,
+.icon-info:before,
+.icon-link:before,
+.icon-magnifying-glass:before,
+.icon-pencil:before,
+.icon-rss:before,
+.icon-share:before,
+.icon-social-facebook:before,
+.icon-social-flickr:before,
+.icon-social-google-plus:before,
+.icon-social-instagram:before,
+.icon-social-linkedin:before,
+.icon-social-skype:before,
+.icon-social-twitter:before,
+.icon-social-vk:before,
+.icon-torso:before,
+.icon-unlock:before {
+  display: inline-block;
+  font-family: "p1icons";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  line-height: 1;
+  text-decoration: inherit;
+  text-rendering: optimizeLegibility;
+  text-transform: none;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+}
+
+.icon-at-sign:before { content: "\f141"; }
+.icon-info:before { content: "\f142"; }
+.icon-link:before { content: "\f143"; }
+.icon-magnifying-glass:before { content: "\f144"; }
+.icon-pencil:before { content: "\f145"; }
+.icon-rss:before { content: "\f146"; }
+.icon-share:before { content: "\f147"; }
+.icon-social-facebook:before { content: "\f139"; }
+.icon-social-flickr:before { content: "\f13a"; }
+.icon-social-google-plus:before { content: "\f13b"; }
+.icon-social-instagram:before { content: "\f13c"; }
+.icon-social-linkedin:before { content: "\f13d"; }
+.icon-social-skype:before { content: "\f13e"; }
+.icon-social-twitter:before { content: "\f13f"; }
+.icon-social-vk:before { content: "\f140"; }
+.icon-torso:before { content: "\f148"; }
+.icon-unlock:before { content: "\f149"; }

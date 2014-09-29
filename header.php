@@ -44,6 +44,22 @@
 						<!-- Right Nav Section -->
 						<?php menu_top_bar_r(); ?>
 					</section>
+					<section class="top-bar-section">
+						<!-- Right But Section -->
+						<ul id="menu-nav-but" class="top-bar-menu right">
+							<li class="divider"></li>
+							<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-403">
+								<button data-dropdown="drop_search" aria-controls="drop_search" aria-expanded="false">
+									<i class="icon-magnifying-glass" ></i>
+								</button>
+								<div id="drop_search" data-dropdown-content class="f-dropdown content" aria-hidden="true" tabindex="-1">
+								  <p>Search!!!!!!!</p>
+								</div>
+							</li>
+
+						</ul>
+					</section>
+
 				</nav>
 			</div>
 			<a class="exit-off-canvas"></a>
