@@ -71,4 +71,68 @@ if ( ! function_exists( 'add_menuclass') ) {
 	add_filter('wp_nav_menu','add_menuclass');
 }
 
+/**
+ * Display breadcrumbs
+ * @visibility - wrapper class (defaults to show-for-medium-up)
+*/
+function p1_breadcrumbs($visibility = 'show-for-medium-up') {
+    $links = explode('|',get_the_category_list('|', 'multiple'));
+    $links = implode(preg_replace("(rel=\"category.*\")", "$1 class=\"current\"", $links));
+
+    echo '<nav id="breadcrumbs" class="breadcrumbs ' . $visibility . '">';
+	echo $links;
+	echo '</nav><!--// end .breadcrumbs -->';
+}
+
+/**
+ * Display pagination
+*/
+function p1_pagination() {
+	global $wp_query;
+
+	$big = 999999999; // This needs to be an unlikely integer
+
+	$paginate_links = paginate_links( array(
+		'base' => str_replace( $big, '%#%', get_pagenum_link($big) ),
+		'current' => max( 1, get_query_var('paged') ),
+		'total' => $wp_query->max_num_pages,
+		'mid_size' => 2,
+		'prev_next' => True,
+	    'prev_text' => __('&laquo;', 'perlovs'),
+	    'next_text' => __('&raquo;', 'perlovs'),
+		'type' => 'array'
+	) );
+
+	if ( $paginate_links ) {
+		// if more than 1 page, replace elements and classes, display pagination
+
+		echo '<div id="pagination" class="pagination-centered">';
+		echo '	<ul class="pagination" role="menubar" aria-label="Pagination">';
+
+		if (1 == max( 1, get_query_var('paged') )) // if first page - add disabled left quotes
+			echo '		<li class="arrow unavailable" aria-disabled="true"><a href="#">' . __('&laquo;', 'perlovs') . '</a></li>';
+
+		foreach ($paginate_links as $link) {
+			// replace for current page
+			$link = str_replace( "<span class='page-numbers current'>", '<li class="current"><a href="#">', $link );
+			// replace for dots
+			$link = str_replace( '<span class="page-numbers dots">' . __( '&hellip;' ), '<li class="unavailable" aria-disabled="true"><a href="#">' . __( '&hellip;', 'perlovs' ), $link );
+			$link = str_replace( "</span>", "</a>", $link );
+
+			// replace for normal numbers
+			$link = str_replace( "<a class='page-numbers'", '<li><a ', $link );
+			// replace for active arrows
+			$link = str_replace( '<a class="prev page-numbers"', '<li class="arrow"><a ', $link );
+			$link = str_replace( '<a class="next page-numbers"', '<li class="arrow"><a ', $link );
+
+			echo $link . '</li>';
+		}
+
+  		if ($wp_query->max_num_pages == get_query_var('paged')) // if last page - add disabled right quotes
+			echo '		<li class="arrow unavailable" aria-disabled="true"><a href="#">' . __('&raquo;', 'perlovs') . '</a></li>';
+		echo '	</ul>';
+		echo '</div><!--// end .pagination -->';
+	}
+}
+
 ?>
