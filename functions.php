@@ -12,14 +12,14 @@ define( 'PERLOVS_THEME_TEMPLATE', get_stylesheet_directory() );
 // Required for Foundation to work properly
 //require_once('library/foundation.php');
 
-// Register all navigation menus
+// Navigation menus, walker func, breadcrumbs, pagination
 require_once('lib/navigation.php');
 
 // Add menu walker
-require_once('lib/menu-walker.php');
+require_once('lib/social-share.php');
 
-// Return entry meta information for posts
-//require_once('library/entry-meta.php');
+// Helper func for posts: meta
+require_once('lib/entry-helpers.php');
 
 
 add_action( 'after_setup_theme', 'perlovs_setup' );
