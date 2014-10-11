@@ -17,28 +17,24 @@ if ( ! function_exists( 'p1_social' ) ) :
 		?>
 
 		<div class="social-bar icon-bar five-up">
-		  <a rel="external nofollow" class="item has-tip" href="http://twitter.com/intent/tweet/?url=<?php echo $url; ?>&text=%22<?php echo $title; ?>%22 - это стоит прочесть %23perlovs" target="_blank">
+		  <a rel="external nofollow" class="item has-tip" href="http://www.facebook.com/sharer/sharer.php?s=100&p[url]=<?php echo $url; ?>&p[title]=<?php echo $title; ?>" target="_blank" data-tooltip aria-haspopup="true" title="Поделись в Facebook!">
+		    <i class="icon-social-facebook"></i>
+		  </a>
+		  <a rel="external nofollow" class="item has-tip" href="http://twitter.com/intent/tweet/?url=<?php echo $url; ?>&text=%22<?php echo $title; ?>%22 - это стоит прочесть %23perlovs" target="_blank" data-tooltip aria-haspopup="true" title="Поделись в Твиттере!">
 		    <i class="icon-social-twitter"></i>
 		  </a>
+		  <a rel="external nofollow" class="item has-tip" href="http://vk.com/share.php?url=<?php echo $url; ?>" target="_blank" data-tooltip aria-haspopup="true" title="Поделись во Вконтакте!">
+		    <i class="icon-social-vk"></i>
+		  </a>
+		  <a rel="external nofollow" class="item has-tip" href="https://plus.google.com/share?url=<?php echo $url; ?>" target="_blank" data-tooltip aria-haspopup="true" title="Поделись в G+!">
+		    <i class="icon-social-google-plus"></i>
+		  </a>
+		  <a rel="external nofollow" class="item has-tip" href="mailto:?subject=Интересная статья на сайте perlovs.com&body=Интересная статья: &lt;a href%25%22<?php echo $url; ?>%22&rt;<?php echo $title; ?>&lt;%2Fa&rt;" target="_blank" data-tooltip aria-haspopup="true" title="Отправь ссылку по почте">
+		    <i class="icon-at-sign"></i>
+		  </a>
 		</div>
-	<?php
-	/*
-	<a rel="external nofollow" class="ss-facebook" href="http://www.facebook.com/sharer/sharer.php?s=100&p[url]=<?php echo $url; ?>&p[title]=<?php echo $title; ?>" target="_blank" ><span class="ss-icon-facebook"></span><?php echo $facebook_text; ?></a> <?php
 
-        			<a rel="external nofollow" class="ss-googleplus" href="https://plus.google.com/share?url=<?php echo $url; ?>" target="_blank" ><span class="ss-icon-googleplus"></span><?php echo $googleplus_text; ?></a> <?php
-		  <a class="item">
-		    <i class="fi-bookmark"></i>
-		  </a>
-		  <a class="item">
-		    <i class="fi-info"></i>
-		  </a>
-		  <a class="item">
-		    <i class="fi-mail"></i>
-		  </a>
-		  <a class="item">
-		    <i class="fi-like"></i>
-		  </a>
-	*/
+	<?php
 	}
 endif; // p1_social
 

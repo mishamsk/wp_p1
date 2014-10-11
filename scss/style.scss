@@ -59,6 +59,9 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 // Footer
 
 // Social sharing
-// .social-bar i {
-// 	font-size: 1rem;
+// .icon-social-vk:before {
+//  	font-size: $icon-bar-icon-size*0.85 !important;
 // }
+.social-bar .has-tip {
+	border-bottom: none;
+}
