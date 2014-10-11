@@ -17,19 +17,19 @@ if ( ! function_exists( 'p1_social' ) ) :
 		?>
 
 		<div class="social-bar icon-bar five-up">
-		  <a rel="external nofollow" class="item has-tip" href="http://www.facebook.com/sharer/sharer.php?s=100&p[url]=<?php echo $url; ?>&p[title]=<?php echo $title; ?>" target="_blank" data-tooltip aria-haspopup="true" title="Поделись в Facebook!">
+		  <a rel="external nofollow" class="item has-tip" href="http://www.facebook.com/sharer/sharer.php?s=100&p[url]=<?php echo $url; ?>&p[title]=<?php echo $title; ?>" target="_blank" data-tooltip data-options="disable_for_touch:true; show_on:large" aria-haspopup="true" title="Поделись в Facebook!">
 		    <i class="icon-social-facebook"></i>
 		  </a>
-		  <a rel="external nofollow" class="item has-tip" href="http://twitter.com/intent/tweet/?url=<?php echo $url; ?>&text=%22<?php echo $title; ?>%22 - это стоит прочесть %23perlovs" target="_blank" data-tooltip aria-haspopup="true" title="Поделись в Твиттере!">
+		  <a rel="external nofollow" class="item has-tip" href="http://twitter.com/intent/tweet/?url=<?php echo $url; ?>&text=%22<?php echo $title; ?>%22 - это стоит прочесть %23perlovs" target="_blank" data-tooltip data-options="disable_for_touch:true; show_on:large" aria-haspopup="true" title="Поделись в Твиттере!">
 		    <i class="icon-social-twitter"></i>
 		  </a>
-		  <a rel="external nofollow" class="item has-tip" href="http://vk.com/share.php?url=<?php echo $url; ?>" target="_blank" data-tooltip aria-haspopup="true" title="Поделись во Вконтакте!">
+		  <a rel="external nofollow" class="item has-tip" href="http://vk.com/share.php?url=<?php echo $url; ?>" target="_blank" data-tooltip data-options="disable_for_touch:true; show_on:large" aria-haspopup="true" title="Поделись во Вконтакте!">
 		    <i class="icon-social-vk"></i>
 		  </a>
-		  <a rel="external nofollow" class="item has-tip" href="https://plus.google.com/share?url=<?php echo $url; ?>" target="_blank" data-tooltip aria-haspopup="true" title="Поделись в G+!">
+		  <a rel="external nofollow" class="item has-tip" href="https://plus.google.com/share?url=<?php echo $url; ?>" target="_blank" data-tooltip data-options="disable_for_touch:true; show_on:large" aria-haspopup="true" title="Поделись в G+!">
 		    <i class="icon-social-google-plus"></i>
 		  </a>
-		  <a rel="external nofollow" class="item has-tip" href="mailto:?subject=Интересная статья на сайте perlovs.com&body=Интересная статья: &lt;a href%25%22<?php echo $url; ?>%22&rt;<?php echo $title; ?>&lt;%2Fa&rt;" target="_blank" data-tooltip aria-haspopup="true" title="Отправь ссылку по почте">
+		  <a rel="external nofollow" class="item has-tip" href="mailto:?subject=Интересная статья на сайте perlovs.com&body=Интересная статья: &lt;a href%25%22<?php echo $url; ?>%22&rt;<?php echo $title; ?>&lt;%2Fa&rt;" target="_blank" data-tooltip data-options="disable_for_touch:true; show_on:large" aria-haspopup="true" title="Отправь ссылку по почте">
 		    <i class="icon-at-sign"></i>
 		  </a>
 		</div>
