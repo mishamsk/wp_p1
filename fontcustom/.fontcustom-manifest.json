@@ -1,13 +1,13 @@
 {
   "checksum": {
-    "previous": "7277bfeb7542d164d34708010e5429fb79bb3a536118199e75f37ad73e0439f7",
-    "current": "7277bfeb7542d164d34708010e5429fb79bb3a536118199e75f37ad73e0439f7"
+    "previous": "c2bb8aa5be83e327505c071800da44fef1e9931a0c05fb6cc5cae25c1b104d8d",
+    "current": "c2bb8aa5be83e327505c071800da44fef1e9931a0c05fb6cc5cae25c1b104d8d"
   },
   "fonts": [
-    "../fonts/p1icons_7277bfeb7542d164d34708010e5429fb.ttf",
-    "../fonts/p1icons_7277bfeb7542d164d34708010e5429fb.svg",
-    "../fonts/p1icons_7277bfeb7542d164d34708010e5429fb.woff",
-    "../fonts/p1icons_7277bfeb7542d164d34708010e5429fb.eot"
+    "../fonts/p1icons.ttf",
+    "../fonts/p1icons.svg",
+    "../fonts/p1icons.woff",
+    "../fonts/p1icons.eot"
   ],
   "glyphs": {
     "at-sign": {
@@ -90,13 +90,13 @@
       "templates": "templates",
       "vectors": "vectors"
     },
-    "no_hash": false,
+    "no_hash": true,
     "output": {
       "css": "../scss",
       "fonts": "../fonts",
       "preview": "."
     },
-    "preprocessor_path": "",
+    "preprocessor_path": "http://perlovs.com/wp-content/themes/p1/fonts",
     "quiet": false,
     "templates": [
       "scss",

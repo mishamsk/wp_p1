@@ -6,7 +6,6 @@
 			<article <?php post_class() ?> id="post-<?php the_ID(); ?>">
 				<header>
 					<?php p1_breadcrumbs(); ?>
-					<?php p1_social(); ?>
 					<h1 class="entry-title"><?php the_title(); ?></h1>
 				</header>
 

@@ -16,7 +16,7 @@ if ( ! function_exists( 'p1_social' ) ) :
 		$url = urlencode( get_permalink() );
 		?>
 
-		<div class="social-bar icon-bar five-up">
+		<div id="social-bar" class="social-bar icon-bar five-up">
 		  <a rel="external nofollow" class="item has-tip" href="http://www.facebook.com/sharer/sharer.php?s=100&p[url]=<?php echo $url; ?>&p[title]=<?php echo $title; ?>" target="_blank" data-tooltip data-options="disable_for_touch:true; show_on:large" aria-haspopup="true" title="Поделись в Facebook!">
 		    <i class="icon-social-facebook"></i>
 		  </a>
