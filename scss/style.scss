@@ -22,13 +22,16 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 	font-size: $h1-font-size;
 }
 
+// -----------------------
 // Header
+// -----------------------
 
 // shift down content area for fixed header
 #main {
 	padding-top: 45px;
 }
 
+// off canvas menu fix
 .off-canvas-fixed {
   -webkit-transition: -webkit-transform 500ms ease;
   transition: transform 500ms ease;
@@ -48,31 +51,40 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 // Admin bar
 .admin-bar .fixed {
-  top: 46px;
-}
-@media #{$medium-up} {
-  .admin-bar .fixed {
-    top: 32px;
-  }
+	top: 46px;
+	@media #{$medium-up} {
+		top: 32px;
+	}
 }
 
-// Footer
+// Search modal
+.search-submit {
+	display: none;
+}
+
+.search-field {
+	margin-bottom: 0px;
+}
 
 // Social sharing
-.social-bar .has-tip {
-	border-bottom: none;
+.social-bar {
+	vertical-align: middle;
+
+	@media #{$medium-up} {
+		width: 375px;
+	}
+
+	.has-tip {
+		border-bottom: none;
+	}
 }
 
-// .social-bar {
-//   @include dropdown-container(
-//     // Sets list-style. Default: list. Options: [list, content]
-//     $content:content,
-//     // Sets if dropdown has triangle. Default:true.
-//     $triangle:false,
-//     // Sets max-width. Default: $f-dropdown-max-width
-//     $max-width:400px
-//   );
-//   padding: 0px;
+.top-bar-menu {
+	.icon-share, .icon-magnifying-glass {
+		font-size: rem-calc(20);
+	}
+}
 
-//   li { @include dropdown-style; }
-// }
+// -----------------------
+// Footer
+// -----------------------

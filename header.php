@@ -52,16 +52,8 @@
 							</li>
 							<li class="divider"></li>
 							<li>
-								<a href="" data-dropdown="drop-search" aria-controls="drop-search" aria-expanded="false" class="icon-magnifying-glass" ></a>
-								<div id="drop-search" data-dropdown-content class="f-dropdown content" aria-hidden="true" tabindex="-1">
-								  <p>Search!!!!!!!</p>
-								</div>
+								<a href="#" class="icon-magnifying-glass" data-reveal-id="search-modal"></a>
 							</li>
-							<!-- <li class="divider"></li>
-							<li>
-								<a href="" data-dropdown="social-bar" aria-controls="drop_search" aria-expanded="false" class="icon-share" ></i>
-								<?php p1_social(); ?>
-							</li> -->
 						</ul>
 					</section>
 					<section class="top-bar-section">
@@ -69,6 +61,9 @@
 						<?php menu_top_bar_r(); ?>
 					</section>
 				</nav>
+				<div id="search-modal" class="reveal-modal" data-reveal>
+					<?php get_search_form(); ?>
+				</div>
 			</div>
 			<a class="exit-off-canvas"></a>
 		</header><!-- #topbar -->

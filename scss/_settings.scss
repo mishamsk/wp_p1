@@ -1364,13 +1364,13 @@ $icon-bar-item-padding: 0rem;
 
 // Controlling the styles for the title in the top bar
 // $topbar-title-weight: $font-weight-normal;
-$topbar-title-font-size: rem-calc(17);
+$topbar-title-font-size: rem-calc(20);
 
 // Style the top bar dropdown elements
 // $topbar-dropdown-bg: $oil;
 // $topbar-dropdown-link-color: $white;
 // $topbar-dropdown-link-bg: $oil;
-// $topbar-dropdown-link-weight: $font-weight-normal;
+$topbar-dropdown-link-weight: 200;
 // $topbar-dropdown-toggle-size: 5px;
 // $topbar-dropdown-toggle-color: $white;
 // $topbar-dropdown-toggle-alpha: 0.4;
@@ -1380,8 +1380,8 @@ $topbar-title-font-size: rem-calc(17);
 // $topbar-link-color-hover: $white;
 // $topbar-link-color-active: $white;
 // $topbar-link-color-active-hover: $white;
-// $topbar-link-weight: $font-weight-normal;
-// $topbar-link-font-size: rem-calc(13);
+$topbar-link-weight: 200;
+$topbar-link-font-size: rem-calc(15);
 // $topbar-link-hover-lightness: -10%; // Darken by 10%
 // $topbar-link-bg: $topbar-bg;
 // $topbar-link-bg-color-hover: $charcoal;
