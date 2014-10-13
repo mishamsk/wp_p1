@@ -52,7 +52,11 @@
 							</li>
 							<li class="divider"></li>
 							<li>
-								<a href="#" class="icon-magnifying-glass" data-reveal-id="search-modal"></a>
+								<a href="#" class="icon-magnifying-glass search-toggle" data-options="target:search-dropdown-topbar" data-dropdown="search-dropdown-topbar" aria-controls="search-dropdown-topbar" aria-expanded="false"></a>
+
+								<div id="search-dropdown-topbar" data-dropdown-content class="search-dropdown-container" aria-hidden="true" tabindex="-1">
+									<?php get_search_form(); ?>
+								</div>
 							</li>
 						</ul>
 					</section>
@@ -61,9 +65,6 @@
 						<?php menu_top_bar_r(); ?>
 					</section>
 				</nav>
-				<div id="search-modal" class="reveal-modal" data-reveal>
-					<?php get_search_form(); ?>
-				</div>
 			</div>
 			<a class="exit-off-canvas"></a>
 		</header><!-- #topbar -->
