@@ -13,6 +13,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 @import "_app";
 @import "_p1icons";
+@import "_vars";
 
 // IE8 and lower support
 .ie-support {
@@ -28,7 +29,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 // shift down content area for fixed header
 #main {
-	padding-top: 45px;
+	padding-top: rem-calc(45);
 }
 
 // off canvas menu fix
@@ -51,30 +52,38 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 // Admin bar
 .admin-bar .fixed {
-	top: 46px;
+	top: rem-calc(46);
 	@media #{$medium-up} {
-		top: 32px;
+		top: rem-calc(32);
 	}
 }
 
-// Search modal
-.search-submit {
-	display: none;
+// Search form
+.search-dropdown-container {
+	@media #{$medium-up} {
+		width: $topbar-dropdown-action-mediumup-width;
+	}
+}
+
+.search-form {
+	.top-bar & {
+		margin: rem-calc(5);
+	}
 }
 
 .search-field {
-	margin-bottom: 0px;
+	.top-bar & {
+		top: 0px;
+
+		padding: rem-calc(5);
+		border: 0px;
+
+		height: rem-calc(45 - 5*2);
+	}
 }
 
-.search-dropdown-container {
-	@include dropdown-container(
-	    // Sets list-style. Default: list. Options: [list, content]
-	    $content:content,
-	    // Sets if dropdown has triangle. Default:true.
-	    $triangle:false,
-	    // Sets max-width. Default: $f-dropdown-max-width
-	    $max-width: 400px
-    );
+.search-submit {
+	display: none;
 }
 
 // Social sharing
@@ -82,7 +91,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 	vertical-align: middle;
 
 	@media #{$medium-up} {
-		width: 375px;
+		width: $topbar-dropdown-action-mediumup-width;
 	}
 
 	.has-tip {

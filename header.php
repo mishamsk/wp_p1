@@ -26,6 +26,10 @@
 				<section class="middle tab-bar-section">
 					<h1 class="title"><?php bloginfo( 'name' ); ?></h1>
 				</section>
+				<section class="right-small">
+					<a href="#" class="icon-share"></a>
+					<a href="#" class="icon-magnifying-glass"></a>
+				</section>
 			</nav>
 			<aside class="left-off-canvas-menu" aria-hidden="true">
 			    <?php menu_mobile_off_canvas(); ?>
@@ -51,12 +55,11 @@
 								</ul>
 							</li>
 							<li class="divider"></li>
-							<li>
-								<a href="#" class="icon-magnifying-glass search-toggle" data-options="target:search-dropdown-topbar" data-dropdown="search-dropdown-topbar" aria-controls="search-dropdown-topbar" aria-expanded="false"></a>
-
-								<div id="search-dropdown-topbar" data-dropdown-content class="search-dropdown-container" aria-hidden="true" tabindex="-1">
-									<?php get_search_form(); ?>
-								</div>
+							<li class="has-dropdown search-toggle">
+								<a href="#" class="icon-magnifying-glass"></a>
+								<ul class="dropdown">
+									<li><?php get_search_form(); ?></li>
+								</ul>
 							</li>
 						</ul>
 					</section>
