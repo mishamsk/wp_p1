@@ -21,7 +21,11 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 // shift down content area for fixed header
 #main {
-	padding-top: rem-calc(45);
+	padding-top: $tabbar-height;
+
+	@media #{$medium-up} {
+		padding-top: $topbar-height;
+	}
 }
 
 // off canvas menu fix
@@ -50,7 +54,10 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 	}
 }
 
+// -----------------------
 // Search form
+// -----------------------
+
 .search-dropdown-container {
 	@media #{$medium-up} {
 		width: $topbar-dropdown-action-mediumup-width;
@@ -59,7 +66,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 .search-form {
 	.top-bar & {
-		margin: rem-calc(5);
+		margin: $topbar-search-form-margin;
 	}
 }
 
@@ -67,18 +74,23 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 	.top-bar & {
 		top: 0px;
 
-		padding: rem-calc(5);
+		padding: $topbar-search-field-padding;
 		border: 0px;
 
-		height: rem-calc(45 - 5*2);
+		height: $topbar-height - 2*$topbar-search-field-padding;
 	}
 }
 
 .search-submit {
-	display: none;
+	.top-bar & {
+		display: none;
+	}
 }
 
+// -----------------------
 // Social sharing
+// -----------------------
+
 .social-bar {
 	vertical-align: middle;
 

@@ -798,7 +798,7 @@ $icon-bar-item-padding: 0rem;
 // $include-html-off-canvas-classes: $include-html-classes;
 
 // $tabbar-bg: $oil;
-// $tabbar-height: rem-calc(45);
+$tabbar-height: rem-calc(45);
 // $tabbar-icon-width: $tabbar-height;
 // $tabbar-line-height: $tabbar-height;
 // $tabbar-color: $white;
@@ -811,7 +811,7 @@ $icon-bar-item-padding: 0rem;
 // Off Canvas Tab Bar Headers
 // $tabbar-header-color: $white;
 $tabbar-header-weight: normal;
-// $tabbar-header-line-height: $tabbar-height;
+$tabbar-header-line-height: $tabbar-height;
 // $tabbar-header-margin: 0;
 
 // Off Canvas Menu Variables
@@ -1359,7 +1359,7 @@ $tabbar-header-weight: normal;
 // $topbar-bg: $topbar-bg-color;
 
 // Height and margin
-// $topbar-height: 45px;
+$topbar-height: rem-calc(45);
 // $topbar-margin-bottom: 0;
 
 // Controlling the styles for the title in the top bar

@@ -2,3 +2,7 @@
 
 // Width of the dropdown items in the topbar containing actionable buttons (search, social) for medium-up screens
 $topbar-dropdown-action-mediumup-width: rem-calc(375);
+
+// Top Bar Serach form settings
+$topbar-search-form-margin: rem-calc(5);
+$topbar-search-field-padding: rem-calc(5);

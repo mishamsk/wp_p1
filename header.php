@@ -21,7 +21,7 @@
 	<![endif]-->
 	<div class="off-canvas-wrap" data-offcanvas>
 
-		<header id="topbar" role="banner" class="fixed off-canvas-fixed">
+		<header id="header" role="banner" class="fixed off-canvas-fixed">
 			<nav class="tab-bar show-for-small-only">
 				<section class="left-small">
 					<a class="left-off-canvas-toggle menu-icon" href="#"><span></span></a>
@@ -30,8 +30,15 @@
 					<h1 class="title"><?php bloginfo( 'name' ); ?></h1>
 				</section>
 				<section class="right-small">
-					<a href="#" class="icon-share"></a>
-					<a href="#" class="icon-magnifying-glass"></a>
+					<a href="#" data-reveal-id="search-share-modal" class="icon-share"><span></span></a>
+					<a href="#" data-reveal-id="search-share-modal" class="icon-magnifying-glass"><span></span></a>
+					<div id="search-share-modal" class="reveal-modal large" data-reveal>
+						<h1><?php _e( 'Share if you care!', 'perlovs' ); ?></h1>
+						<div class="row"><div class="small-12 columns"><?php p1_social(); ?></div></div>
+						<h1><?php _e( 'Or search for more...', 'perlovs' ); ?></h1>
+						<div class="row"><div class="small-12 columns"><?php get_search_form(); ?></div></div>
+						<a class="close-reveal-modal">&#215;</a>
+					</div>
 				</section>
 			</nav>
 			<aside class="left-off-canvas-menu" aria-hidden="true">
@@ -49,7 +56,7 @@
 
 					<section class="top-bar-section">
 						<!-- Right But Section -->
-						<ul id="menu-nav-but" class="top-bar-menu right">
+						<ul class="top-bar-menu right">
 							<li class="divider"></li>
 							<li class="has-dropdown">
 								<a href="#" class="icon-share"></a>
@@ -61,7 +68,11 @@
 							<li class="has-dropdown search-toggle">
 								<a href="#" class="icon-magnifying-glass"></a>
 								<ul class="dropdown">
-									<li><?php get_search_form(); ?></li>
+									<li>
+										<div class="search-dropdown-container">
+											<?php get_search_form(); ?>
+										</div>
+									</li>
 								</ul>
 							</li>
 						</ul>
@@ -73,7 +84,7 @@
 				</nav>
 			</div>
 			<a class="exit-off-canvas"></a>
-		</header><!-- #topbar -->
+		</header><!-- #header -->
 
 		<div id="page" class="inner-wrap">
 			<section id="main" role="main">
