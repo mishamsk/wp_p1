@@ -30,20 +30,57 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 // off canvas menu fix
 .off-canvas-fixed {
-  -webkit-transition: -webkit-transform 500ms ease;
-  transition: transform 500ms ease;
+	-webkit-transition: -webkit-transform 500ms ease;
+	transition: transform 500ms ease;
 }
 
-.move-right > .off-canvas-fixed {
-  height: 100%;
-  -webkit-transform: translate3d(15.625rem, 0, 0);
-  transform: translate3d(15.625rem, 0, 0);
+.move-left > .off-canvas-fixed {
+	height: 100%;
+	-webkit-transform: translate3d(-15.625rem, 0, 0);
+	transform: translate3d(-15.625rem, 0, 0);
 }
 
-.left-off-canvas-menu {
-  -webkit-transform: none;
-  transform: none;
-  margin-left: -15.625rem;
+.right-off-canvas-menu {
+	-webkit-transform: none;
+	transform: none;
+	margin-right: -15.625rem;
+}
+
+// icons
+.icon-magnifying-glass, .icon-share {
+	.top-bar & {
+		font-size: $topbar-icon-font-size;
+	}
+
+	.tab-bar & {
+		border-left: $tabbar-right-section-border;
+		color: $white;
+		float: right;
+		font-size: $tabbar-icon-font-size;
+		width: $tabbar-icon-width;
+	}
+}
+
+// tab-bar fixes
+.tab-bar-buttons {
+	height: $tabbar-height;
+	position: absolute;
+	right: $tabbar-icon-width;
+	text-align: center;
+	top: 0;
+}
+
+.tab-bar-title {
+	height: $tabbar-height;
+	left: 0;
+	padding: $tabbar-middle-padding;
+	position: absolute;
+	text-align: left;
+	top: 0;
+
+	h1 {
+		font-size: $tabbar-height / 2;
+	}
 }
 
 // Admin bar
@@ -59,8 +96,8 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 // -----------------------
 
 .search-dropdown-container {
-	@media #{$medium-up} {
-		width: $topbar-dropdown-action-mediumup-width;
+	.top-bar & {
+		width: $topbar-dropdown-action-width;
 	}
 }
 
@@ -72,18 +109,32 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 .search-field {
 	.top-bar & {
-		top: 0px;
-
-		padding: $topbar-search-field-padding;
 		border: 0px;
+		font-size: min($topbar-link-font-size,
+			$topbar-height - 2*$topbar-search-form-margin - 2*$topbar-search-field-padding);
+		height: $topbar-height - 2*$topbar-search-form-margin;
+		padding: $topbar-search-field-padding;
+		top: 0px;
+	}
 
-		height: $topbar-height - 2*$topbar-search-field-padding;
+	#search-share-modal & {
+		@include grid-column($columns:10);
+		font-size: $tabbar-search-form-font-size;
+		padding: $tabbar-search-field-padding;
 	}
 }
 
 .search-submit {
 	.top-bar & {
 		display: none;
+	}
+
+	#search-share-modal & {
+		@include grid-column($columns:2);
+		@include button(
+			$padding:null);
+		font-size: $tabbar-search-form-font-size;
+		padding: $tabbar-search-submit-padding;
 	}
 }
 
@@ -92,20 +143,13 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 // -----------------------
 
 .social-bar {
-	vertical-align: middle;
+	.top-bar & {
+		vertical-align: middle;
+		width: $topbar-dropdown-action-width;
 
-	@media #{$medium-up} {
-		width: $topbar-dropdown-action-mediumup-width;
-	}
-
-	.has-tip {
-		border-bottom: none;
-	}
-}
-
-.top-bar-menu {
-	.icon-share, .icon-magnifying-glass {
-		font-size: rem-calc(20);
+		.has-tip {
+			border-bottom: none;
+		}
 	}
 }
 

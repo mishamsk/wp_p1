@@ -23,25 +23,25 @@
 
 		<header id="header" role="banner" class="fixed off-canvas-fixed">
 			<nav class="tab-bar show-for-small-only">
-				<section class="left-small">
-					<a class="left-off-canvas-toggle menu-icon" href="#"><span></span></a>
+				<section class="tab-bar-title">
+					<h1 class="text-left title"><?php bloginfo( 'name' ); ?></h1>
 				</section>
-				<section class="middle tab-bar-section">
-					<h1 class="title"><?php bloginfo( 'name' ); ?></h1>
+				<section class="tab-bar-buttons">
+					<a href="#" data-reveal-id="search-share-modal" class="icon-share"><span></span></a>
+					<a id="tab-bar-search-toggle" href="#" data-reveal-id="search-share-modal" class="icon-magnifying-glass"><span></span></a>
 				</section>
 				<section class="right-small">
-					<a href="#" data-reveal-id="search-share-modal" class="icon-share"><span></span></a>
-					<a href="#" data-reveal-id="search-share-modal" class="icon-magnifying-glass"><span></span></a>
-					<div id="search-share-modal" class="reveal-modal large" data-reveal>
-						<h1><?php _e( 'Share if you care!', 'perlovs' ); ?></h1>
-						<div class="row"><div class="small-12 columns"><?php p1_social(); ?></div></div>
-						<h1><?php _e( 'Or search for more...', 'perlovs' ); ?></h1>
-						<div class="row"><div class="small-12 columns"><?php get_search_form(); ?></div></div>
-						<a class="close-reveal-modal">&#215;</a>
-					</div>
+					<a class="right-off-canvas-toggle menu-icon" href="#"><span></span></a>
 				</section>
+				<div id="search-share-modal" class="reveal-modal large" data-reveal>
+					<h1 class="text-center"><?php _e( 'Share if you care,', 'perlovs' ); ?></h1>
+					<div class="row collapse"><div class="small-12 columns"><?php p1_social(); ?></div></div>
+					<h1 class="text-center"><?php _e( 'or search for more...', 'perlovs' ); ?></h1>
+					<div class="row collapse"><?php get_search_form(); ?></div>
+					<a class="close-reveal-modal">&#215;</a>
+				</div>
 			</nav>
-			<aside class="left-off-canvas-menu" aria-hidden="true">
+			<aside class="right-off-canvas-menu" aria-hidden="true">
 			    <?php menu_mobile_off_canvas(); ?>
 			</aside>
 			<div class="contain-to-grid">

@@ -1,8 +1,19 @@
 // P1 Wordpress theme general variables
 
 // Width of the dropdown items in the topbar containing actionable buttons (search, social) for medium-up screens
-$topbar-dropdown-action-mediumup-width: rem-calc(375);
+$topbar-dropdown-action-width: rem-calc(375);
 
-// Top Bar Serach form settings
+// Top Bar Search form settings
 $topbar-search-form-margin: rem-calc(5);
-$topbar-search-field-padding: rem-calc(5);
+$topbar-search-field-padding: rem-calc(10);
+
+// Top bar icon font-size
+$topbar-icon-font-size: rem-calc(20);
+
+// Tab bar (modal) search form settings
+$tabbar-search-field-padding: rem-calc(10);
+$tabbar-search-submit-padding: rem-calc(10);
+$tabbar-search-form-font-size: rem-calc(15);
+
+// Tab bar icon font-size
+$tabbar-icon-font-size: $tabbar-height/2;
