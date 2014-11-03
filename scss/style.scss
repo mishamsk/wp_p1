@@ -13,13 +13,57 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 @import "_app";
 @import "_p1icons";
+@import "_opensans";
 @import "_vars";
+
+// -----------------------
+// Utility
+// -----------------------
+.full-width {
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	max-width: initial;
+}
+
+// -----------------------
+// Home
+// -----------------------
+.home {
+	background-attachment: fixed;
+	background-image: image-url("fback3.jpg");
+	background-color: $primary-cyan;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;
+
+	#main {
+		padding-top: 90vh;
+	}
+
+	.home-greeting {
+		left: 0;
+		margin-left: auto;
+		margin-right: auto;
+		position: absolute;
+		right: 0;
+		top: 30vh;
+	}
+
+	#home-authors {
+		background-color: $primary-yellow;
+	}
+
+	#home-travel {
+		background-color: $primary-green;
+	}
+}
 
 // -----------------------
 // Header
 // -----------------------
 
-// shift down content area for fixed header
+// shift down content area for fixed header and for front-page
 #main {
 	padding-top: $tabbar-height;
 
@@ -80,6 +124,9 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 	h1 {
 		font-size: $tabbar-height / 2;
+		a {
+			color: $white;
+		}
 	}
 }
 
@@ -95,9 +142,18 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 // Search form
 // -----------------------
 
-.search-dropdown-container {
+.search-container {
 	.top-bar & {
+		@include grid-row(collapse);
 		width: $topbar-dropdown-action-width;
+	}
+
+	#search-share-modal & {
+		@include grid-row(collapse);
+	}
+
+	.home & {
+		@include grid-row(collapse);
 	}
 }
 
@@ -122,6 +178,12 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 		font-size: $tabbar-search-form-font-size;
 		padding: $tabbar-search-field-padding;
 	}
+
+	.home & {
+		@include grid-column($columns:10);
+		font-size: $tabbar-search-form-font-size;
+		padding: $tabbar-search-field-padding;
+	}
 }
 
 .search-submit {
@@ -136,6 +198,13 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 		font-size: $tabbar-search-form-font-size;
 		padding: $tabbar-search-submit-padding;
 	}
+
+	.home & {
+		@include grid-column($columns:2);
+		@include button();
+		font-size: $tabbar-search-form-font-size;
+		padding: $tabbar-search-submit-padding;
+	}
 }
 
 // -----------------------
@@ -143,6 +212,13 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 // -----------------------
 
 .social-bar {
+
+	#social-facebook { background: $primary-blue; }
+	#social-twitter { background: $primary-cyan; }
+	#social-vk { background: $primary-green; }
+	#social-google-plus { background: $primary-red; }
+	#social-email { background: $primary-yellow; }
+
 	.top-bar & {
 		vertical-align: middle;
 		width: $topbar-dropdown-action-width;

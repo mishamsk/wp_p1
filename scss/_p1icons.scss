@@ -4,11 +4,11 @@
 
 @font-face {
   font-family: "p1icons";
-  src: font-url("http://perlovs.com/wp-content/themes/p1/fonts/p1icons.eot");
-  src: font-url("http://perlovs.com/wp-content/themes/p1/fonts/p1icons.eot?#iefix") format("embedded-opentype"),
-       font-url("http://perlovs.com/wp-content/themes/p1/fonts/p1icons.woff") format("woff"),
-       font-url("http://perlovs.com/wp-content/themes/p1/fonts/p1icons.ttf") format("truetype"),
-       font-url("http://perlovs.com/wp-content/themes/p1/fonts/p1icons.svg#p1icons") format("svg");
+  src: font-url("p1icons.eot");
+  src: font-url("p1icons.eot?#iefix") format("embedded-opentype"),
+       font-url("p1icons.woff") format("woff"),
+       font-url("p1icons.ttf") format("truetype"),
+       font-url("p1icons.svg#p1icons") format("svg");
   font-weight: normal;
   font-style: normal;
 }
@@ -16,7 +16,7 @@
 @media screen and (-webkit-min-device-pixel-ratio:0) {
   @font-face {
     font-family: "p1icons";
-    src: font-url("http://perlovs.com/wp-content/themes/p1/fonts/p1icons.svg#p1icons") format("svg");
+    src: font-url("p1icons.svg#p1icons") format("svg");
   }
 }
 

@@ -6,7 +6,7 @@
 
 font_name: p1icons
 css_selector: .icon-{{glyph}}
-preprocessor_path: "http://perlovs.com/wp-content/themes/p1/fonts"
+preprocessor_path: ""
 autowidth: true
 no_hash: true
 force: false
