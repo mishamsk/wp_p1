@@ -19,12 +19,15 @@
 		Гораздо лучше и приятнее смотреть его в чем-то более современном!;)
 	</div>
 	<![endif]-->
+	<?php
+		// Front-page do not use navigation
+		if (!is_front_page()) : ?>
 	<div class="off-canvas-wrap" data-offcanvas>
 
 		<header id="header" role="banner" class="fixed off-canvas-fixed">
 			<nav class="tab-bar show-for-small-only">
 				<section class="tab-bar-title">
-					<h1 class="text-left title"><?php bloginfo( 'name' ); ?></h1>
+					<h1 class="text-left title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
 				</section>
 				<section class="tab-bar-buttons">
 					<a href="#" data-reveal-id="search-share-modal" class="icon-share"><span></span></a>
@@ -37,7 +40,7 @@
 					<h1 class="text-center"><?php _e( 'Share if you care,', 'perlovs' ); ?></h1>
 					<div class="row collapse"><div class="small-12 columns"><?php p1_social(); ?></div></div>
 					<h1 class="text-center"><?php _e( 'or search for more...', 'perlovs' ); ?></h1>
-					<div class="row collapse"><?php get_search_form(); ?></div>
+					<div class="search-container"><?php get_search_form(); ?></div>
 					<a class="close-reveal-modal">&#215;</a>
 				</div>
 			</nav>
@@ -69,7 +72,7 @@
 								<a href="#" class="icon-magnifying-glass"></a>
 								<ul class="dropdown">
 									<li>
-										<div class="search-dropdown-container">
+										<div class="search-container">
 											<?php get_search_form(); ?>
 										</div>
 									</li>
@@ -87,4 +90,5 @@
 		</header><!-- #header -->
 
 		<div id="page" class="inner-wrap">
+		<?php endif; // end !is_front_page() check ?>
 			<section id="main" role="main">

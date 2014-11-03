@@ -1,7 +1,7 @@
 {
   "checksum": {
-    "previous": "c2bb8aa5be83e327505c071800da44fef1e9931a0c05fb6cc5cae25c1b104d8d",
-    "current": "c2bb8aa5be83e327505c071800da44fef1e9931a0c05fb6cc5cae25c1b104d8d"
+    "previous": "2b29ced6a158e6c2d3e3a90232c4cd28733bf21ef3b63b1f30e79cf25a72da43",
+    "current": "2b29ced6a158e6c2d3e3a90232c4cd28733bf21ef3b63b1f30e79cf25a72da43"
   },
   "fonts": [
     "../fonts/p1icons.ttf",
@@ -96,7 +96,7 @@
       "fonts": "../fonts",
       "preview": "."
     },
-    "preprocessor_path": "http://perlovs.com/wp-content/themes/p1/fonts",
+    "preprocessor_path": "",
     "quiet": false,
     "templates": [
       "scss",

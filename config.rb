@@ -2,10 +2,11 @@
 add_import_path "bower_components/foundation/scss"
 
 # Set this to the root of your project when deployed:
-http_path = "/"
+http_path = "http://perlovs.com/wp-content/themes/p1/"
 css_dir = ""
 sass_dir = "scss"
 images_dir = "img"
+fonts_dir = "fonts"
 javascripts_dir = "js"
 
 # You can select your preferred output style here (can be overridden via the command line):
