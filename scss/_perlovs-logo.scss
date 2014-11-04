@@ -6,18 +6,19 @@
 // $base-size - Size of "M" letters / 3, basically sets the size of the logo
 // $color - you guessed it;)
 // $*-font - font for corresponding part of the logo
+// $margin - margin of container
 @mixin perlovs-logo($base-size: 1rem
 					, $color: white
 					, $m-font: "Perlovs Logo"
 					, $amp-font: "serif"
 					, $apo-font: "Perlovs Logo"
 					, $s-font: "Perlovs Logo"
-					, $word-font: "Perlovs Logo") {
+					, $word-font: "Perlovs Logo"
+					, $margin: 0 auto) {
 	.logo {
 		display: block;
 		height: 4 * $base-size;
-		margin-left: auto;
-		margin-right: auto;
+		margin: $margin;
 		position: relative;
 		width: 10.8 * $base-size;
 

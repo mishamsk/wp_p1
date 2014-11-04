@@ -27,7 +27,8 @@
 		<header id="header" role="banner" class="fixed off-canvas-fixed">
 			<nav class="tab-bar show-for-small-only">
 				<section class="tab-bar-title">
-					<h1 class="text-left title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+					<!-- <h1 class="text-left title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1> -->
+					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><div class="logo"><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></a>
 				</section>
 				<section class="tab-bar-buttons">
 					<a href="#" data-reveal-id="search-share-modal" class="icon-share"><span></span></a>
@@ -50,10 +51,10 @@
 			<div class="contain-to-grid">
 				<nav class="top-bar show-for-medium-up" data-topbar role="navigation">
 					<ul class="title-area">
-						<li class="name">
+						<!-- <li class="name">
 							<h1><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-						</li>
-
+						</li>-->
+ 						<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><div class="logo"><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></a>
 						<li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
 					</ul>
 
