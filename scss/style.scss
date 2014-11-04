@@ -11,10 +11,12 @@ License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 */
 
+@import "compass/css3";
 @import "_app";
 @import "_p1icons";
-@import "_opensans";
+@import "_fonts";
 @import "_vars";
+@import "_perlovs-logo";
 
 // -----------------------
 // Utility
@@ -30,32 +32,68 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 // Home
 // -----------------------
 .home {
-	background-attachment: fixed;
-	background-image: image-url("fback3.jpg");
-	background-color: $primary-cyan;
-	background-position: center center;
-	background-repeat: no-repeat;
-	background-size: cover;
-
 	#main {
-		padding-top: 90vh;
+		height: 100%;
+		padding-top: 0;
+
+		section {
+			height: 100%;
+			overflow: hidden;
+			padding-top: 20%;
+
+			&:last-child {
+				height: initial;
+			}
+		}
 	}
 
-	.home-greeting {
-		left: 0;
-		margin-left: auto;
-		margin-right: auto;
-		position: absolute;
-		right: 0;
-		top: 30vh;
+	#home-greeting {
+		background-attachment: fixed;
+		background-image: image-url("fback_greeting.jpg");
+		background-color: $white;
+		background-position: center center;
+		background-repeat: no-repeat;
+		background-size: cover;
+		padding-top: 0;
+		position: relative;
+		top: 0;
+
+		.row {
+			left: 50%;
+			position: absolute;
+			top: 50%;
+			@include translate($translate-x: -50%, $translate-y: -50%);
+
+			p {
+				color: $white;
+				margin-top: -1rem;
+			}
+
+		}
 	}
 
 	#home-authors {
-		background-color: $primary-yellow;
+		background-attachment: fixed;
+		background-image: image-url("fback_authors.jpg");
+		background-color: $white;
+		background-position: center center;
+		background-repeat: no-repeat;
+		background-size: cover;
 	}
 
 	#home-travel {
-		background-color: $primary-green;
+		background-attachment: fixed;
+		background-image: image-url("fback_travel.jpg");
+		background-color: $white;
+		background-position: center center;
+		background-repeat: no-repeat;
+		background-size: cover;
+	}
+
+	@include perlovs-logo($base-size: 24px);
+
+	@media #{$medium-up} {
+		@include perlovs-logo($base-size: 2rem);
 	}
 }
 

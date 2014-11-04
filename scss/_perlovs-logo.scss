@@ -1,0 +1,97 @@
+// Perlovs logo mixin
+
+// Apply to the following html
+// <div class="logo"><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+//
+// $base-size - Size of "M" letters / 3, basically sets the size of the logo
+// $color - you guessed it;)
+// $*-font - font for corresponding part of the logo
+@mixin perlovs-logo($base-size: 1rem
+					, $color: white
+					, $m-font: "Perlovs Logo"
+					, $amp-font: "serif"
+					, $apo-font: "Perlovs Logo"
+					, $s-font: "Perlovs Logo"
+					, $word-font: "Perlovs Logo") {
+	.logo {
+		display: block;
+		height: 4 * $base-size;
+		margin-left: auto;
+		margin-right: auto;
+		position: relative;
+		width: 10.8 * $base-size;
+
+		div:before{
+			color: $color;
+			position: absolute;
+			line-height: 4 * $base-size;
+		}
+
+		// First M
+		div:nth-child(1):before {
+			bottom: 0;
+			content: 'm';
+			font-family: $m-font;
+			font-size: 4 * $base-size;
+			left: 0;
+		}
+
+		// isha
+		div:nth-child(2):before {
+			bottom: -0.85 * $base-size;
+			content: '\0438\0448\0430';
+			font-family: $word-font;
+			font-size: 0.7 * $base-size;
+			left: 4 * $base-size;
+		}
+
+		// amp
+		div:nth-child(3):before {
+			bottom: 0;
+			content: '&';
+			font-family: $amp-font;
+			font-size: $base-size;
+			font-weight: bold;
+			left: 4.3 * $base-size;
+		}
+
+		// Second M
+		div:nth-child(4):before {
+			bottom: 0;
+			content: 'm';
+			font-family: $m-font;
+			font-size: 4 * $base-size;
+			left: 5.4 * $base-size;
+		}
+
+		// asha
+		div:nth-child(5):before {
+			bottom: -0.85 * $base-size;
+			content: '\0430\0448\0430';
+			font-family: $word-font;
+			font-size: 0.7 * $base-size;
+			left: 9.4 * $base-size;
+		}
+
+		// apo
+		div:nth-child(6):before {
+			bottom: 0.5 * $base-size;
+			content: ',';
+			font-family: $apo-font;
+			font-size: $base-size;
+			font-weight: bold;
+			left: 9.4 * $base-size;
+		}
+
+		// last s
+		div:nth-child(7):before {
+			bottom: 0;
+			content: 's';
+			font-family: $s-font;
+			font-size: 1.3 * $base-size;
+			font-weight: bold;
+			left: 9.7 * $base-size;
+		}
+	}
+
+}

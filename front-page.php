@@ -1,12 +1,13 @@
 <?php get_header(); ?>
-<div class="row home-greeting collapse">
-	<div class="small-12 medium-8 small-centered columns">
-		<h1 class="text-center">Привет!</h1>
-		<p><strong>Привет!</strong></p>
-		<div class="search-container"><?php get_search_form(); ?></div>
-	</div> <!-- columns -->
-</div> <!-- row -->
-<div id="home-authors" class="full-width">
+<section id="home-greeting">
+	<div class="row">
+		<div class="small-12 small-centered columns">
+			<div class="logo text-center"><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+			<p class="text-center"><?php _e( 'We blog about travel, friends, family and everything', 'perlovs' ); ?></p>
+		</div> <!-- columns -->
+	</div> <!-- row -->
+</section> <!-- section -->
+<section id="home-authors">
 	<div class="row">
 		<div class="small-12 medium-6 columns">
 			<img src="<?php echo get_stylesheet_directory_uri() ?>/img/masha_avatar.jpg">
@@ -25,8 +26,8 @@
 			<img src="<?php echo get_stylesheet_directory_uri() ?>/img/misha_avatar.jpg">
 		</div> <!-- columns -->
 	</div> <!-- row -->
-</div> <!-- row -->
-<div id="home-travel" class="full-width">
+</section> <!-- row -->
+<section id="home-travel">
 	<div class="row">
 		<div class="small-12 medium-6 columns">
 			<img src="<?php echo get_stylesheet_directory_uri() ?>/img/masha_avatar.jpg">
@@ -45,5 +46,12 @@
 			<img src="<?php echo get_stylesheet_directory_uri() ?>/img/misha_avatar.jpg">
 		</div> <!-- columns -->
 	</div> <!-- row -->
-</div> <!-- row -->
+</section> <!-- row -->
+<section id="home-search">
+	<div class="row">
+		<div class="small-12 columns">
+			<div class="search-container"><?php get_search_form(); ?></div>
+		</div>
+	</div>
+</section>
 <?php get_footer(); ?>

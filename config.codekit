@@ -3686,93 +3686,38 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
-	"\/img\/fback1.jpg": {
+	"\/img\/fback_authors.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"initialSize": 714125,
-		"inputAbbreviatedPath": "\/img\/fback1.jpg",
-		"outputAbbreviatedPath": "\/img\/fback1.jpg",
+		"initialSize": 764018,
+		"inputAbbreviatedPath": "\/img\/fback_authors.jpg",
+		"outputAbbreviatedPath": "\/img\/fback_authors.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
-		"processed": 0
+		"processed": 1
 		},
-	"\/img\/fback2.jpg": {
-		"fileType": 16384,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"initialSize": 1.12514e+06,
-		"inputAbbreviatedPath": "\/img\/fback2.jpg",
-		"outputAbbreviatedPath": "\/img\/fback2.jpg",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"processed": 0
-		},
-	"\/img\/fback3.jpg": {
+	"\/img\/fback_greeting.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"initialSize": 743158,
-		"inputAbbreviatedPath": "\/img\/fback3.jpg",
-		"outputAbbreviatedPath": "\/img\/fback3.jpg",
+		"inputAbbreviatedPath": "\/img\/fback_greeting.jpg",
+		"outputAbbreviatedPath": "\/img\/fback_greeting.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
-		"processed": 0
+		"processed": 1
 		},
-	"\/img\/fback4.jpg": {
+	"\/img\/fback_travel.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"initialSize": 1.90131e+06,
-		"inputAbbreviatedPath": "\/img\/fback4.jpg",
-		"outputAbbreviatedPath": "\/img\/fback4.jpg",
+		"initialSize": 1.99775e+06,
+		"inputAbbreviatedPath": "\/img\/fback_travel.jpg",
+		"outputAbbreviatedPath": "\/img\/fback_travel.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
-		"processed": 0
-		},
-	"\/img\/fback5.jpg": {
-		"fileType": 16384,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"initialSize": 1.01926e+06,
-		"inputAbbreviatedPath": "\/img\/fback5.jpg",
-		"outputAbbreviatedPath": "\/img\/fback5.jpg",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"processed": 0
-		},
-	"\/img\/fback6.jpg": {
-		"fileType": 16384,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"initialSize": 1.21397e+06,
-		"inputAbbreviatedPath": "\/img\/fback6.jpg",
-		"outputAbbreviatedPath": "\/img\/fback6.jpg",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"processed": 0
-		},
-	"\/img\/fback7.jpg": {
-		"fileType": 16384,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"initialSize": 1.1854e+06,
-		"inputAbbreviatedPath": "\/img\/fback7.jpg",
-		"outputAbbreviatedPath": "\/img\/fback7.jpg",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"processed": 0
-		},
-	"\/img\/fback8.jpg": {
-		"fileType": 16384,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"initialSize": 1.26162e+06,
-		"inputAbbreviatedPath": "\/img\/fback8.jpg",
-		"outputAbbreviatedPath": "\/img\/fback8.jpg",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"processed": 0
+		"processed": 1
 		},
 	"\/img\/front_back.jpg": {
 		"fileType": 16384,
@@ -3893,15 +3838,15 @@
 		"shouldRunBless": 0,
 		"useLibsass": 0
 		},
-	"\/scss\/_opensans.scss": {
+	"\/scss\/_fonts.scss": {
 		"createSourceMap": 0,
 		"debugStyle": 0,
 		"decimalPrecision": 5,
 		"fileType": 4,
 		"ignore": 1,
 		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/scss\/_opensans.scss",
-		"outputAbbreviatedPath": "\/_opensans.css",
+		"inputAbbreviatedPath": "\/scss\/_fonts.scss",
+		"outputAbbreviatedPath": "\/_fonts.css",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
@@ -3918,6 +3863,22 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/scss\/_p1icons.scss",
 		"outputAbbreviatedPath": "\/_p1icons.css",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 0,
+		"shouldRunAutoprefixer": 0,
+		"shouldRunBless": 0,
+		"useLibsass": 0
+		},
+	"\/scss\/_perlovs-logo.scss": {
+		"createSourceMap": 0,
+		"debugStyle": 0,
+		"decimalPrecision": 5,
+		"fileType": 4,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/scss\/_perlovs-logo.scss",
+		"outputAbbreviatedPath": "\/_perlovs-logo.css",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
