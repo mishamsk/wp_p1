@@ -31,34 +31,21 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 // -----------------------
 // Home
 // -----------------------
-.home {
-	#main {
+body.home {
+
+	height: 100%;
+
+	section, footer {
+		background-attachment: fixed;
+		background-color: $white;
+		background-position: center center;
+		background-repeat: no-repeat;
+		background-size: cover;
 		height: 100%;
-		padding-top: 0;
+		overflow: hidden;
 
-		section {
-			background-attachment: fixed;
-			// Webkit fix
-			@media screen and (-webkit-min-device-pixel-ratio:0) {
-				background-attachment: scroll;
-			}
-			background-color: $white;
-			background-position: center center;
-			background-repeat: no-repeat;
-			background-size: cover;
-			height: 100%;
-			overflow: hidden;
-			padding-top: rem-calc(16);
-			position: relative;
-
-			&:last-child {
-				height: initial;
-			}
-
-			a[name] {
-				position: absolute;
-				top: 0;
-			}
+		&:last-of-type {
+			height: initial;
 		}
 	}
 
@@ -114,6 +101,10 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 		.bounce {
 			@include animation(bounce 2s infinite);
 		}
+	}
+
+	#home-blog {
+		background-image: image-url("fback_greeting.jpg");
 	}
 
 	#home-authors {
