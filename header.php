@@ -8,8 +8,20 @@
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+	<meta name="mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+
 	<title><?php wp_title( '|', true, 'right' ); ?></title>
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
+
+	<link rel="icon" href="<?php echo get_stylesheet_directory_uri() ; ?>/img/icons/favicon.ico" type="image/x-icon">
+	<link rel="icon" sizes="192x122" href="<?php echo get_stylesheet_directory_uri() ; ?>/img/icons/perlovs-icon-192x192.png">
+	<link rel="apple-touch-icon" href="<?php echo get_stylesheet_directory_uri() ; ?>/img/icons/perlovs-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="<?php echo get_stylesheet_directory_uri() ; ?>/img/icons/perlovs-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="<?php echo get_stylesheet_directory_uri() ; ?>/img/icons/perlovs-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="<?php echo get_stylesheet_directory_uri() ; ?>/img/icons/perlovs-icon-152x152.png">
+
 	<?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
@@ -21,7 +33,8 @@
 	<![endif]-->
 	<?php
 		// Front-page do not use navigation
-		if (!is_front_page()) : ?>
+	if (!is_front_page()) :
+		?>
 	<div class="off-canvas-wrap" data-offcanvas>
 
 		<header id="header" role="banner" class="fixed off-canvas-fixed">
@@ -46,7 +59,7 @@
 				</div>
 			</nav>
 			<aside class="right-off-canvas-menu" aria-hidden="true">
-			    <?php menu_mobile_off_canvas(); ?>
+				<?php menu_mobile_off_canvas(); ?>
 			</aside>
 			<div class="contain-to-grid">
 				<nav class="top-bar show-for-medium-up" data-topbar role="navigation">
@@ -54,7 +67,7 @@
 						<!-- <li class="name">
 							<h1><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
 						</li>-->
- 						<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><div class="logo"><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></a>
+						<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><div class="logo"><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></a>
 						<li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
 					</ul>
 
@@ -91,5 +104,5 @@
 		</header><!-- #header -->
 
 		<div id="page" class="inner-wrap">
-		<?php endif; // end !is_front_page() check ?>
 			<section id="main" role="main">
+			<?php endif; // end !is_front_page() check ?>
