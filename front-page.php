@@ -3,7 +3,7 @@
 	<div class="row">
 		<div class="small-12 small-centered columns">
 			<div class="logo"><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
-			<p class="text-center"><?php _e( 'We blog about travel, friends, family and everything', 'perlovs' ); ?></p>
+			<p class="text-center"><?php _e( 'We blog about Life, the Universe, and Everything', 'perlovs' ); ?></p>
 		</div> <!-- columns -->
 	</div> <!-- row -->
 	<a href="#authors"><div class="arrow bounce"></div></a>
