@@ -1,5 +1,6 @@
 /bower_components/*
 /.sass-cache/*
+/.codekit-cache/*
 *.DS_Store
 /stylesheets/*
 *.fuse*
