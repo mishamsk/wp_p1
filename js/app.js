@@ -5,25 +5,17 @@ $(document).foundation();
 // -----------------------
 // Home
 // -----------------------
-var $root = $('html, body');
-$('a[href*=#]').on('click', function(event) {
-    event.preventDefault();
-    var href = $.attr(this, 'href');
-    $root.animate({
-        scrollTop: $(href).offset().top
-    }, 500, function () {
-        window.location.hash = href;
-    });
-    $(this).fadeOut();
+$(document).ready(function(){
+	$("body.home .home-wrapper").onepage_scroll({
+		sectionContainer: ".home-wrapper section",
+		responsiveFallback: false,
+		loop: false,
+		pagination: false,
+		updateURL: true,
+   		keyboard: true,
+   		direction: "vertical"
+   	});
 });
-
-$(window).scroll(Foundation.utils.debounce(function() {
-		if ($(window).scrollTop() > 200) {
-			$("#home-greeting a.arrow").fadeOut();
-			$(window).off("scroll");
-		}
-	}, 300, true)
-);
 
 // -----------------------
 // Search form

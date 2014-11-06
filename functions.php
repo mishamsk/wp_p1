@@ -93,35 +93,43 @@ function perlovs_scripts() {
     wp_deregister_script( 'jquery' );
 
 	// register help scripts
-	wp_register_script( 'jquery', PERLOVS_THEME_URL . '/bower_components/jquery/dist/jquery.min.js' );
+    wp_register_script( 'jquery', PERLOVS_THEME_URL . '/bower_components/jquery/dist/jquery.min.js' );
 
 	// enqueue head scripts
-	wp_enqueue_script( 'modernizr', PERLOVS_THEME_URL .'/bower_components/foundation/js/vendor/modernizr.js', array(), null, false );
+    wp_enqueue_script( 'modernizr', PERLOVS_THEME_URL .'/bower_components/foundation/js/vendor/modernizr.js', array(), null, false );
 
 	// enqueue footer scripts
 	//wp_enqueue_script( 'jq', PERLOVS_THEME_URL . '/bower_components/foundation/js/vendor/jquery.js', array(), null, true );
 	//wp_enqueue_script( 'fnd', PERLOVS_THEME_URL . '/bower_components/foundation/js/foundation.min.js', array( 'jq' ), null, true );
 	//wp_enqueue_script( 'fastclick', PERLOVS_THEME_URL . '/bower_components/foundation/js/vendor/fastclick.js', array(), null, true );
 	//wp_enqueue_script( 'theme_js', PERLOVS_THEME_URL .'/js/app.js', array( 'jq', 'fnd', 'fastclick' ), null, true );
-	wp_enqueue_script( 'theme_js', PERLOVS_THEME_URL .'/js/min/app-min.js', array(), null, true );
+    if(is_front_page()) {
+        wp_enqueue_script( 'theme_js', PERLOVS_THEME_URL .'/js/min/app-front-min.js', array(), null, true );
+    }
+    else {
+        wp_enqueue_script( 'theme_js', PERLOVS_THEME_URL .'/js/min/app-min.js', array(), null, true );
+    }
 
 	// enqueue style
-	wp_enqueue_style( 'theme_stylesheet', get_stylesheet_uri(), array(), null );
+    if(is_front_page()) {
+        wp_enqueue_style( 'theme_stylesheet', PERLOVS_THEME_URL .'/style-front.css', array(), null );
+    }
+    else {
+        wp_enqueue_style( 'theme_stylesheet', get_stylesheet_uri(), array(), null );
+    }
 }
 endif; // perlovs_scripts
 
 add_filter( 'wp_title', 'perlovs_wp_title_for_home' );
 if ( ! function_exists( 'perlovs_wp_title_for_home' ) ) :
 /**
- * Load all JavaScript to header& footer, load styles
- *
- * This function is attached to the 'wp_enqueue_scripts' action hook.
+ * Adjust home title
  */
 function perlovs_wp_title_for_home( $title )
 {
   if( empty( $title ) && ( is_home() || is_front_page() ) ) {
     return get_bloginfo( 'name' ) . ' | ' . get_bloginfo( 'description' );
-  }
-  return $title;
+}
+return $title;
 }
 endif; // perlovs_wp_title_for_home

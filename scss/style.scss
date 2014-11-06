@@ -10,14 +10,28 @@ Tags: clean, colors, corporate, creative, flexible, ipad, iphone, isotope, light
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 */
+@charset "UTF-8";
 
 @import "compass/css3";
-@import "_app";
+@import "settings";
+@import "_fndtion";
 @import "_p1icons";
 @import "_fonts";
 @import "_vars";
 @import "_perlovs-logo";
 
+// -----------------------
+// General CSS fizes, best-prectices
+// -----------------------
+// html {
+// 	@include box-sizing(content-box);
+// }
+// *, *:before, *:after {
+// 	@include box-sizing(inherit);
+// }
+// body:not(.home) {
+// 	@include box-sizing(border-box);
+// }
 // -----------------------
 // Utility
 // -----------------------
@@ -34,23 +48,59 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 body.home {
 
 	height: 100%;
+	margin: 0;
+	overflow: hidden;
+	padding: 0;
+	width: 100%;
+	// @include transition(opacity 400ms);
 
-	section, footer {
+
+	#main {
+		height: 100%;
+		margin: 0;
+		overflow: hidden;
+		padding: 0;
+		width: 100%;
+
+		.home-wrapper {
+			float: left;
+			height: 100%;
+			margin: 0 auto;
+			width: 100%;
+			// display: block;
+			// -webkit-transform-style: preserve-3d;
+		}
+	}
+
+	section:not(#main), footer {
 		background-attachment: fixed;
-		background-color: $white;
+		// background-color: $white;
 		background-position: center center;
 		background-repeat: no-repeat;
 		background-size: cover;
 		height: 100%;
 		overflow: hidden;
+		position: relative;
+		width: 100%;
 
 		&:last-of-type {
 			height: initial;
 		}
+
+		.home-background {
+			min-height: 100%;
+			min-width: 100%;
+			left: 50%;
+			position: absolute;
+			top: 50%;
+			transform: translate3d(-50%,-50%,0);
+		}
+		// @include box-sizing(content-box);
 	}
 
 	#home-greeting {
-		background-image: image-url("fback_greeting.jpg");
+		// background-image: image-url("fback_greeting.jpg");
+		background-color: $primary-blue;
 		padding-top: 0;
 		top: 0;
 
@@ -73,46 +123,20 @@ body.home {
 		@media #{$medium-up} {
 			@include perlovs-logo($base-size: 2rem);
 		}
-
-		// Arrow
-		.arrow {
-			position: absolute;
-			bottom: 0;
-			left: 50%;
-			margin-left:-(rem-calc(20));
-			width: rem-calc(40);
-			height: rem-calc(40);
-			background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNi4wLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DQo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IiB3aWR0aD0iNTEycHgiIGhlaWdodD0iNTEycHgiIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA1MTIgNTEyIiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxwYXRoIGZpbGw9IiNGRkZGRkYiIGQ9Ik0yOTMuNzUxLDQ1NS44NjhjLTIwLjE4MSwyMC4xNzktNTMuMTY1LDE5LjkxMy03My42NzMtMC41OTVsMCwwYy0yMC41MDgtMjAuNTA4LTIwLjc3My01My40OTMtMC41OTQtNzMuNjcyICBsMTg5Ljk5OS0xOTBjMjAuMTc4LTIwLjE3OCw1My4xNjQtMTkuOTEzLDczLjY3MiwwLjU5NWwwLDBjMjAuNTA4LDIwLjUwOSwyMC43NzIsNTMuNDkyLDAuNTk1LDczLjY3MUwyOTMuNzUxLDQ1NS44Njh6Ii8+DQo8cGF0aCBmaWxsPSIjRkZGRkZGIiBkPSJNMjIwLjI0OSw0NTUuODY4YzIwLjE4LDIwLjE3OSw1My4xNjQsMTkuOTEzLDczLjY3Mi0wLjU5NWwwLDBjMjAuNTA5LTIwLjUwOCwyMC43NzQtNTMuNDkzLDAuNTk2LTczLjY3MiAgbC0xOTAtMTkwYy0yMC4xNzgtMjAuMTc4LTUzLjE2NC0xOS45MTMtNzMuNjcxLDAuNTk1bDAsMGMtMjAuNTA4LDIwLjUwOS0yMC43NzIsNTMuNDkyLTAuNTk1LDczLjY3MUwyMjAuMjQ5LDQ1NS44Njh6Ii8+DQo8L3N2Zz4=);
-			background-size: contain;
-		}
-
-		@include keyframes(bounce) {
-			0%, 20%, 50%, 80%, 100% {
-				@include transform(translateY(0));
-			}
-			40% {
-				@include transform(translateY(-30px));
-			}
-			60% {
-				@include transform(translateY(-15px));
-			}
-		}
-
-		.bounce {
-			@include animation(bounce 2s infinite);
-		}
 	}
 
 	#home-blog {
-		background-image: image-url("fback_greeting.jpg");
+		// background-image: image-url("fback_greeting.jpg");
+		background-color: $primary-cyan;
 	}
 
 	#home-authors {
-		background-image: image-url("fback_authors.jpg");
+		// background-image: image-url("fback_authors.jpg");
+		background-color: $primary-red;
 	}
 
 	#home-travel {
-		background-image: image-url("fback_travel.jpg");
+		// background-image: image-url("fback_travel.jpg");
 	}
 }
 
@@ -121,7 +145,7 @@ body.home {
 // -----------------------
 
 // shift down content area for fixed header and for front-page
-#main {
+body:not(.home) #main {
 	padding-top: $tabbar-height;
 
 	@media #{$medium-up} {

@@ -1,0 +1,170 @@
+/*!
+Theme Name: P1
+Theme URI: http://perlovs.com/
+Author: Mikhail Perlov
+Author URI: http://perlovs.com/
+Description:
+Version: 0.0.2
+Tags: clean, colors, corporate, creative, flexible, ipad, iphone, isotope, light, modern, page builder, responsive, retina ready, shortcodes, slider, localization
+
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+*/
+@charset "UTF-8";
+
+@import "compass/css3";
+@import "settings-front";
+@import "_fndtion";
+@import "_vars";
+@import "_p1icons";
+@import "_fonts";
+@import "_perlovs-logo";
+
+// -----------------------
+// Utility
+// -----------------------
+.full-width {
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	max-width: initial;
+}
+
+// -----------------------
+// Home
+// -----------------------
+body.home {
+
+	height: 100%;
+	margin: 0;
+	overflow: hidden;
+	padding: 0;
+	width: 100%;
+
+	#main {
+		height: 100%;
+		margin: 0;
+		overflow: hidden;
+		padding: 0;
+		width: 100%;
+
+		.home-wrapper {
+			float: left;
+			height: 100%;
+			margin: 0 auto;
+			width: 100%;
+		}
+	}
+
+	section:not(#main), footer {
+		background-attachment: scroll;
+		// background-color: $white;
+		background-position: center center;
+		background-repeat: no-repeat;
+		background-size: cover;
+		height: 100%;
+		overflow: hidden;
+		position: relative;
+		width: 100%;
+
+		&:last-of-type {
+			height: initial;
+		}
+	}
+
+	#home-greeting {
+		background-image: image-url("fback_greeting.jpg");
+		background-color: $primary-blue;
+		padding-top: 0;
+		top: 0;
+
+		.row {
+			left: 50%;
+			position: absolute;
+			top: 50%;
+			@include translate($translate-x: -50%, $translate-y: -50%);
+
+			p {
+				color: $white;
+				margin-top: -1rem;
+			}
+
+		}
+
+		// Logo
+		@include perlovs-logo($base-size: 1.5rem);
+
+		@media #{$medium-up} {
+			@include perlovs-logo($base-size: 2rem);
+		}
+	}
+
+	#home-blog {
+		background-image: image-url("fback_greeting.jpg");
+	}
+
+	#home-authors {
+		background-image: image-url("fback_authors.jpg");
+	}
+
+	#home-travel {
+		background-image: image-url("fback_travel.jpg");
+	}
+}
+
+// -----------------------
+// Search form
+// -----------------------
+
+.search-container {
+	.home & {
+		@include grid-row(collapse);
+	}
+}
+
+.search-form {
+
+}
+
+.search-field {
+	.home & {
+		@include grid-column($columns:10);
+		font-size: $tabbar-search-form-font-size;
+		padding: $tabbar-search-field-padding;
+	}
+}
+
+.search-submit {
+	.home & {
+		@include grid-column($columns:2);
+		@include button();
+		font-size: $tabbar-search-form-font-size;
+		padding: $tabbar-search-submit-padding;
+	}
+}
+
+// -----------------------
+// Social sharing
+// -----------------------
+
+.social-bar {
+
+	#social-facebook { background: $primary-blue; }
+	#social-twitter { background: $primary-cyan; }
+	#social-vk { background: $primary-green; }
+	#social-google-plus { background: $primary-red; }
+	#social-email { background: $primary-yellow; }
+
+	.top-bar & {
+		vertical-align: middle;
+		width: $topbar-dropdown-action-width;
+
+		.has-tip {
+			border-bottom: none;
+		}
+	}
+}
+
+// -----------------------
+// Footer
+// -----------------------
