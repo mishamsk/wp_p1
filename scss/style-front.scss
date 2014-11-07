@@ -41,6 +41,41 @@ body.home {
 	padding: 0;
 	width: 100%;
 
+	nav {
+		position: fixed;
+		right: $column-gutter;
+		top: $column-gutter / 2;
+		z-index: 999;
+
+		ul {
+			margin: 0;
+		}
+
+		li {
+			display: inline-block;
+			margin: 0 1rem;
+
+			a {
+				color: $white;
+				font-family: $header-font-family;
+				font-size: $h4-font-size;
+				font-style: normal;
+				font-weight: lighter;
+				opacity: 0.6;
+				text-decoration: none;
+				@include transition(opacity 1000ms);
+
+				&.current, &:hover {
+					opacity: 1;
+				}
+
+				&:visited {
+					color: $white;
+				}
+			}
+		}
+	}
+
 	#main {
 		height: 100%;
 		margin: 0;
@@ -52,29 +87,40 @@ body.home {
 			float: left;
 			height: 100%;
 			margin: 0 auto;
+			position: relative;
 			width: 100%;
 		}
 	}
 
 	section:not(#main), footer {
 		background-attachment: scroll;
-		// background-color: $white;
 		background-position: center center;
 		background-repeat: no-repeat;
 		background-size: cover;
 		height: 100%;
 		overflow: hidden;
-		position: relative;
+		position: absolute;
 		width: 100%;
+	}
 
-		&:last-of-type {
-			height: initial;
+	@each $section, $pos, $bg-color, $bg-image in
+			(home-greeting, 1, $primary-blue, fback-greeting),
+			(home-blog, 2, $primary-cyan),
+			(home-travel, 3, $primary-green),
+			(home-authors, 4, $primary-yellow),
+			(page-footer, 5, $charcoal) {
+		##{$section} {
+			@if $bg-image != null {
+				background-image: image-url("#{$bg-image}.jpg");
+			}
+			@else {
+				background-color: $bg-color;
+			}
+			top: ($pos - 1) * 100%;
 		}
 	}
 
 	#home-greeting {
-		background-image: image-url("fback_greeting.jpg");
-		background-color: $primary-blue;
 		padding-top: 0;
 		top: 0;
 

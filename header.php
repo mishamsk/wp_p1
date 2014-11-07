@@ -32,7 +32,7 @@
 	</div>
 	<![endif]-->
 	<?php
-		// Front-page do not use navigation
+		// Front-page do not use top-bar header
 	if (!is_front_page()) :
 		?>
 	<div class="off-canvas-wrap" data-offcanvas>
@@ -104,5 +104,18 @@
 		</header><!-- #header -->
 
 		<div id="page" class="inner-wrap">
-		<?php endif; // end !is_front_page() check ?>
 			<section id="main" role="main">
+		<?php else :  ?>
+			<nav role="navigation">
+				<ul>
+					<li><a href="#blog" data-page-name="blog"><?php _e( 'Blog', 'perlovs' ); ?></a></li>
+					<li><a href="#travel" data-page-name="travel"><?php _e( 'Travel', 'perlovs' ); ?></a></li>
+					<li><a href="#authors" data-page-name="authors"><?php _e( 'Authors', 'perlovs' ); ?></a></li>
+					<li><a href="#credits" data-page-name="credits" class="icon-magnifying-glass"></a></li>
+				</ul>
+			</nav>
+			<section id="main" role="main">
+				<div class="home-wrapper">
+
+		<?php endif; // end !is_front_page() check ?>
+

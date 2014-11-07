@@ -76,7 +76,7 @@ $include-html-global-classes: true;
 // b. Grid
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
-// $include-html-grid-classes: $include-html-classes;
+// $include-html-grid-classes: true;
 // $include-xl-html-grid-classes: false;
 
 $row-width: rem-calc(990);
@@ -604,7 +604,7 @@ $header-font-weight: lighter;
 // 11. Forms
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
-// $include-html-form-classes: $include-html-classes;
+$include-html-form-classes: true;
 
 // We use this to set the base for lots of form spacing and positioning styles
 // $form-spacing: rem-calc(16);

@@ -1,6 +1,5 @@
 <?php get_header(); ?>
-<div class="home-wrapper">
-	<section id="home-greeting">
+	<section id="home-greeting" data-page-name="home">
 		<div class="row">
 			<div class="small-12 small-centered columns">
 				<div class="logo"><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
@@ -8,24 +7,24 @@
 			</div> <!-- columns -->
 		</div> <!-- row -->
 	</section> <!-- #home-greeting -->
-	<section id="home-blog">
+	<section id="home-blog" data-page-name="blog">
 		<div class="row">
 			<div class="small-12 small-centered columns">
 
 			</div> <!-- columns -->
 		</div> <!-- row -->
 	</section> <!-- #home-blog -->
-	<section id="home-travel">
+	<section id="home-travel" data-page-name="travel">
 		<div class="row">
 			<div class="small-12 small-centered columns">
 
 			</div> <!-- columns -->
 		</div> <!-- row -->
 	</section> <!-- #home-travel -->
-	<section id="home-authors">
+	<section id="home-authors" data-page-name="authors">
 		<div class="row">
 			<div class="small-12 medium-6 columns">
-				<img src="<?php echo get_stylesheet_directory_uri() ?>/img/masha_avatar.jpg">
+				<img src="<?php echo get_stylesheet_directory_uri() ?>/img/masha-avatar.jpg">
 			</div> <!-- columns -->
 			<div class="small-12 medium-6 columns">
 				<p>
@@ -34,12 +33,4 @@
 			</div> <!-- columns -->
 		</div> <!-- row -->
 	</section> <!-- #home-authors -->
-	<section id="home-search">
-		<div class="row">
-			<div class="small-12 small-centered columns">
-				<div class="search-container"><?php get_search_form(); ?></div>
-			</div> <!-- columns -->
-		</div> <!-- row -->
-	</section> <!-- #home-search -->
-</div>
 <?php get_footer(); ?>

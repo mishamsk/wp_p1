@@ -3686,38 +3686,38 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
-	"\/img\/fback_authors.jpg": {
+	"\/img\/fback-authors.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"initialSize": 764018,
-		"inputAbbreviatedPath": "\/img\/fback_authors.jpg",
-		"outputAbbreviatedPath": "\/img\/fback_authors.jpg",
+		"initialSize": 287341,
+		"inputAbbreviatedPath": "\/img\/fback-authors.jpg",
+		"outputAbbreviatedPath": "\/img\/fback-authors.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
-		"processed": 1
+		"processed": 0
 		},
-	"\/img\/fback_greeting.jpg": {
+	"\/img\/fback-greeting.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"initialSize": 743158,
-		"inputAbbreviatedPath": "\/img\/fback_greeting.jpg",
-		"outputAbbreviatedPath": "\/img\/fback_greeting.jpg",
+		"initialSize": 263473,
+		"inputAbbreviatedPath": "\/img\/fback-greeting.jpg",
+		"outputAbbreviatedPath": "\/img\/fback-greeting.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
-		"processed": 1
+		"processed": 0
 		},
-	"\/img\/fback_travel.jpg": {
+	"\/img\/fback-travel.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"initialSize": 1.99775e+06,
-		"inputAbbreviatedPath": "\/img\/fback_travel.jpg",
-		"outputAbbreviatedPath": "\/img\/fback_travel.jpg",
+		"initialSize": 375836,
+		"inputAbbreviatedPath": "\/img\/fback-travel.jpg",
+		"outputAbbreviatedPath": "\/img\/fback-travel.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
-		"processed": 1
+		"processed": 0
 		},
 	"\/img\/icons\/perlovs-icon-120x120.png": {
 		"fileType": 32768,
@@ -3763,24 +3763,24 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/img\/masha_avatar.jpg": {
+	"\/img\/masha-avatar.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"initialSize": 8999,
-		"inputAbbreviatedPath": "\/img\/masha_avatar.jpg",
-		"outputAbbreviatedPath": "\/img\/masha_avatar.jpg",
+		"inputAbbreviatedPath": "\/img\/masha-avatar.jpg",
+		"outputAbbreviatedPath": "\/img\/masha-avatar.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/img\/misha_avatar.jpg": {
+	"\/img\/misha-avatar.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"initialSize": 174455,
-		"inputAbbreviatedPath": "\/img\/misha_avatar.jpg",
-		"outputAbbreviatedPath": "\/img\/misha_avatar.jpg",
+		"initialSize": 170989,
+		"inputAbbreviatedPath": "\/img\/misha-avatar.jpg",
+		"outputAbbreviatedPath": "\/img\/misha-avatar.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
@@ -3802,7 +3802,7 @@
 		"outputAbbreviatedPath": "\/js\/min\/app-front-min.js",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
-		"outputStyle": 1,
+		"outputStyle": 0,
 		"syntaxCheckerStyle": 1
 		},
 	"\/js\/app.js": {
@@ -3811,17 +3811,6 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/js\/app.js",
 		"outputAbbreviatedPath": "\/js\/min\/app-min.js",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"outputStyle": 2,
-		"syntaxCheckerStyle": 1
-		},
-	"\/js\/jquery.onepage-scroll.js": {
-		"fileType": 64,
-		"ignore": 1,
-		"ignoreWasSetByUser": 1,
-		"inputAbbreviatedPath": "\/js\/jquery.onepage-scroll.js",
-		"outputAbbreviatedPath": "\/js\/min\/jquery.onepage-scroll-min.js",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 2,
@@ -3844,6 +3833,28 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/js\/min\/app-min.js",
 		"outputAbbreviatedPath": "\/js\/min\/min\/app-min-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/js\/p1.onepage-scroll.js": {
+		"fileType": 64,
+		"ignore": 1,
+		"ignoreWasSetByUser": 1,
+		"inputAbbreviatedPath": "\/js\/p1.onepage-scroll.js",
+		"outputAbbreviatedPath": "\/js\/min\/p1.onepage-scroll-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/js\/perlovs.js": {
+		"fileType": 64,
+		"ignore": 1,
+		"ignoreWasSetByUser": 1,
+		"inputAbbreviatedPath": "\/js\/perlovs.js",
+		"outputAbbreviatedPath": "\/js\/min\/perlovs-min.js",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 1,
@@ -4193,7 +4204,7 @@
 			},
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/onepagescroll\/jquery.onepage-scroll.js",
+			"linkedFileAbbreviatedPath": "\/js\/perlovs.js",
 			"position": 2,
 			"type": 0
 			}
@@ -4215,12 +4226,6 @@
 			"followForSyntaxChecking": 1,
 			"linkedFileAbbreviatedPath": "\/bower_components\/foundation\/js\/foundation.min.js",
 			"position": 2,
-			"type": 0
-			},
-		{
-			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/onepagescroll\/jquery.onepage-scroll.js",
-			"position": 3,
 			"type": 0
 			}
 		]
