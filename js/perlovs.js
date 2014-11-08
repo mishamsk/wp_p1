@@ -7,7 +7,7 @@
  * License: GPL v3
  *
  * ========================================================== */
- !function(w) {
+!function(w) {
  	w.perlovs = {
 	 	// Underscrore.js now, throttle and debounce
 	 	now : Date.now || function() {
@@ -93,7 +93,7 @@
  *
  * ========================================================== */
 
- !function($){
+!function($){
 
     /*------------------------------------------------*/
     /*  Credit: Eike Send for the awesome swipe event */
@@ -155,7 +155,9 @@
             afterMove: null,
             threshholdQuery: null,
             disableCustomScroll: false,
-            quietPeriod: 500
+            quietPeriodCustomScroll: 500,
+            quietPeriodScroll: 1000,
+            quietPeriodResize: 2000
         },
         customScrollBinded = false,
         scrollBinded = false,
@@ -166,6 +168,8 @@
         var pages = $(settings.pageContainer),
             nav = $(settings.navContainer),
             enableCustomScroll = settings.threshholdQuery ? Modernizr.mq(settings.threshholdQuery) : !settings.disableCustomScroll;
+
+    	var homePageName = pages.eq(0).data("page-name");
 
         $.fn.transformPage = function(settings, pos, pageName) {
 
@@ -194,7 +198,7 @@
         };
 
         $.fn.moveDown = function() {
-            var current = pages.filter(".current");
+            var current = curPage();
             var next = pages.eq(pages.index(current) + 1);
 
             if(next.length > 0) {
@@ -203,7 +207,7 @@
         };
 
         $.fn.moveUp = function() {
-            var current = pages.filter(".current");
+            var current = curPage();
             if (pages.index(current) <= 0) return true;
             var next = pages.eq(pages.index(current) - 1);
 
@@ -220,8 +224,23 @@
             }
         };
 
+        function curPage(forceUrl) {
+        	forceUrl = forceUrl || false;
+
+        	if (settings.updateURL == true || forceUrl)
+        	{
+        		var pageName = homePageName;
+            	if(window.location.hash != "") pageName =  window.location.hash.replace("#", "");
+            	return pages.filter("[data-page-name='" + (pageName) + "']");
+        	}
+        	else
+        	{
+        		return pages.filter(".current").length ? pages.filter(".current") : pages.eq(0);
+        	}
+        }
+
         function move(next) {
-            var current = pages.filter(".current");
+            var current = curPage();
             var pageName = next.data("page-name");
 
             pages.removeClass("current");
@@ -239,9 +258,9 @@
         }
 
         onScroll = perlovs.throttle(function(event) {
-    			var current = pages.filter(".current");
+    			var current = curPage();
     			var next = pages.filter(function() {
-    					offset = $(this).offset().top;
+    					var offset = $(this).offset().top;
     					return offset <= windowHeight * 0.5 && offset > windowHeight * -0.5;
     				});
     			if (current == next) return true;
@@ -256,7 +275,7 @@
     				var href = window.location.href.substr(0,window.location.href.indexOf('#')) + "#" + pageName;
     				history.pushState( {}, document.title, href );
     			}
-    		},settings.quietPeriod);
+    		},settings.quietPeriodScroll);
 
         // Bind events, check for mediaQuery (responsive)
         function bind() {
@@ -286,7 +305,7 @@
                     } else {
                     	el.moveUp();
                     }
-                },settings.quietPeriod + settings.animationTime,{trailing: false}));
+                },settings.quietPeriodCustomScroll + settings.animationTime,{trailing: false}));
 
                 if(settings.keyboard == true) {
                     $(document).keydown(function(e) {
@@ -340,9 +359,8 @@
         }
 
         function init() {
-            var pageName = pages.eq(0).data("page-name");
-            if(window.location.hash != "") pageName =  window.location.hash.replace("#", "");
-            var current = pages.filter("[data-page-name='" + (pageName) + "']");
+            var current = curPage(true);
+            var pageName = current.data("page-name");
 
             pages.removeClass("current");
             nav.find("li a").removeClass("current");
@@ -381,6 +399,25 @@
 	        }
         }
 
+        function processPageChange(quietPeriod) {
+        	return quietPeriod > 0 ?
+	        			perlovs.throttle(function() {
+			            	enableCustomScroll = settings.threshholdQuery ? Modernizr.mq(settings.threshholdQuery) : !settings.disableCustomScroll;
+			            	windowHeight = $(window).height();
+			            	init();
+			                bind();
+			            },quietPeriod)
+		            :
+		            	function() {
+			            	enableCustomScroll = settings.threshholdQuery ? Modernizr.mq(settings.threshholdQuery) : !settings.disableCustomScroll;
+			            	windowHeight = $(window).height();
+			            	init();
+			                bind();
+			            };
+        }
+
+        // Attach events
+
         // If navigation present, bind click to move
         if(nav.length > 0)  {
             nav.find('li a').each(function() {
@@ -393,21 +430,21 @@
             });
         }
 
+        // If threshold media query set - rebind on resize
+        if(settings.threshholdQuery != null) {
+            $(window).resize(processPageChange(settings.quietPeriodResize));
+        }
+
+        // If threshold media query set - rebind on resize
+        if(settings.updateURL == true) {
+            $(window).on('popstate', processPageChange(0));
+        }
+
         // Initialize (move to current page, add classes)
         init();
 
         // Initial bind
         bind();
-
-        // If threshold media query set - rebind on resize
-        if(settings.threshholdQuery != null) {
-            $(window).resize(perlovs.throttle(function() {
-            	enableCustomScroll = Modernizr.mq(settings.threshholdQuery);
-            	windowHeight = $(window).height();
-            	init();
-                bind();
-            },settings.quietPeriod));
-        }
 
         return false;
     };
