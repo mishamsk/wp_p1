@@ -3,5 +3,6 @@
 /.codekit-cache/*
 *.DS_Store
 /stylesheets/*
+/js/min/*
 *.fuse*
 style*.css
