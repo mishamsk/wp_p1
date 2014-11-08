@@ -11,7 +11,8 @@
 		<?php
 		$qblog = new WP_Query(array(
 			    'posts_per_page'   => 3,
-			    'post_type' => 'post'
+			    'post_type' => 'post',
+			    'meta_key' => '_thumbnail_id'
 			));
 
 		if ( $qblog->have_posts() ) : ?>
