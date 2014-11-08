@@ -105,7 +105,7 @@
             startY,
             $this = $(this);
 
-            $this.bind('touchstart', touchstart);
+            $this.bind('touchstart', perlovs.throttle(touchstart, 300));
 
             function touchstart(event) {
                 var touches = event.originalEvent.touches;
@@ -154,34 +154,43 @@
             beforeMove: null,
             afterMove: null,
             threshholdQuery: null,
+            disableCustomScroll: false,
             quietPeriod: 500
         },
+        customScrollBinded = false,
         scrollBinded = false,
         settings = $.extend({}, defaults, options),
         el = $(this),
-        lastAnimation = 0;
+        windowHeight = $(window).height();
 
         var pages = $(settings.pageContainer),
-            nav = $(settings.navContainer);
+            nav = $(settings.navContainer),
+            enableCustomScroll = settings.threshholdQuery ? Modernizr.mq(settings.threshholdQuery) : !settings.disableCustomScroll;
 
         $.fn.transformPage = function(settings, pos, pageName) {
-            if (typeof settings.beforeMove === 'function') settings.beforeMove(pageName);
 
-            $(this).css({
-                "-webkit-transform": "translate3d(0, " + pos + "%, 0)",
-                "-webkit-transition": "all " + settings.animationTime + "ms " + settings.easing,
-                "-moz-transform": "translate3d(0, " + pos + "%, 0)",
-                "-moz-transition": "all " + settings.animationTime + "ms " + settings.easing,
-                "-ms-transform": "translate3d(0, " + pos + "%, 0)",
-                "-ms-transition": "all " + settings.animationTime + "ms " + settings.easing,
-                "transform": "translate3d(0, " + pos + "%, 0)",
-                "transition": "all " + settings.animationTime + "ms " + settings.easing
-            });
+        	if (enableCustomScroll) {
+	            if (typeof settings.beforeMove === 'function') settings.beforeMove(pageName);
 
-            if (typeof settings.afterMove === 'function')
-                $(this).one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function(e) {
-                    settings.afterMove(pageName);
-                });
+	            el.css({
+	                "-webkit-transform": "translate3d(0, " + pos + "%, 0)",
+	                "-webkit-transition": "all " + settings.animationTime + "ms " + settings.easing,
+	                "-moz-transform": "translate3d(0, " + pos + "%, 0)",
+	                "-moz-transition": "all " + settings.animationTime + "ms " + settings.easing,
+	                "-ms-transform": "translate3d(0, " + pos + "%, 0)",
+	                "-ms-transition": "all " + settings.animationTime + "ms " + settings.easing,
+	                "transform": "translate3d(0, " + pos + "%, 0)",
+	                "transition": "all " + settings.animationTime + "ms " + settings.easing
+	            });
+
+	            if (typeof settings.afterMove === 'function')
+	                $(this).one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function(e) {
+	                    settings.afterMove(pageName);
+	                });
+            }
+            else {
+            	el.parent().animate({scrollTop: pos + "px"});
+            }
         };
 
         $.fn.moveDown = function() {
@@ -214,12 +223,13 @@
         function move(next) {
             var current = pages.filter(".current");
             var pageName = next.data("page-name");
-            current.removeClass("current");
+
+            pages.removeClass("current");
+            nav.find("li a").removeClass("current");
             next.addClass("current");
-            nav.find("li a" + ".current").removeClass("current");
             nav.find("li a" + "[data-page-name='" + (pageName) + "']").addClass("current");
 
-            var pos = (pages.index(next) * 100) * -1;
+            var pos = enableCustomScroll? (pages.index(next) * 100) * -1 : pages.index(next) * windowHeight;
 
             if (history.replaceState && settings.updateURL == true) {
                 var href = window.location.href.substr(0,window.location.href.indexOf('#')) + "#" + pageName;
@@ -228,13 +238,38 @@
             el.transformPage(settings, pos, pageName);
         }
 
+        onScroll = perlovs.throttle(function(event) {
+    			var current = pages.filter(".current");
+    			var next = pages.filter(function() {
+    					offset = $(this).offset().top;
+    					return offset <= windowHeight * 0.5 && offset > windowHeight * -0.5;
+    				});
+    			if (current == next) return true;
+    			var pageName = next.data("page-name");
+
+    			pages.removeClass("current");
+            	nav.find("li a").removeClass("current");
+    			next.addClass("current");
+    			nav.find("li a" + "[data-page-name='" + (pageName) + "']").addClass("current");
+
+    			if (history.replaceState && settings.updateURL == true) {
+    				var href = window.location.href.substr(0,window.location.href.indexOf('#')) + "#" + pageName;
+    				history.pushState( {}, document.title, href );
+    			}
+    		},settings.quietPeriod);
+
         // Bind events, check for mediaQuery (responsive)
         function bind() {
-            // Check if disabled on mobile
-            var toBind = settings.threshholdQuery ? Modernizr.mq(settings.threshholdQuery) : true;
 
-            // Bind
-            if (!scrollBinded && toBind) {
+            // Bind (initial small screen or completely disabled custom scroll)
+            if (!scrollBinded && !enableCustomScroll) {
+            	el.parent().bind('scroll', onScroll);
+
+            	scrollBinded = true;
+            }
+
+            // Bind (initial large screen or changing from small to large)
+            if (!customScrollBinded && enableCustomScroll) {
                 el.swipeEvents().bind("swipeDown",  function(event){
                     event.preventDefault();
                     el.moveUp();
@@ -282,15 +317,25 @@
                     });
                 }
 
-                scrollBinded = true;
+                el.parent().unbind('scroll');
+
+                customScrollBinded = true;
+                scrollBinded = false;
             }
 
-            // Unbind
-            if (scrollBinded && !toBind) {
+            // Unbind (changing from large to small)
+            if (customScrollBinded && !enableCustomScroll) {
                 $(document).unbind('mousewheel DOMMouseScroll MozMousePixelScroll');
                 if(settings.keyboard == true) $(document).unbind('keydown');
                 el.swipeEvents().unbind("swipeDown swipeUp");
-                scrollBinded = false;
+                customScrollBinded = false;
+
+                // If threshhold set then bind scroll
+                if (settings.threshholdQuery) {
+                	el.parent().bind('scroll', onScroll);
+
+                	scrollBinded = true;
+                }
             }
         }
 
@@ -299,20 +344,41 @@
             if(window.location.hash != "") pageName =  window.location.hash.replace("#", "");
             var current = pages.filter("[data-page-name='" + (pageName) + "']");
 
+            pages.removeClass("current");
+            nav.find("li a").removeClass("current");
             current.addClass("current");
             nav.find("li a" + "[data-page-name='" + (pageName) + "']").addClass("current");
-            var pos = (pages.index(current) * 100) * -1;
 
-            el.css({
-                "-webkit-transform": "translate3d(0, " + pos + "%, 0)",
-                "-webkit-transition": "none",
-                "-moz-transform": "translate3d(0, " + pos + "%, 0)",
-                "-moz-transition": "none",
-                "-ms-transform": "translate3d(0, " + pos + "%, 0)",
-                "-ms-transition": "none",
-                "transform": "translate3d(0, " + pos + "%, 0)",
-                "transition": "none"
-            });
+            if (enableCustomScroll) {
+	            var pos = (pages.index(current) * 100) * -1;
+
+	            el.parent().scrollTop(0);
+
+	            el.css({
+	                "-webkit-transform": "translate3d(0, " + pos + "%, 0)",
+	                "-webkit-transition": "none",
+	                "-moz-transform": "translate3d(0, " + pos + "%, 0)",
+	                "-moz-transition": "none",
+	                "-ms-transform": "translate3d(0, " + pos + "%, 0)",
+	                "-ms-transition": "none",
+	                "transform": "translate3d(0, " + pos + "%, 0)",
+	                "transition": "none"
+	            });
+	        }
+	        else {
+            	el.css({
+	                "-webkit-transform": "none",
+	                "-webkit-transition": "none",
+	                "-moz-transform": "none",
+	                "-moz-transition": "none",
+	                "-ms-transform": "none",
+	                "-ms-transition": "none",
+	                "transform": "none",
+	                "transition": "none",
+	            });
+
+	        	el.parent().scrollTop(pages.index(current) * windowHeight);
+	        }
         }
 
         // If navigation present, bind click to move
@@ -335,9 +401,12 @@
 
         // If threshold media query set - rebind on resize
         if(settings.threshholdQuery != null) {
-            $(window).resize(function() {
+            $(window).resize(perlovs.throttle(function() {
+            	enableCustomScroll = Modernizr.mq(settings.threshholdQuery);
+            	windowHeight = $(window).height();
+            	init();
                 bind();
-            });
+            },settings.quietPeriod));
         }
 
         return false;

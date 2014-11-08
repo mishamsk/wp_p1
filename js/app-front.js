@@ -11,7 +11,7 @@ $(document).ready(function(){
         keyboard: true,
         beforeMove: null,
         afterMove: null,
-        //threshholdQuery: "only screen and (min-width: 40.063em)",
+        threshholdQuery: "only screen and (min-width: 40.063em)",
         quietPeriod: 500
    	});
 });

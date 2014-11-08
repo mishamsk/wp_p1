@@ -37,7 +37,10 @@ body.home {
 
 	height: 100%;
 	margin: 0;
-	overflow: hidden;
+	overflow: auto;
+	@media #{$medium-up} {
+		overflow: hidden;
+	}
 	padding: 0;
 	width: 100%;
 
@@ -79,7 +82,10 @@ body.home {
 	#main {
 		height: 100%;
 		margin: 0;
-		overflow: hidden;
+		overflow: auto;
+		@media #{$medium-up} {
+			overflow: hidden;
+		}
 		padding: 0;
 		width: 100%;
 
@@ -87,8 +93,13 @@ body.home {
 			float: left;
 			height: 100%;
 			margin: 0 auto;
+			min-height: 100%;
+			@media #{$medium-up} {
+				min-height: none;
+			}
 			position: relative;
 			width: 100%;
+
 		}
 	}
 
@@ -98,8 +109,13 @@ body.home {
 		background-repeat: no-repeat;
 		background-size: cover;
 		height: 100%;
+		left: auto;
 		overflow: hidden;
-		position: absolute;
+		position: relative;
+		@media #{$medium-up} {
+			position: absolute;
+		}
+		top: auto;
 		width: 100%;
 	}
 
@@ -116,7 +132,9 @@ body.home {
 			@else {
 				background-color: $bg-color;
 			}
-			top: ($pos - 1) * 100%;
+			@media #{$medium-up} {
+				top: ($pos - 1) * 100% !important;
+			}
 		}
 	}
 
@@ -146,15 +164,15 @@ body.home {
 	}
 
 	#home-blog {
-		background-image: image-url("fback_greeting.jpg");
+
 	}
 
 	#home-authors {
-		background-image: image-url("fback_authors.jpg");
+
 	}
 
 	#home-travel {
-		background-image: image-url("fback_travel.jpg");
+
 	}
 }
 
