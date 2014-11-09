@@ -47,7 +47,7 @@ body.home {
 	nav {
 		position: fixed;
 		right: $column-gutter;
-		top: $column-gutter / 2;
+		top: $home-nav-margin;
 		z-index: 999;
 
 		ul {
@@ -56,24 +56,24 @@ body.home {
 
 		li {
 			display: inline-block;
-			margin: 0 1rem;
+			margin: 0 $home-nav-li-margin / 2;
 
 			a {
-				color: $white;
+				color: $home-nav-a-color;
 				font-family: $header-font-family;
 				font-size: $home-nav-font-size;
 				font-style: normal;
 				font-weight: lighter;
-				opacity: 0.6;
+				opacity: $home-nav-a-initial-opacity;
 				text-decoration: none;
-				@include transition(opacity 1000ms);
+				@include transition($home-nav-a-transition);
 
 				&.current, &:hover {
 					opacity: 1;
 				}
 
 				&:visited {
-					color: $white;
+					color: $home-nav-a-color;
 				}
 			}
 		}
@@ -111,27 +111,13 @@ body.home {
 		height: 100%;
 		left: auto;
 		overflow: hidden;
-		padding: $column-gutter + $home-nav-font-size 0;
+		padding: $home-nav-margin * 2 + $home-nav-font-size * ($base-line-height / 100%) 0;
 		position: relative;
 		@media #{$medium-up} {
 			position: absolute;
 		}
 		top: auto;
 		width: 100%;
-
-		.row {
-			height: 100%;
-
-			& > div {
-				height: 100%;
-			}
-
-			article {
-				height: 100%;
-				overflow: hidden;
-				padding: rem-calc(16);
-			}
-		}
 	}
 
 	@each $section, $pos, $bg-color, $bg-image in
@@ -178,19 +164,42 @@ body.home {
 		}
 	}
 
-	article {
-		background-color: $white;
-	}
+	#home-blog, #home-travel {
+		.row {
+			height: 100%;
 
-	#home-blog {
+			> .column, > .columns {
+				height: 100%;
+			}
 
+			.article-wrapper {
+				background-color: $home-article-bg-color;
+				margin-bottom: $home-article-padding;
+				max-height: 100%;
+				overflow: hidden;
+				padding: $home-article-padding $home-article-padding 0;
+				position: relative;
+
+				&:after{
+					content: ' ';
+					display: block;
+					background-color: $home-article-bg-color;
+					height: $home-article-padding;
+					width: 100%;
+					position: absolute;
+					bottom: 0;
+				}
+			}
+
+			article {
+				.entry-content a {
+					@include button();
+				}
+			}
+		}
 	}
 
 	#home-authors {
-
-	}
-
-	#home-travel {
 
 	}
 }

@@ -1,15 +1,35 @@
 // P1 Wordpress theme general variables
 
 // Colors
-$colors: blue #225B66, cyan #17A3A5, green #8DBF67, yellow #FCCB56, red #E85248;
-@each $color-name, $color-value in $colors {
-	$primary-#{$color-name}: #{$color-value};
-	$lighter-#{$color-name}: lighten(#{$color-value}, 30%);
-	$darker-#{$color-name}: darken(#{$color-value}, 30%);
-}
+$darken: 30%;
+$lighten: 30%;
+$primary-blue: #225B66;
+$darker-blue: darken($primary-blue, $darken);
+$lighter-blue: lighten($primary-blue, $lighten);
+$primary-cyan: #17A3A5;
+$darker-cyan: darken($primary-cyan, $darken);
+$lighter-cyan: lighten($primary-cyan, $lighten);
+$primary-green: #8DBF67;
+$darker-green: darken($primary-green, $darken);
+$lighter-green: lighten($primary-green, $lighten);
+$primary-yellow: #FCCB56;
+$darker-yellow: darken($primary-yellow, $darken);
+$lighter-yellow: lighten($primary-yellow, $lighten);
+$primary-red: #E85248;
+$darker-red: darken($primary-red, $darken);
+$lighter-red: lighten($primary-red, $lighten);
 
 // Home.nav
-$home-nav-font-size: rem-calc(23);
+$home-nav-font-size: rem-calc(22);
+$home-nav-margin: $home-nav-font-size / 2;
+$home-nav-li-margin: rem-calc(11);
+$home-nav-a-color: $white;
+$home-nav-a-initial-opacity: 0.6;
+$home-nav-a-transition: opacity 1000ms;
+
+// Home.Article
+$home-article-bg-color: $white;
+$home-article-padding: rem-calc(16);
 
 // Width of the dropdown items in the topbar containing actionable buttons (search, social) for medium-up screens
 $topbar-dropdown-action-width: rem-calc(375);

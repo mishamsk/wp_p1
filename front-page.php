@@ -9,8 +9,6 @@
 	</section> <!-- #home-greeting -->
 	<section id="home-blog" data-page-name="blog">
 		<?php
-		global $more;    // Declare global $more (before the loop).
-		$more = 0;
 		$qblog = new WP_Query(array(
 			    'posts_per_page'   => 3,
 			    'post_type' => 'post',
@@ -21,6 +19,7 @@
 			<div class="row">
 				<div class="small-12 medium-6 columns">
 					<?php $qblog->the_post(); ?>
+					<div class="article-wrapper">
 						<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 							<header>
 								<?php if ( has_post_thumbnail() ) the_post_thumbnail(); ?>
@@ -28,25 +27,34 @@
 								<?php // FoundationPress_entry_meta(); ?>
 							</header>
 							<div class="entry-content">
-								<?php the_content(__('Continue reading...', 'prelovs')); ?>
+								<?php
+									global $more;    // Declare global $more (before the loop).
+									$more = 0;
+									the_content(__('Continue reading...', 'perlovs')); ?>
 							</div>
 						</article>
+					</div> <!-- .article-wrapper -->
 				</div> <!-- columns -->
 				<div class="small-12 medium-6 columns">
 					<div class="row">
 						<div class="small-12 columns">
 							<?php if ( $qblog->have_posts() ) :
 									$qblog->the_post(); ?>
-								<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-									<header>
-										<?php if ( has_post_thumbnail() ) the_post_thumbnail(); ?>
-										<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-										<?php // prelovs_entry_meta(); ?>
-									</header>
-									<div class="entry-content">
-										<?php the_content(__('Continue reading...', 'prelovs')); ?>
-									</div>
-								</article>
+								<div class="article-wrapper">
+									<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+										<header>
+											<?php if ( has_post_thumbnail() ) the_post_thumbnail(); ?>
+											<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+											<?php // prelovs_entry_meta(); ?>
+										</header>
+										<div class="entry-content">
+											<?php
+												global $more;    // Declare global $more (before the loop).
+												$more = 0;
+												the_content(__('Continue reading...', 'perlovs')); ?>
+										</div>
+									</article>
+								</div>
 							<?php else : ?>
 								<article class="empty">
 									<?php _e( 'That is all for now. We have to write more...', 'perlovs' ); ?>
@@ -56,16 +64,21 @@
 						<div class="small-12 columns">
 							<?php if ( $qblog->have_posts() ) :
 									$qblog->the_post(); ?>
-								<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-									<header>
-										<?php if ( has_post_thumbnail() ) the_post_thumbnail(); ?>
-										<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-										<?php // prelovs_entry_meta(); ?>
-									</header>
-									<div class="entry-content">
-										<?php the_content(__('Continue reading...', 'prelovs')); ?>
-									</div>
-								</article>
+								<div class="article-wrapper">
+									<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+										<header>
+											<?php if ( has_post_thumbnail() ) the_post_thumbnail(); ?>
+											<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+											<?php // prelovs_entry_meta(); ?>
+										</header>
+										<div class="entry-content">
+											<?php
+												global $more;    // Declare global $more (before the loop).
+												$more = 0;
+												the_content(__('Continue reading...', 'perlovs')); ?>
+										</div>
+									</article>
+								</div>
 							<?php else : ?>
 								<article class="empty">
 									<?php _e( 'That is all for now. We have to write more...', 'perlovs' ); ?>

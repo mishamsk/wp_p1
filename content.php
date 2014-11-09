@@ -15,7 +15,7 @@
 				<?php // FoundationPress_entry_meta(); ?>
 			</header>
 			<div class="entry-content">
-				<?php the_content(__('Continue reading...', 'FoundationPress')); ?>
+				<?php the_content(__('Continue reading...', 'perlovs')); ?>
 			</div>
 		</div>
 	</div> <!-- .row -->
