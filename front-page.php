@@ -9,6 +9,8 @@
 	</section> <!-- #home-greeting -->
 	<section id="home-blog" data-page-name="blog">
 		<?php
+		global $more;    // Declare global $more (before the loop).
+		$more = 0;
 		$qblog = new WP_Query(array(
 			    'posts_per_page'   => 3,
 			    'post_type' => 'post',
