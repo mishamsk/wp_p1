@@ -111,7 +111,7 @@
 					<li><a href="#blog" data-page-name="blog"><?php _e( 'Blog', 'perlovs' ); ?></a></li>
 					<li><a href="#travel" data-page-name="travel"><?php _e( 'Travel', 'perlovs' ); ?></a></li>
 					<li><a href="#authors" data-page-name="authors"><?php _e( 'Authors', 'perlovs' ); ?></a></li>
-					<li><a href="#credits" data-page-name="credits" class="icon-magnifying-glass"></a></li>
+					<li><a href="#credits" data-page-name="credits"><i class="icon-magnifying-glass"></i></a></li>
 				</ul>
 			</nav>
 			<section id="main" role="main">

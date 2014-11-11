@@ -1,34 +1,13 @@
-/*!
-Theme Name: P1
-Theme URI: http://perlovs.com/
-Author: Mikhail Perlov
-Author URI: http://perlovs.com/
-Description:
-Version: 0.0.2
-Tags: clean, colors, corporate, creative, flexible, ipad, iphone, isotope, light, modern, page builder, responsive, retina ready, shortcodes, slider, localization
-
-License: GNU General Public License v2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
-*/
 @charset "UTF-8";
 
 @import "compass/css3";
-@import "settings-front";
-@import "_fndtion";
-@import "_vars";
-@import "_p1icons";
-@import "_fonts";
-@import "_perlovs-logo";
-
-// -----------------------
-// Utility
-// -----------------------
-.full-width {
-	width: 100%;
-	margin-left: auto;
-	margin-right: auto;
-	max-width: initial;
-}
+@import "st-foundation";
+@import "st-fndtion-inc-front";
+@import "fndtion";
+@import "st-perlovs";
+@import "p1icons";
+@import "fonts";
+@import "perlovs-logo";
 
 // -----------------------
 // Home
@@ -43,165 +22,166 @@ body.home {
 	}
 	padding: 0;
 	width: 100%;
+}
 
-	nav {
-		position: fixed;
-		right: $column-gutter;
-		top: $home-nav-margin;
-		z-index: 999;
+nav {
+	position: fixed;
+	right: $column-gutter;
+	top: $home-nav-margin;
+	z-index: 999;
 
-		ul {
-			margin: 0;
-		}
-
-		li {
-			display: inline-block;
-			margin: 0 $home-nav-li-margin / 2;
-
-			a {
-				color: $home-nav-a-color;
-				font-family: $header-font-family;
-				font-size: $home-nav-font-size;
-				font-style: normal;
-				font-weight: lighter;
-				opacity: $home-nav-a-initial-opacity;
-				text-decoration: none;
-				@include transition($home-nav-a-transition);
-
-				&.current, &:hover {
-					opacity: 1;
-				}
-
-				&:visited {
-					color: $home-nav-a-color;
-				}
-			}
-		}
-	}
-
-	#main {
-		height: 100%;
+	ul {
 		margin: 0;
-		overflow: auto;
-		@media #{$medium-up} {
-			overflow: hidden;
-		}
-		padding: 0;
-		width: 100%;
-
-		.home-wrapper {
-			float: left;
-			height: 100%;
-			margin: 0 auto;
-			min-height: 100%;
-			@media #{$medium-up} {
-				min-height: none;
-			}
-			position: relative;
-			width: 100%;
-
-		}
 	}
 
-	section:not(#main), footer {
-		background-attachment: scroll;
-		background-position: center center;
-		background-repeat: no-repeat;
-		background-size: cover;
-		height: 100%;
-		left: auto;
+	li {
+		display: inline-block;
+		margin: 0 $home-nav-li-margin / 2;
+
+		a {
+			color: $home-nav-a-color;
+			font-family: $header-font-family;
+			font-size: $home-nav-font-size;
+			font-style: normal;
+			font-weight: lighter;
+			opacity: $home-nav-a-initial-opacity;
+			text-decoration: none;
+			@include transition($home-nav-a-transition);
+
+			&.current, &:hover {
+				opacity: 1;
+			}
+
+			&:visited {
+				color: $home-nav-a-color;
+			}
+		}
+	}
+}
+
+#main {
+	height: 100%;
+	margin: 0;
+	overflow: auto;
+	@media #{$medium-up} {
 		overflow: hidden;
-		padding: $home-nav-margin * 2 + $home-nav-font-size * ($base-line-height / 100%) 0;
-		position: relative;
+	}
+	padding: 0;
+	width: 100%;
+
+	@include translate3d(0, 0, 0);
+}
+
+.home-wrapper {
+	float: left;
+	height: 100%;
+	margin: 0 auto;
+	position: relative;
+	width: 100%;
+}
+
+section:not(#main), footer {
+	background-attachment: scroll;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	min-height: 100%;
+	left: auto;
+	padding: $home-nav-margin * 2 + $home-nav-font-size * $base-line-height 0 0 0;
+	position: relative;
+	top: auto;
+	width: 100%;
+
+	@media #{$medium-up} {
+		height: 100%;
+		overflow: hidden;
+		padding: $home-nav-margin * 2 + $home-nav-font-size * $base-line-height 0;
+		position: absolute;
+	}
+}
+
+@each $section, $pos, $bg-color, $bg-image in
+		(home-greeting, 1, $primary-blue, fback-greeting),
+		(home-blog, 2, $darker-cyan),
+		(home-travel, 3, $lighter-green),
+		(home-authors, 4, $primary-yellow),
+		(page-footer, 5, $charcoal) {
+	##{$section} {
+		@if $bg-image != null {
+			background-image: image-url("#{$bg-image}.jpg");
+		}
+		@else {
+			background-color: $bg-color;
+		}
 		@media #{$medium-up} {
-			position: absolute;
-		}
-		top: auto;
-		width: 100%;
-	}
-
-	@each $section, $pos, $bg-color, $bg-image in
-			(home-greeting, 1, $primary-blue, fback-greeting),
-			(home-blog, 2, $darker-cyan),
-			(home-travel, 3, $lighter-green),
-			(home-authors, 4, $primary-yellow),
-			(page-footer, 5, $charcoal) {
-		##{$section} {
-			@if $bg-image != null {
-				background-image: image-url("#{$bg-image}.jpg");
-			}
-			@else {
-				background-color: $bg-color;
-			}
-			@media #{$medium-up} {
-				top: ($pos - 1) * 100% !important;
-			}
+			top: ($pos - 1) * 100% !important;
 		}
 	}
+}
 
-	#home-greeting {
-		padding-top: 0;
-		top: 0;
+#home-greeting {
+	height: 100% !important;
+	padding-top: 0 !important;
+	top: 0 !important;
 
-		.row {
-			left: 50%;
-			position: absolute;
-			top: 50%;
-			@include translate($translate-x: -50%, $translate-y: -50%);
+	.row {
+		left: 50%;
+		position: absolute;
+		top: 50%;
+		@include translate($translate-x: -50%, $translate-y: -50%);
 
-			p {
-				color: $white;
-				margin-top: -1rem;
-			}
-
+		p {
+			color: $white;
+			margin-top: -1rem;
 		}
 
-		// Logo
-		@include perlovs-logo($base-size: 1.5rem);
-
-		@media #{$medium-up} {
-			@include perlovs-logo($base-size: 2rem);
-		}
 	}
 
-	#home-blog, #home-travel {
-		.row {
+	// Logo
+	@include perlovs-logo($base-size: 1.5rem);
+
+	@media #{$medium-up} {
+		@include perlovs-logo($base-size: 2rem);
+	}
+}
+
+#home-blog, #home-travel {
+	.row {
+		height: 100%;
+
+		> .column, > .columns {
 			height: 100%;
+		}
 
-			> .column, > .columns {
-				height: 100%;
-			}
+		.article-wrapper {
+			background-color: $home-article-bg-color;
+			margin-bottom: $home-article-padding;
+			max-height: 100%;
+			overflow: hidden;
+			padding: $home-article-padding $home-article-padding 0;
+			position: relative;
 
-			.article-wrapper {
+			&:after{
+				content: ' ';
+				display: block;
 				background-color: $home-article-bg-color;
-				margin-bottom: $home-article-padding;
-				max-height: 100%;
-				overflow: hidden;
-				padding: $home-article-padding $home-article-padding 0;
-				position: relative;
-
-				&:after{
-					content: ' ';
-					display: block;
-					background-color: $home-article-bg-color;
-					height: $home-article-padding;
-					width: 100%;
-					position: absolute;
-					bottom: 0;
-				}
+				height: $home-article-padding;
+				width: 100%;
+				position: absolute;
+				bottom: 0;
 			}
+		}
 
-			article {
-				.entry-content a {
-					@include button();
-				}
+		article {
+			.entry-content a {
+				@include button();
 			}
 		}
 	}
+}
 
-	#home-authors {
+#home-authors {
 
-	}
 }
 
 // -----------------------
@@ -247,13 +227,10 @@ body.home {
 	#social-google-plus { background: $primary-red; }
 	#social-email { background: $primary-yellow; }
 
-	.top-bar & {
-		vertical-align: middle;
-		width: $topbar-dropdown-action-width;
+	vertical-align: middle;
 
-		.has-tip {
-			border-bottom: none;
-		}
+	.has-tip {
+		border-bottom: none;
 	}
 }
 

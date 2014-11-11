@@ -13,12 +13,13 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 @charset "UTF-8";
 
 @import "compass/css3";
-@import "settings";
-@import "_fndtion";
-@import "_p1icons";
-@import "_fonts";
-@import "_vars";
-@import "_perlovs-logo";
+@import "st-foundation";
+@import "st-fndtion-inc-general";
+@import "fndtion";
+@import "st-perlovs";
+@import "p1icons";
+@import "fonts";
+@import "perlovs-logo";
 
 // -----------------------
 // General CSS fizes, best-prectices
