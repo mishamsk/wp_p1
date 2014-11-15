@@ -48,3 +48,14 @@ $tabbar-search-form-font-size: rem-calc(15);
 
 // Tab bar icon font-size
 $tabbar-icon-font-size: $tabbar-height/2;
+
+// Float nav
+$float-nav-offset: rem-calc(15);
+$float-nav-button-diameter: rem-calc(54);
+$float-nav-button-font-size: rem-calc(38);
+$float-nav-button-margin: rem-calc(8);
+$float-nav-button-transition: bottom 300ms ease;
+$float-nav-button-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.4);
+
+// Off canvas
+$off-canvas-transition: all 500ms ease;

@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: P1 v0.0.2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2014-09-24 18:27:23+0000\n"
+"PO-Revision-Date: 2014-11-15 12:45:13+0000\n"
 "Last-Translator: misha <mishamsk@gmail.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -20,19 +20,341 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Textdomain-Support: yes"
 
-#: footer.php:12
+#: footer.php:25
 #, php-format
 #@ perlovs
 msgid "Copyright &copy; %s %s. All Rights Reserved."
 msgstr "Copyright &copy; %s %s. Все права защищены."
 
-#: lib/navigation.php:8
+#: lib/navigation.php:60
 #@ perlovs
 msgid "Right top bar menu"
 msgstr "Меню в заголовке справа"
 
-#: lib/navigation.php:9
+#: lib/navigation.php:61
 #@ perlovs
 msgid "Mobile Menu"
 msgstr "Мобильное меню"
+
+#: 404.php:8
+#@ FoundationPress
+msgid "File Not Found"
+msgstr ""
+
+#: 404.php:12
+#@ FoundationPress
+msgid "The page you are looking for might have been removed, had its name changed, or is temporarily unavailable."
+msgstr ""
+
+#: 404.php:14
+#@ FoundationPress
+msgid "Please try the following:"
+msgstr ""
+
+#: 404.php:16
+#@ FoundationPress
+msgid "Check your spelling"
+msgstr ""
+
+#: 404.php:17
+#, php-format
+#@ FoundationPress
+msgid "Return to the <a href=\"%s\">home page</a>"
+msgstr ""
+
+#: 404.php:18
+#@ FoundationPress
+msgid "Click the <a href=\"javascript:history.back()\">Back</a> button"
+msgstr ""
+
+#: comments.php:4
+#@ perlovs
+msgid "Cheating is bad!"
+msgstr ""
+
+#: comments.php:9
+#@ perlovs
+msgid "This post is password protected. Enter the password to view comments."
+msgstr ""
+
+#: content-none.php:11
+#@ FoundationPress
+msgid "Nothing Found"
+msgstr ""
+
+#: content-none.php:17
+#, php-format
+#@ FoundationPress
+msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr ""
+
+#: content-none.php:21
+#@ FoundationPress
+msgid "Sorry, but nothing matched your search terms. Please try again with some different keywords."
+msgstr ""
+
+#: content-none.php:26
+#@ FoundationPress
+msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
+msgstr ""
+
+#: content.php:18
+#: front-page.php:33
+#: front-page.php:54
+#: front-page.php:78
+#@ perlovs
+msgid "Continue reading..."
+msgstr ""
+
+#: footer.php:16
+#@ perlovs
+msgid "Share:"
+msgstr ""
+
+#: footer.php:19
+#@ perlovs
+msgid "Search:"
+msgstr ""
+
+#: footer.php:28
+#, php-format
+#@ perlovs
+msgid "Credits and honors: %s."
+msgstr ""
+
+#: footer.php:28
+#@ default
+msgid "here"
+msgstr ""
+
+#: front-page.php:6
+#@ perlovs
+msgid "We blog about Life, the Universe, and Everything"
+msgstr ""
+
+#: front-page.php:60
+#: front-page.php:84
+#@ perlovs
+msgid "That is all for now. We have to write more..."
+msgstr ""
+
+#: front-page.php:94
+#@ perlovs
+msgid "Oops, nothing have been posted in here yet..."
+msgstr ""
+
+#: header.php:54
+#@ perlovs
+msgid "Share if you care,"
+msgstr ""
+
+#: header.php:56
+#@ perlovs
+msgid "or search for more..."
+msgstr ""
+
+#: header.php:111
+#@ perlovs
+msgid "Blog"
+msgstr ""
+
+#: header.php:112
+#: lib/travel.php:36
+#@ perlovs
+msgid "Travel"
+msgstr ""
+
+#: header.php:113
+#@ perlovs
+msgid "Authors"
+msgstr ""
+
+#: lib/entry-helpers.php:15
+#, php-format
+#@ FoundationPress
+msgid "Posted on %s at %s."
+msgstr ""
+
+#: lib/entry-helpers.php:16
+#@ FoundationPress
+msgid "Written by"
+msgstr ""
+
+#: lib/navigation.php:156
+#: lib/navigation.php:168
+#@ perlovs
+msgid "&laquo;"
+msgstr ""
+
+#: lib/navigation.php:157
+#: lib/navigation.php:187
+#@ perlovs
+msgid "&raquo;"
+msgstr ""
+
+#: lib/navigation.php:174
+#@ default
+#@ perlovs
+msgid "&hellip;"
+msgstr ""
+
+#: lib/travel.php:21
+#@ perlovs
+msgctxt "taxonomy general name"
+msgid "Travel"
+msgstr "Путешествия"
+
+#: lib/travel.php:22
+#@ perlovs
+msgctxt "taxonomy singular name"
+msgid "Trip"
+msgstr "Поездка"
+
+#: lib/travel.php:23
+#@ perlovs
+msgid "Search for Trips"
+msgstr "Искать в путешествиях"
+
+#: lib/travel.php:24
+#@ perlovs
+msgid "Popular Trips"
+msgstr "Популярные путешествия"
+
+#: lib/travel.php:25
+#@ perlovs
+msgid "All Trips"
+msgstr "Все путешествия"
+
+#: lib/travel.php:28
+#@ perlovs
+msgid "Edit Trip"
+msgstr "Редактировать поездку"
+
+#: lib/travel.php:29
+#@ perlovs
+msgid "Update Trip"
+msgstr "Обновить поездку"
+
+#: lib/travel.php:30
+#@ perlovs
+msgid "Add New Trip"
+msgstr "Добавить новую поездку"
+
+#: lib/travel.php:31
+#@ perlovs
+msgid "New Trip Name"
+msgstr "Имя новой поездки"
+
+#: lib/travel.php:32
+#@ perlovs
+msgid "Separate trips with commas"
+msgstr "Путешествия через запятую"
+
+#: lib/travel.php:33
+#@ perlovs
+msgid "Add or remove trips"
+msgstr "Добавить или удалить путешествия"
+
+#: lib/travel.php:34
+#@ perlovs
+msgid "Choose from the most used trips"
+msgstr "Выбрать из популярных путешествий"
+
+#: lib/travel.php:35
+#@ perlovs
+msgid "No trips found."
+msgstr "Путешествия не найдены"
+
+#: lib/travel.php:52
+#@ perlovs
+msgctxt "taxonomy general name"
+msgid "Countries"
+msgstr "Страны"
+
+#: lib/travel.php:53
+#@ perlovs
+msgctxt "taxonomy singular name"
+msgid "Country"
+msgstr "Страна"
+
+#: lib/travel.php:54
+#@ perlovs
+msgid "Search for Countries"
+msgstr "Искать страны"
+
+#: lib/travel.php:55
+#@ perlovs
+msgid "Popular Countries"
+msgstr "Популярные страны"
+
+#: lib/travel.php:56
+#@ perlovs
+msgid "All Countries"
+msgstr "Все страны"
+
+#: lib/travel.php:59
+#@ perlovs
+msgid "Edit Country"
+msgstr "Редактировать страну"
+
+#: lib/travel.php:60
+#@ perlovs
+msgid "Update Country"
+msgstr "Обновить страну"
+
+#: lib/travel.php:61
+#@ perlovs
+msgid "Add New Country"
+msgstr "Добавить новую страну"
+
+#: lib/travel.php:62
+#@ perlovs
+msgid "New Country Name"
+msgstr "Имя новой страны"
+
+#: lib/travel.php:63
+#@ perlovs
+msgid "Separate countries with commas"
+msgstr "Страны через запятую"
+
+#: lib/travel.php:64
+#@ perlovs
+msgid "Add or remove countries"
+msgstr "Добавить или удалить страны"
+
+#: lib/travel.php:65
+#@ perlovs
+msgid "Choose from the most common countries"
+msgstr "Выбрать из популярных стран"
+
+#: lib/travel.php:66
+#@ perlovs
+msgid "No countries found."
+msgstr "Страны не найдены"
+
+#: lib/travel.php:67
+#@ perlovs
+msgid "Countries"
+msgstr "Страны"
+
+#: searchform.php:14
+#@ perlovs
+msgid "Looking for something? Just search..."
+msgstr ""
+
+#: searchform.php:17
+#@ perlovs
+msgid "Type in and hit enter..."
+msgstr ""
+
+#: searchform.php:20
+#@ perlovs
+msgid "Go!"
+msgstr ""
+
+#: single.php:18
+#: travel.php:22
+#@ perlovs
+msgid "Pages:"
+msgstr ""
 

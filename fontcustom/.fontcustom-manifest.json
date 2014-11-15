@@ -1,7 +1,7 @@
 {
   "checksum": {
-    "previous": "2b29ced6a158e6c2d3e3a90232c4cd28733bf21ef3b63b1f30e79cf25a72da43",
-    "current": "2b29ced6a158e6c2d3e3a90232c4cd28733bf21ef3b63b1f30e79cf25a72da43"
+    "previous": "c7381d83d0e309811715fd59a245b2cfa2e537bf1ccacfb97cb646ccc5b75e81",
+    "current": "c7381d83d0e309811715fd59a245b2cfa2e537bf1ccacfb97cb646ccc5b75e81"
   },
   "fonts": [
     "../fonts/p1icons.ttf",
@@ -13,6 +13,22 @@
     "at-sign": {
       "codepoint": 61761,
       "source": "vectors/at-sign.svg"
+    },
+    "g-menu": {
+      "codepoint": 61774,
+      "source": "vectors/g-menu.svg"
+    },
+    "g-more-vert": {
+      "codepoint": 61775,
+      "source": "vectors/g-more-vert.svg"
+    },
+    "g-search": {
+      "codepoint": 61776,
+      "source": "vectors/g-search.svg"
+    },
+    "g-share": {
+      "codepoint": 61777,
+      "source": "vectors/g-share.svg"
     },
     "info": {
       "codepoint": 61762,

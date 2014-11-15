@@ -5,6 +5,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 	header( 'HTTP/1.1 403 Forbidden' );
 	exit;
 }
+/**
+*
+*	Various navigation functions (menu walkers, breadcrumbs, pagination)
+*
+*/
+
 
 /**
  * Customize the output of menus for Foundation top bar

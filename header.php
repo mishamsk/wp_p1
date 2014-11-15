@@ -25,97 +25,94 @@
 	<?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
+
 	<!--[if lt IE 9]>
 	<div class="ie-support" style="width: 700px; height: 400px; margin: 0 auto; font-size: 40px;">
 		Извините, но этот сайт не поддерживает ваш бразуер (IE 8 и младше).</br>
 		Гораздо лучше и приятнее смотреть его в чем-то более современном!;)
 	</div>
 	<![endif]-->
+
+	<header id="page-header" role="banner">
 	<?php
-		// Front-page do not use top-bar header
+	/*
+	*
+	*	Header for all pages except front page
+	*
+	*/
 	if (!is_front_page()) :
-		?>
-	<div class="off-canvas-wrap" data-offcanvas>
+	?>
 
-		<header id="header" role="banner" class="fixed off-canvas-fixed">
-			<nav class="tab-bar show-for-small-only">
-				<section class="tab-bar-title">
-					<!-- <h1 class="text-left title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1> -->
-					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><div class="logo"><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></a>
-				</section>
-				<section class="tab-bar-buttons">
-					<a href="#" data-reveal-id="search-share-modal" class="icon-share"><span></span></a>
-					<a id="tab-bar-search-toggle" href="#" data-reveal-id="search-share-modal" class="icon-magnifying-glass"><span></span></a>
-				</section>
-				<section class="right-small">
-					<a class="right-off-canvas-toggle menu-icon" href="#"><span></span></a>
-				</section>
-				<div id="search-share-modal" class="reveal-modal large" data-reveal>
-					<h1 class="text-center"><?php _e( 'Share if you care,', 'perlovs' ); ?></h1>
-					<div class="row collapse"><div class="small-12 columns"><?php p1_social(); ?></div></div>
-					<h1 class="text-center"><?php _e( 'or search for more...', 'perlovs' ); ?></h1>
-					<div class="search-container"><?php get_search_form(); ?></div>
-					<a class="close-reveal-modal">&#215;</a>
-				</div>
-			</nav>
-			<aside class="right-off-canvas-menu" aria-hidden="true">
-				<?php menu_mobile_off_canvas(); ?>
-			</aside>
-			<div class="contain-to-grid">
-				<nav class="top-bar show-for-medium-up" data-topbar role="navigation">
-					<ul class="title-area">
-						<!-- <li class="name">
-							<h1><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-						</li>-->
-						<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><div class="logo"><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></a>
-						<li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
-					</ul>
+		<section class="tab-bar">
+			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="tab-bar-title" rel="home"><div class="logo"><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></a>
+		</section>
+		<nav class="float-nav" role="navigation">
+			<div class="social-container"><?php p1_social(); ?></div>
+			<div class="search-container"><?php get_search_form(); ?></div>
+			<a href="#" class="right-off-canvas-toggle icon-g-menu"></a>
+			<a href="#" class="share-toggle icon-g-share"></a>
+			<a href="#" class="search-toggle icon-g-search"></a>
+			<a href="#" class="nav-toggle icon-g-more-vert"></a>
+		</nav>
+		<aside class="right-off-canvas-menu" aria-hidden="true">
+			<?php menu_mobile_off_canvas(); ?>
+			<a class="exit-off-canvas"></a>
+		</aside>
+		<nav class="top-bar" data-topbar role="navigation">
+			<ul class="title-area">
+				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><div class="logo"><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></a>
+				<li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
+			</ul>
 
-					<section class="top-bar-section">
-						<!-- Right But Section -->
-						<ul class="top-bar-menu right">
-							<li class="divider"></li>
-							<li class="has-dropdown">
-								<a href="#" class="icon-share"></a>
-								<ul class="dropdown">
-									<li><?php p1_social(); ?></li>
-								</ul>
-							</li>
-							<li class="divider"></li>
-							<li class="has-dropdown search-toggle">
-								<a href="#" class="icon-magnifying-glass"></a>
-								<ul class="dropdown">
-									<li>
-										<div class="search-container">
-											<?php get_search_form(); ?>
-										</div>
-									</li>
-								</ul>
+			<section class="top-bar-section">
+				<!-- Right But Section -->
+				<ul class="top-bar-menu right">
+					<li class="divider"></li>
+					<li class="has-dropdown">
+						<a href="#" class="icon-share"></a>
+						<ul class="dropdown">
+							<li><?php p1_social(); ?></li>
+						</ul>
+					</li>
+					<li class="divider"></li>
+					<li class="has-dropdown search-toggle">
+						<a href="#" class="icon-magnifying-glass"></a>
+						<ul class="dropdown">
+							<li>
+								<div class="search-container">
+									<?php get_search_form(); ?>
+								</div>
 							</li>
 						</ul>
-					</section>
-					<section class="top-bar-section">
-						<!-- Right Nav Section -->
-						<?php menu_top_bar_r(); ?>
-					</section>
-				</nav>
-			</div>
-			<a class="exit-off-canvas"></a>
-		</header><!-- #header -->
-
-		<div id="page" class="inner-wrap">
-			<section id="main" role="main">
-		<?php else :  ?>
-			<nav role="navigation">
-				<ul>
-					<li><a href="#blog" data-page-name="blog"><?php _e( 'Blog', 'perlovs' ); ?></a></li>
-					<li><a href="#travel" data-page-name="travel"><?php _e( 'Travel', 'perlovs' ); ?></a></li>
-					<li><a href="#authors" data-page-name="authors"><?php _e( 'Authors', 'perlovs' ); ?></a></li>
-					<li><a href="#credits" data-page-name="credits"><i class="icon-magnifying-glass"></i></a></li>
+					</li>
 				</ul>
-			</nav>
-			<section id="main" role="main">
-				<div class="home-wrapper">
+			</section>
+			<section class="top-bar-section">
+				<!-- Right Nav Section -->
+				<?php menu_top_bar_r(); ?>
+			</section>
+		</nav>
 
-		<?php endif; // end !is_front_page() check ?>
+	<?php
+	/*
+	*
+	*	Header for the front page
+	*
+	*/
+		else :
+	?>
+
+		<nav role="navigation">
+			<ul>
+				<li><a href="#blog" data-page-name="blog"><?php _e( 'Blog', 'perlovs' ); ?></a></li>
+				<li><a href="#travel" data-page-name="travel"><?php _e( 'Travel', 'perlovs' ); ?></a></li>
+				<li><a href="#authors" data-page-name="authors"><?php _e( 'Authors', 'perlovs' ); ?></a></li>
+				<li><a href="#credits" data-page-name="credits"><i class="icon-magnifying-glass"></i></a></li>
+			</ul>
+		</nav>
+
+	<?php endif; // end !is_front_page() check ?>
+
+	</header><!-- #page-header -->
+	<section id="main" role="main">
 

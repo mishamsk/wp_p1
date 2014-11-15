@@ -15,143 +15,30 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 @import "compass/css3";
 @import "st-foundation";
 @import "st-fndtion-inc-general";
-@import "fndtion";
+@import "normalize";
+@import "foundation";
 @import "st-perlovs";
 @import "p1icons";
 @import "fonts";
 @import "perlovs-logo";
 
 // -----------------------
-// General CSS fizes, best-prectices
+// General grid
 // -----------------------
-// html {
-// 	@include box-sizing(content-box);
-// }
-// *, *:before, *:after {
-// 	@include box-sizing(inherit);
-// }
-// body:not(.home) {
-// 	@include box-sizing(border-box);
-// }
-// -----------------------
-// Utility
-// -----------------------
-.full-width {
-	width: 100%;
-	margin-left: auto;
-	margin-right: auto;
-	max-width: initial;
-}
 
-// -----------------------
-// Home
-// -----------------------
-body.home {
-
-	height: 100%;
-	margin: 0;
-	overflow: hidden;
-	padding: 0;
-	width: 100%;
-	// @include transition(opacity 400ms);
-
-
-	#main {
-		height: 100%;
-		margin: 0;
-		overflow: hidden;
-		padding: 0;
-		width: 100%;
-
-		.home-wrapper {
-			float: left;
-			height: 100%;
-			margin: 0 auto;
-			width: 100%;
-			// display: block;
-			// -webkit-transform-style: preserve-3d;
-		}
-	}
-
-	section:not(#main), footer {
-		background-attachment: fixed;
-		// background-color: $white;
-		background-position: center center;
-		background-repeat: no-repeat;
-		background-size: cover;
-		height: 100%;
-		overflow: hidden;
-		position: relative;
-		width: 100%;
-
-		&:last-of-type {
-			height: initial;
-		}
-
-		.home-background {
-			min-height: 100%;
-			min-width: 100%;
-			left: 50%;
-			position: absolute;
-			top: 50%;
-			transform: translate3d(-50%,-50%,0);
-		}
-		// @include box-sizing(content-box);
-	}
-
-	#home-greeting {
-		// background-image: image-url("fback_greeting.jpg");
-		background-color: $primary-blue;
-		padding-top: 0;
-		top: 0;
-
-		.row {
-			left: 50%;
-			position: absolute;
-			top: 50%;
-			@include translate($translate-x: -50%, $translate-y: -50%);
-
-			p {
-				color: $white;
-				margin-top: -1rem;
-			}
-
-		}
-
-		// Logo
-		@include perlovs-logo($base-size: 1.5rem);
-
-		@media #{$medium-up} {
-			@include perlovs-logo($base-size: 2rem);
-		}
-	}
-
-	#home-blog {
-		// background-image: image-url("fback_greeting.jpg");
-		background-color: $primary-cyan;
-	}
-
-	#home-authors {
-		// background-image: image-url("fback_authors.jpg");
-		background-color: $primary-red;
-	}
-
-	#home-travel {
-		// background-image: image-url("fback_travel.jpg");
-	}
+section, article {
+	@include grid-row();
 }
 
 // -----------------------
 // Header
 // -----------------------
 
-// shift down content area for fixed header and for front-page
-body:not(.home) #main {
-	padding-top: $tabbar-height;
-
-	@media #{$medium-up} {
-		padding-top: $topbar-height;
-	}
+#page-header {
+	background-color: $tabbar-bg;
+	height: $tabbar-height;
+	overflow-x: hidden;
+	width: 100%;
 }
 
 // off canvas menu fix
@@ -187,34 +74,135 @@ body:not(.home) #main {
 	}
 }
 
-// tab-bar fixes
-.tab-bar-buttons {
-	height: $tabbar-height;
-	position: absolute;
-	right: $tabbar-icon-width;
-	text-align: center;
-	top: 0;
+// Tab-bar
+.tab-bar {
+	display: block;
+	position: relative;
+
+	@media #{$medium-up} {
+		display: none;
+	}
 }
 
 .tab-bar-title {
+	display: block;
 	height: $tabbar-height;
-	left: 0;
-	padding: $tabbar-middle-padding;
-	position: absolute;
-	text-align: left;
-	top: 0;
+	color: $white;
 
-	h1 {
-		font-size: $tabbar-height / 2;
-		a {
-			color: $white;
-		}
-	}
-
+	@include grid-column(
+		  $columns:12,
+		  $center:true);
 	@include perlovs-logo($base-size: $tabbar-height/4);
 }
 
+// Float nav
+.float-nav {
+	bottom: $float-nav-offset;
+	display: block;
+	margin: 0;
+	padding: 0;
+	position: fixed;
+	right: $float-nav-button-diameter + $float-nav-offset;
+	text-align: center;
+	text-indent: 0;
+
+	@media #{$large-up} {
+		display: none;
+	}
+
+	a {
+		bottom: 0;
+		color: $white;
+		display: block;
+		font-size: $float-nav-button-font-size;
+		height: $float-nav-button-diameter;
+		left: 0;
+		position: absolute;
+		width: $float-nav-button-diameter;
+		z-index: 100;
+
+		@include transition($float-nav-button-transition);
+		@include border-radius(50%);
+		@include box-shadow($float-nav-button-shadow);
+
+	}
+
+	.nav-toggle {
+		background-color: $primary-blue;
+		z-index: 101;
+	}
+
+	.right-off-canvas-toggle {
+		background-color: $primary-green;
+	}
+
+	.search-toggle {
+		background-color: $primary-red;
+	}
+
+	.share-toggle {
+		background-color: $primary-yellow;
+	}
+
+	&.expanded {
+		.right-off-canvas-toggle {
+			bottom: ($float-nav-button-diameter + $float-nav-button-margin) * 1;
+		}
+
+		.search-toggle {
+			bottom: ($float-nav-button-diameter + $float-nav-button-margin) * 2;
+		}
+
+		.share-toggle {
+			bottom: ($float-nav-button-diameter + $float-nav-button-margin) * 3;
+		}
+	}
+
+	.icon-menu {
+		text-indent: $tabbar-menu-icon-text-indent;
+		color: $tabbar-menu-icon-color;
+		transform: translate3d(0,0,0);
+
+		// @include for the hamburger menu-icon
+		//
+		// Arguments as follows: ($width, $left, $top, $thickness, $gap, $color, $hover-color)
+		// $width - Width of hamburger icon in rem Default: $tabbar-hamburger-icon-width.
+		// $left - If false, icon will be centered horizontally || explicitly set value in rem Default: $tabbar-hamburger-icon-left= False
+		// $top - If false, icon will be centered vertically || explicitly set value in rem Default: = False
+		// $thickness - thickness of lines in hamburger icon, set value in px Default: $tabbar-hamburger-icon-thickness = 1px
+		// $gap - spacing between the lines in hamburger icon, set value in px Default: $tabbar-hamburger-icon-gap = 6px
+		// $color - icon color Default: $tabbar-menu-icon-color
+		// $hover-color - icon color when hovered Default: $tabbar-menu-icon-hover
+		// $offcanvas - Set to true
+		@include hamburger($tabbar-hamburger-icon-width, $tabbar-hamburger-icon-left, $tabbar-hamburger-icon-top, $tabbar-hamburger-icon-thickness, $tabbar-hamburger-icon-gap, $tabbar-menu-icon-color, $tabbar-menu-icon-hover, true)
+	  }
+
+	.social-container, .search-container {
+		display: none;
+	}
+}
+
+// Off canvas
+.right-off-canvas-menu {
+	height: 100vh;
+	width: 100%;
+
+	@include transition($off-canvas-transition);
+	@include translate3d(100%, 0, 0);
+}
+// Top-bar
 .top-bar {
+	display: none;
+
+	// @media #{$medium-up} {
+	// 	display: block;
+	// 	position: relative;
+	// }
+
+	// @media #{$large-up} {
+	// 	position: fixed;
+	// }
+
 	@include perlovs-logo($base-size: $topbar-height/4, $margin: 0 0 0 $column-gutter/2);
 }
 
@@ -237,10 +225,6 @@ body:not(.home) #main {
 	}
 
 	#search-share-modal & {
-		@include grid-row(collapse);
-	}
-
-	.home & {
 		@include grid-row(collapse);
 	}
 }
@@ -266,12 +250,6 @@ body:not(.home) #main {
 		font-size: $tabbar-search-form-font-size;
 		padding: $tabbar-search-field-padding;
 	}
-
-	.home & {
-		@include grid-column($columns:10);
-		font-size: $tabbar-search-form-font-size;
-		padding: $tabbar-search-field-padding;
-	}
 }
 
 .search-submit {
@@ -283,13 +261,6 @@ body:not(.home) #main {
 		@include grid-column($columns:2);
 		@include button(
 			$padding:null);
-		font-size: $tabbar-search-form-font-size;
-		padding: $tabbar-search-submit-padding;
-	}
-
-	.home & {
-		@include grid-column($columns:2);
-		@include button();
 		font-size: $tabbar-search-form-font-size;
 		padding: $tabbar-search-submit-padding;
 	}
@@ -318,5 +289,25 @@ body:not(.home) #main {
 }
 
 // -----------------------
+// Main
+// -----------------------
+
+// shift down content area for fixed header and for front-page
+#main {
+	padding-top: $tabbar-height;
+
+	@media #{$medium-up} {
+		padding-top: $topbar-height;
+	}
+
+	width: 100%;
+}
+
+// -----------------------
 // Footer
 // -----------------------
+
+#page-footer {
+	background-color: $tabbar-bg;
+	width: 100%;
+}

@@ -4,40 +4,46 @@
  */
 ?>
 	<?php
-		// Everything except Front-page
+	/*
+	*
+	*	Header for all pages except front page
+	*
+	*/
 		if (!is_front_page()) :
 	?>
-			</section><!-- #main -->
-	<?php endif; // end !is_front_page() check ?>
-
-			<footer id="page-footer" role="contentinfo" data-page-name="credits">
-				<div class="row">
-					<div class="small-12 medium-6 columns">
-						<p class="text-center"><?php _e( 'Share:', 'perlovs' ); ?></p><?php p1_social(); ?>
-					</div>
-					<div class="small-12 medium-6 columns">
-						<p class="text-center"><?php _e( 'Search:', 'perlovs' ); ?></p>
-						<div class="search-container"><?php get_search_form(); ?></div>
-					</div><!-- .small-12 columns -->
-				</div><!-- .row -->
-				<div class="row">
-					<div class="small-12 medium-6 columns">
-						<span class="left"><small><?php printf( __( 'Copyright &copy; %s %s. All Rights Reserved.', 'perlovs' ), date( 'Y' ), ' <a href="' . home_url() . '">' . get_bloginfo( 'name' ) .'</a>' ); ?></small></span>
-					</div><!-- .small-12 columns -->
-					<div class="small-12 medium-6 columns">
-						<span class="right"><small><?php printf( __( 'Credits and honors: %s.', 'perlovs' ), ' <a href="' . home_url() . '">' . __( 'here' ) .'</a>' ); ?></small></span>
-					</div><!-- .small-12 columns -->
-				</div><!-- .row -->
-			</footer><!-- #page-footer -->
+		</section><!-- #main -->
+		<footer id="page-footer" role="contentinfo" data-page-name="credits">
+			<span id="copyright"><?php printf( __( 'Copyright &copy; %s %s. All Rights Reserved.', 'perlovs' ), date( 'Y' ), ' <a href="' . home_url() . '">' . get_bloginfo( 'name' ) .'</a>' ); ?></span>
+			<span id="credits"><?php printf( __( 'Credits and honors: %s.', 'perlovs' ), ' <a href="' . home_url() . '/credits/">' . __( 'here' ) .'</a>' ); ?></span>
+		</footer><!-- #page-footer -->
 
 	<?php
-		// Everything except Front-page
-		if (!is_front_page()) :
+	/*
+	*
+	*	Header for the front page
+	*
+	*/
+		else :
 	?>
-			<a class="exit-off-canvas"></a>
-		</div><!-- #page -->
-	</div><!-- .off-canvas-wrap -->
-	<?php else : ?>
+				<footer id="page-footer" role="contentinfo" data-page-name="credits">
+					<div class="row">
+						<div class="small-12 medium-6 columns">
+							<p class="text-center"><?php _e( 'Share:', 'perlovs' ); ?></p><?php p1_social(); ?>
+						</div>
+						<div class="small-12 medium-6 columns">
+							<p class="text-center"><?php _e( 'Search:', 'perlovs' ); ?></p>
+							<div class="search-container"><?php get_search_form(); ?></div>
+						</div><!-- .small-12 columns -->
+					</div><!-- .row -->
+					<div class="row">
+						<div class="small-12 medium-6 columns">
+							<span class="left"><small><?php printf( __( 'Copyright &copy; %s %s. All Rights Reserved.', 'perlovs' ), date( 'Y' ), ' <a href="' . home_url() . '">' . get_bloginfo( 'name' ) .'</a>' ); ?></small></span>
+						</div><!-- .small-12 columns -->
+						<div class="small-12 medium-6 columns">
+							<span class="right"><small><?php printf( __( 'Credits and honors: %s.', 'perlovs' ), ' <a href="' . home_url() . '/credits/">' . __( 'here' ) .'</a>' ); ?></small></span>
+						</div><!-- .small-12 columns -->
+					</div><!-- .row -->
+				</footer><!-- #page-footer -->
 			</div><!-- .home-wrapper -->
 		</section><!-- #main -->
 	<?php endif; // end !is_front_page() check ?>

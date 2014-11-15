@@ -1,4 +1,5 @@
 <?php get_header(); ?>
+<div class="home-wrapper">
 	<section id="home-greeting" data-page-name="home">
 		<div class="row">
 			<div class="small-12 columns">

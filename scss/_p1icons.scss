@@ -24,6 +24,10 @@
 
 [data-icon]:before,
 .icon-at-sign:before,
+.icon-g-menu:before,
+.icon-g-more-vert:before,
+.icon-g-search:before,
+.icon-g-share:before,
 .icon-info:before,
 .icon-link:before,
 .icon-magnifying-glass:before,
@@ -55,6 +59,10 @@
 }
 
 .icon-at-sign:before { content: "\f141"; }
+.icon-g-menu:before { content: "\f14e"; }
+.icon-g-more-vert:before { content: "\f14f"; }
+.icon-g-search:before { content: "\f150"; }
+.icon-g-share:before { content: "\f151"; }
 .icon-info:before { content: "\f142"; }
 .icon-link:before { content: "\f143"; }
 .icon-magnifying-glass:before { content: "\f144"; }

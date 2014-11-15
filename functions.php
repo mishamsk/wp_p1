@@ -15,12 +15,14 @@ define( 'PERLOVS_THEME_TEMPLATE', get_stylesheet_directory() );
 // Navigation menus, walker func, breadcrumbs, pagination
 require_once('lib/navigation.php');
 
-// Add menu walker
+// Social partials
 require_once('lib/social-share.php');
 
-// Helper func for posts: meta
+// Helper functions for single blog entries and pages
 require_once('lib/entry-helpers.php');
 
+// Travel taxonomies
+require_once('lib/travel.php');
 
 add_action( 'after_setup_theme', 'perlovs_setup' );
 if ( ! function_exists( 'perlovs_setup' ) ) :
