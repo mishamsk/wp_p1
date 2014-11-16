@@ -1,134 +1,4 @@
 /* ===========================================================
- * Utility scripts for p1 theme
- * ===========================================================
- * Copyright 2014 Mikhail Perlov.
- * http://perlovs.com
- *
- * Credit: Eike Send for the swipe event base source,
- * Undescrore.js for throttle and debounce
- *
- * License: GPL v3
- *
- * ========================================================== */
-!function($) {
-	$.fn.swipeEvents = function() {
-        return this.each(function() {
-
-            var startX = 0,
-            	startY = 0,
-            	$this = $(this),
-            	enableMove = false;
-
-            function touchstart(event) {
-                var touches = event.originalEvent.touches;
-                if (touches && touches.length) {
-                    startX = touches[0].pageX;
-                    startY = touches[0].pageY;
-                    enableMove = true;
-                }
-            }
-
-            function touchmove(event) {
-            	if (!enableMove) return true;
-
-                var touches = event.originalEvent.touches;
-                if (touches && touches.length) {
-                    var deltaX = startX - touches[0].pageX;
-                    var deltaY = startY - touches[0].pageY;
-
-                    if (deltaX >= 50) {
-                        $this.trigger("swipeLeft");
-                    }
-                    if (deltaX <= -50) {
-                        $this.trigger("swipeRight");
-                    }
-                    if (deltaY >= 50) {
-                        $this.trigger("swipeUp");
-                    }
-                    if (deltaY <= -50) {
-                        $this.trigger("swipeDown");
-                    }
-                    if (Math.abs(deltaX) >= 50 || Math.abs(deltaY) >= 50) {
-                        enableMove = false;
-                    }
-                }
-            }
-
-            $this.bind('touchstart', $this.throttle(touchstart, 300));
-            $this.bind('touchmove', touchmove);
-        });
-    };
-
-    if (!Date.now) {
-    	Date.now = function now() {
-    		return new Date().getTime();
-    	};
-    }
-
-	$.fn.throttle = function(func, wait, options) {
- 		var context, args, result;
- 		var timeout = null;
- 		var previous = 0;
- 		if (!options) options = {};
- 		var later = function() {
- 			previous = options.leading === false ? 0 : Date.now();
- 			timeout = null;
- 			result = func.apply(context, args);
- 			if (!timeout) context = args = null;
- 		};
- 		return function() {
- 			var now = Date.now();
- 			if (!previous && options.leading === false) previous = now;
- 			var remaining = wait - (now - previous);
- 			context = this;
- 			args = arguments;
- 			if (remaining <= 0 || remaining > wait) {
- 				clearTimeout(timeout);
- 				timeout = null;
- 				previous = now;
- 				result = func.apply(context, args);
- 				if (!timeout) context = args = null;
- 			} else if (!timeout && options.trailing !== false) {
- 				timeout = setTimeout(later, remaining);
- 			}
- 			return result;
- 		};
- 	};
-
-	$.fn.debounce = function(func, wait, immediate) {
- 		var timeout, args, context, timestamp, result;
-
- 		var later = function() {
- 			var last = Date.now() - timestamp;
-
- 			if (last < wait && last > 0) {
- 				timeout = setTimeout(later, wait - last);
- 			} else {
- 				timeout = null;
- 				if (!immediate) {
- 					result = func.apply(context, args);
- 					if (!timeout) context = args = null;
- 				}
- 			}
- 		};
-
- 		return function() {
- 			context = this;
- 			args = arguments;
- 			timestamp = Date.now();
- 			var callNow = immediate && !timeout;
- 			if (!timeout) timeout = setTimeout(later, wait);
- 			if (callNow) {
- 				result = func.apply(context, args);
- 				context = args = null;
- 			}
-
- 			return result;
- 		};
-	};
-}(window.jQuery);
-
-/* ===========================================================
  * Onepage scrolling
  * ===========================================================
  * Copyright 2014 Mikhail Perlov.
@@ -142,10 +12,10 @@
  *
  * ========================================================== */
 
-!function($){
+(function($){
 	'use strict';
 
-    $.fn.onepage_scroll = function(options) {
+    $.fn.onepageScroll = function(options) {
         var defaults = {
             pageContainer: "section",
             navContainer: "nav",
@@ -171,6 +41,8 @@
         	sysScrollTarget = null;
 
     	var homePageName = pages.eq(0).data("page-name");
+
+        var Modernizr = window.Modernizr || {};
 
         $.fn.transformPage = function(target, animate) {
 
@@ -288,7 +160,7 @@
             updateURL(pageName);
         }
 
-        var onScroll = $this.throttle(function() {
+        var onScroll = window.throttle(function() {
         		if (!scrollHandlerEnabled) return true;
         		if (sysScrollTarget !== null) {
         			if (sysScrollTarget >= this.scrollTop - 1 && sysScrollTarget <= this.scrollTop + 1) sysScrollTarget = null;
@@ -330,7 +202,7 @@
 
 		        // If threshold media query set - rebind on resize
 		        if(settings.threshholdQuery !== null) {
-		        	$(window).resize($this.throttle(init, settings.quietPeriodResize));
+		        	$(window).resize(window.throttle(init, settings.quietPeriodResize));
 		        }
 
 		        // If URL changes active - bind to popstate to enable back button
@@ -353,7 +225,7 @@
                 });
 
                 // Custom scroll on mousewheel events for desktop
-                $(document).bind('mousewheel DOMMouseScroll MozMousePixelScroll', $this.throttle(function(event) {
+                $(document).bind('mousewheel DOMMouseScroll MozMousePixelScroll', window.throttle(function(event) {
                     if (!customScrollHandlerEnabled) return true;
 
                     event.preventDefault();
@@ -406,7 +278,7 @@
             var current = curPage(true);
 
             // Check which scroll to use
-            customScrollHandlerEnabled = settings.threshholdQuery ? Modernizr.mq(settings.threshholdQuery) : !settings.disableCustomScroll;
+            customScrollHandlerEnabled = settings.threshholdQuery ? matchMedia(settings.threshholdQuery).matches : !settings.disableCustomScroll;
             // Get window height
         	windowHeight = $(window).height();
 
@@ -441,4 +313,4 @@
 
         return false;
     };
-}(window.jQuery);
+}(window.jQuery));

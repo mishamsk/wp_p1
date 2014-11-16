@@ -74,7 +74,7 @@
 		},
 	"\/bower_components\/foundation\/js\/foundation.min.js": {
 		"fileType": 64,
-		"ignore": 1,
+		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/bower_components\/foundation\/js\/foundation.min.js",
 		"outputAbbreviatedPath": "\/bower_components\/foundation\/js\/min\/foundation.min-min.js",
@@ -4561,6 +4561,15 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
+	"\/fontcustom\/p1icons-preview.html": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/fontcustom\/p1icons-preview.html",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
 	"\/footer.php": {
 		"fileType": 8192,
 		"ignore": 0,
@@ -4749,12 +4758,45 @@
 		"outputStyle": 1,
 		"syntaxCheckerStyle": 1
 		},
-	"\/js\/perlovs.js": {
+	"\/js\/modernizr\/modernizr.perlovs.js": {
 		"fileType": 64,
 		"ignore": 1,
 		"ignoreWasSetByUser": 1,
-		"inputAbbreviatedPath": "\/js\/perlovs.js",
-		"outputAbbreviatedPath": "\/js\/min\/perlovs-min.js",
+		"inputAbbreviatedPath": "\/js\/modernizr\/modernizr.perlovs.js",
+		"outputAbbreviatedPath": "\/js\/modernizr\/min\/modernizr.perlovs-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/js\/perlovs\/perlovs-general.js": {
+		"fileType": 64,
+		"ignore": 1,
+		"ignoreWasSetByUser": 1,
+		"inputAbbreviatedPath": "\/js\/perlovs\/perlovs-general.js",
+		"outputAbbreviatedPath": "\/js\/perlovs\/min\/perlovs-general-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/js\/perlovs\/perlovs-mobile-nav.js": {
+		"fileType": 64,
+		"ignore": 1,
+		"ignoreWasSetByUser": 1,
+		"inputAbbreviatedPath": "\/js\/perlovs\/perlovs-mobile-nav.js",
+		"outputAbbreviatedPath": "\/js\/perlovs\/min\/perlovs-mobile-nav-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/js\/perlovs\/perlovs-onepage.js": {
+		"fileType": 64,
+		"ignore": 1,
+		"ignoreWasSetByUser": 1,
+		"inputAbbreviatedPath": "\/js\/perlovs\/perlovs-onepage.js",
+		"outputAbbreviatedPath": "\/js\/perlovs\/min\/perlovs-onepage-min.js",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 1,
@@ -4817,6 +4859,22 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/scss\/_fonts.scss",
 		"outputAbbreviatedPath": "\/_fonts.css",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 0,
+		"shouldRunAutoprefixer": 0,
+		"shouldRunBless": 0,
+		"useLibsass": 0
+		},
+	"\/scss\/_p1icons.scss": {
+		"createSourceMap": 0,
+		"debugStyle": 0,
+		"decimalPrecision": 5,
+		"fileType": 4,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/scss\/_p1icons.scss",
+		"outputAbbreviatedPath": "\/_p1icons.css",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
@@ -4988,46 +5046,52 @@
 "manualImportLinks": {
 	"\/js\/app-front.js": [
 		{
-			"followForSyntaxChecking": 1,
+			"followForSyntaxChecking": 0,
 			"linkedFileAbbreviatedPath": "\/bower_components\/foundation\/js\/vendor\/jquery.js",
 			"position": 0,
 			"type": 0
 			},
 		{
-			"followForSyntaxChecking": 1,
+			"followForSyntaxChecking": 0,
 			"linkedFileAbbreviatedPath": "\/bower_components\/foundation\/js\/vendor\/fastclick.js",
 			"position": 1,
 			"type": 0
 			},
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/js\/perlovs.js",
+			"linkedFileAbbreviatedPath": "\/js\/perlovs\/perlovs-general.js",
 			"position": 2,
+			"type": 0
+			},
+		{
+			"followForSyntaxChecking": 1,
+			"linkedFileAbbreviatedPath": "\/js\/perlovs\/perlovs-onepage.js",
+			"position": 3,
 			"type": 0
 			}
 		],
 	"\/js\/app.js": [
 		{
-			"followForSyntaxChecking": 1,
+			"followForSyntaxChecking": 0,
 			"linkedFileAbbreviatedPath": "\/bower_components\/foundation\/js\/vendor\/jquery.js",
 			"position": 0,
 			"type": 0
 			},
 		{
-			"followForSyntaxChecking": 1,
+			"followForSyntaxChecking": 0,
 			"linkedFileAbbreviatedPath": "\/bower_components\/foundation\/js\/vendor\/fastclick.js",
 			"position": 1,
 			"type": 0
 			},
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/bower_components\/foundation\/js\/foundation.min.js",
+			"linkedFileAbbreviatedPath": "\/js\/perlovs\/perlovs-general.js",
 			"position": 2,
 			"type": 0
 			},
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/js\/perlovs.js",
+			"linkedFileAbbreviatedPath": "\/js\/perlovs\/perlovs-mobile-nav.js",
 			"position": 3,
 			"type": 0
 			}

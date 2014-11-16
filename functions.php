@@ -95,10 +95,10 @@ function perlovs_scripts() {
     wp_deregister_script( 'jquery' );
 
 	// register help scripts
-    wp_register_script( 'jquery', PERLOVS_THEME_URL . '/bower_components/jquery/dist/jquery.min.js' );
+    // wp_register_script( 'jquery', PERLOVS_THEME_URL . '/bower_components/jquery/dist/jquery.min.js' );
 
 	// enqueue head scripts
-    wp_enqueue_script( 'modernizr', PERLOVS_THEME_URL .'/bower_components/foundation/js/vendor/modernizr.js', array(), null, false );
+    wp_enqueue_script( 'modernizr', PERLOVS_THEME_URL .'/js/modernizr/modernizr.perlovs.js', array(), null, false );
 
 	// enqueue footer scripts
 	//wp_enqueue_script( 'jq', PERLOVS_THEME_URL . '/bower_components/foundation/js/vendor/jquery.js', array(), null, true );

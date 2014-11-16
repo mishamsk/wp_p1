@@ -32,8 +32,6 @@
 		Гораздо лучше и приятнее смотреть его в чем-то более современном!;)
 	</div>
 	<![endif]-->
-
-	<header id="page-header" role="banner">
 	<?php
 	/*
 	*
@@ -42,57 +40,59 @@
 	*/
 	if (!is_front_page()) :
 	?>
-
-		<section class="tab-bar">
-			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="tab-bar-title" rel="home"><div class="logo"><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></a>
-		</section>
-		<nav class="float-nav" role="navigation">
-			<div class="social-container"><?php p1_social(); ?></div>
-			<div class="search-container"><?php get_search_form(); ?></div>
-			<a href="#" class="right-off-canvas-toggle icon-g-menu"></a>
-			<a href="#" class="share-toggle icon-g-share"></a>
-			<a href="#" class="search-toggle icon-g-search"></a>
-			<a href="#" class="nav-toggle icon-g-more-vert"></a>
-		</nav>
+	<div id="page-wrapper">
 		<aside class="right-off-canvas-menu" aria-hidden="true">
 			<?php menu_mobile_off_canvas(); ?>
 			<a class="exit-off-canvas"></a>
 		</aside>
-		<nav class="top-bar" data-topbar role="navigation">
-			<ul class="title-area">
-				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><div class="logo"><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></a>
-				<li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
-			</ul>
-
-			<section class="top-bar-section">
-				<!-- Right But Section -->
-				<ul class="top-bar-menu right">
-					<li class="divider"></li>
-					<li class="has-dropdown">
-						<a href="#" class="icon-share"></a>
-						<ul class="dropdown">
-							<li><?php p1_social(); ?></li>
-						</ul>
-					</li>
-					<li class="divider"></li>
-					<li class="has-dropdown search-toggle">
-						<a href="#" class="icon-magnifying-glass"></a>
-						<ul class="dropdown">
-							<li>
-								<div class="search-container">
-									<?php get_search_form(); ?>
-								</div>
-							</li>
-						</ul>
-					</li>
+		<header id="page-header" role="banner">
+			<section class="tab-bar">
+				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="tab-bar-title" rel="home"><div class="logo"><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></a>
+			</section>
+			<nav class="float-nav" role="navigation">
+				<div class="social-container"><?php p1_social(); ?></div>
+				<div class="search-container"><?php get_search_form(); ?></div>
+				<a href="#" class="right-off-canvas-toggle icon-g-menu"></a>
+				<a href="#" class="share-toggle icon-g-share"></a>
+				<a href="#" class="search-toggle icon-g-search"></a>
+				<a href="#" class="nav-toggle icon-g-more-vert"></a>
+			</nav>
+			<nav class="top-bar" data-topbar role="navigation">
+				<ul class="title-area">
+					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><div class="logo"><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></a>
+					<li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
 				</ul>
-			</section>
-			<section class="top-bar-section">
-				<!-- Right Nav Section -->
-				<?php menu_top_bar_r(); ?>
-			</section>
-		</nav>
 
+				<section class="top-bar-section">
+					<!-- Right But Section -->
+					<ul class="top-bar-menu right">
+						<li class="divider"></li>
+						<li class="has-dropdown">
+							<a href="#" class="icon-share"></a>
+							<ul class="dropdown">
+								<li><?php p1_social(); ?></li>
+							</ul>
+						</li>
+						<li class="divider"></li>
+						<li class="has-dropdown search-toggle">
+							<a href="#" class="icon-magnifying-glass"></a>
+							<ul class="dropdown">
+								<li>
+									<div class="search-container">
+										<?php get_search_form(); ?>
+									</div>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section class="top-bar-section">
+					<!-- Right Nav Section -->
+					<?php menu_top_bar_r(); ?>
+				</section>
+			</nav>
+		</header><!-- #page-header -->
+		<section id="main" role="main">
 	<?php
 	/*
 	*
@@ -101,7 +101,7 @@
 	*/
 		else :
 	?>
-
+	<header id="page-header" role="banner">
 		<nav role="navigation">
 			<ul>
 				<li><a href="#blog" data-page-name="blog"><?php _e( 'Blog', 'perlovs' ); ?></a></li>
@@ -110,9 +110,9 @@
 				<li><a href="#credits" data-page-name="credits"><i class="icon-magnifying-glass"></i></a></li>
 			</ul>
 		</nav>
-
-	<?php endif; // end !is_front_page() check ?>
-
 	</header><!-- #page-header -->
 	<section id="main" role="main">
+	<?php endif; // end !is_front_page() check ?>
+
+
 

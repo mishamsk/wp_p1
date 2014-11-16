@@ -16,6 +16,7 @@
 			<span id="copyright"><?php printf( __( 'Copyright &copy; %s %s. All Rights Reserved.', 'perlovs' ), date( 'Y' ), ' <a href="' . home_url() . '">' . get_bloginfo( 'name' ) .'</a>' ); ?></span>
 			<span id="credits"><?php printf( __( 'Credits and honors: %s.', 'perlovs' ), ' <a href="' . home_url() . '/credits/">' . __( 'here' ) .'</a>' ); ?></span>
 		</footer><!-- #page-footer -->
+	</div> <!--#page-wrapper -->
 
 	<?php
 	/*

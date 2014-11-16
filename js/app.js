@@ -1,23 +1,7 @@
-// Foundation JavaScript
-// Documentation can be found at: http://foundation.zurb.com/docs
-// $(document).foundation();
+$("body").mobileNav();
 
 $(document).ready(function(){
-   	// Enable FastClick if present
-   	if (typeof FastClick !== 'undefined') {
-		// Don't attach to body if undefined
-		if (typeof document.body !== 'undefined') {
-			FastClick.attach(document.body);
-		}
-	}
-
-	// -----------------------
-	// Float nav
-	// -----------------------
-	$('.float-nav .nav-toggle').on('click', function(e) {
-		e.preventDefault();
-		$(this).closest('nav').toggleClass('expanded');
-	});
+	'use strict';
 
 	// -----------------------
 	// Search form
@@ -25,8 +9,8 @@ $(document).ready(function(){
 	$('.search-toggle').hover(
 		function () {
 			$(this).find('.search-field').focus();
-		}
-		,function () {
+		},
+		function () {
 			$(this).find('.search-field').blur().val('');
 		}
 		);

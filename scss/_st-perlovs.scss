@@ -19,6 +19,10 @@ $primary-red: #E85248;
 $darker-red: darken($primary-red, $darken);
 $lighter-red: lighten($primary-red, $lighten);
 
+$blog-color: $primary-green;
+$travel-color: $primary-blue;
+$author-color: $primary-red;
+
 // Home.nav
 $home-nav-font-size: rem-calc(22);
 $home-nav-margin: $home-nav-font-size / 2;
@@ -53,9 +57,14 @@ $tabbar-icon-font-size: $tabbar-height/2;
 $float-nav-offset: rem-calc(15);
 $float-nav-button-diameter: rem-calc(54);
 $float-nav-button-font-size: rem-calc(38);
+$float-nav-button-icon-color: $white;
 $float-nav-button-margin: rem-calc(8);
+$float-nav-button-md-coef: 1;
 $float-nav-button-transition: bottom 300ms ease;
 $float-nav-button-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.4);
 
 // Off canvas
-$off-canvas-transition: all 500ms ease;
+$off-canvas-transition: transform 500ms ease;
+$off-canvas-menu-shadow-offset-x: rem-calc(3);
+$off-canvas-menu-box-shadow: -$off-canvas-menu-shadow-offset-x 0 rem-calc(5) 0px rgba(0, 0, 0, 0.4);
+$off-canvas-link-transition: background 500ms ease;

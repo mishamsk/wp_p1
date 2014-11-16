@@ -25,6 +25,31 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 // -----------------------
 // General grid
 // -----------------------
+html, body {
+	height: 100%;
+	overflow: hidden;
+	width: 100%;
+}
+
+#page-wrapper {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	overflow-x: hidden;
+	overflow-y: scroll;
+	width: 100%;
+
+	-webkit-overflow-scrolling: touch;
+	-ms-overflow-style: -ms-autohiding-scrollbar;
+
+	// Admin bar
+	.admin-bar & {
+		top: rem-calc(46);
+		@media #{$medium-up} {
+			top: rem-calc(32);
+		}
+	}
+}
 
 section, article {
 	@include grid-row();
@@ -37,26 +62,10 @@ section, article {
 #page-header {
 	background-color: $tabbar-bg;
 	height: $tabbar-height;
-	overflow-x: hidden;
+	overflow: visible;
+	position: relative;
 	width: 100%;
-}
-
-// off canvas menu fix
-.off-canvas-fixed {
-	-webkit-transition: -webkit-transform 500ms ease;
-	transition: transform 500ms ease;
-}
-
-.move-left > .off-canvas-fixed {
-	height: 100%;
-	-webkit-transform: translate3d(-15.625rem, 0, 0);
-	transform: translate3d(-15.625rem, 0, 0);
-}
-
-.right-off-canvas-menu {
-	-webkit-transform: none;
-	transform: none;
-	margin-right: -15.625rem;
+	z-index: 1;
 }
 
 // icons
@@ -64,21 +73,10 @@ section, article {
 	.top-bar & {
 		font-size: $topbar-icon-font-size;
 	}
-
-	.tab-bar & {
-		border-left: $tabbar-right-section-border;
-		color: $white;
-		float: right;
-		font-size: $tabbar-icon-font-size;
-		width: $tabbar-icon-width;
-	}
 }
 
 // Tab-bar
 .tab-bar {
-	display: block;
-	position: relative;
-
 	@media #{$medium-up} {
 		display: none;
 	}
@@ -87,7 +85,7 @@ section, article {
 .tab-bar-title {
 	display: block;
 	height: $tabbar-height;
-	color: $white;
+	color: $tabbar-header-color;
 
 	@include grid-column(
 		  $columns:12,
@@ -112,14 +110,23 @@ section, article {
 
 	a {
 		bottom: 0;
-		color: $white;
+		color: $float-nav-button-icon-color;
 		display: block;
 		font-size: $float-nav-button-font-size;
 		height: $float-nav-button-diameter;
 		left: 0;
+		line-height: $float-nav-button-diameter;
 		position: absolute;
 		width: $float-nav-button-diameter;
-		z-index: 100;
+
+		@if $float-nav-button-md-coef != 1 {
+			@media #{$medium-up} {
+				font-size: $float-nav-button-font-size * $float-nav-button-md-coef;
+				height: $float-nav-button-diameter * $float-nav-button-md-coef;
+				line-height: $float-nav-button-diameter * $float-nav-button-md-coef;
+				width: $float-nav-button-diameter * $float-nav-button-md-coef;
+			}
+		}
 
 		@include transition($float-nav-button-transition);
 		@include border-radius(50%);
@@ -129,19 +136,22 @@ section, article {
 
 	.nav-toggle {
 		background-color: $primary-blue;
-		z-index: 101;
+		z-index: 100;
 	}
 
 	.right-off-canvas-toggle {
 		background-color: $primary-green;
+		z-index: 99;
 	}
 
 	.search-toggle {
-		background-color: $primary-red;
+		background-color: $primary-yellow;
+		z-index: 98;
 	}
 
 	.share-toggle {
-		background-color: $primary-yellow;
+		background-color: $primary-red;
+		z-index: 97;
 	}
 
 	&.expanded {
@@ -158,38 +168,130 @@ section, article {
 		}
 	}
 
-	.icon-menu {
-		text-indent: $tabbar-menu-icon-text-indent;
-		color: $tabbar-menu-icon-color;
-		transform: translate3d(0,0,0);
+	@if $float-nav-button-md-coef != 1 {
+		@media #{$medium-up} {
+			&.expanded {
+				.right-off-canvas-toggle {
+					bottom: ($float-nav-button-diameter * $float-nav-button-md-coef + $float-nav-button-margin) * 1;
+				}
 
-		// @include for the hamburger menu-icon
-		//
-		// Arguments as follows: ($width, $left, $top, $thickness, $gap, $color, $hover-color)
-		// $width - Width of hamburger icon in rem Default: $tabbar-hamburger-icon-width.
-		// $left - If false, icon will be centered horizontally || explicitly set value in rem Default: $tabbar-hamburger-icon-left= False
-		// $top - If false, icon will be centered vertically || explicitly set value in rem Default: = False
-		// $thickness - thickness of lines in hamburger icon, set value in px Default: $tabbar-hamburger-icon-thickness = 1px
-		// $gap - spacing between the lines in hamburger icon, set value in px Default: $tabbar-hamburger-icon-gap = 6px
-		// $color - icon color Default: $tabbar-menu-icon-color
-		// $hover-color - icon color when hovered Default: $tabbar-menu-icon-hover
-		// $offcanvas - Set to true
-		@include hamburger($tabbar-hamburger-icon-width, $tabbar-hamburger-icon-left, $tabbar-hamburger-icon-top, $tabbar-hamburger-icon-thickness, $tabbar-hamburger-icon-gap, $tabbar-menu-icon-color, $tabbar-menu-icon-hover, true)
-	  }
+				.search-toggle {
+					bottom: ($float-nav-button-diameter * $float-nav-button-md-coef + $float-nav-button-margin) * 2;
+				}
 
-	.social-container, .search-container {
+				.share-toggle {
+					bottom: ($float-nav-button-diameter * $float-nav-button-md-coef + $float-nav-button-margin) * 3;
+				}
+			}
+		}
+	}
+
+	& .social-container, & .search-container {
 		display: none;
 	}
 }
 
 // Off canvas
 .right-off-canvas-menu {
-	height: 100vh;
+	bottom: 0;
+	height: 100%;
+	margin-right: -100%;
+	position: absolute;
+	right: 0;
+	top: 0;
 	width: 100%;
+	z-index: 1000;
 
-	@include transition($off-canvas-transition);
-	@include translate3d(100%, 0, 0);
+	// Prevent iOS5 flicker bug
+	-webkit-backface-visibility: hidden;
+	* { -webkit-backface-visibility: hidden; }
+
+	ul.off-canvas-list {
+		background: $off-canvas-bg;
+		bottom: 0;
+		box-shadow: $off-canvas-menu-box-shadow;
+		margin: 0;
+		overflow-x: hidden;
+		overflow-y: scroll;
+		padding: 0;
+		position: absolute;
+		left: $off-canvas-menu-shadow-offset-x;
+		list-style-type: none;
+		top: 0;
+		width: $off-canvas-width;
+		z-index: 1002;
+
+		-webkit-overflow-scrolling: touch;
+		-ms-overflow-style: -ms-autohiding-scrollbar;
+
+		@include transition($off-canvas-transition);
+
+		li {
+			list-style-type: none;
+
+			.divider {
+				display: none;
+			}
+
+			label {
+				display: block;
+				padding: $off-canvas-label-padding;
+				color: $off-canvas-label-color;
+				text-transform: $off-canvas-label-text-transform;
+				font-size: $off-canvas-label-font-size;
+				font-weight: $off-canvas-label-font-weight;
+				background: $off-canvas-label-bg;
+				border-top: $off-canvas-label-border-top;
+				border-bottom: $off-canvas-label-border-bottom;
+				margin: $off-canvas-label-margin;
+			}
+			a {
+				display: block;
+				padding: $off-canvas-link-padding;
+				color: $off-canvas-link-color;
+				border-bottom: $off-canvas-link-border-bottom;
+				transition: $off-canvas-link-transition;
+				&:hover {
+					background: $off-canvas-bg-hover;
+				}
+			}
+		}
+	}
+
+	a.exit-off-canvas {
+		background: none;
+		bottom: 0;
+		cursor: $off-canvas-overlay-cursor;
+		display: none;
+		left: 0;
+		position: fixed;
+		right: 0;
+		top: 0;
+		z-index: 1001;
+
+	    -webkit-tap-highlight-color: rgba(0,0,0,0);
+
+	    @include transition($off-canvas-overlay-transition);
+	}
+
+	&.move-left {
+		ul.off-canvas-list {
+			@include translate3d(-($off-canvas-menu-shadow-offset-x + $off-canvas-width), 0, 0);
+		}
+
+		a.exit-off-canvas {
+			background: $off-canvas-overlay-background;
+			@media #{$large-up} {
+		    	&:hover {
+		    		background: $off-canvas-overlay-background-hover;
+		    	}
+		    }
+			display: block;
+		}
+	}
 }
+
+
 // Top-bar
 .top-bar {
 	display: none;
@@ -204,14 +306,6 @@ section, article {
 	// }
 
 	@include perlovs-logo($base-size: $topbar-height/4, $margin: 0 0 0 $column-gutter/2);
-}
-
-// Admin bar
-.admin-bar .fixed {
-	top: rem-calc(46);
-	@media #{$medium-up} {
-		top: rem-calc(32);
-	}
 }
 
 // -----------------------
@@ -294,9 +388,9 @@ section, article {
 
 // shift down content area for fixed header and for front-page
 #main {
-	padding-top: $tabbar-height;
+	overflow-x: hidden;
 
-	@media #{$medium-up} {
+	@media #{$large-up} {
 		padding-top: $topbar-height;
 	}
 

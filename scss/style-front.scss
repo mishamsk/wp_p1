@@ -49,12 +49,19 @@ nav {
 			text-decoration: none;
 			@include transition($home-nav-a-transition);
 
-			&.current, &:hover {
+			&.current {
 				opacity: 1;
+			}
+
+			@media #{$large-up} {
+				&:hover {
+					opacity: 1;
+				}
 			}
 
 			&:visited {
 				color: $home-nav-a-color;
+				opacity: $home-nav-a-initial-opacity;
 			}
 		}
 	}
@@ -63,7 +70,10 @@ nav {
 #main {
 	height: 100%;
 	margin: 0;
-	overflow: auto;
+	overflow: scroll;
+	-webkit-overflow-scrolling: touch;
+	-ms-overflow-style: -ms-autohiding-scrollbar;
+
 	@media #{$medium-up} {
 		overflow: hidden;
 	}
