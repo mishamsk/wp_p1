@@ -96,6 +96,7 @@ function perlovs_scripts() {
 
 	// register help scripts
     // wp_register_script( 'jquery', PERLOVS_THEME_URL . '/bower_components/jquery/dist/jquery.min.js' );
+    wp_register_script( 'jquery', '//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js', array(), null, true );
 
 	// enqueue head scripts
     wp_enqueue_script( 'modernizr', PERLOVS_THEME_URL .'/js/modernizr/modernizr.perlovs.js', array(), null, false );
@@ -106,10 +107,10 @@ function perlovs_scripts() {
 	//wp_enqueue_script( 'fastclick', PERLOVS_THEME_URL . '/bower_components/foundation/js/vendor/fastclick.js', array(), null, true );
 	//wp_enqueue_script( 'theme_js', PERLOVS_THEME_URL .'/js/app.js', array( 'jq', 'fnd', 'fastclick' ), null, true );
     if(is_front_page()) {
-        wp_enqueue_script( 'theme_js', PERLOVS_THEME_URL .'/js/min/app-front-min.js', array(), null, true );
+        wp_enqueue_script( 'theme_js', PERLOVS_THEME_URL .'/js/min/app-front-min.js', array('jquery'), null, true );
     }
     else {
-        wp_enqueue_script( 'theme_js', PERLOVS_THEME_URL .'/js/min/app-min.js', array(), null, true );
+        wp_enqueue_script( 'theme_js', PERLOVS_THEME_URL .'/js/min/app-min.js', array('jquery'), null, true );
     }
 
 	// enqueue style

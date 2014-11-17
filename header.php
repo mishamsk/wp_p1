@@ -41,21 +41,20 @@
 	if (!is_front_page()) :
 	?>
 	<div id="page-wrapper">
-		<aside class="right-off-canvas-menu" aria-hidden="true">
+		<aside class="off-canvas-menu" aria-hidden="true">
 			<?php menu_mobile_off_canvas(); ?>
 			<a class="exit-off-canvas"></a>
 		</aside>
 		<header id="page-header" role="banner">
 			<section class="tab-bar">
+				<a href="#" class="off-canvas-toggle icon-g-menu"></a>
 				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="tab-bar-title" rel="home"><div class="logo"><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></a>
 			</section>
 			<nav class="float-nav" role="navigation">
-				<div class="social-container"><?php p1_social(); ?></div>
-				<div class="search-container"><?php get_search_form(); ?></div>
-				<a href="#" class="right-off-canvas-toggle icon-g-menu"></a>
 				<a href="#" class="share-toggle icon-g-share"></a>
 				<a href="#" class="search-toggle icon-g-search"></a>
-				<a href="#" class="nav-toggle icon-g-more-vert"></a>
+				<div class="social-container"><?php p1_social(); ?></div>
+				<div class="search-container"><?php get_search_form(); ?></div>
 			</nav>
 			<nav class="top-bar" data-topbar role="navigation">
 				<ul class="title-area">
