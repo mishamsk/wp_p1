@@ -18,9 +18,9 @@ body.home {
 	height: 100%;
 	margin: 0;
 	overflow: auto;
-	@media #{$medium-up} {
-		overflow: hidden;
-	}
+	// @media #{$medium-up} {
+	// 	overflow: hidden;
+	// }
 	padding: 0;
 	width: 100%;
 }
@@ -53,7 +53,7 @@ nav {
 				opacity: 1;
 			}
 
-			@media #{$large-up} {
+			@media #{$medium-up} {
 				&:hover {
 					opacity: 1;
 				}
@@ -74,9 +74,9 @@ nav {
 	-webkit-overflow-scrolling: touch;
 	-ms-overflow-style: -ms-autohiding-scrollbar;
 
-	@media #{$medium-up} {
-		overflow: hidden;
-	}
+	// @media #{$medium-up} {
+	// 	overflow: hidden;
+	// }
 	padding: 0;
 	width: 100%;
 

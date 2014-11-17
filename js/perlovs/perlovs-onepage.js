@@ -44,6 +44,9 @@
 
         var Modernizr = window.Modernizr || {};
 
+        // In case user set both threshold and disable custom scroll => force disable
+        if(settings.disableCustomScroll) settings.threshholdQuery = null;
+
         $.fn.transformPage = function(target, animate) {
 
         	var pos = customScrollHandlerEnabled ?
@@ -63,6 +66,9 @@
 	            });
             }
             else {
+                // If no need to scroll - skip. iOS and Android will stuck cause they won't initiate scroll event in this case and won't reset sysScrollTarget
+                if (pos >= $this.parent().scrollTop() - 1 && pos <= $this.parent().scrollTop() + 1) return true;
+
             	if (animate) {
             		$this.parent().animate({scrollTop: pos + "px"});
             	}
@@ -200,10 +206,8 @@
 		        	});
 		        }
 
-		        // If threshold media query set - rebind on resize
-		        if(settings.threshholdQuery !== null) {
-		        	$(window).resize(window.throttle(init, settings.quietPeriodResize));
-		        }
+		        // Reinit on resize (to update offsets and etc.)
+	        	$(window).resize(window.throttle(init, settings.quietPeriodResize));
 
 		        // If URL changes active - bind to popstate to enable back button
 		        if(settings.updateURL === true) {
@@ -213,59 +217,62 @@
 		        // Regular scroll when custom scroll disabled
 		        $this.parent().bind('scroll', onScroll);
 
-		        // Custom scroll on swipe events for mobile
-		        $this.swipeEvents().bind("swipeDown",  function(event){
-		        	if (!customScrollHandlerEnabled) return true;
-                    event.preventDefault();
-                    $this.moveUp();
-                }).bind("swipeUp", function(event){
-                	if (!customScrollHandlerEnabled) return true;
-                    event.preventDefault();
-                    $this.moveDown();
-                });
+                if (!settings.disableCustomScroll) {
 
-                // Custom scroll on mousewheel events for desktop
-                $(document).bind('mousewheel DOMMouseScroll MozMousePixelScroll', window.throttle(function(event) {
-                    if (!customScrollHandlerEnabled) return true;
-
-                    event.preventDefault();
-                    var delta = event.originalEvent.wheelDelta || -event.originalEvent.detail;
-                    if (delta < 0) {
-                    	$this.moveDown();
-                    } else {
-                    	$this.moveUp();
-                    }
-                },settings.quietPeriodCustomScroll + settings.animationTime,{trailing: false}));
-
-                // Custom scroll on keypress events for desktop
-                if(settings.keyboard === true) {
-                    $(document).keydown(function(e) {
+    		        // Custom scroll on swipe events for mobile
+    		        $this.swipeEvents().bind("swipeDown",  function(event){
+    		        	if (!customScrollHandlerEnabled) return true;
+                        event.preventDefault();
+                        $this.moveUp();
+                    }).bind("swipeUp", function(event){
                     	if (!customScrollHandlerEnabled) return true;
-
-                        var tag = e.target.tagName.toLowerCase();
-
-                        switch(e.which) {
-                            case 38:
-                                if (tag != 'input' && tag != 'textarea') $this.moveUp();
-                                break;
-                            case 40:
-                                if (tag != 'input' && tag != 'textarea') $this.moveDown();
-                                break;
-                            case 32: //spacebar
-                                if (tag != 'input' && tag != 'textarea') $this.moveDown();
-                                break;
-                            case 33: //pageg up
-                                if (tag != 'input' && tag != 'textarea') $this.moveUp();
-                                break;
-                            case 34: //page dwn
-                                if (tag != 'input' && tag != 'textarea') $this.moveDown();
-                                break;
-                            case 36: //home
-                                $this.moveTo(homePageName);
-                                break;
-                            default: return true;
-                        }
+                        event.preventDefault();
+                        $this.moveDown();
                     });
+
+                    // Custom scroll on mousewheel events for desktop
+                    $(document).bind('mousewheel DOMMouseScroll MozMousePixelScroll', window.throttle(function(event) {
+                        if (!customScrollHandlerEnabled) return true;
+
+                        event.preventDefault();
+                        var delta = event.originalEvent.wheelDelta || -event.originalEvent.detail;
+                        if (delta < 0) {
+                        	$this.moveDown();
+                        } else {
+                        	$this.moveUp();
+                        }
+                    },settings.quietPeriodCustomScroll + settings.animationTime,{trailing: false}));
+
+                    // Custom scroll on keypress events for desktop
+                    if(settings.keyboard === true) {
+                        $(document).keydown(function(e) {
+                        	if (!customScrollHandlerEnabled) return true;
+
+                            var tag = e.target.tagName.toLowerCase();
+
+                            switch(e.which) {
+                                case 38:
+                                    if (tag != 'input' && tag != 'textarea') $this.moveUp();
+                                    break;
+                                case 40:
+                                    if (tag != 'input' && tag != 'textarea') $this.moveDown();
+                                    break;
+                                case 32: //spacebar
+                                    if (tag != 'input' && tag != 'textarea') $this.moveDown();
+                                    break;
+                                case 33: //pageg up
+                                    if (tag != 'input' && tag != 'textarea') $this.moveUp();
+                                    break;
+                                case 34: //page dwn
+                                    if (tag != 'input' && tag != 'textarea') $this.moveDown();
+                                    break;
+                                case 36: //home
+                                    $this.moveTo(homePageName);
+                                    break;
+                                default: return true;
+                            }
+                        });
+                    }
                 }
 			}
 
@@ -282,8 +289,9 @@
             // Get window height
         	windowHeight = $(window).height();
 
-    		// Reset scrollTop to calculate offsetTop
-    		sysScrollTarget = 0;
+    		// Bug fix If we are on home initially, we can't set sysScrollTarget because iOS and Android won't generate scroll event thus it will stuck
+    		if(current.data("page-name") !== homePageName) sysScrollTarget = 0;
+            // Reset scrollTop to calculate offsetTop. If we are on home,
     		$this.parent().scrollTop(0);
     		$this.css({
 		                "-webkit-transform": "none",

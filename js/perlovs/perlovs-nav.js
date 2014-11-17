@@ -1,5 +1,5 @@
 /* ===========================================================
- * Mobile nav for p1 theme
+ * Navigation scripts for p1 theme
  * ===========================================================
  * Copyright 2014 Mikhail Perlov.
  * http://perlovs.com
@@ -16,12 +16,12 @@
 	$.fn.mobileNav = function(options) {
 		var defaults = {
             floatNavContainer: ".float-nav",
-            floatNavToggle: ".nav-toggle",
             floatNavExpandedClass: "expanded",
-            offCanvasContainer: ".right-off-canvas-menu",
-            offCanvasToggle: ".right-off-canvas-toggle",
+            offCanvasContainer: ".off-canvas-menu",
+            offCanvasToggle: ".off-canvas-toggle",
             offCanvasExit: ".exit-off-canvas",
-            offCanvasMoveClass: "move-left"
+            offCanvasMoveClass: "off-canvas-move",
+            offCanvasPos: 'left'
         	},
         	settings = $.extend({}, defaults, options);
 
@@ -32,20 +32,14 @@
 
 		var Modernizr = window.Modernizr || {};
 
-		$.fn.toggleFloatNav = function(e) {
-			e.preventDefault();
-			$floatNav.toggleClass(settings.floatNavExpandedClass);
-		};
-
 		$.fn.openOffCanvas = function(e) {
 			e.preventDefault();
-			$floatNav.removeClass(settings.floatNavExpandedClass);
-			$offCanvas.addClass(settings.offCanvasMoveClass);
+			$('body').addClass(settings.offCanvasMoveClass);
 		};
 
 		$.fn.closeOffCanvas = function(e) {
 			e.preventDefault();
-			$offCanvas.removeClass(settings.offCanvasMoveClass);
+			$('body').removeClass(settings.offCanvasMoveClass);
 		};
 
 		// Bind events, check for mediaQuery (responsive)
@@ -55,17 +49,21 @@
 				// Prevent further binding attempts even if js falls
 				eventHandlersBound = true;
 
-        		// Nav toggle toggles button visibility buttons
-				$floatNav.find(settings.floatNavToggle).on('click', $this.toggleFloatNav);
-
-				$floatNav.find(settings.offCanvasToggle).on('click', $this.openOffCanvas);
+				$this.find(settings.offCanvasToggle).on('click', $this.openOffCanvas);
 
 				$offCanvas.find(settings.offCanvasExit).on('click', $this.closeOffCanvas);
 
 				// Show/hide offcanvas on swipe events for mobile
-		        $this.swipeEvents()
-		        	.bind("swipeLeft", $this.openOffCanvas)
-		        	.bind("swipeRight", $this.closeOffCanvas);
+				if (settings.offCanvasPos === 'left') {
+			        $this.swipeEvents()
+			        	.bind("swipeRight", $this.openOffCanvas)
+			        	.bind("swipeLeft", $this.closeOffCanvas);
+			    }
+			    else {
+			    	$this.swipeEvents()
+			        	.bind("swipeLeft", $this.openOffCanvas)
+			        	.bind("swipeRight", $this.closeOffCanvas);
+			    }
         	}
         }
 
