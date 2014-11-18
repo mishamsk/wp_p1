@@ -1,9 +1,6 @@
 <?php
 /**
  * The template for displaying a "No posts found" message
- *
- * @subpackage FoundationPress
- * @since FoundationPress 1.0
  */
 ?>
 

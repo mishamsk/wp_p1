@@ -46,11 +46,12 @@
 			<a class="exit-off-canvas"></a>
 		</aside>
 		<header id="page-header" role="banner">
-			<section class="tab-bar">
+			<section class="tab-bar row hide-for-large">
 				<a href="#" class="off-canvas-toggle icon-g-menu"></a>
 				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="tab-bar-title" rel="home"><div class="logo"><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></a>
 			</section>
 			<nav class="float-nav" role="navigation">
+				<a href="#" class="off-canvas-toggle icon-g-menu show-for-large"></a>
 				<a href="#" class="share-toggle icon-g-share"></a>
 				<a href="#" class="search-toggle icon-g-search"></a>
 				<div class="social-container"><?php p1_social(); ?></div>
@@ -92,6 +93,8 @@
 			</nav>
 		</header><!-- #page-header -->
 		<section id="main" role="main">
+			<div class="row">
+				<div class="small-12 columns">
 	<?php
 	/*
 	*

@@ -42,7 +42,7 @@ function create_travel_taxonomies() {
 		'show_ui'           => true,
 		'show_admin_column' => true,
 		'query_var'         => false,
-		'rewrite'           => array( 'slug' => 'travel' ),
+		//'rewrite'           => array( 'slug' => 'travel' ),
 	);
 
 	register_taxonomy( 'travel', array( 'post' ), $args );
@@ -73,7 +73,7 @@ function create_travel_taxonomies() {
 		'show_ui'           => true,
 		'show_admin_column' => true,
 		'query_var'         => false,
-		'rewrite'           => array( 'slug' => 'travel' ),
+		//'rewrite'           => array( 'slug' => 'travel' ),
 	);
 
 	register_taxonomy( 'countries', array( 'post' ), $args );

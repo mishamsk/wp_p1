@@ -20,8 +20,9 @@ $darker-red: darken($primary-red, $darken);
 $lighter-red: lighten($primary-red, $lighten);
 
 $blog-color: $primary-green;
-$travel-color: $primary-blue;
+$travel-color: $primary-yellow;
 $author-color: $primary-red;
+$default-color: $primary-blue;
 
 // Home.nav
 $home-nav-font-size: rem-calc(22);
@@ -65,9 +66,10 @@ $float-nav-button-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.4);
 
 // Off canvas
 $off-canvas-pos: left;
-$off-canvas-transition: transform 500ms ease;
+$off-canvas-transition: transform, opacity 500ms ease;
 $off-canvas-menu-shadow-offset-x: rem-calc(3);
 $off-canvas-menu-box-shadow: $off-canvas-menu-shadow-offset-x 0 rem-calc(5) 0px rgba(0, 0, 0, 0.4);
+$off-canvas-menu-box-shadow-large: $off-canvas-menu-shadow-offset-x 0 rem-calc(5) 0px rgba(0, 0, 0, 0.4), -$off-canvas-menu-shadow-offset-x 0 rem-calc(5) 0px rgba(0, 0, 0, 0.4), 0 $off-canvas-menu-shadow-offset-x rem-calc(5) 0px rgba(0, 0, 0, 0.4);
 $off-canvas-link-transition: background 500ms ease;
 
 $off-canvas-toggle-offset: 0;

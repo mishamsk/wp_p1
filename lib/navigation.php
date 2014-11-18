@@ -191,4 +191,26 @@ if ( ! function_exists( 'p1_pagination') ) :
 	}
 endif; // p1_pagination
 
+if ( ! function_exists( 'p1_taxonomy_body_class' ) ) :
+/**
+ * Comment
+ */
+function p1_taxonomy_body_class( $classes )
+{
+	if( is_singular() )
+	{
+		$categories_list = get_the_category();
+		if ($categories_list) {
+			foreach ($categories_list as $category) {
+				$classes[] = 'category-' . $category->slug;
+			}
+		}
+	}
+	return $classes;
+}
+endif; // p1_taxonomy_body_class
+
+// add taxoonomy and terms to body_class
+add_filter( 'body_class', 'p1_taxonomy_body_class' );
+
 ?>

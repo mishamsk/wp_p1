@@ -17,7 +17,7 @@
 					, $margin: 0 auto) {
 	.logo {
 		display: block;
-		height: 4 * $base-size;
+		height: 4 * $base-size - 0.1;
 		margin: $margin;
 		position: relative;
 		width: 10.8 * $base-size;

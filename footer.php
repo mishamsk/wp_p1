@@ -11,10 +11,18 @@
 	*/
 		if (!is_front_page()) :
 	?>
+				</div><!-- .small-12 columns -->
+			</div><!-- .row -->
 		</section><!-- #main -->
 		<footer id="page-footer" role="contentinfo" data-page-name="credits">
-			<span id="copyright"><?php printf( __( 'Copyright &copy; %s %s. All Rights Reserved.', 'perlovs' ), date( 'Y' ), ' <a href="' . home_url() . '">' . get_bloginfo( 'name' ) .'</a>' ); ?></span>
-			<span id="credits"><?php printf( __( 'Credits and honors: %s.', 'perlovs' ), ' <a href="' . home_url() . '/credits/">' . __( 'here' ) .'</a>' ); ?></span>
+			<div class="row">
+				<div class="small-12 large-6 columns text-center large-text-left">
+					<p id="copyright"><?php printf( __( 'Copyright &copy; %s %s. All Rights Reserved.', 'perlovs' ), date( 'Y' ), ' <a href="' . home_url() . '">' . get_bloginfo( 'name' ) .'</a>' ); ?></p>
+				</div>
+				<div class="small-12 large-6 columns text-center large-text-right">
+					<p id="credits"><?php printf( __( 'Credits and honors: %s', 'perlovs' ), ' <a href="' . home_url() . '/credits/">' . __( 'here' ) .'</a>' ); ?></p>
+				</div>
+			</div>
 		</footer><!-- #page-footer -->
 	</div> <!--#page-wrapper -->
 
