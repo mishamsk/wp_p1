@@ -63,10 +63,11 @@ $float-nav-button-margin: rem-calc(8);
 $float-nav-button-md-coef: 1;
 $float-nav-button-transition: bottom 300ms ease;
 $float-nav-button-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.4);
+$float-nav-share-toggle-margin-fix: rem-calc(56);
 
 // Off canvas
 $off-canvas-pos: left;
-$off-canvas-transition: transform, opacity 500ms ease;
+$off-canvas-transition: transform 500ms ease, opacity 500ms ease;
 $off-canvas-menu-shadow-offset-x: rem-calc(3);
 $off-canvas-menu-box-shadow: $off-canvas-menu-shadow-offset-x 0 rem-calc(5) 0px rgba(0, 0, 0, 0.4);
 $off-canvas-menu-box-shadow-large: $off-canvas-menu-shadow-offset-x 0 rem-calc(5) 0px rgba(0, 0, 0, 0.4), -$off-canvas-menu-shadow-offset-x 0 rem-calc(5) 0px rgba(0, 0, 0, 0.4), 0 $off-canvas-menu-shadow-offset-x rem-calc(5) 0px rgba(0, 0, 0, 0.4);

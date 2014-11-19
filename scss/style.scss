@@ -18,43 +18,10 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 @import "normalize";
 @import "foundation";
 @import "st-perlovs";
+@import "perlovs/catColorize";
 @import "p1icons";
 @import "fonts";
 @import "perlovs-logo";
-
-// -----------------------
-// Mixins
-// -----------------------
-@mixin catColorize($prop: background-color, $darken: false) {
-	@if $darken == false {
-		#{$prop}: $default-color;
-		.category-travel &, .page-template-travel-php &, .tax-travel &, .tax-country & {
-			#{$prop}: $travel-color;
-		}
-
-		.author &, .author-misha &, .author-masha & {
-			#{$prop}: $author-color;
-		}
-
-		.blog & {
-			#{$prop}: $blog-color;
-		}
-	}
-	@else {
-		#{$prop}: darken($default-color, $darken);
-		.category-travel &, .page-template-travel-php &, .tax-travel &, .tax-country & {
-			#{$prop}: darken($travel-color, $darken);
-		}
-
-		.author &, .author-misha &, .author-masha & {
-			#{$prop}: darken($author-color, $darken);
-		}
-
-		.blog & {
-			#{$prop}: darken($blog-color, $darken);
-		}
-	}
-}
 
 // -----------------------
 // General wrappers
@@ -216,11 +183,18 @@ html, body {
 	}
 
 	.search-toggle {
-		background-color: $primary-yellow;
+		@include catColorize($shift: 1);
 	}
 
 	.share-toggle {
-		background-color: $primary-red;
+		@include catColorize($shift: 2);
+
+		// Fix to center icon
+		&:before {
+			left: 50%;
+			margin-left: -$float-nav-share-toggle-margin-fix;
+			position: relative;
+		}
 	}
 
 	&.expanded {
@@ -253,7 +227,6 @@ html, body {
 	* { -webkit-backface-visibility: hidden; }
 
 	ul.off-canvas-list {
-		background: $off-canvas-bg;
 		bottom: 0;
 		box-shadow: $off-canvas-menu-box-shadow;
 		margin: 0;
@@ -277,6 +250,7 @@ html, body {
 		}
 
 		@include transition($off-canvas-transition);
+		@include catColorize();
 
 		@media #{$large-up} {
 			bottom: auto;
@@ -285,6 +259,7 @@ html, body {
 			left: 50%;
 			margin-left: -$row-width / 2 + $column-gutter / 2;
 			margin-top: $float-nav-offset;
+			max-height: 80%;
 			opacity: 0;
 			position: fixed;
 			top: $float-nav-offset;
@@ -320,7 +295,7 @@ html, body {
 				border-bottom: $off-canvas-link-border-bottom;
 				transition: $off-canvas-link-transition;
 				&:hover {
-					background: $off-canvas-bg-hover;
+					@include catColorize($dark:true);
 				}
 			}
 		}
@@ -467,14 +442,25 @@ html, body {
 // Main
 // -----------------------
 
+// Pagination colorize
+ul.pagination {
+	a, button {
+		min-width: $pagination-li-height;
 
+		&.curent,
+		&.curent:hover,
+      	&.curent:focus {
+			@include catColorize();
+		}
+	}
+}
 
 // -----------------------
 // Footer
 // -----------------------
 
 #page-footer {
-	@include catColorize($darken: 10%);
+	@include catColorize($dark: true);
 
 	padding: 1rem 0;
 
