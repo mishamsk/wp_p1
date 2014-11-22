@@ -90,7 +90,7 @@ if ( ! function_exists( 'perlovs_disqus_lazy_load' ) ) :
  */
 function perlovs_disqus_lazy_load(  )
 {
-    if (is_singular()) {
+    if (is_single()) {
         echo '
             <script type="text/javascript">$(".comment-toggle").perlovsDisqus({disqus_shortname: disqus_shortname});</script>';
     }

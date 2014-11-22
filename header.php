@@ -58,7 +58,7 @@
 				<a href="#" class="search-toggle icon-g-search">
 					<div class="search-container"><?php get_search_form(); ?></div>
 				</a>
-				<?php if (is_singular()) { ?><a href="#" class="comment-toggle icon-g-comment"></a><?php } ?>
+				<?php if (is_single()) { ?><a href="#" class="comment-toggle icon-g-comment"></a><?php } ?>
 			</nav>
 			<nav class="top-bar" data-topbar role="navigation">
 				<ul class="title-area">
