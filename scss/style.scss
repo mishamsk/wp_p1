@@ -458,6 +458,17 @@ ul.pagination {
 	}
 }
 
+// Comments
+.entry-comments {
+	.comment-toggle {
+		@include catColorize($shift: 3);
+
+		&:hover {
+			@include catColorize($shift: 3, $dark: true);
+		}
+	}
+}
+
 // -----------------------
 // Footer
 // -----------------------

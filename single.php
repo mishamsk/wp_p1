@@ -15,7 +15,12 @@
 		<footer>
 			<?php wp_link_pages(array('before' => '<nav id="page-nav"><p>' . __('Pages:', 'perlovs'), 'after' => '</p></nav>' )); ?>
 			<p><?php the_tags(); ?></p>
-			<div class="entry-comments"><?php comments_template(); ?></div>
+			<div class="entry-comments">
+				<button href="#" class="expand radius comment-toggle">
+					<?php _e('Leave a thought!', 'perlovs'); ?>
+				</button>
+				<?php comments_template(); ?>
+			</div>
 		</footer>
 	</article>
 <?php endwhile;?>

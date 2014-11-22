@@ -10,9 +10,6 @@
 (function($, window, document, undefined) {
 	'use strict';
 
-	// -----------------------
-	// Float nav and off canvas
-	// -----------------------
 	$.fn.perlovsDisqus = function(options) {
 		var defaults = {
             	disqus_shortname: "mishamsk",
@@ -27,7 +24,7 @@
 			eventHandlersBound = false,
 			scriptAppended = false;
 
-		function gotoDisqusScript() {
+		function gotoDisqus() {
 			// Append once
 			if (!scriptAppended) {
 				scriptAppended = true;
@@ -37,9 +34,12 @@
 			    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
 			}
 
-			if ($scroll_wrapper.scrollTop() < $comment_wrapper.scrollTop() - $(window).height()) {
-				$scroll_wrapper.scrollTop($comment_wrapper.scrollTop());
+			if ($scroll_wrapper.scrollTop() < $comment_wrapper.position().top - $(window).height()) {
+				$scroll_wrapper.scrollTop($comment_wrapper.position().top);
 			}
+
+			// Hide button which opens comments inside comment wrapper
+			$comment_wrapper.find($this).hide();
 		}
 
 		// Bind events, check for mediaQuery (responsive)
@@ -49,7 +49,11 @@
 				// Prevent further binding attempts even if js falls
 				eventHandlersBound = true;
 
-				$this.on('click', gotoDisqusScript);
+				// Open and go to comments on click
+				$this.on('click', gotoDisqus);
+
+				// hide server-side rendered comments
+				$scroll_wrapper.find('#dsq-content').hide();
         	}
         }
 
