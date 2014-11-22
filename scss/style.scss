@@ -53,15 +53,29 @@ html, body {
 	}
 }
 
-// shift down content area for fixed header and for front-page
 #main {
+	min-height: 100%;
 	overflow-x: hidden;
 	width: 100%;
 }
 
 // -----------------------
-// Fonts for large screens
+// Fonts
 // -----------------------
+.entry-content {
+	h1, h2, h3, h4, h5, h6, p, span {
+		font-size: $paragraph-font-size !important;
+		line-height: $paragraph-line-height !important;
+		margin-top: 0 !important;
+      	margin-bottom: $paragraph-margin-bottom !important;
+
+		@media #{$medium-up} {
+			font-size: $paragraph-font-size * 1.3 !important;
+			line-height: $paragraph-line-height * 1.3 !important;
+		}
+	}
+}
+
 @media #{$medium-up} {
 	body, p {
 		font-size: $paragraph-font-size * 1.3;
@@ -280,7 +294,7 @@ html, body {
 			}
 
 			label {
-				display: block;
+				display: inline-block;
 				padding: $off-canvas-label-padding;
 				color: $off-canvas-label-color;
 				text-transform: $off-canvas-label-text-transform;
@@ -291,14 +305,52 @@ html, body {
 				border-bottom: $off-canvas-label-border-bottom;
 				margin: $off-canvas-label-margin;
 			}
+
 			a {
-				display: block;
+				display: inline-block;
 				padding: $off-canvas-link-padding;
 				color: $off-canvas-link-color;
 				border-bottom: $off-canvas-link-border-bottom;
 				transition: $off-canvas-link-transition;
+				width: 100%;
 				&:hover {
 					@include catColorize($dark:true);
+				}
+			}
+
+			&.current-post-parent, &.current-page-parent, &.current-menu-item {
+				> a {
+					@include catColorize($darken:20%);
+
+					&:after {
+						content: "\f155";
+						display: inline-block;
+						float: right;
+						font-family: "p1icons";
+						font-style: normal;
+						font-weight: normal;
+						font-variant: normal;
+						text-decoration: inherit;
+						text-rendering: optimizeLegibility;
+						text-transform: none;
+						-moz-osx-font-smoothing: grayscale;
+						-webkit-font-smoothing: antialiased;
+						font-smoothing: antialiased;
+					}
+				}
+			}
+
+			ul {
+				margin: 0;
+				padding: 0;
+
+				li {
+					margin: 0;
+					padding: 0;
+
+					a {
+						padding: $off-canvas-child-link-padding;
+					}
 				}
 			}
 		}
@@ -349,43 +401,16 @@ html, body {
 	}
 }
 
-
-
-// Top-bar
-.top-bar {
-	display: none;
-
-	// @media #{$medium-up} {
-	// 	display: block;
-	// 	position: relative;
-	// }
-
-	// @media #{$large-up} {
-	// 	position: fixed;
-	// }
-
-	@include perlovs-logo($base-size: $topbar-height/4, $margin: 0 0 0 $column-gutter/2);
-}
-
 // -----------------------
 // Search form
 // -----------------------
 
 .search-container {
-	.top-bar & {
-		@include grid-row(collapse);
-		width: $topbar-dropdown-action-width;
-	}
 
-	#search-share-modal & {
-		@include grid-row(collapse);
-	}
 }
 
 .search-form {
-	.top-bar & {
-		margin: $topbar-search-form-margin;
-	}
+
 }
 
 .search-field {
@@ -396,12 +421,6 @@ html, body {
 		height: $topbar-height - 2*$topbar-search-form-margin;
 		padding: $topbar-search-field-padding;
 		top: 0px;
-	}
-
-	#search-share-modal & {
-		@include grid-column($columns:10);
-		font-size: $tabbar-search-form-font-size;
-		padding: $tabbar-search-field-padding;
 	}
 }
 

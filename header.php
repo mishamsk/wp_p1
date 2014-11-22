@@ -46,8 +46,8 @@
 			<a class="exit-off-canvas"></a>
 		</aside>
 		<header id="page-header" role="banner">
-			<section class="tab-bar row hide-for-large">
-				<a href="#" class="off-canvas-toggle icon-g-menu"></a>
+			<section class="tab-bar row">
+				<a href="#" class="off-canvas-toggle icon-g-menu hide-for-large"></a>
 				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="tab-bar-title" rel="home"><div class="logo"><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></a>
 			</section>
 			<nav class="float-nav" role="navigation">
@@ -59,40 +59,6 @@
 					<div class="search-container"><?php get_search_form(); ?></div>
 				</a>
 				<?php if (is_single()) { ?><a href="#" class="comment-toggle icon-g-comment"></a><?php } ?>
-			</nav>
-			<nav class="top-bar" data-topbar role="navigation">
-				<ul class="title-area">
-					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><div class="logo"><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></a>
-					<li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
-				</ul>
-
-				<section class="top-bar-section">
-					<!-- Right But Section -->
-					<ul class="top-bar-menu right">
-						<li class="divider"></li>
-						<li class="has-dropdown">
-							<a href="#" class="icon-share"></a>
-							<ul class="dropdown">
-								<li><?php p1_social(); ?></li>
-							</ul>
-						</li>
-						<li class="divider"></li>
-						<li class="has-dropdown search-toggle">
-							<a href="#" class="icon-magnifying-glass"></a>
-							<ul class="dropdown">
-								<li>
-									<div class="search-container">
-										<?php get_search_form(); ?>
-									</div>
-								</li>
-							</ul>
-						</li>
-					</ul>
-				</section>
-				<section class="top-bar-section">
-					<!-- Right Nav Section -->
-					<?php menu_top_bar_r(); ?>
-				</section>
 			</nav>
 		</header><!-- #page-header -->
 		<section id="main" role="main">
