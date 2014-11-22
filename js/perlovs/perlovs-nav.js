@@ -13,7 +13,7 @@
 	// -----------------------
 	// Float nav and off canvas
 	// -----------------------
-	$.fn.mobileNav = function(options) {
+	$.fn.perlovsNav = function(options) {
 		var defaults = {
             floatNavContainer: ".float-nav",
             floatNavExpandedClass: "expanded",

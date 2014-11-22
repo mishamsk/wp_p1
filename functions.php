@@ -9,9 +9,6 @@ define( 'PERLOVS_THEME_TEMPLATE', get_stylesheet_directory() );
  * Includes
  */
 
-// Required for Foundation to work properly
-//require_once('library/foundation.php');
-
 // Navigation menus, walker func, breadcrumbs, pagination
 require_once('lib/navigation.php');
 
@@ -80,8 +77,25 @@ function perlovs_setup() {
 
     // WP version
     remove_action( 'wp_head', 'wp_generator' );
+
+    // Disqus lazy load
+    remove_action('wp_footer', 'dsq_output_footer_comment_js');
 }
 endif; // perlovs_setup
+
+add_action( 'wp_footer', 'perlovs_disqus_lazy_load', 100 );
+if ( ! function_exists( 'perlovs_disqus_lazy_load' ) ) :
+/**
+ * Bind disqus to comment-toggle buttons
+ */
+function perlovs_disqus_lazy_load(  )
+{
+    if (is_singular()) {
+        echo '
+            <script type="text/javascript">$(".comment-toggle").perlovsDisqus({disqus_shortname: disqus_shortname});</script>';
+    }
+}
+endif; // perlovs_disqus_lazy_load
 
 add_action( 'wp_enqueue_scripts', 'perlovs_scripts' );
 if ( ! function_exists( 'perlovs_scripts' ) ) :

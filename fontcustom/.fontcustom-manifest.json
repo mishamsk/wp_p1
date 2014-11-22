@@ -1,7 +1,7 @@
 {
   "checksum": {
-    "previous": "c7381d83d0e309811715fd59a245b2cfa2e537bf1ccacfb97cb646ccc5b75e81",
-    "current": "c7381d83d0e309811715fd59a245b2cfa2e537bf1ccacfb97cb646ccc5b75e81"
+    "previous": "4adde632923fd24723401884300e123ad4e9977f554b1d85288fe4c3804b3947",
+    "current": "4adde632923fd24723401884300e123ad4e9977f554b1d85288fe4c3804b3947"
   },
   "fonts": [
     "../fonts/p1icons.ttf",
@@ -13,6 +13,10 @@
     "at-sign": {
       "codepoint": 61761,
       "source": "vectors/at-sign.svg"
+    },
+    "g-comment": {
+      "codepoint": 61778,
+      "source": "vectors/g-comment.svg"
     },
     "g-menu": {
       "codepoint": 61774,

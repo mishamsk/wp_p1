@@ -1,0 +1,61 @@
+// P1 Wordpress theme color variables
+
+// Colors
+$darken: 30%;
+$lighten: 30%;
+$primary-blue: #225B66;
+$darker-blue: darken($primary-blue, $darken);
+$lighter-blue: lighten($primary-blue, $lighten);
+$primary-cyan: #17A3A5;
+$darker-cyan: darken($primary-cyan, $darken);
+$lighter-cyan: lighten($primary-cyan, $lighten);
+$primary-green: #8DBF67;
+$darker-green: darken($primary-green, $darken);
+$lighter-green: lighten($primary-green, $lighten);
+$primary-yellow: #FCCB56;
+$darker-yellow: darken($primary-yellow, $darken);
+$lighter-yellow: lighten($primary-yellow, $lighten);
+$primary-red: #E85248;
+$darker-red: darken($primary-red, $darken);
+$lighter-red: lighten($primary-red, $lighten);
+
+$blog-color: $primary-green;
+$travel-color: $primary-yellow;
+$author-color: $primary-red;
+$default-color: $primary-blue;
+
+
+$cat-colorize-darken: 10% !default;
+$cat-colorize-lighten: 10% !default;
+$cat-colorize-base-colors: #225B66, #8DBF67, #FCCB56, #E85248;
+$cat-colorize-selectors: blog,
+			category-travel page-template-travel-php tax-travel tax-country,
+			author author-misha author-masha;
+
+// Foundation color vars
+$primary-color: #225B66;
+$secondary-color: #e7e7e7;
+$alert-color: #f04124;
+$success-color: #43AC6A;
+$warning-color: #f08a24;
+$info-color: #a0d3e8;
+
+$white       : #FFFFFF;
+$ghost       : #FAFAFA;
+$snow        : #F9F9F9;
+$vapor       : #F6F6F6;
+$white-smoke : #F5F5F5;
+$silver      : #EFEFEF;
+$smoke       : #EEEEEE;
+$gainsboro   : #DDDDDD;
+$iron        : #CCCCCC;
+$base        : #AAAAAA;
+$aluminum    : #999999;
+$jumbo       : #888888;
+$monsoon     : #777777;
+$steel       : #666666;
+$charcoal    : #555555;
+$tuatara     : #444444;
+$oil         : #333333;
+$jet         : #222222;
+$black       : #000000;

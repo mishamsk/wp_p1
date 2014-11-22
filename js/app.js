@@ -1,4 +1,4 @@
-$("body").mobileNav();
+$("body").perlovsNav();
 
 $(document).ready(function(){
 	'use strict';

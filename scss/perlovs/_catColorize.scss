@@ -2,18 +2,19 @@
 
 @mixin which alternates color property depending on selector. Place inside selector which has to be colorized
 
-$base-colors - color set, first considered as default color (without selector)
-$selectors - corresponding set of selectors to wrap around target
+Settings
+	$cat-colorize-base-colors - color set, first considered as default color (without selector)
+	$cat-colorize-selectors - corresponding set of selectors to wrap around target css selector (the one you include this mixin in)
+	$cat-colorize-darken, $cat-colorize-lighten - corresponding parameters of darken and lighten function when $dark/$light option is true
+
+Mixin parameters
+	$prop: background-color !default - property to set the color to
+	$shift: 0 !default - shift color array relative to selectors
+	$darken: false !default - should be % or false. If % then base-color adjusted using darken
+	$dark: false !default - if true uses $cat-colorize-darken to darken base-color
+	$lighten: false !default - same as above but lighten
+	$light: false !default - same as above but lighten
 */
-
-// Settings
-
-$cat-colorize-darken: 10% !default;
-$cat-colorize-lighten: 10% !default;
-$base-colors: #225B66, #8DBF67, #FCCB56, #E85248;
-$selectors: blog,
-			category-travel page-template-travel-php tax-travel tax-country,
-			author author-misha author-masha;
 
 @function adjustColor($color, $darken, $dark, $lighten, $light) {
 	@if $darken != false {
@@ -40,25 +41,25 @@ $selectors: blog,
 }
 
 @mixin catColorize($prop: background-color, $shift: 0, $darken: false, $dark: false, $lighten: false, $light: false) {
-	@if length($base-colors) - 1 != length($selectors) {
-		@debug "Number of colors:" length($base-colors) "Number of selectors:" length($selectors);
+	@if length($cat-colorize-base-colors) - 1 != length($cat-colorize-selectors) {
+		@debug "Number of colors:" length($cat-colorize-base-colors) "Number of selectors:" length($cat-colorize-selectors);
 		@error "Number of colors should be 1 + number of selectors";
 	}
 
-	$mod: length($base-colors);
-	$mods: length($selectors);
+	$mod: length($cat-colorize-base-colors);
+
 	@for $i from 1 through $mod {
 		@if $i == 1 {
-			#{$prop}: adjustColor(nth($base-colors, ($i + $shift - 1) % $mod + 1), $darken, $dark, $lighten, $light);
+			#{$prop}: adjustColor(nth($cat-colorize-base-colors, ($i + $shift - 1) % $mod + 1), $darken, $dark, $lighten, $light);
 		}
 		@else {
 			$res: ();
-			$curselectors: nth($selectors, $i - 1);
+			$curselectors: nth($cat-colorize-selectors, $i - 1);
 			@each $selector in $curselectors {
 				$res: append($res, unquote('.#{$selector} &'), comma);
 			}
 			#{$res} {
-				#{$prop}: adjustColor(nth($base-colors, ($i + $shift - 1) % $mod + 1), $darken, $dark, $lighten, $light);
+				#{$prop}: adjustColor(nth($cat-colorize-base-colors, ($i + $shift - 1) % $mod + 1), $darken, $dark, $lighten, $light);
 			}
 		}
 	}

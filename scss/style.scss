@@ -13,6 +13,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 @charset "UTF-8";
 
 @import "compass/css3";
+@import "st-colors";
 @import "st-foundation";
 @import "st-fndtion-inc-general";
 @import "normalize";
@@ -87,13 +88,6 @@ html, body {
 	position: relative;
 	width: 100%;
 	z-index: 1;
-}
-
-// icons
-.icon-magnifying-glass, .icon-share {
-	.top-bar & {
-		font-size: $topbar-icon-font-size;
-	}
 }
 
 // Tab-bar
@@ -194,6 +188,15 @@ html, body {
 			left: 50%;
 			margin-left: -$float-nav-share-toggle-margin-fix;
 			position: relative;
+		}
+	}
+
+	.comment-toggle {
+		@include catColorize($shift: 3);
+
+		// Fix to center icon
+		&:before {
+			margin-top: $float-nav-comment-toggle-margin-fix;
 		}
 	}
 

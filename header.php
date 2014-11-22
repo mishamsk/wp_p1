@@ -52,10 +52,13 @@
 			</section>
 			<nav class="float-nav" role="navigation">
 				<a href="#" class="off-canvas-toggle icon-g-menu show-for-large"></a>
-				<a href="#" class="share-toggle icon-g-share"></a>
-				<a href="#" class="search-toggle icon-g-search"></a>
-				<div class="social-container"><?php p1_social(); ?></div>
-				<div class="search-container"><?php get_search_form(); ?></div>
+				<a href="#" class="share-toggle icon-g-share">
+					<div class="social-container"><?php p1_social(); ?></div>
+				</a>
+				<a href="#" class="search-toggle icon-g-search">
+					<div class="search-container"><?php get_search_form(); ?></div>
+				</a>
+				<?php if (is_singular()) { ?><a href="#" class="comment-toggle icon-g-comment"></a><?php } ?>
 			</nav>
 			<nav class="top-bar" data-topbar role="navigation">
 				<ul class="title-area">
