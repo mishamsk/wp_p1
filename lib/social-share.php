@@ -22,7 +22,7 @@ if ( ! function_exists( 'p1_social' ) ) :
 		?>
 
 		<div class="social-bar">
-		  <a id="social-facebook" rel="external nofollow" class="item" href="https://www.facebook.com/dialog/share?app_id=386141574823982&amp;display=popup&amp;href=<?php echo $url; ?>" target="_blank" title="Поделись в Facebook!">
+		  <a id="social-facebook" rel="external nofollow" class="item" href="https://www.facebook.com/dialog/share?app_id=386141574823982&amp;display=popup&amp;href=<?php echo $url; ?>&amp;redirect_uri=<?php echo $url; ?>" target="_blank" title="Поделись в Facebook!">
 		    <i class="icon-social-facebook"></i>
 		  </a>
 		  <a id="social-twitter" rel="external nofollow" class="item" href="http://twitter.com/intent/tweet/?url=<?php echo $url; ?>&amp;text=%22<?php echo $title; ?>%22 - это стоит прочесть %23perlovs" target="_blank" title="Поделись в Твиттере!">
