@@ -16,6 +16,7 @@
 	$.fn.perlovsNav = function(options) {
 		var defaults = {
             floatNavContainer: ".float-nav",
+            floatNavToggleClass: ".nav-toggle",
             floatNavExpandedClass: "expanded",
             offCanvasContainer: ".off-canvas-menu",
             offCanvasToggle: ".off-canvas-toggle",
@@ -64,6 +65,10 @@
 			        	.bind("swipeLeft", $this.openOffCanvas)
 			        	.bind("swipeRight", $this.closeOffCanvas);
 			    }
+
+			    $floatNav.find(settings.floatNavToggleClass).on('click', function () {
+			    	$(this).parent().toggleClass(settings.floatNavExpandedClass);
+			    });
         	}
         }
 

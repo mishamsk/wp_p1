@@ -46,19 +46,21 @@
 			<a class="exit-off-canvas"></a>
 		</aside>
 		<header id="page-header" role="banner">
-			<section class="tab-bar row">
+			<div class="tab-bar row">
 				<a href="#" class="off-canvas-toggle icon-g-menu hide-for-large"></a>
 				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="tab-bar-title" rel="home"><div class="logo"><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></a>
-			</section>
+			</div>
 			<nav class="float-nav" role="navigation">
 				<a href="#" class="off-canvas-toggle icon-g-menu show-for-large"></a>
-				<a href="#" class="share-toggle icon-g-share">
-					<div class="social-container"><?php p1_social(); ?></div>
-				</a>
-				<a href="#" class="search-toggle icon-g-search">
-					<div class="search-container"><?php get_search_form(); ?></div>
-				</a>
-				<?php if (is_single()) { ?><a href="#" class="comment-toggle icon-g-comment"></a><?php } ?>
+				<div class="social-container">
+					<a href="#" class="share-toggle icon-g-share nav-toggle"></a>
+					<?php p1_social(); ?>
+				</div>
+				<div class="search-container expandable">
+					<a href="#" class="search-toggle icon-g-search nav-toggle"></a>
+					<?php get_search_form(); ?>
+				</div>
+				<?php if (is_single() && ( have_comments() || 'open' == $post->comment_status )) { ?><a href="#" class="comment-toggle icon-g-comment"></a><?php } ?>
 			</nav>
 		</header><!-- #page-header -->
 		<section id="main" role="main">
