@@ -21,11 +21,11 @@ if ( ! function_exists( 'p1_social' ) ) :
 		$url = urlencode( get_permalink() );
 		?>
 
-		<div class="social-bar icon-bar five-up">
-		  <a id="social-facebook" rel="external nofollow" class="item" href="http://www.facebook.com/sharer/sharer.php?s=100&p[url]=<?php echo $url; ?>&p[title]=<?php echo $title; ?>" target="_blank" title="Поделись в Facebook!">
+		<div class="social-bar">
+		  <a id="social-facebook" rel="external nofollow" class="item" href="https://www.facebook.com/dialog/share?app_id=386141574823982&amp;display=popup&amp;href=<?php echo $url; ?>" target="_blank" title="Поделись в Facebook!">
 		    <i class="icon-social-facebook"></i>
 		  </a>
-		  <a id="social-twitter" rel="external nofollow" class="item" href="http://twitter.com/intent/tweet/?url=<?php echo $url; ?>&text=%22<?php echo $title; ?>%22 - это стоит прочесть %23perlovs" target="_blank" title="Поделись в Твиттере!">
+		  <a id="social-twitter" rel="external nofollow" class="item" href="http://twitter.com/intent/tweet/?url=<?php echo $url; ?>&amp;text=%22<?php echo $title; ?>%22 - это стоит прочесть %23perlovs" target="_blank" title="Поделись в Твиттере!">
 		    <i class="icon-social-twitter"></i>
 		  </a>
 		  <a id="social-vk" rel="external nofollow" class="item" href="http://vk.com/share.php?url=<?php echo $url; ?>" target="_blank" title="Поделись во Вконтакте!">
@@ -34,7 +34,7 @@ if ( ! function_exists( 'p1_social' ) ) :
 		  <a id="social-google-plus" rel="external nofollow" class="item" href="https://plus.google.com/share?url=<?php echo $url; ?>" target="_blank" title="Поделись в G+!">
 		    <i class="icon-social-google-plus"></i>
 		  </a>
-		  <a id="social-email" rel="external nofollow" class="item" href="mailto:?subject=Интересная статья на сайте perlovs.com&body=Интересная статья: &lt;a href%25%22<?php echo $url; ?>%22&rt;<?php echo $title; ?>&lt;%2Fa&rt;" target="_blank" title="Отправь ссылку по почте">
+		  <a id="social-email" rel="external nofollow" class="item" href="mailto:?subject=Интересная статья на сайте perlovs.com&amp;body=Интересная статья: &lt;a href%25%22<?php echo $url; ?>%22&rt;<?php echo $title; ?>&lt;%2Fa&rt;" target="_blank" title="Отправь ссылку по почте">
 		    <i class="icon-at-sign"></i>
 		  </a>
 		</div>
