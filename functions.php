@@ -90,7 +90,8 @@ if ( ! function_exists( 'perlovs_disqus_lazy_load' ) ) :
  */
 function perlovs_disqus_lazy_load(  )
 {
-    if (is_single()) {
+    global $post;
+    if (is_single() && ( have_comments() || 'open' == $post->comment_status )) {
         echo '
             <script type="text/javascript">$(".comment-toggle").perlovsDisqus({disqus_shortname: disqus_shortname});</script>';
     }

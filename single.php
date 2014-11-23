@@ -15,9 +15,11 @@
 			<?php wp_link_pages(array('before' => '<nav id="page-nav"><p>' . __('Pages:', 'perlovs'), 'after' => '</p></nav>' )); ?>
 			<p><?php the_tags(); ?></p>
 			<div class="entry-comments">
-				<button href="#" class="expand radius comment-toggle">
-					<?php _e('Leave a thought!', 'perlovs'); ?>
-				</button>
+				<?php if (is_single() && ( have_comments() || 'open' == $post->comment_status )) { ?>
+					<button href="#" class="expand radius comment-toggle">
+						<?php _e('Leave a thought!', 'perlovs'); ?>
+					</button>
+				<?php } ?>
 				<?php comments_template(); ?>
 			</div>
 		</footer>
