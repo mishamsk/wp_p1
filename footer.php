@@ -11,8 +11,6 @@
 	*/
 		if (!is_front_page()) :
 	?>
-				</div><!-- .small-12 columns -->
-			</div><!-- .row -->
 		</section><!-- #main -->
 		<footer id="page-footer" role="contentinfo" data-page-name="credits">
 			<div class="row">

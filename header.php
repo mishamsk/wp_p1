@@ -64,8 +64,6 @@
 			</nav>
 		</header><!-- #page-header -->
 		<section id="main" role="main">
-			<div class="row">
-				<div class="small-12 columns">
 	<?php
 	/*
 	*

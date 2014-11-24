@@ -20,7 +20,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 @import "foundation";
 @import "perlovs/settings/general";
 @import "perlovs/cat-colorize";
-@import "perlovs/shadows";
+@import "perlovs/container-shadow";
 @import "perlovs/icons";
 @import "perlovs/fonts";
 @import "perlovs/logo";
@@ -84,25 +84,20 @@ html, body {
 }
 
 // -----------------------
-// Images in entries
-// -----------------------
-.entry-content img {
-	display: block;
-	margin: 0.5rem auto 0.3rem auto;
-}
-// -----------------------
 // Header
 // -----------------------
 
 #page-header {
-	// Background
-	@include catColorize();
-
 	height: $tabbar-height;
 	overflow: visible;
 	position: relative;
 	width: 100%;
 	z-index: 1;
+
+	// Background
+	@include catColorize();
+	// Shadow
+	@include container-shadow(1);
 }
 
 // Tab-bar
@@ -145,7 +140,7 @@ html, body {
 	@media #{$large-up} {
 		bottom: initial;
 		left: 50%;
-		margin-left: -$row-width / 2 -$float-nav-button-diameter;
+		margin-left: -$row-width / 2 -$float-nav-button-diameter - $float-nav-offset;
 		right: initial;
 		top: $float-nav-offset;
 
@@ -179,9 +174,8 @@ html, body {
 		}
 
 		@include transition($float-nav-button-transition);
+		@include container-shadow(2);
 		@include border-radius(50%);
-		@include box-shadow($float-nav-button-shadow);
-
 	}
 
 	.off-canvas-toggle {
@@ -345,7 +339,7 @@ html, body {
 			box-shadow: $off-canvas-menu-box-shadow-large;
 			clip: rect(1px,1px,1px,1px);
 			left: 50%;
-			margin-left: -$row-width / 2 + $column-gutter / 2;
+			margin-left: -$row-width / 2 - $float-nav-offset + $column-gutter / 2;
 			margin-top: $float-nav-offset;
 			max-height: 80%;
 			opacity: 0;
@@ -523,6 +517,8 @@ html, body {
 
 // Pagination colorize
 ul.pagination {
+	margin-top: $list-margin-bottom;
+
 	a, button {
 		min-width: $pagination-li-height;
 
@@ -531,6 +527,24 @@ ul.pagination {
 		&.curent:focus {
 			@include catColorize();
 		}
+	}
+}
+
+// Articles
+article.card {
+	background-color: $white;
+	margin: $article-archive-margin;
+	padding: $article-archive-padding;
+	width: auto;
+}
+
+.entry-content {
+	overflow: hidden;
+
+	// Force center aligned images in posts
+	img {
+		display: block;
+		margin: 0.5rem auto 0.3rem auto;
 	}
 }
 
@@ -550,9 +564,12 @@ ul.pagination {
 // -----------------------
 
 #page-footer {
-	@include catColorize($dark: true);
-
 	padding: 1rem 0;
+
+	// Background
+	@include catColorize($dark: true);
+	// Shadow
+	@include container-shadow(1);
 
 	p {
 		color: $white;

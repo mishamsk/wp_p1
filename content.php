@@ -4,11 +4,13 @@
  */
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class('row'); ?>>
-	<div class="small-12 medium-6 large-8 column">
-		<?php if ( has_post_thumbnail() ) the_post_thumbnail(); ?>
+<article id="post-<?php the_ID(); ?>" <?php post_class('container-shadow-lev-1 card'); ?>>
+	<?php if ( has_post_thumbnail() ) : ?>
+	<div class="feature-image">
+		<?php the_post_thumbnail(); ?>
 	</div>
-	<div class="small-12 medium-6 large-4 column">
+	<?php endif; // has_post_thumbnail() ?>
+	<div>
 		<header>
 			<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 			<?php // FoundationPress_entry_meta(); ?>
