@@ -1,15 +1,17 @@
 @charset "UTF-8";
 
 @import "compass/css3";
-@import "st-colors";
-@import "st-foundation";
-@import "st-fndtion-inc-front";
+@import "perlovs/settings/colors";
+@import "perlovs/settings/foundation";
+@import "perlovs/settings/fndtion-inc-front";
 @import "normalize";
 @import "foundation";
-@import "st-perlovs";
-@import "p1icons";
-@import "fonts";
-@import "perlovs-logo";
+@import "perlovs/settings/general";
+@import "perlovs/cat-colorize";
+@import "perlovs/shadows";
+@import "perlovs/icons";
+@import "perlovs/fonts";
+@import "perlovs/logo";
 
 // -----------------------
 // Home

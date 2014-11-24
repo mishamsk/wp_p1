@@ -4,7 +4,7 @@
 #   `fontcustom help` or visiting <http://fontcustom.com>.
 # --------------------------------------------------------------------------- #
 
-font_name: p1icons
+font_name: icons
 css_selector: .icon-{{glyph}}
 preprocessor_path: ""
 autowidth: true
@@ -29,7 +29,7 @@ input:
 
 output:
   fonts: ../fonts                              # required
-  css: ../scss
+  css: ../scss/perlovs
   preview: .
   #my-custom-template.yml: path/to/template/output
 

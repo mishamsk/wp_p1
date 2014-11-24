@@ -4870,14 +4870,30 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
-	"\/scss\/_fonts.scss": {
+	"\/scss\/perlovs\/_cat-colorize.scss": {
 		"createSourceMap": 0,
 		"debugStyle": 0,
 		"decimalPrecision": 5,
 		"fileType": 4,
 		"ignore": 1,
 		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/scss\/_fonts.scss",
+		"inputAbbreviatedPath": "\/scss\/perlovs\/_cat-colorize.scss",
+		"outputAbbreviatedPath": "\/_cat-colorize.css",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 0,
+		"shouldRunAutoprefixer": 0,
+		"shouldRunBless": 0,
+		"useLibsass": 0
+		},
+	"\/scss\/perlovs\/_fonts.scss": {
+		"createSourceMap": 0,
+		"debugStyle": 0,
+		"decimalPrecision": 5,
+		"fileType": 4,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/scss\/perlovs\/_fonts.scss",
 		"outputAbbreviatedPath": "\/_fonts.css",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
@@ -4886,15 +4902,15 @@
 		"shouldRunBless": 0,
 		"useLibsass": 0
 		},
-	"\/scss\/_p1icons.scss": {
+	"\/scss\/perlovs\/_icons.scss": {
 		"createSourceMap": 0,
 		"debugStyle": 0,
 		"decimalPrecision": 5,
 		"fileType": 4,
 		"ignore": 1,
 		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/scss\/_p1icons.scss",
-		"outputAbbreviatedPath": "\/_p1icons.css",
+		"inputAbbreviatedPath": "\/scss\/perlovs\/_icons.scss",
+		"outputAbbreviatedPath": "\/_icons.css",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
@@ -4902,15 +4918,15 @@
 		"shouldRunBless": 0,
 		"useLibsass": 0
 		},
-	"\/scss\/_perlovs-logo.scss": {
+	"\/scss\/perlovs\/_logo.scss": {
 		"createSourceMap": 0,
 		"debugStyle": 0,
 		"decimalPrecision": 5,
 		"fileType": 4,
 		"ignore": 1,
 		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/scss\/_perlovs-logo.scss",
-		"outputAbbreviatedPath": "\/_perlovs-logo.css",
+		"inputAbbreviatedPath": "\/scss\/perlovs\/_logo.scss",
+		"outputAbbreviatedPath": "\/_logo.css",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
@@ -4918,15 +4934,15 @@
 		"shouldRunBless": 0,
 		"useLibsass": 0
 		},
-	"\/scss\/_st-colors.scss": {
+	"\/scss\/perlovs\/_shadows.scss": {
 		"createSourceMap": 0,
 		"debugStyle": 0,
 		"decimalPrecision": 5,
 		"fileType": 4,
 		"ignore": 1,
 		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/scss\/_st-colors.scss",
-		"outputAbbreviatedPath": "\/_st-colors.css",
+		"inputAbbreviatedPath": "\/scss\/perlovs\/_shadows.scss",
+		"outputAbbreviatedPath": "\/_shadows.css",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
@@ -4934,15 +4950,15 @@
 		"shouldRunBless": 0,
 		"useLibsass": 0
 		},
-	"\/scss\/_st-fndtion-inc-front.scss": {
+	"\/scss\/perlovs\/settings\/_colors.scss": {
 		"createSourceMap": 0,
 		"debugStyle": 0,
 		"decimalPrecision": 5,
 		"fileType": 4,
 		"ignore": 1,
 		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/scss\/_st-fndtion-inc-front.scss",
-		"outputAbbreviatedPath": "\/_st-fndtion-inc-front.css",
+		"inputAbbreviatedPath": "\/scss\/perlovs\/settings\/_colors.scss",
+		"outputAbbreviatedPath": "\/_colors.css",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
@@ -4950,15 +4966,15 @@
 		"shouldRunBless": 0,
 		"useLibsass": 0
 		},
-	"\/scss\/_st-fndtion-inc-general.scss": {
+	"\/scss\/perlovs\/settings\/_fndtion-inc-front.scss": {
 		"createSourceMap": 0,
 		"debugStyle": 0,
 		"decimalPrecision": 5,
 		"fileType": 4,
 		"ignore": 1,
 		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/scss\/_st-fndtion-inc-general.scss",
-		"outputAbbreviatedPath": "\/_st-fndtion-inc-general.css",
+		"inputAbbreviatedPath": "\/scss\/perlovs\/settings\/_fndtion-inc-front.scss",
+		"outputAbbreviatedPath": "\/_fndtion-inc-front.css",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
@@ -4966,15 +4982,15 @@
 		"shouldRunBless": 0,
 		"useLibsass": 0
 		},
-	"\/scss\/_st-foundation.scss": {
+	"\/scss\/perlovs\/settings\/_fndtion-inc-general.scss": {
 		"createSourceMap": 0,
 		"debugStyle": 0,
 		"decimalPrecision": 5,
 		"fileType": 4,
 		"ignore": 1,
 		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/scss\/_st-foundation.scss",
-		"outputAbbreviatedPath": "\/_st-foundation.css",
+		"inputAbbreviatedPath": "\/scss\/perlovs\/settings\/_fndtion-inc-general.scss",
+		"outputAbbreviatedPath": "\/_fndtion-inc-general.css",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
@@ -4982,15 +4998,15 @@
 		"shouldRunBless": 0,
 		"useLibsass": 0
 		},
-	"\/scss\/_st-perlovs.scss": {
+	"\/scss\/perlovs\/settings\/_foundation.scss": {
 		"createSourceMap": 0,
 		"debugStyle": 0,
 		"decimalPrecision": 5,
 		"fileType": 4,
 		"ignore": 1,
 		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/scss\/_st-perlovs.scss",
-		"outputAbbreviatedPath": "\/_st-perlovs.css",
+		"inputAbbreviatedPath": "\/scss\/perlovs\/settings\/_foundation.scss",
+		"outputAbbreviatedPath": "\/_foundation.css",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
@@ -4998,15 +5014,15 @@
 		"shouldRunBless": 0,
 		"useLibsass": 0
 		},
-	"\/scss\/perlovs\/_catColorize.scss": {
+	"\/scss\/perlovs\/settings\/_general.scss": {
 		"createSourceMap": 0,
 		"debugStyle": 0,
 		"decimalPrecision": 5,
 		"fileType": 4,
 		"ignore": 1,
 		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/scss\/perlovs\/_catColorize.scss",
-		"outputAbbreviatedPath": "\/_catColorize.css",
+		"inputAbbreviatedPath": "\/scss\/perlovs\/settings\/_general.scss",
+		"outputAbbreviatedPath": "\/_general.css",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
