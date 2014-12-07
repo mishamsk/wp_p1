@@ -1,0 +1,341 @@
+/*
+P1 Wordpress theme type settings. Has to be included first
+*/
+
+// Fpundation conflicts with compass default settings, so have to sve and restore
+$old-base-font-size: $base-font-size;
+$old-base-line-height: $base-line-height;
+$base-font-size: 16px;
+$base-line-height: 24px;
+$rhythm-unit: "em";
+@import "compass/typography/vertical_rhythm";
+
+/* Typography resets */
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+form,
+p,
+blockquote,
+th,
+td {
+	margin:0;
+	padding:0;
+}
+
+// Set html and body fonts explicitly for REM to work
+html, body {
+	font-size: 100%;
+}
+
+// Line-height is always the same
+body {
+	background: #FAFAFA;
+	color: #000;
+	font-family: "Open Sans", sans-serif;
+	font-weight: normal;
+	font-style: normal;
+	line-height: 1.5;
+
+	@media #{$medium-up} {
+		font-size: 125%;
+	}
+}
+
+//DEBUG
+#main {
+	@include debug-vertical-alignment();
+}
+
+/* Default Link Styles */
+a {
+	color: $lighter-blue;
+	text-decoration: none;
+	line-height: inherit;
+
+	&:hover,
+	&:focus,
+	&:active {
+		text-decoration: underline;
+	}
+
+	&:visited {
+		color: $primary-blue;
+	}
+}
+
+/* Default paragraph styles */
+p {
+	@include rhythm-margins(1, 1);
+	text-rendering: optimizeLegibility;
+}
+
+/* Default header styles */
+h1, h2, h3, h4, h5, h6 {
+	font-family: "Open Sans", sans-serif;
+	color: #000;
+	text-rendering: optimizeLegibility;
+
+	header & {
+		margin-top: 0;
+	}
+
+	small {
+		font-size: 0.5em;
+		color: #666;
+	}
+}
+
+h1, h2, h3, h4, h5, h6 {
+	@include adjust-font-size-to(44px);
+	font-style: normal;
+	font-weight: lighter;
+	@include rhythm-margins(2, 1, 44px);
+}
+
+
+hr {
+	border: $hr-border-style $hr-border-color;
+	border-width: $hr-border-width 0 0;
+	clear: both;
+	margin: $hr-margin 0 ($hr-margin - rem-calc($hr-border-width));
+	height: 0;
+}
+
+/* Helpful Typography Defaults */
+em,
+i {
+	font-style: italic;
+	line-height: inherit;
+}
+
+strong,
+b {
+	font-weight: $font-weight-bold;
+	line-height: inherit;
+}
+
+small {
+	font-size: $small-font-size;
+	line-height: inherit;
+}
+
+code {
+	font-family: $code-font-family;
+	font-weight: $code-font-weight;
+	color: $code-color;
+	background-color: $code-background-color;
+	border-width: $code-border-size;
+	border-style: $code-border-style;
+	border-color: $code-border-color;
+	padding: $code-padding;
+}
+
+/* Lists */
+ul,
+ol,
+dl {
+	font-size: $list-font-size;
+	line-height: $list-line-height;
+	margin-bottom: $list-margin-bottom;
+	list-style-position: $list-style-position;
+	font-family: $list-font-family;
+}
+
+ul {
+	margin-#{$default-float}: $list-side-margin;
+	&.no-bullet {
+		margin-#{$default-float}: $list-side-margin-no-bullet;
+		li {
+			ul,
+			ol {
+				margin-#{$default-float}: $list-nested-margin;
+				margin-bottom: 0;
+				list-style: none;
+			}
+		}
+	}
+}
+
+/* Unordered Lists */
+ul {
+	li {
+		ul,
+		ol {
+			margin-#{$default-float}: $list-nested-margin;
+			margin-bottom: 0;
+		}
+	}
+	&.square,
+	&.circle,
+	&.disc {
+		li ul { list-style: inherit; }
+	}
+
+	&.square { list-style-type: square; margin-#{$default-float}: $list-side-margin;}
+	&.circle { list-style-type: circle; margin-#{$default-float}: $list-side-margin;}
+	&.disc { list-style-type: disc; margin-#{$default-float}: $list-side-margin;}
+	&.no-bullet { list-style: none; }
+}
+
+/* Ordered Lists */
+ol {
+	margin-#{$default-float}: $list-ordered-side-margin;
+	li {
+		ul,
+		ol {
+			margin-#{$default-float}: $list-nested-margin;
+			margin-bottom: 0;
+		}
+	}
+}
+
+/* Definition Lists */
+dl {
+	dt {
+		margin-bottom: $definition-list-header-margin-bottom;
+		font-weight: $definition-list-header-weight;
+	}
+	dd { margin-bottom: $definition-list-margin-bottom; }
+}
+
+/* Abbreviations */
+abbr,
+acronym {
+	text-transform: uppercase;
+	font-size: 90%;
+	color: $body-font-color;
+	cursor: $cursor-help-value;
+}
+abbr {
+	text-transform: none;
+	&[title] {
+		border-bottom: $acronym-underline;
+	}
+}
+
+/* Blockquotes */
+blockquote {
+	margin: 0 0 $paragraph-margin-bottom;
+	padding: $blockquote-padding;
+	border-#{$default-float}: $blockquote-border;
+
+	cite {
+		display: block;
+		font-size: $blockquote-cite-font-size;
+		color: $blockquote-cite-font-color;
+		&:before {
+			content: "\2014 \0020";
+		}
+
+		a,
+		a:visited {
+			color: $blockquote-cite-link-color;
+		}
+	}
+}
+blockquote,
+blockquote p {
+	line-height: $paragraph-line-height;
+	color: $blockquote-font-color;
+}
+
+/* Microformats */
+.vcard {
+	display: inline-block;
+	margin: $microformat-margin;
+	border: $microformat-border-width $microformat-border-style $microformat-border-color;
+	padding: $microformat-padding;
+
+	li {
+		margin: 0;
+		display: block;
+	}
+	.fn {
+		font-weight: $microformat-fullname-font-weight;
+		font-size: $microformat-fullname-font-size;
+	}
+}
+
+.vevent {
+	.summary { font-weight: $microformat-summary-font-weight; }
+
+	abbr {
+		cursor: $cursor-default-value;
+		text-decoration: $microformat-abbr-font-decoration;
+		font-weight: $microformat-abbr-font-weight;
+		border: none;
+		padding: $microformat-abbr-padding;
+	}
+}
+
+/*
+* Print styles.
+*
+* Inlined to avoid required HTTP connection: www.phpied.com/delay-loading-your-print-css/
+* Credit to Paul Irish and HTML5 Boilerplate (html5boilerplate.com)
+*/
+.print-only { display: none !important; }
+@media print {
+	* {
+		background: transparent !important;
+		color: $black !important; /* Black prints faster: h5bp.com/s */
+		box-shadow: none !important;
+		text-shadow: none !important;
+	}
+
+	a,
+	a:visited { text-decoration: underline;}
+	a[href]:after { content: " (" attr(href) ")"; }
+
+	abbr[title]:after { content: " (" attr(title) ")"; }
+
+	// Don't show links for images, or javascript/internal links
+	.ir a:after,
+	a[href^="javascript:"]:after,
+	a[href^="#"]:after { content: ""; }
+
+	pre,
+	blockquote {
+		border: 1px solid $aluminum;
+		page-break-inside: avoid;
+	}
+
+	thead { display: table-header-group; /* h5bp.com/t */ }
+
+	tr,
+	img { page-break-inside: avoid; }
+
+	img { max-width: 100% !important; }
+
+	@page { margin: 0.5cm; }
+
+	p,
+	h2,
+	h3 {
+		orphans: 3;
+		widows: 3;
+	}
+
+	h2,
+	h3 { page-break-after: avoid; }
+
+	.hide-on-print { display: none !important; }
+	.print-only { display: block !important; }
+	.hide-for-print { display: none !important; }
+	.show-for-print { display: inherit !important; }
+}
+
+// Fpundation conflicts with compass default settings, so have to sve and restore
+$base-font-size: $old-base-font-size;
+$base-line-height: $old-base-line-height;

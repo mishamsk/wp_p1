@@ -129,11 +129,12 @@ function perlovs_scripts() {
     }
 
 	// enqueue style
+    wp_enqueue_style( 'google_fonts', 'http://fonts.googleapis.com/css?family=Open+Sans:400,300,700&subset=latin,cyrillic', array(), null );
     if(is_front_page()) {
-        wp_enqueue_style( 'theme_stylesheet', PERLOVS_THEME_URL .'/style-front.css', array(), null );
+        wp_enqueue_style( 'theme_stylesheet', PERLOVS_THEME_URL .'/style-front.css', array('google_fonts'), null );
     }
     else {
-        wp_enqueue_style( 'theme_stylesheet', get_stylesheet_uri(), array(), null );
+        wp_enqueue_style( 'theme_stylesheet', get_stylesheet_uri(), array('google_fonts'), null );
     }
 }
 endif; // perlovs_scripts

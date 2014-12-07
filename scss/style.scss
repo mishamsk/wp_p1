@@ -22,8 +22,8 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 @import "perlovs/cat-colorize";
 @import "perlovs/container-shadow";
 @import "perlovs/icons";
-@import "perlovs/fonts";
 @import "perlovs/logo";
+@import "perlovs/type";
 
 // -----------------------
 // General wrappers
@@ -58,29 +58,6 @@ html, body {
 	min-height: 100%;
 	overflow-x: hidden;
 	width: 100%;
-}
-
-// -----------------------
-// Fonts
-// -----------------------
-.entry-content {
-	h1, h2, h3, h4, h5, h6, p, span {
-		font-size: $paragraph-font-size !important;
-		line-height: $paragraph-line-height !important;
-		margin-top: 0 !important;
-		margin-bottom: $paragraph-margin-bottom !important;
-
-		@media #{$medium-up} {
-			font-size: $paragraph-font-size * 1.3 !important;
-			line-height: $paragraph-line-height * 1.3 !important;
-		}
-	}
-}
-
-@media #{$medium-up} {
-	body, p {
-		font-size: $paragraph-font-size * 1.3;
-	}
 }
 
 // -----------------------
@@ -150,6 +127,7 @@ html, body {
 	}
 
 	a {
+		border: none;
 		color: $float-nav-button-icon-color;
 		display: inline-block;
 		font-size: $float-nav-button-font-size;
@@ -157,6 +135,7 @@ html, body {
 		line-height: $float-nav-button-diameter;
 		margin: 0;
 		position: relative;
+		text-decoration: none;
 		width: $float-nav-button-diameter;
 
 		@media #{$large-up} {
@@ -376,6 +355,7 @@ html, body {
 				padding: $off-canvas-link-padding;
 				color: $off-canvas-link-color;
 				border-bottom: $off-canvas-link-border-bottom;
+				text-decoration: none;
 				transition: $off-canvas-link-transition;
 				width: 100%;
 				&:hover {
