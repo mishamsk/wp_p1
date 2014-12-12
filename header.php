@@ -47,11 +47,11 @@
 		</aside>
 		<header id="page-header" role="banner">
 			<div class="tab-bar row">
-				<a href="#" class="off-canvas-toggle icon-g-menu hide-for-large"></a>
+				<a href="#" class="off-canvas-toggle icon-g-menu hide-for-large-up"></a>
 				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="tab-bar-title" rel="home"><div class="logo"><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></a>
 			</div>
 			<nav class="float-nav" role="navigation">
-				<a href="#" class="off-canvas-toggle icon-g-menu show-for-large"></a>
+				<a href="#" class="off-canvas-toggle icon-g-menu show-for-large-up"></a>
 				<div class="social-container">
 					<a href="#" class="share-toggle icon-g-share nav-toggle"></a>
 					<?php p1_social(); ?>

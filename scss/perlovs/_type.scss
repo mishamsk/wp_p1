@@ -57,9 +57,12 @@ body {
 	@include debug-vertical-alignment();
 }
 
+// Foundation align classes
+@include align-classes;
+
 /* Default Link Styles */
 a {
-	color: $lighter-blue;
+	color: #1a0dab;
 	text-decoration: none;
 	line-height: inherit;
 
@@ -70,24 +73,30 @@ a {
 	}
 
 	&:visited {
-		color: $primary-blue;
+		color: #609;
 	}
 }
 
 /* Default paragraph styles */
 p {
-	@include rhythm-margins(1, 1);
+	text-align: justify;
 	text-rendering: optimizeLegibility;
+
+	@include leader(1);
 }
 
 /* Default header styles */
 h1, h2, h3, h4, h5, h6 {
 	font-family: "Open Sans", sans-serif;
+	font-style: normal;
+	font-weight: normal;
 	color: #000;
+	text-align: left;
 	text-rendering: optimizeLegibility;
 
 	header & {
 		margin-top: 0;
+		margin-bottom: 0;
 	}
 
 	small {
@@ -96,11 +105,41 @@ h1, h2, h3, h4, h5, h6 {
 	}
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1 {
 	@include adjust-font-size-to(44px);
-	font-style: normal;
 	font-weight: lighter;
 	@include rhythm-margins(2, 1, 44px);
+}
+
+h2 {
+	@include adjust-font-size-to(40px);
+	font-weight: lighter;
+	@include rhythm-margins(2, 0, 40px);
+}
+
+h3 {
+	@include adjust-font-size-to(32px);
+	font-weight: bold;
+	text-align: center;
+	@include rhythm-margins(2, 0, 32px);
+}
+
+h4 {
+	@include adjust-font-size-to(24px);
+	font-weight: bold;
+	text-align: center;
+	@include rhythm-margins(2, 0, 24px);
+}
+
+h5 {
+	font-weight: bold;
+	text-align: center;
+	@include rhythm-margins(2, 0);
+}
+
+h6 {
+	font-style: italic;
+	@include rhythm-margins(2, 0);
 }
 
 
@@ -143,58 +182,42 @@ code {
 
 /* Lists */
 ul,
-ol,
-dl {
-	font-size: $list-font-size;
-	line-height: $list-line-height;
-	margin-bottom: $list-margin-bottom;
-	list-style-position: $list-style-position;
-	font-family: $list-font-family;
-}
+ol {
+	list-style-position: outside;
 
-ul {
-	margin-#{$default-float}: $list-side-margin;
-	&.no-bullet {
-		margin-#{$default-float}: $list-side-margin-no-bullet;
-		li {
-			ul,
-			ol {
-				margin-#{$default-float}: $list-nested-margin;
-				margin-bottom: 0;
-				list-style: none;
-			}
-		}
+	@include leader(1);
+
+	p + &, & ul, & ol {
+		@include leader(0);
 	}
 }
 
 /* Unordered Lists */
 ul {
+	margin-left: 2em;
+
 	li {
 		ul,
 		ol {
-			margin-#{$default-float}: $list-nested-margin;
+			margin-left: 1em;
 			margin-bottom: 0;
 		}
 	}
-	&.square,
-	&.circle,
-	&.disc {
-		li ul { list-style: inherit; }
-	}
 
-	&.square { list-style-type: square; margin-#{$default-float}: $list-side-margin;}
-	&.circle { list-style-type: circle; margin-#{$default-float}: $list-side-margin;}
-	&.disc { list-style-type: disc; margin-#{$default-float}: $list-side-margin;}
+	&.square { list-style-type: square; }
+	&.circle { list-style-type: circle; }
+	&.disc { list-style-type: disc; }
 	&.no-bullet { list-style: none; }
 }
 
 /* Ordered Lists */
 ol {
-	margin-#{$default-float}: $list-ordered-side-margin;
+	margin-left: 2em;
+
 	li {
 		ul,
 		ol {
-			margin-#{$default-float}: $list-nested-margin;
+			margin-left: 1em;
 			margin-bottom: 0;
 		}
 	}
@@ -202,6 +225,8 @@ ol {
 
 /* Definition Lists */
 dl {
+	list-style-position: outside;
+
 	dt {
 		margin-bottom: $definition-list-header-margin-bottom;
 		font-weight: $definition-list-header-weight;

@@ -89,6 +89,7 @@ html, body {
 		left: $off-canvas-toggle-offset;
 		line-height: $tabbar-height;
 		position: absolute;
+		text-decoration: none;
 		width: 0;
 	}
 }
@@ -501,6 +502,7 @@ ul.pagination {
 
 	a, button {
 		min-width: $pagination-li-height;
+		text-decoration: none;
 
 		&.curent,
 		&.curent:hover,
