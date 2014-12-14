@@ -115,10 +115,10 @@ html, body {
 	text-indent: 0;
 	vertical-align: middle;
 
-	@media #{$large-up} {
+	@media #{$xlarge-up} {
 		bottom: initial;
 		left: 50%;
-		margin-left: -$row-width / 2 -$float-nav-button-diameter - $float-nav-offset;
+		margin-left: -$row-width / 2 -$float-nav-button-diameter;
 		right: initial;
 		top: $float-nav-offset;
 
@@ -139,7 +139,7 @@ html, body {
 		text-decoration: none;
 		width: $float-nav-button-diameter;
 
-		@media #{$large-up} {
+		@media #{$xlarge-up} {
 			display: block;
 			margin-bottom: $float-nav-offset;
 		}
@@ -167,7 +167,7 @@ html, body {
 	.search-container {
 		display: inline-block;
 
-		@media #{$large-up} {
+		@media #{$xlarge-up} {
 			display: block;
 		}
 
@@ -187,7 +187,7 @@ html, body {
 	.social-container {
 		display: inline-block;
 
-		@media #{$large-up} {
+		@media #{$xlarge-up} {
 			display: block;
 		}
 
@@ -209,7 +209,7 @@ html, body {
 			position: relative;
 			width: 0;
 
-			@media #{$large-up} {
+			@media #{$xlarge-up} {
 				display: block;
 				height: 0;
 				width: auto;
@@ -235,7 +235,7 @@ html, body {
 				#social-google-plus { right: ($float-nav-button-diameter + $float-nav-offset) * 3; }
 				#social-email { right: ($float-nav-button-diameter + $float-nav-offset) * 4; }
 
-				@media #{$large-up} {
+				@media #{$xlarge-up} {
 					height: ($float-nav-button-diameter + $float-nav-offset) * 5;
 					width: auto;
 
@@ -314,12 +314,12 @@ html, body {
 		@include transition($off-canvas-transition);
 		@include catColorize();
 
-		@media #{$large-up} {
+		@media #{$xlarge-up} {
 			bottom: auto;
 			box-shadow: $off-canvas-menu-box-shadow-large;
 			clip: rect(1px,1px,1px,1px);
 			left: 50%;
-			margin-left: -$row-width / 2 - $float-nav-offset + $column-gutter / 2;
+			margin-left: -$row-width / 2;
 			margin-top: $float-nav-offset;
 			max-height: 80%;
 			opacity: 0;
@@ -428,7 +428,7 @@ html, body {
 			@include translate3d($off-canvas-menu-shadow-offset-x + $off-canvas-width, 0, 0);
 		}
 
-		@media #{$large-up} {
+		@media #{$xlarge-up} {
 			clip: auto;
 			opacity: 1;
 
@@ -438,7 +438,7 @@ html, body {
 
 	a.exit-off-canvas {
 		background: $off-canvas-overlay-background;
-		@media #{$large-up} {
+		@media #{$xlarge-up} {
 			&:hover {
 				background: $off-canvas-overlay-background-hover;
 			}
@@ -498,7 +498,7 @@ html, body {
 
 // Pagination colorize
 ul.pagination {
-	margin-top: $list-margin-bottom;
+	margin: .5em auto;
 
 	a, button {
 		min-width: $pagination-li-height;
@@ -513,11 +513,10 @@ ul.pagination {
 }
 
 // Articles
-article.card {
+.card {
 	background-color: $white;
-	margin: $article-archive-margin;
-	padding: $article-archive-padding;
-	width: auto;
+	margin: .5em -.5em;
+	padding: .5em 1em;
 }
 
 .entry-content {
@@ -526,7 +525,11 @@ article.card {
 	// Force center aligned images in posts
 	img {
 		display: block;
-		margin: 0.5rem auto 0.3rem auto;
+		margin: 1.5em auto 0 auto;
+	}
+
+	p + img {
+		margin: 0 auto;
 	}
 }
 
@@ -558,7 +561,7 @@ article.card {
 		font-size: 0.75rem;
 		margin: 0.1rem auto;
 
-		@media #{$large-up} {
+		@media #{$xlarge-up} {
 			font-size: 1rem;
 			margin: 0;
 		}

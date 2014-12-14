@@ -53,8 +53,8 @@ body {
 }
 
 //DEBUG
-#main {
-	@include debug-vertical-alignment();
+article {
+	//@include debug-vertical-alignment();
 }
 
 // Foundation align classes
@@ -85,6 +85,13 @@ p {
 	@include leader(1);
 }
 
+// Remove margin between paragraph and adjacent heading
+#{headings(2,6)} {
+	& + p {
+		margin-top: 0;
+	}
+}
+
 /* Default header styles */
 h1, h2, h3, h4, h5, h6 {
 	font-family: "Open Sans", sans-serif;
@@ -93,6 +100,8 @@ h1, h2, h3, h4, h5, h6 {
 	color: #000;
 	text-align: left;
 	text-rendering: optimizeLegibility;
+
+	@include adjust-font-size-to(16px);
 
 	header & {
 		margin-top: 0;
@@ -105,6 +114,15 @@ h1, h2, h3, h4, h5, h6 {
 	}
 }
 
+/* Remove margin between adjacent header */
+@for $i from 1 through 5 {
+	#{headings($i+1,6)} {
+		h#{$i} + & {
+			margin-top: 0;
+		}
+	}
+}
+
 h1 {
 	@include adjust-font-size-to(44px);
 	font-weight: lighter;
@@ -112,28 +130,25 @@ h1 {
 }
 
 h2 {
-	@include adjust-font-size-to(40px);
+	@include adjust-font-size-to(36px);
 	font-weight: lighter;
-	@include rhythm-margins(2, 0, 40px);
+	@include rhythm-margins(2, 0, 36px);
 }
 
 h3 {
-	@include adjust-font-size-to(32px);
+	@include adjust-font-size-to(24px);
 	font-weight: bold;
-	text-align: center;
-	@include rhythm-margins(2, 0, 32px);
+	@include rhythm-margins(2, 0, 24px);
 }
 
 h4 {
-	@include adjust-font-size-to(24px);
+	@include adjust-font-size-to(20px);
 	font-weight: bold;
-	text-align: center;
-	@include rhythm-margins(2, 0, 24px);
+	@include rhythm-margins(2, 0, 20px);
 }
 
 h5 {
 	font-weight: bold;
-	text-align: center;
 	@include rhythm-margins(2, 0);
 }
 

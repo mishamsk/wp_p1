@@ -79,9 +79,9 @@ $base-line-height: 1.5;
 // $include-html-grid-classes: $include-html-classes;
 // $include-xl-html-grid-classes: false;
 
-$row-width: rem-calc(990);
+$row-width: rem-calc(1020);
 $total-columns: 12;
-$column-gutter: rem-calc(30);
+$column-gutter: 2em; // 40px for large screens
 
 // c. Global
 // - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -147,10 +147,10 @@ $last-child-float: $opposite-direction;
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
 $small-range: (0em, 767 / 16 * 1em);
-$medium-range: (768 / 16 * 1em, 1129 / 16 * 1em);
-$large-range: (1130 / 16 * 1em, 1920 / 16 * 1em);
-// $xlarge-range: (1921 / 16 * 1em, 1300 / 16 * 1em);
-// $xxlarge-range: (1301 / 16 * 1em, 99999999em);
+$medium-range: (768 / 16 * 1em, 1019 / 16 * 1em);
+$large-range: (1020 / 16 * 1em, 1129 / 16 * 1em);
+$xlarge-range: (1130 / 16 * 1em, 1920 / 16 * 1em);
+$xxlarge-range: (1921 / 16 * 1em, 99999999em);
 
 $screen: "only screen";
 
@@ -166,11 +166,11 @@ $medium-only: "#{$screen} and (min-width:#{lower-bound($medium-range)}) and (max
 $large-up: "#{$screen} and (min-width:#{lower-bound($large-range)})";
 $large-only: "#{$screen} and (min-width:#{lower-bound($large-range)}) and (max-width:#{upper-bound($large-range)})";
 
-// $xlarge-up: "#{$screen} and (min-width:#{lower-bound($xlarge-range)})";
-// $xlarge-only: "#{$screen} and (min-width:#{lower-bound($xlarge-range)}) and (max-width:#{upper-bound($xlarge-range)})";
+$xlarge-up: "#{$screen} and (min-width:#{lower-bound($xlarge-range)})";
+$xlarge-only: "#{$screen} and (min-width:#{lower-bound($xlarge-range)}) and (max-width:#{upper-bound($xlarge-range)})";
 
-// $xxlarge-up: "#{$screen} and (min-width:#{lower-bound($xxlarge-range)})";
-// $xxlarge-only: "#{$screen} and (min-width:#{lower-bound($xxlarge-range)}) and (max-width:#{upper-bound($xxlarge-range)})";
+$xxlarge-up: "#{$screen} and (min-width:#{lower-bound($xxlarge-range)})";
+$xxlarge-only: "#{$screen} and (min-width:#{lower-bound($xxlarge-range)}) and (max-width:#{upper-bound($xxlarge-range)})";
 
 // Legacy
 $small: $medium-up;
