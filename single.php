@@ -6,7 +6,9 @@
 ?>
 		<article id="post-<?php the_ID(); ?>" <?php post_class('container-shadow-lev-1 card'); ?>>
 			<header>
+				<h5><?php p1_breadcrumbs(); ?></h5>
 				<h1 class="entry-title"><?php the_title(); ?></h1>
+				<h6><?php p1_meta(); ?></h6>
 			</header>
 
 			<div class="entry-content">
@@ -16,7 +18,7 @@
 			</div>
 			<footer>
 				<?php wp_link_pages(array('before' => '<nav id="page-nav"><p>' . __('Pages:', 'perlovs'), 'after' => '</p></nav>' )); ?>
-				<p><?php the_tags(); ?></p>
+				<h6><p class="icon-g-tag post-tags"><?php the_tags('',', ',''); ?></p></h6>
 				<div class="entry-comments">
 					<?php if (is_single() && ( have_comments() || 'open' == $post->comment_status )) { ?>
 						<button href="#" class="expand radius comment-toggle">

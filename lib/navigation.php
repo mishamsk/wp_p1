@@ -126,14 +126,27 @@ if ( ! function_exists( 'add_menuclass') ) {
 
 /**
  * Display breadcrumbs
- * @visibility - wrapper class (defaults to show-for-medium-up)
+ * @visibility - wrapper class (defaults to all)
 */
 if ( ! function_exists( 'p1_breadcrumbs') ) :
-	function p1_breadcrumbs($visibility = 'show-for-medium-up') {
-	    $links = explode('|',get_the_category_list('|', 'multiple'));
-	    $links = implode(preg_replace("(rel=\"category.*\")", "$1 class=\"current\"", $links));
+	function p1_breadcrumbs($visibility = '') {
+		global $post;
 
-	    echo '<nav id="breadcrumbs" class="breadcrumbs ' . $visibility . '">';
+		// Travel posts/lists
+		if (get_the_terms( $post->ID, 'travel' )) {
+			$travel = array_pop(get_the_terms( $post->ID, 'travel' ));
+			$links = '<a href="' . esc_url( home_url( '/' ) ) . 'travel">' . __('Travel', 'perlovs') . '</a>';
+			$links .= '<span class="divider"></span><a href="' . get_term_link( $travel ) . '">' . $travel->name . '</a>';
+		}
+		// Single post, not travel
+		elseif (is_single()) {
+			$links = get_the_category_list('<span class="divider"></span>', 'multiple');
+		}
+
+		// Append home link
+		$links = '<a href="' . esc_url( home_url( '/' ) ) . '" rel="home">' . __('Home', 'perlovs') . '</a><span class="divider"></span>' . $links;
+
+	    echo '<nav class="breadcrumbs ' . $visibility . '">';
 		echo $links;
 		echo '</nav><!--// end .breadcrumbs -->';
 	}

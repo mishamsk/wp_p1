@@ -1,0 +1,18 @@
+/*
+	P1 Wordpress theme footer styles
+*/
+
+// -----------------------
+// Footer
+// -----------------------
+
+#page-footer {
+	background-color: $footer-bg-color;
+	padding: 1rem 0;
+
+	p {
+		color: $white;
+		font-size: 0.75em;
+		margin: 0.1rem -.5em;
+	}
+}

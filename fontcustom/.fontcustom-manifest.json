@@ -1,18 +1,22 @@
 {
   "checksum": {
-    "previous": "332b01f9174d3ea6140c9189c87a8ec7c95b7ba2fa441608b856b95b6f095b0f",
-    "current": "332b01f9174d3ea6140c9189c87a8ec7c95b7ba2fa441608b856b95b6f095b0f"
+    "previous": "796f8510160beb947f5eafc7d5f2c2808533926db09168ba78f1b0739c8085b2",
+    "current": "796f8510160beb947f5eafc7d5f2c2808533926db09168ba78f1b0739c8085b2"
   },
   "fonts": [
-    "../fonts/p1icons.ttf",
-    "../fonts/p1icons.svg",
-    "../fonts/p1icons.woff",
-    "../fonts/p1icons.eot"
+    "../fonts/icons.ttf",
+    "../fonts/icons.svg",
+    "../fonts/icons.woff",
+    "../fonts/icons.eot"
   ],
   "glyphs": {
     "at-sign": {
       "codepoint": 61761,
       "source": "vectors/at-sign.svg"
+    },
+    "g-author": {
+      "codepoint": 61782,
+      "source": "vectors/g-author.svg"
     },
     "g-comment": {
       "codepoint": 61778,
@@ -30,6 +34,10 @@
       "codepoint": 61775,
       "source": "vectors/g-more-vert.svg"
     },
+    "g-place": {
+      "codepoint": 61783,
+      "source": "vectors/g-place.svg"
+    },
     "g-search": {
       "codepoint": 61776,
       "source": "vectors/g-search.svg"
@@ -38,29 +46,17 @@
       "codepoint": 61777,
       "source": "vectors/g-share.svg"
     },
-    "info": {
-      "codepoint": 61762,
-      "source": "vectors/info.svg"
+    "g-tag": {
+      "codepoint": 61784,
+      "source": "vectors/g-tag.svg"
     },
-    "link": {
-      "codepoint": 61763,
-      "source": "vectors/link.svg"
-    },
-    "magnifying-glass": {
-      "codepoint": 61764,
-      "source": "vectors/magnifying-glass.svg"
-    },
-    "pencil": {
-      "codepoint": 61765,
-      "source": "vectors/pencil.svg"
+    "g-time": {
+      "codepoint": 61785,
+      "source": "vectors/g-time.svg"
     },
     "rss": {
       "codepoint": 61766,
       "source": "vectors/rss.svg"
-    },
-    "share": {
-      "codepoint": 61767,
-      "source": "vectors/share.svg"
     },
     "social-facebook": {
       "codepoint": 61753,
@@ -93,14 +89,6 @@
     "social-vk": {
       "codepoint": 61760,
       "source": "vectors/social-vk.svg"
-    },
-    "torso": {
-      "codepoint": 61768,
-      "source": "vectors/torso.svg"
-    },
-    "unlock": {
-      "codepoint": 61769,
-      "source": "vectors/unlock.svg"
     }
   },
   "options": {
@@ -108,7 +96,7 @@
     "config": "fontcustom.yml",
     "css_selector": ".icon-{{glyph}}",
     "debug": false,
-    "font_name": "p1icons",
+    "font_name": "icons",
     "force": false,
     "input": {
       "templates": "templates",
@@ -116,7 +104,7 @@
     },
     "no_hash": true,
     "output": {
-      "css": "../scss",
+      "css": "../scss/perlovs",
       "fonts": "../fonts",
       "preview": "."
     },
@@ -128,7 +116,7 @@
     ]
   },
   "templates": [
-    "../scss/_p1icons.scss",
-    "./p1icons-preview.html"
+    "../scss/perlovs/_icons.scss",
+    "./icons-preview.html"
   ]
 }

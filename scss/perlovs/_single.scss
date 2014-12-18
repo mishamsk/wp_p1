@@ -1,0 +1,66 @@
+/*
+	P1 Wordpress theme single page/post styles
+*/
+
+// -------------------
+// Post content area
+// -------------------
+
+.entry-content {
+	overflow: hidden;
+
+	// Force center aligned images in posts
+	img {
+		display: block;
+		margin: 1.5em auto 0 auto;
+	}
+
+	p + img {
+		margin: 0 auto;
+	}
+
+	// bug fix realted to font boosting on mobile (different fonts change size differently)
+	// basically disable font scaling on mobile (do not respect user set values too...)
+	max-height: 1000000px;
+	-moz-text-size-adjust:none;
+	-ms-text-size-adjust:none;
+	-webkit-text-size-adjust:none;
+
+	@media #{$large-up} {
+		-moz-text-size-adjust:auto;
+		-ms-text-size-adjust:auto;
+		-webkit-text-size-adjust:auto;
+	}
+}
+
+// -------------------
+// Post comments
+// -------------------
+
+.entry-comments {
+	.comment-toggle {
+		@include catColorize($shift: 3);
+
+		&:hover {
+			@include catColorize($shift: 3, $dark: true);
+		}
+	}
+}
+
+// -------------------
+// Post meta
+// -------------------
+
+.post-meta {
+	overflow: hidden;
+
+	& > * {
+		margin-right: 1.5em;
+	}
+}
+
+.post-tags {
+	a:first-child {
+		margin-left: .3em;
+	}
+}
