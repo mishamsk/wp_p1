@@ -27,7 +27,7 @@
 <body <?php body_class(); ?>>
 
 	<!--[if lt IE 9]>
-	<div class="ie-support" style="width: 700px; height: 400px; margin: 0 auto; font-size: 40px;">
+	<div class="ie-support" style="width: 700px; height: 100%; margin: 0 auto; font-size: 40px;">
 		Извините, но этот сайт не поддерживает ваш бразуер (IE 8 и младше).</br>
 		Гораздо лучше и приятнее смотреть его в чем-то более современном!;)
 	</div>

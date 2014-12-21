@@ -22,11 +22,11 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 @import "perlovs/cat-colorize";
 @import "perlovs/container-shadow";
 @import "perlovs/icons";
-@import "perlovs/logo";
 @import "perlovs/type";
 @import "perlovs/nav";
 @import "perlovs/single";
 @import "perlovs/footer";
+@import "perlovs/header";
 
 // -----------------------
 // General wrappers
@@ -61,49 +61,6 @@ html, body {
 	min-height: 100%;
 	overflow-x: hidden;
 	width: 100%;
-}
-
-// -----------------------
-// Header
-// -----------------------
-
-#page-header {
-	height: $tabbar-height;
-	overflow: visible;
-	position: relative;
-	width: 100%;
-	z-index: 1;
-
-	// Background
-	@include catColorize();
-	// Shadow
-	@include container-shadow(1);
-}
-
-// Tab-bar
-.tab-bar {
-	text-align: center;
-	text-indent: 0;
-
-	.off-canvas-toggle {
-		color: $off-canvas-toggle-icon-color;
-		display: inline-block;
-		font-size: $off-canvas-toggle-font-size;
-		left: $off-canvas-toggle-offset;
-		line-height: $tabbar-height;
-		position: absolute;
-		text-decoration: none;
-		width: 0;
-	}
-}
-
-.tab-bar-title {
-	color: $tabbar-header-color;
-	height: $tabbar-height;
-	line-height: $tabbar-height;
-
-
-	@include perlovs-logo($base-size: $tabbar-height/4);
 }
 
 // -----------------------

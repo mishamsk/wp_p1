@@ -87,9 +87,9 @@ p {
 	@include leader(1);
 }
 
-// Remove margin between paragraph and adjacent heading
+// Remove margin between paragraph and adjacent heading, remove margin of descendant paragraphs
 #{headings(1,6)} {
-	& + p {
+	& + p, & p {
 		margin-top: 0;
 	}
 }
@@ -121,13 +121,24 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-	@include adjust-font-size-to(44px, 3);
 	font-weight: lighter;
-	@include rhythm-margins(2, 0, 44px);
+
+	@include adjust-font-size-to(40px, 3);
+	@include rhythm-margins(2, 0, 40px);
 
 	header & {
-		@include adjust-font-size-to(44px);
-		@include rhythm-margins(0, 0, 44px);
+		@include adjust-font-size-to(40px);
+		@include rhythm-margins(0, 0, 40px);
+	}
+
+	@media #{$medium-up} {
+		@include adjust-font-size-to(44px, 3);
+		@include rhythm-margins(2, 0, 44px);
+
+		header & {
+			@include adjust-font-size-to(44px);
+			@include rhythm-margins(0, 0, 44px);
+		}
 	}
 }
 
@@ -138,9 +149,9 @@ h2 {
 }
 
 h3 {
-	@include adjust-font-size-to(32px);
+	@include adjust-font-size-to(28px);
 	font-weight: bold;
-	@include rhythm-margins(2, 0, 32px);
+	@include rhythm-margins(2, 0, 28px);
 }
 
 h4 {

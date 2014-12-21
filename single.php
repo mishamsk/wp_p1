@@ -17,8 +17,8 @@
 
 			</div>
 			<footer>
-				<?php wp_link_pages(array('before' => '<nav id="page-nav"><p>' . __('Pages:', 'perlovs'), 'after' => '</p></nav>' )); ?>
 				<h6><p class="icon-g-tag post-tags"><?php the_tags('',', ',''); ?></p></h6>
+				<?php p1_single_pagination(); ?>
 				<div class="entry-comments">
 					<?php if (is_single() && ( have_comments() || 'open' == $post->comment_status )) { ?>
 						<button href="#" class="expand radius comment-toggle">

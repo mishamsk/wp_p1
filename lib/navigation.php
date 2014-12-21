@@ -167,8 +167,8 @@ if ( ! function_exists( 'p1_pagination') ) :
 			'total' => $wp_query->max_num_pages,
 			'mid_size' => 2,
 			'prev_next' => True,
-		    'prev_text' => __('&laquo;', 'perlovs'),
-		    'next_text' => __('&raquo;', 'perlovs'),
+		    'prev_text' => __('&lt;', 'perlovs'),
+		    'next_text' => __('&gt;', 'perlovs'),
 			'type' => 'array'
 		) );
 
@@ -176,10 +176,10 @@ if ( ! function_exists( 'p1_pagination') ) :
 			// if more than 1 page, replace elements and classes, display pagination
 
 			echo '<div id="pagination" class="pagination-centered">';
-			echo '	<ul class="pagination" role="menubar" aria-label="Pagination">';
+			echo '<ul class="pagination" role="menubar" aria-label="Pagination">';
 
 			if (1 == max( 1, get_query_var('paged') )) // if first page - add disabled left quotes
-				echo '		<li class="arrow unavailable" aria-disabled="true"><a href="#">' . __('&laquo;', 'perlovs') . '</a></li>';
+				echo '<li class="arrow unavailable" aria-disabled="true"><a href="#">' . __('&lt;', 'perlovs') . '</a></li>';
 
 			foreach ($paginate_links as $link) {
 				// replace for current page
@@ -198,12 +198,58 @@ if ( ! function_exists( 'p1_pagination') ) :
 			}
 
 	  		if ($wp_query->max_num_pages == get_query_var('paged')) // if last page - add disabled right quotes
-				echo '		<li class="arrow unavailable" aria-disabled="true"><a href="#">' . __('&raquo;', 'perlovs') . '</a></li>';
+				echo '<li class="arrow unavailable" aria-disabled="true"><a href="#">' . __('&gt;', 'perlovs') . '</a></li>';
 			echo '	</ul>';
 			echo '</div><!--// end .pagination -->';
 		}
 	}
 endif; // p1_pagination
+
+/**
+ * Display single post pagination
+*/
+if ( ! function_exists( 'p1_single_pagination') ) :
+	function p1_single_pagination() {
+		global $wp_query, $multipage, $page, $numpages, $post;
+
+		if ($multipage) {
+			echo '<div id="pagination" class="pagination-centered">';
+			echo '<ul class="pagination" role="menubar" aria-label="Pagination">';
+
+			if ($page > 1) // if first page - add disabled left quotes, else calculate prevous page
+				echo '<li class="arrow" aria-disabled="true">' . _wp_link_page( $page - 1 ) . __('&lt;', 'perlovs') . '</a></li>';
+			else
+				echo '<li class="arrow unavailable" aria-disabled="true"><a href="#">' . __('&lt;', 'perlovs') . '</a></li>';
+
+			for ( $i = 1; $i <= $numpages; $i++ ) {
+				if ( $i != $page )
+					echo '<li>' . _wp_link_page( $i ) . $i . '</a></li>';
+				else
+					echo '<li class="current">' . _wp_link_page( $i ) . $i . '</a></li>';
+			}
+
+	  		if ($page != $numpages) // if last page - add disabled right quotes, else calculate next page
+				echo '<li class="arrow" aria-disabled="true">' . _wp_link_page( $page + 1 ) . __('&gt;', 'perlovs') . '</a></li>';
+			else
+				echo '<li class="arrow unavailable" aria-disabled="true"><a href="#">' . __('&gt;', 'perlovs') . '</a></li>';
+			echo '</ul>';
+			echo '</div><!--// end .pagination -->';
+		}
+
+		echo '<div id="next-previous-links" class="clearfix">';
+		// Travel posts/lists
+		if (get_the_terms( $post->ID, 'travel' )) {
+			previous_post_link( '<h5 class="previous-post-link">%link</h5>', '&lt;&lt; %title', true, '', 'travel' );
+			next_post_link( '<h5 class="next-post-link">%link</h5>', '%title &gt;&gt;', true, '', 'travel' );
+		}
+		else {
+			$travel_terms = get_terms( 'travel', array('fields' => 'ids') );
+			previous_post_link( '<h5 class="previous-post-link">%link</h5>', '&lt;&lt; %title', false, $travel_terms);
+			next_post_link( '<h5 class="next-post-link">%link</h5>', '%title &gt;&gt;', false, $travel_terms);
+		}
+		echo '</div><!--// end .next-previous-links -->';
+	}
+endif; // p1_single_pagination
 
 if ( ! function_exists( 'p1_taxonomy_body_class' ) ) :
 /**

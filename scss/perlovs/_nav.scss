@@ -54,7 +54,7 @@
 			}
 		}
 
-		@include transition($float-nav-button-transition);
+		@include transition(all 300ms ease);
 		@include container-shadow(2);
 		@include border-radius(50%);
 
@@ -115,63 +115,31 @@
 		}
 
 		.social-bar {
-			display: inline-block;
-			height: $float-nav-button-diameter;
-			overflow: hidden;
-			position: relative;
-			width: 0;
+			bottom: $float-nav-button-diameter + $float-nav-offset;
+			clip: rect(1px,1px,1px,1px);
+			display: block;
+			opacity: 0;
+			position: absolute;
+			right: 0;
+			width: rem-calc(291);
 
 			@media #{$xlarge-up} {
-				display: block;
-				height: 0;
+				bottom: initial;
+				left: $float-nav-button-diameter + $float-nav-offset;
+				right: initial;
+				top: $float-nav-offset;
 				width: auto;
 			}
 
-			@include transition($float-nav-button-transition);
-
-			a {
-				position: absolute;
-				top: 0;
-				right: 0;
-			}
+			@include transition(opacity 300ms ease);
 		}
 
-		&.expanded, &:hover {
+		&.expanded {
 			.social-bar {
-				overflow: visible;
-				width: ($float-nav-button-diameter + $float-nav-offset) * 5;
+				clip: auto;
+				opacity: 1;
 
-				#social-facebook { right: ($float-nav-button-diameter + $float-nav-offset) * 0; }
-				#social-twitter { right: ($float-nav-button-diameter + $float-nav-offset) * 1; }
-				#social-vk { right: ($float-nav-button-diameter + $float-nav-offset) * 2; }
-				#social-google-plus { right: ($float-nav-button-diameter + $float-nav-offset) * 3; }
-				#social-email { right: ($float-nav-button-diameter + $float-nav-offset) * 4; }
-
-				@media #{$xlarge-up} {
-					height: ($float-nav-button-diameter + $float-nav-offset) * 5;
-					width: auto;
-
-					#social-facebook {
-						right: 0;
-						top: ($float-nav-button-diameter + $float-nav-offset) * 0;
-					}
-					#social-twitter {
-						right: 0;
-						top: ($float-nav-button-diameter + $float-nav-offset) * 1;
-					}
-					#social-vk {
-						right: 0;
-						top: ($float-nav-button-diameter + $float-nav-offset) * 2;
-					}
-					#social-google-plus {
-						right: 0;
-						top: ($float-nav-button-diameter + $float-nav-offset) * 3;
-					}
-					#social-email {
-						right: 0;
-						top: ($float-nav-button-diameter + $float-nav-offset) * 4;
-					}
-				}
+				@include translate3d(0, 0, 0);
 			}
 		}
 	}
@@ -362,25 +330,76 @@
 	}
 }
 
+// -------------------
+// Next previous links
+// -------------------
+
+#next-previous-links {
+	margin-top: -1.5em;
+}
+
+.previous-post-link {
+	float: left;
+}
+
+.next-post-link {
+	float: right;
+}
 
 // -------------------
 // Pagination
 // -------------------
 
+// Container
+.pagination-centered {
+	display: block;
+	margin: .5em auto;
+	text-align: center;
+}
+
 // Pagination colorize
 ul.pagination {
-	margin: .5em auto;
+	margin: 0;
 
-	a, button {
-		min-width: $pagination-li-height;
-		text-decoration: none;
+	li {
+		background: none;
+		color: #22B019;
+		display: inline-block;
+		height: 1.5em;
+		width: 1.5em;
 
-		&.curent,
-		&.curent:hover,
-		&.curent:focus {
-			@include catColorize();
+		@include border-radius(50%);
+		@include transition(background 300ms ease);
+
+		&:hover,
+		&:focus,
+		&:active {
+			background-color: #DDD;
+		}
+
+		&.current,
+		&.current:hover,
+		&.current:focus {
+			background-color: $primary-blue;
+			color: #FFF;
+			cursor: default;
+		}
+
+		&.unavailable,
+		&.unavailable:hover,
+		&.unavailable:focus {
+			background: none;
+			color: #AAA;
+			cursor: default;
 		}
 	}
+
+	a {
+		color: inherit;
+		cursor: inherit;
+		text-decoration: none;
+	}
+
 }
 
 // -------------------
@@ -395,9 +414,9 @@ ul.pagination {
 
 	.divider:before {
 		content: ">";
-	    margin: 0 .2em;
-	    position: relative;
-	    text-decoration: none;
-	    top: 1px;
+		margin: 0 .2em;
+		position: relative;
+		text-decoration: none;
+		top: 1px;
 	}
 }

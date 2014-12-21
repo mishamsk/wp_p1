@@ -19,18 +19,37 @@
 		margin: 0 auto;
 	}
 
-	// bug fix realted to font boosting on mobile (different fonts change size differently)
+	// Compensate margin of span from more tag
+	span[id*="more"] {
+		display: block;
+		margin-top: -1.5em;
+	}
+
+	// bug fix related to font boosting on mobile (different fonts change size differently)
 	// basically disable font scaling on mobile (do not respect user set values too...)
 	max-height: 1000000px;
 	-moz-text-size-adjust:none;
 	-ms-text-size-adjust:none;
 	-webkit-text-size-adjust:none;
 
-	@media #{$large-up} {
+	@media #{$xlarge-up} {
+		max-height: none;
 		-moz-text-size-adjust:auto;
 		-ms-text-size-adjust:auto;
 		-webkit-text-size-adjust:auto;
 	}
+}
+
+// -------------------
+// Post footer
+// -------------------
+
+article footer {
+	background-color: #F4F4F4;
+	margin: .5em -1em -.5em;
+	padding: .25em 1em;
+
+	// @include box-shadow(inset 0 7px 5px -4px rgba(0, 0, 0, 0.16));
 }
 
 // -------------------
@@ -39,10 +58,11 @@
 
 .entry-comments {
 	.comment-toggle {
-		@include catColorize($shift: 3);
+		background-color: $primary-brown;
+		margin: 1.5em auto 0 auto;
 
 		&:hover {
-			@include catColorize($shift: 3, $dark: true);
+			background-color: $darker-brown;
 		}
 	}
 }
