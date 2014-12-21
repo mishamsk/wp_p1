@@ -48,7 +48,7 @@
 		<header id="page-header" role="banner">
 			<div class="tab-bar row">
 				<a href="#" class="off-canvas-toggle icon-g-menu hide-for-xlarge-up"></a>
-				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="tab-bar-title" rel="home"><div class="logo"><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></a>
+				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="tab-bar-title" rel="home">Perlov's</a>
 			</div>
 			<nav class="float-nav" role="navigation">
 				<a href="#" class="off-canvas-toggle icon-g-menu show-for-xlarge-up"></a>

@@ -1,0 +1,45 @@
+/*
+	P1 Wordpress theme header styles
+*/
+
+// -----------------------
+// Header
+// -----------------------
+
+#page-header {
+	height: $tabbar-height;
+	overflow: visible;
+	position: relative;
+	width: 100%;
+	z-index: 1;
+
+	// Background
+	@include catColorize();
+	// Shadow
+	@include container-shadow(1);
+}
+
+// Tab-bar
+.tab-bar {
+	text-align: center;
+	text-indent: 0;
+
+	.off-canvas-toggle {
+		color: $off-canvas-toggle-icon-color;
+		display: inline-block;
+		font-size: $off-canvas-toggle-font-size;
+		left: $off-canvas-toggle-offset;
+		line-height: $tabbar-height;
+		position: absolute;
+		text-decoration: none;
+		width: 0;
+	}
+}
+
+.tab-bar-title {
+	color: $tabbar-header-color;
+	font-family: 'Dancing Script', cursive;
+	font-size: 2em;
+	height: $tabbar-height;
+	line-height: $tabbar-height;
+}
