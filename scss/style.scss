@@ -63,43 +63,6 @@ html, body {
 	width: 100%;
 }
 
-// -----------------------
-// Search form
-// -----------------------
-
-.search-form {
-
-}
-
-.search-field {
-	.top-bar & {
-		border: 0px;
-		font-size: min($topbar-link-font-size,
-			$topbar-height - 2*$topbar-search-form-margin - 2*$topbar-search-field-padding);
-		height: $topbar-height - 2*$topbar-search-form-margin;
-		padding: $topbar-search-field-padding;
-		top: 0px;
-	}
-}
-
-.search-submit {
-	.top-bar & {
-		display: none;
-	}
-
-	#search-share-modal & {
-		@include grid-column($columns:2);
-		@include button(
-			$padding:null);
-		font-size: $tabbar-search-form-font-size;
-		padding: $tabbar-search-submit-padding;
-	}
-}
-
-// -----------------------
-// Main
-// -----------------------
-
 // Articles
 .card {
 	background-color: $white;

@@ -36,6 +36,7 @@
 		$.fn.openOffCanvas = function(e) {
 			e.preventDefault();
 			$('body').addClass(settings.offCanvasMoveClass);
+			$floatNav.find(settings.floatNavToggleClass).parent().removeClass(settings.floatNavExpandedClass);
 		};
 
 		$.fn.closeOffCanvas = function(e) {
@@ -68,6 +69,9 @@
 
 			    $floatNav.find(settings.floatNavToggleClass).on('click', function () {
 			    	$(this).parent().toggleClass(settings.floatNavExpandedClass);
+
+			    	$('body').removeClass(settings.offCanvasMoveClass);
+			    	$floatNav.find(settings.floatNavToggleClass).not(this).parent().removeClass(settings.floatNavExpandedClass);
 			    });
         	}
         }
