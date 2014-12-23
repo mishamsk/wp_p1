@@ -11,8 +11,12 @@
 	padding: 1rem 0;
 
 	p {
-		color: $white;
+		color: $footer-p-color;
 		font-size: 0.75em;
 		margin: 0.1rem -.5em;
+	}
+
+	a:visited {
+		color: $anchor-color;
 	}
 }

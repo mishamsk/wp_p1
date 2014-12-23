@@ -71,7 +71,12 @@
 	}
 
 	.off-canvas-toggle {
+		display: none;
 		margin-top: $float-nav-offset;
+
+		@media #{$xlarge-up} {
+			display: block;
+		}
 
 		@include catColorize();
 	}
@@ -374,29 +379,13 @@
 }
 
 // -------------------
-// Next previous links
-// -------------------
-
-#next-previous-links {
-	margin-top: -1.5em;
-}
-
-.previous-post-link {
-	float: left;
-}
-
-.next-post-link {
-	float: right;
-}
-
-// -------------------
 // Pagination
 // -------------------
 
 // Container
 .pagination-centered {
 	display: block;
-	margin: .5em auto;
+	margin: .25em auto;
 	text-align: center;
 }
 
@@ -406,7 +395,7 @@ ul.pagination {
 
 	li {
 		background: none;
-		color: #22B019;
+		color: $anchor-color;
 		display: inline-block;
 		height: 1.5em;
 		width: 1.5em;
@@ -417,14 +406,15 @@ ul.pagination {
 		&:hover,
 		&:focus,
 		&:active {
-			background-color: #DDD;
+			background-color: $pagination-hover-bg-color;
+			cursor: pointer;
 		}
 
 		&.current,
 		&.current:hover,
 		&.current:focus {
-			background-color: $primary-blue;
-			color: #FFF;
+			background-color: $pagination-current-bg-color;
+			color: $pagination-current-color;
 			cursor: default;
 		}
 
@@ -432,7 +422,7 @@ ul.pagination {
 		&.unavailable:hover,
 		&.unavailable:focus {
 			background: none;
-			color: #AAA;
+			color: $pagination-unavailable-color;
 			cursor: default;
 		}
 	}

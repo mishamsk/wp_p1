@@ -14,16 +14,16 @@
 			<div class="entry-content">
 
 				<?php the_content(); ?>
-
+				<h6><p class="icon-g-tag post-tags"><?php the_tags('',', ',''); ?></p></h6>
 			</div>
 			<footer>
-				<h6><p class="icon-g-tag post-tags"><?php the_tags('',', ',''); ?></p></h6>
+
 				<?php p1_single_pagination(); ?>
 				<div class="entry-comments">
 					<?php if (is_single() && ( have_comments() || 'open' == $post->comment_status )) { ?>
-						<button href="#" class="expand radius comment-toggle">
+						<div href="#" class="comment-toggle">
 							<?php _e('Leave a thought!', 'perlovs'); ?>
-						</button>
+						</div>
 					<?php } ?>
 					<?php comments_template(); ?>
 				</div>

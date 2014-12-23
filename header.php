@@ -47,11 +47,11 @@
 		</aside>
 		<header id="page-header" role="banner">
 			<div class="tab-bar row">
-				<a href="#" class="off-canvas-toggle icon-g-menu hide-for-xlarge-up"></a>
+				<a href="#" class="off-canvas-toggle icon-g-menu"></a>
 				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="tab-bar-title" rel="home">Perlov's</a>
 			</div>
 			<nav class="float-nav" role="navigation">
-				<a href="#" class="off-canvas-toggle icon-g-menu show-for-xlarge-up"></a>
+				<a href="#" class="off-canvas-toggle icon-g-menu"></a>
 				<div class="social-container">
 					<a href="#" class="share-toggle icon-g-share nav-toggle"></a>
 					<?php p1_social(); ?>

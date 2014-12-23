@@ -40,8 +40,8 @@ html, body {
 
 // Line-height is always the same
 body {
-	background: #FAFAFA;
-	color: #000;
+	background: $body-bg-color;
+	color: $body-text-color;
 	font-family: "Open Sans", sans-serif;
 	font-weight: normal;
 	font-style: normal;
@@ -66,7 +66,7 @@ a {
 	text-decoration: none;
 	line-height: inherit;
 	article &, footer & {
-		color: #22B019;
+		color: $anchor-color;
 		&:hover,
 		&:focus,
 		&:active {
@@ -74,7 +74,7 @@ a {
 		}
 
 		&:visited {
-			color: #1B8C14;
+			color: $anchor-visited-color;
 		}
 	}
 }
@@ -99,7 +99,7 @@ h1, h2, h3, h4, h5, h6 {
 	font-family: "Open Sans", sans-serif;
 	font-style: normal;
 	font-weight: normal;
-	color: #444;
+	color: $h-color;
 	text-align: left;
 	text-rendering: optimizeLegibility;
 
@@ -107,7 +107,7 @@ h1, h2, h3, h4, h5, h6 {
 
 	small {
 		font-size: 0.67em;
-		color: #848484;
+		color: $h-small-color;
 	}
 }
 
@@ -165,14 +165,14 @@ h5 {
 	font-weight: bold;
 	@include rhythm-margins(1, 0, 13px);
 
-	header & {
+	header &, footer & {
 		@include rhythm-margins(0, 0, 13px);
 	}
 }
 
 h6 {
 	@include adjust-font-size-to(11px);
-	color: #848484;
+	color: $h-small-color;
 }
 
 

@@ -33,6 +33,10 @@
 		position: absolute;
 		text-decoration: none;
 		width: 0;
+
+		@media #{$xlarge-up} {
+			display: none;
+		}
 	}
 }
 

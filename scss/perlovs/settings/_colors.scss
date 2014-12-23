@@ -25,6 +25,13 @@ $primary-brown: #6A4A3C;
 $darker-brown: darken($primary-brown, $darken);
 $lighter-brown: lighten($primary-brown, $lighten);
 
+// Type
+$body-text-color: #000;
+$anchor-color: $primary-cyan;
+$anchor-visited-color: $primary-blue;
+$h-color: #444;
+$h-small-color: #848484;
+
 // Header colors
 $blog-bg-color: $primary-cyan;
 $travel-bg-color: $primary-orange;
@@ -38,8 +45,25 @@ $cat-colorize-selectors: blog,
 			category-travel page-template-travel-php tax-travel tax-country;
 //			author author-misha author-masha;
 
+// Body
+$body-bg-color: #FAFAFA;
+
+// Article
+$article-footer-bg-color: #F4F4F4;
+
+// Article footer
+$comment-toggle-border-color: #444;
+$comment-toggle-hover-bg-color: #DDD;
+
+// Pagination
+$pagination-hover-bg-color: #DDD;
+$pagination-current-bg-color: #888;
+$pagination-current-color: #FFF;
+$pagination-unavailable-color: #AAA;
+
 // Footer colors
 $footer-bg-color: #444;
+$footer-p-color: #FFF;
 
 // -----------------------
 // Social sharing

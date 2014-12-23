@@ -212,8 +212,21 @@ if ( ! function_exists( 'p1_single_pagination') ) :
 	function p1_single_pagination() {
 		global $wp_query, $multipage, $page, $numpages, $post;
 
+		echo '<div class="row footer-nav">';
+
+		$previous = '<div class="columns small-12 medium-4"><h5 class="previous-post-link small-text-center medium-text-left">%link</h5></div>';
+		$next = '<div class="columns small-12 medium-4"><h5 class="next-post-link small-text-center medium-text-right">%link</h5></div>';
+		// Travel posts/lists
+		if (get_the_terms( $post->ID, 'travel' )) {
+			previous_post_link( $previous, '&lt;&lt; %title', true, '', 'travel' );
+		}
+		else {
+			$travel_terms = get_terms( 'travel', array('fields' => 'ids') );
+			previous_post_link( $previous, '&lt;&lt; %title', false, $travel_terms);
+		}
+
 		if ($multipage) {
-			echo '<div id="pagination" class="pagination-centered">';
+			echo '<div class="columns small-12 medium-4"><div id="pagination" class="pagination-centered">';
 			echo '<ul class="pagination" role="menubar" aria-label="Pagination">';
 
 			if ($page > 1) // if first page - add disabled left quotes, else calculate prevous page
@@ -234,20 +247,19 @@ if ( ! function_exists( 'p1_single_pagination') ) :
 				echo '<li class="arrow unavailable" aria-disabled="true"><a href="#">' . __('&gt;', 'perlovs') . '</a></li>';
 			echo '</ul>';
 			echo '</div><!--// end .pagination -->';
+			echo '</div><!--// end .columns -->';
 		}
 
-		echo '<div id="next-previous-links" class="clearfix">';
 		// Travel posts/lists
 		if (get_the_terms( $post->ID, 'travel' )) {
-			previous_post_link( '<h5 class="previous-post-link">%link</h5>', '&lt;&lt; %title', true, '', 'travel' );
-			next_post_link( '<h5 class="next-post-link">%link</h5>', '%title &gt;&gt;', true, '', 'travel' );
+			next_post_link( $next, '%title &gt;&gt;', true, '', 'travel' );
 		}
 		else {
 			$travel_terms = get_terms( 'travel', array('fields' => 'ids') );
-			previous_post_link( '<h5 class="previous-post-link">%link</h5>', '&lt;&lt; %title', false, $travel_terms);
-			next_post_link( '<h5 class="next-post-link">%link</h5>', '%title &gt;&gt;', false, $travel_terms);
+			next_post_link( $next, '%title &gt;&gt;', false, $travel_terms);
 		}
-		echo '</div><!--// end .next-previous-links -->';
+
+		echo '</div><!--// end .row -->';
 	}
 endif; // p1_single_pagination
 
