@@ -5,8 +5,8 @@
 // Foundation conflicts with compass default settings, so have to sve and restore
 $old-base-font-size: $base-font-size;
 $old-base-line-height: $base-line-height;
-$base-font-size: 16px;
-$base-line-height: 24px;
+$base-font-size: 20px;
+$base-line-height: 30px;
 $rhythm-unit: "em";
 @import "compass/typography/vertical_rhythm";
 
@@ -54,8 +54,8 @@ body {
 
 //DEBUG
 article {
-	// @include debug-vertical-alignment();
-	// background-position: left .5em !important;
+	@include debug-vertical-alignment();
+	background-position: left .5em !important;
 }
 
 // Foundation align classes
@@ -107,8 +107,9 @@ h1, h2, h3, h4, h5, h6 {
 	@include adjust-font-size-to(16px);
 
 	small {
-		font-size: 0.67em;
 		color: $h-small-color;
+		font-size: 0.6em;
+		line-height: 1em;
 	}
 }
 
@@ -124,7 +125,7 @@ h1, h2, h3, h4, h5, h6 {
 h1 {
 	font-weight: lighter;
 
-	@include adjust-font-size-to(40px, 3);
+	@include adjust-font-size-to(40px, 2);
 	@include rhythm-margins(2, 0, 40px);
 
 	header & {
@@ -133,56 +134,52 @@ h1 {
 	}
 
 	@media #{$medium-up} {
-		@include adjust-font-size-to(44px, 3);
-		@include rhythm-margins(2, 0, 44px);
+		@include adjust-font-size-to(50px, 2);
+		@include rhythm-margins(2, 0, 50px);
 
 		header & {
-			@include adjust-font-size-to(44px);
-			@include rhythm-margins(0, 0, 44px);
+			@include adjust-font-size-to(50px);
+			@include rhythm-margins(0, 0, 50px);
 		}
 	}
 }
 
 h2 {
-	@include adjust-font-size-to(36px);
+	@include adjust-font-size-to(40px);
 	font-weight: bold;
-	@include rhythm-margins(2, 0, 36px);
+	@include rhythm-margins(1, 0, 40px);
 }
 
 h3 {
-	@include adjust-font-size-to(28px);
+	@include adjust-font-size-to(32px);
 	font-weight: bold;
-	@include rhythm-margins(2, 0, 28px);
+	@include rhythm-margins(1, 0, 32px);
 }
 
 h4 {
-	@include adjust-font-size-to(20px);
+	@include adjust-font-size-to(24px);
 	font-weight: bold;
-	@include rhythm-margins(2, 0, 20px);
+	@include rhythm-margins(1, 0, 24px);
 }
 
 h5 {
-	@include adjust-font-size-to(13px);
+	@include adjust-font-size-to(16px);
 	font-weight: bold;
-	@include rhythm-margins(1, 0, 13px);
+	@include rhythm-margins(1, 0, 16px);
 
 	header &, footer & {
-		@include rhythm-margins(0, 0, 13px);
+		@include rhythm-margins(0, 0, 16px);
 	}
 }
 
 h6 {
-	@include adjust-font-size-to(11px);
+	@include adjust-font-size-to(16px);
 	color: $h-small-color;
 }
 
 
 hr {
-	border: $hr-border-style $hr-border-color;
-	border-width: $hr-border-width 0 0;
-	clear: both;
-	margin: $hr-margin 0 ($hr-margin - rem-calc($hr-border-width));
-	height: 0;
+	display: none;
 }
 
 /* Helpful Typography Defaults */
@@ -194,13 +191,12 @@ i {
 
 strong,
 b {
-	font-weight: $font-weight-bold;
+	font-weight: bold;
 	line-height: inherit;
 }
 
 small {
-	font-size: $small-font-size;
-	line-height: inherit;
+	@include adjust-font-size-to(12px);
 }
 
 code {
@@ -285,28 +281,46 @@ abbr {
 
 /* Blockquotes */
 blockquote {
-	margin: 0 0 $paragraph-margin-bottom;
-	padding: $blockquote-padding;
-	border-#{$default-float}: $blockquote-border;
+	border: none;
+	color: $blockquote-color;
+	margin-left: 1em;
+	padding: 0 0 0 3em;
+	position: relative;
+	text-align: justify;
 
-	cite {
+	@include adjust-font-size-to(24px);
+	@include rhythm-margins(1, 1, 24px);
+
+	&:before {
+		color: $blockquote-quotes-color;
+		content: "\201C";
+		font-family: Georgia, serif;
+		font-size: 3em;
+		font-weight: bold;
+		left: .4em;
+		position: absolute;
+		top: .10em;
+	}
+
+	cite, + p cite {
+		color: $blockquote-cite-color;
 		display: block;
-		font-size: $blockquote-cite-font-size;
-		color: $blockquote-cite-font-color;
+		float: right;
+		font-style: italic;
+
+		@include adjust-font-size-to(16px);
+		@include rhythm-margins(-1, 1, 16px);
+
 		&:before {
 			content: "\2014 \0020";
 		}
-
-		a,
-		a:visited {
-			color: $blockquote-cite-link-color;
-		}
 	}
 }
-blockquote,
-blockquote p {
-	line-height: $paragraph-line-height;
-	color: $blockquote-font-color;
+
+blockquote {
+	p, + p {
+		margin: 0;
+	}
 }
 
 /* Microformats */
