@@ -5,7 +5,7 @@
 // -------------------
 // Float nav
 // -------------------
-.float-nav {
+#float-nav {
 	bottom: $float-nav-offset;
 	display: block;
 	margin: 0;
@@ -241,7 +241,7 @@
 // Off canvas
 // -------------------
 
-.off-canvas-menu {
+#off-canvas-menu {
 	bottom: 0;
 	height: 100%;
 	margin-#{$off-canvas-pos}: -100%;
@@ -384,7 +384,7 @@
 	}
 }
 
-.off-canvas-move {
+.off-canvas-move #off-canvas-menu {
 	ul.off-canvas-list {
 		@if $off-canvas-pos == right {
 			@include translate3d(-($off-canvas-menu-shadow-offset-x + $off-canvas-width), 0, 0);

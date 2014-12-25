@@ -15,13 +15,13 @@
 	// -----------------------
 	$.fn.perlovsNav = function(options) {
 		var defaults = {
-            floatNavContainer: ".float-nav",
+            floatNavContainer: "#float-nav",
             floatNavToggle: ".nav-toggle",
             floatNavExpandedClass: "expanded",
             searchForm: ".search-form",
             searchToggle: ".search-toggle",
             searchInput: ".search-field",
-            offCanvasContainer: ".off-canvas-menu",
+            offCanvasContainer: "#off-canvas-menu",
             offCanvasToggle: ".off-canvas-toggle",
             offCanvasExit: ".exit-off-canvas",
             offCanvasMoveClass: "off-canvas-move",

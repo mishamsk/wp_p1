@@ -41,7 +41,7 @@
 	if (!is_front_page()) :
 	?>
 	<div id="page-wrapper">
-		<aside class="off-canvas-menu" aria-hidden="true">
+		<aside id="off-canvas-menu" aria-hidden="true">
 			<?php menu_mobile_off_canvas(); ?>
 			<a class="exit-off-canvas"></a>
 		</aside>
@@ -50,7 +50,7 @@
 				<a href="#" class="off-canvas-toggle icon-g-menu"></a>
 				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="tab-bar-title" rel="home">Perlov's</a>
 			</div>
-			<nav class="float-nav" role="navigation">
+			<nav id="float-nav" role="navigation">
 				<a href="#" class="off-canvas-toggle icon-g-menu"></a>
 				<div class="social-container">
 					<a href="#" class="share-toggle icon-g-share nav-toggle"></a>

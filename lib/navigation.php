@@ -34,7 +34,7 @@ if ( ! function_exists( 'menu_mobile_off_canvas' ) ) :
 	        'after' => '',                                  // after each link </a>
 	        'link_before' => '',                            // before each link text
 	        'link_after' => '',                             // after each link text
-	        'depth' => 5,                                   // limit the depth of the nav
+	        'depth' => 2,                                   // limit the depth of the nav
 	        'fallback_cb' => false                         // fallback function (see below)
 	        //'walker' => new top_bar_walker()
 	    ));
@@ -129,7 +129,7 @@ if ( ! function_exists( 'p1_single_pagination') ) :
 	function p1_single_pagination() {
 		global $wp_query, $multipage, $page, $numpages, $post;
 
-		echo '<div class="row footer-nav">';
+		echo '<div id="single-nav" class="row footer-nav">';
 
 		$previous = '<div class="columns small-12 medium-4"><h5 class="previous-post-link small-text-center medium-text-left">%link</h5></div>';
 		$next = '<div class="columns small-12 medium-4"><h5 class="next-post-link small-text-center medium-text-right">%link</h5></div>';

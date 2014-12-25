@@ -5,7 +5,7 @@
 	while (have_posts()) : the_post();
 ?>
 		<article id="post-<?php the_ID(); ?>" <?php post_class('container-shadow-lev-1 card'); ?>>
-			<header>
+			<header id="single-header">
 				<h5><?php p1_breadcrumbs(); ?></h5>
 				<h1 class="entry-title"><?php the_title(); ?></h1>
 				<h6><?php p1_meta(); ?></h6>
@@ -16,7 +16,7 @@
 				<?php the_content(); ?>
 				<h6><p class="icon-g-tag post-tags"><?php the_tags('',', ',''); ?></p></h6>
 			</div>
-			<footer>
+			<footer id="single-footer">
 
 				<?php p1_single_pagination(); ?>
 				<div class="entry-comments">
