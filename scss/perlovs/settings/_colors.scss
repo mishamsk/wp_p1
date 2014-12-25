@@ -25,6 +25,10 @@ $primary-brown: #6A4A3C;
 $darker-brown: darken($primary-brown, $darken);
 $lighter-brown: lighten($primary-brown, $lighten);
 
+$hover-bg-color: #DDD;
+$current-bg-color: #888;
+$overlay-color: rgba(#FFF, 0.5);
+
 // Type
 $body-text-color: #000;
 $anchor-color: $primary-cyan;
@@ -32,7 +36,17 @@ $anchor-visited-color: $primary-blue;
 $h-color: #444;
 $h-small-color: #848484;
 
-// Header colors
+// Header
+$header-color: #FFF;
+$header-bg-color: $primary-orange;
+$off-canvas-toggle-icon-color: $header-color;
+
+// Float-nav
+$search-overlay-background: $overlay-color;
+$search-overlay-background-hover: $overlay-color;
+$search-form-bg-color: #FFF;
+
+// ---------Deprecated---------------
 $blog-bg-color: $primary-cyan;
 $travel-bg-color: $primary-orange;
 $author-bg-color: $primary-red;
@@ -44,6 +58,15 @@ $cat-colorize-base-colors: $default-bg-color, $blog-bg-color, $travel-bg-color;/
 $cat-colorize-selectors: blog,
 			category-travel page-template-travel-php tax-travel tax-country;
 //			author author-misha author-masha;
+// ---------Deprecated---------------
+
+// Off-canvas menu
+$off-canvas-bg-color: #FFF;
+$off-canvas-hover-bg-color: $hover-bg-color;
+$off-canvas-current-bg-color: $current-bg-color;
+$off-canvas-current-color: #FFF;
+$off-canvas-overlay-background: $overlay-color;
+$off-canvas-overlay-background-hover: $overlay-color;
 
 // Body
 $body-bg-color: #FAFAFA;
@@ -53,11 +76,11 @@ $article-footer-bg-color: #F4F4F4;
 
 // Article footer
 $comment-toggle-border-color: #444;
-$comment-toggle-hover-bg-color: #DDD;
+$comment-toggle-hover-bg-color: $hover-bg-color;
 
 // Pagination
-$pagination-hover-bg-color: #DDD;
-$pagination-current-bg-color: #888;
+$pagination-hover-bg-color: $hover-bg-color;
+$pagination-current-bg-color: $current-bg-color;
 $pagination-current-color: #FFF;
 $pagination-unavailable-color: #AAA;
 

@@ -215,8 +215,8 @@ section:not(#main), footer {
 .search-field {
 	.home & {
 		@include grid-column($columns:10);
-		font-size: $tabbar-search-form-font-size;
-		padding: $tabbar-search-field-padding;
+		font-size: 1em;
+		padding: .5em;
 	}
 }
 
@@ -224,8 +224,8 @@ section:not(#main), footer {
 	.home & {
 		@include grid-column($columns:2);
 		@include button();
-		font-size: $tabbar-search-form-font-size;
-		padding: $tabbar-search-submit-padding;
+		font-size: 1em;
+		padding: .5em;
 	}
 }
 

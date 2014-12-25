@@ -71,7 +71,7 @@
 			    	$(this).parent().toggleClass(settings.floatNavExpandedClass);
 
 			    	$('body').removeClass(settings.offCanvasMoveClass);
-			    	$floatNav.find(settings.floatNavToggleClass).not(this).parent().removeClass(settings.floatNavExpandedClass);
+			    	$floatNav.find(settings.floatNavToggleClass).parent().not($(this).parent()).removeClass(settings.floatNavExpandedClass);
 			    });
         	}
         }

@@ -12,23 +12,8 @@ $home-nav-a-transition: opacity 1000ms;
 $home-article-bg-color: $white;
 $home-article-padding: rem-calc(16);
 
-// Width of the dropdown items in the topbar containing actionable buttons (search, social) for medium-up screens
-$topbar-dropdown-action-width: rem-calc(375);
-
-// Top Bar Search form settings
-$topbar-search-form-margin: rem-calc(5);
-$topbar-search-field-padding: rem-calc(10);
-
-// Top bar icon font-size
-$topbar-icon-font-size: rem-calc(20);
-
-// Tab bar (modal) search form settings
-$tabbar-search-field-padding: rem-calc(10);
-$tabbar-search-submit-padding: rem-calc(10);
-$tabbar-search-form-font-size: rem-calc(15);
-
-// Tab bar icon font-size
-$tabbar-icon-font-size: $tabbar-height/2;
+// Header
+$header-height: rem-calc(60);
 
 // Float nav
 $float-nav-offset: rem-calc(8);
@@ -42,19 +27,19 @@ $float-nav-comment-toggle-margin-fix: 0.6rem;
 
 // Off canvas
 $off-canvas-pos: left;
-$off-canvas-transition: transform 500ms ease, opacity 500ms ease;
+$off-canvas-transition: transform 300ms ease, opacity 300ms ease;
 $off-canvas-menu-shadow-offset-x: rem-calc(3);
 $off-canvas-menu-box-shadow: $off-canvas-menu-shadow-offset-x 0 rem-calc(5) 0px rgba(0, 0, 0, 0.4);
-$off-canvas-menu-box-shadow-large: $off-canvas-menu-shadow-offset-x 0 rem-calc(5) 0px rgba(0, 0, 0, 0.4), -$off-canvas-menu-shadow-offset-x 0 rem-calc(5) 0px rgba(0, 0, 0, 0.4), 0 $off-canvas-menu-shadow-offset-x rem-calc(5) 0px rgba(0, 0, 0, 0.4);
+$off-canvas-link-padding: rem-calc(10 15);
+$off-canvas-link-border-bottom: none;
 $off-canvas-link-transition: background 500ms ease;
 $off-canvas-child-link-padding: rem-calc(10 15 10 30);
-
+$off-canvas-overlay-transition: background 300ms ease;
+$off-canvas-overlay-cursor: pointer;
+$off-canvas-overlay-box-shadow: -4px 0 4px rgba($black, 0.5), 4px 0 4px rgba($black, 0.5);
 $off-canvas-toggle-offset: 0;
 $off-canvas-toggle-font-size: rem-calc(38);
-$off-canvas-toggle-icon-color: $white;
 
 // Article archive
 $article-archive-margin: rem-calc(16) rem-calc(-8) rem-calc(8) rem-calc(-8) ;
 $article-archive-padding: rem-calc(8);
-
-// Single Article

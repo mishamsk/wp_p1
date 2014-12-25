@@ -63,10 +63,11 @@ article {
 
 /* Default Link Styles */
 a {
-	text-decoration: none;
+	color: $anchor-color;
 	line-height: inherit;
+	text-decoration: none;
+
 	article &, footer & {
-		color: $anchor-color;
 		&:hover,
 		&:focus,
 		&:active {

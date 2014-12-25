@@ -7,14 +7,13 @@
 // -----------------------
 
 #page-header {
-	height: $tabbar-height;
+	background-color: $header-bg-color;
+	height: $header-height;
 	overflow: visible;
 	position: relative;
 	width: 100%;
 	z-index: 1;
 
-	// Background
-	@include catColorize();
 	// Shadow
 	@include container-shadow(1);
 }
@@ -29,7 +28,7 @@
 		display: inline-block;
 		font-size: $off-canvas-toggle-font-size;
 		left: $off-canvas-toggle-offset;
-		line-height: $tabbar-height;
+		line-height: $header-height;
 		position: absolute;
 		text-decoration: none;
 		width: 0;
@@ -41,9 +40,9 @@
 }
 
 .tab-bar-title {
-	color: $tabbar-header-color;
+	color: $header-color;
 	font-family: 'Dancing Script', cursive;
 	font-size: 2em;
-	height: $tabbar-height;
-	line-height: $tabbar-height;
+	height: $header-height;
+	line-height: $header-height;
 }

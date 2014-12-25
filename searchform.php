@@ -10,6 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 ?>
 
 <form role="search" method="get" class="search-form" action="<?php echo home_url( '/' ); ?>">
+	<p class="search-label"><?php _e( 'Search', 'perlovs' )?></p>
 	<input type="text" class="search-field" placeholder="<?php if(is_front_page()) {
 				_e( 'Looking for something? Just search...', 'perlovs' );
 			}

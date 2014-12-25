@@ -58,7 +58,7 @@
 				</div>
 				<div class="search-container expandable">
 					<a href="#" class="search-toggle icon-g-search nav-toggle"></a>
-					<?php get_search_form(); ?>
+					<div class="search-form-container"><?php get_search_form(); ?></div>
 				</div>
 				<?php if (is_single() && ( have_comments() || 'open' == $post->comment_status )) { ?><a href="#" class="comment-toggle icon-g-comment"></a><?php } ?>
 			</nav>
