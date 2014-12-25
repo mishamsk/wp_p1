@@ -71,14 +71,13 @@
 	}
 
 	.off-canvas-toggle {
+		background-color: $off-canvas-toggle-bg-color;
 		display: none;
 		margin-top: $float-nav-offset;
 
 		@media #{$xlarge-up} {
 			display: block;
 		}
-
-		@include catColorize();
 	}
 
 	.search-container {
@@ -89,23 +88,27 @@
 		}
 
 		.search-toggle {
-			background-color: $primary-blue;
+			background-color: $search-toggle-bg-color;
 		}
 
 		.search-form-container {
 			background: $search-overlay-background;
+			clip: rect(1px,1px,1px,1px);
 			height: 100%;
 			left: 0;
+			opacity: 0;
 			position: fixed;
 			text-align: center;
-			top: -100%;
 			width: 100%;
+			top: 0;
 
 			@media #{$xlarge-up} {
 				&:hover {
 					background: $search-overlay-background-hover;
 				}
 			}
+
+			@include transition(clip 500ms ease, opacity 500ms ease);
 		}
 
 		.search-form {
@@ -163,7 +166,8 @@
 
 		&.expanded {
 			.search-form-container {
-				top: 0;
+				clip: rect(auto,auto,auto,auto);
+				opacity: 1;
 			}
 
 			.search-form {
@@ -182,7 +186,7 @@
 		}
 
 		.share-toggle {
-			background-color: $primary-red;
+			background-color: $share-toggle-bg-color;
 
 			// Fix to center icon
 			&:before {
@@ -224,7 +228,7 @@
 	}
 
 	.comment-toggle {
-		background-color: $primary-brown;
+		background-color: $comment-toggle-bg-color;
 
 		// Fix to center icon
 		&:before {
@@ -278,16 +282,14 @@
 
 		@media #{$xlarge-up} {
 			bottom: auto;
-			clip: rect(1px,1px,1px,1px);
 			left: 50%;
 			margin-left: -$row-width / 2 + 1rem;
 			margin-top: $float-nav-offset;
 			max-height: 80%;
-			opacity: 0;
 			position: fixed;
-			top: $float-nav-offset;
+			top: -100%;
 
-			@include container-shadow(2, 1000);
+			@include container-shadow(2, 1000, false);
 
 			.admin-bar & {
 				top: $float-nav-offset + rem-calc(32);
@@ -392,8 +394,7 @@
 		}
 
 		@media #{$xlarge-up} {
-			clip: auto;
-			opacity: 1;
+			top: $float-nav-offset;
 
 			@include translate3d(0, 0, 0);
 		}

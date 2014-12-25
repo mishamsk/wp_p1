@@ -56,9 +56,9 @@
 					<a href="#" class="share-toggle icon-g-share nav-toggle"></a>
 					<?php p1_social(); ?>
 				</div>
-				<div class="search-container expandable">
+				<div class="search-container">
 					<a href="#" class="search-toggle icon-g-search nav-toggle"></a>
-					<div class="search-form-container"><?php get_search_form(); ?></div>
+					<div class="search-form-container nav-toggle"><?php get_search_form(); ?></div>
 				</div>
 				<?php if (is_single() && ( have_comments() || 'open' == $post->comment_status )) { ?><a href="#" class="comment-toggle icon-g-comment"></a><?php } ?>
 			</nav>

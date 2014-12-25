@@ -27,7 +27,7 @@ $float-nav-comment-toggle-margin-fix: 0.6rem;
 
 // Off canvas
 $off-canvas-pos: left;
-$off-canvas-transition: transform 300ms ease, opacity 300ms ease;
+$off-canvas-transition: top 300ms ease;
 $off-canvas-menu-shadow-offset-x: rem-calc(3);
 $off-canvas-menu-box-shadow: $off-canvas-menu-shadow-offset-x 0 rem-calc(5) 0px rgba(0, 0, 0, 0.4);
 $off-canvas-link-padding: rem-calc(10 15);
