@@ -4,7 +4,7 @@
  */
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class('container-shadow-lev-1 card'); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class('card'); ?>>
 	<?php if ( has_post_thumbnail() ) : ?>
 	<div class="feature-image">
 		<?php the_post_thumbnail(); ?>

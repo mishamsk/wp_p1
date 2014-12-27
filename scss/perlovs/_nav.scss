@@ -28,6 +28,10 @@
 		}
 	}
 
+	@media print {
+		display: none;
+	}
+
 	a {
 		border: none;
 		color: $float-nav-button-icon-color;
@@ -123,6 +127,10 @@
 
 			@include container-shadow(2);
 			@include transition(top 500ms ease);
+
+			input {
+				font-size: 1.25em;
+			}
 		}
 
 		.search-label {
@@ -152,12 +160,12 @@
 			background: none;
 			border: none;
 			border-bottom: 1px solid #EEEEEE;
-			bottom: .5em;
+			bottom: .4em; // font is 1.25 thus .5em of parent is .4em on this
 			color: $anchor-color;
 			line-height: 1.5em;
 			padding: 0.25em .5em;
 			position: absolute;
-			right: .5em;
+			right: .4em; // font is 1.25 thus .5em of parent is .4em on this
 
 			&:hover {
 				text-decoration: underline;
@@ -171,7 +179,7 @@
 			}
 
 			.search-form {
-				top: 50%;
+				top: 20%;
 
 				@include translate3d(0, 0, 0);
 			}
@@ -196,7 +204,7 @@
 			}
 		}
 
-		.social-bar {
+		#social-sharing-bar {
 			bottom: $float-nav-button-diameter + $float-nav-offset;
 			display: block;
 			position: absolute;
@@ -215,7 +223,7 @@
 		}
 
 		&.expanded {
-			.social-bar {
+			#social-sharing-bar {
 				right: 0;
 
 				@media #{$xlarge-up} {
@@ -253,6 +261,10 @@
 	// Prevent iOS5 flicker bug
 	-webkit-backface-visibility: hidden;
 	* { -webkit-backface-visibility: hidden; }
+
+	@media print {
+		display: none;
+	}
 
 	ul.off-canvas-list {
 		background-color: $off-canvas-bg-color;

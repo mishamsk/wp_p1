@@ -36,7 +36,7 @@
 
             function touchstart(event) {
                 var touches = event.originalEvent.touches;
-                if (touches && touches.length) {
+                if (touches && touches.length === 1) {
                     startX = touches[0].pageX;
                     startY = touches[0].pageY;
                     enableMove = true;

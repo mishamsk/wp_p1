@@ -132,7 +132,13 @@ if ( ! function_exists( 'p1_single_pagination') ) :
 		echo '<div id="single-nav" class="row footer-nav">';
 
 		$previous = '<div class="columns small-12 medium-4"><h5 class="previous-post-link small-text-center medium-text-left">%link</h5></div>';
-		$next = '<div class="columns small-12 medium-4"><h5 class="next-post-link small-text-center medium-text-right">%link</h5></div>';
+
+		$prev_post = get_previous_post();
+		if (!empty( $prev_post ) || $multipage)
+			$next = '<div class="columns small-12 medium-4"><h5 class="next-post-link small-text-center medium-text-right">%link</h5></div>';
+		else
+			$next = '<div class="columns small-12 medium-4 medium-offset-8"><h5 class="next-post-link small-text-center medium-text-right">%link</h5></div>';
+
 		// Travel posts/lists
 		if (get_the_terms( $post->ID, 'travel' )) {
 			previous_post_link( $previous, '&lt;&lt; %title', true, '', 'travel' );
@@ -143,7 +149,11 @@ if ( ! function_exists( 'p1_single_pagination') ) :
 		}
 
 		if ($multipage) {
-			echo '<div class="columns small-12 medium-4"><div id="pagination" class="pagination-centered">';
+			$prev_post = get_previous_post();
+			if (!empty( $prev_post ))
+				echo '<div class="columns small-12 medium-4"><div id="pagination" class="pagination-centered">';
+			else
+				echo '<div class="columns small-12 medium-4 medium-offset-4"><div id="pagination" class="pagination-centered">';
 			echo '<ul class="pagination" role="menubar" aria-label="Pagination">';
 
 			if ($page > 1) // if first page - add disabled left quotes, else calculate prevous page

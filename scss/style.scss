@@ -13,13 +13,12 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 @charset "UTF-8";
 
 @import "compass/css3";
-@import "perlovs/settings/colors";
 @import "perlovs/settings/foundation";
 @import "perlovs/settings/fndtion-inc-general";
 @import "normalize";
 @import "foundation";
+@import "perlovs/settings/colors";
 @import "perlovs/settings/general";
-@import "perlovs/cat-colorize";
 @import "perlovs/container-shadow";
 @import "perlovs/icons";
 @import "perlovs/type";
@@ -35,6 +34,10 @@ html, body {
 	height: 100%;
 	overflow: hidden;
 	width: 100%;
+
+	@media print {
+		height: auto;
+	}
 }
 
 #page-wrapper {
@@ -47,6 +50,10 @@ html, body {
 
 	-webkit-overflow-scrolling: touch;
 	-ms-overflow-style: -ms-autohiding-scrollbar;
+
+	@media print {
+		height: auto;
+	}
 
 	// Admin bar
 	.admin-bar & {
@@ -65,7 +72,9 @@ html, body {
 
 // Articles
 .card {
-	background-color: $white;
+	background-color: $card-bg-color;
 	margin: .5em -.5em;
 	padding: .5em 1em;
+
+	@include container-shadow(1, 1, false);
 }

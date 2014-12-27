@@ -31,11 +31,18 @@ $current-bg-color: #888;
 $overlay-color: rgba(#FFF, 0.5);
 
 // Type
-$body-text-color: #000;
+$abbr-border-color: $border-color;
 $anchor-color: $primary-cyan;
 $anchor-visited-color: $primary-blue;
+$body-text-color: #000;
+$code-bg-color: #F4F4F4;
+$code-border-color: #848484;
+$dl-border-color: $border-color;
+$dt-color: #444;
 $h-color: #444;
 $h-small-color: #848484;
+$th-border-color: $border-color;
+$thead-bg-color: $hover-bg-color;
 
 // Header
 $header-color: #FFF;
@@ -52,20 +59,6 @@ $search-overlay-background: $overlay-color;
 $search-overlay-background-hover: $overlay-color;
 $search-form-bg-color: #FFF;
 
-// ---------Deprecated---------------
-$blog-bg-color: $primary-cyan;
-$travel-bg-color: $primary-orange;
-$author-bg-color: $primary-red;
-$default-bg-color: $primary-yellow;
-
-$cat-colorize-darken: 10% !default;
-$cat-colorize-lighten: 10% !default;
-$cat-colorize-base-colors: $default-bg-color, $blog-bg-color, $travel-bg-color;//, $author-bg-color;
-$cat-colorize-selectors: blog,
-			category-travel page-template-travel-php tax-travel tax-country;
-//			author author-misha author-masha;
-// ---------Deprecated---------------
-
 // Off-canvas menu
 $off-canvas-bg-color: #FFF;
 $off-canvas-hover-bg-color: $hover-bg-color;
@@ -76,6 +69,7 @@ $off-canvas-overlay-background-hover: $overlay-color;
 
 // Body
 $body-bg-color: #FAFAFA;
+$card-bg-color: #FFF;
 
 // Article
 $article-footer-bg-color: #F4F4F4;
@@ -101,36 +95,8 @@ $footer-p-color: #FFF;
 // -----------------------
 // Social sharing
 // -----------------------
-#social-facebook { background: $primary-blue; }
-#social-twitter { background: $primary-cyan; }
-#social-vk { background: $primary-brown; }
-#social-google-plus { background: $primary-red; }
-#social-email { background: $primary-orange; }
-
-// Foundation color vars
-$primary-color: #225B66;
-$secondary-color: #e7e7e7;
-$alert-color: #f04124;
-$success-color: #43AC6A;
-$warning-color: #f08a24;
-$info-color: #a0d3e8;
-
-$white       : #FFFFFF;
-$ghost       : #FAFAFA;
-$snow        : #F9F9F9;
-$vapor       : #F6F6F6;
-$white-smoke : #F5F5F5;
-$silver      : #EFEFEF;
-$smoke       : #EEEEEE;
-$gainsboro   : #DDDDDD;
-$iron        : #CCCCCC;
-$base        : #AAAAAA;
-$aluminum    : #999999;
-$jumbo       : #888888;
-$monsoon     : #777777;
-$steel       : #666666;
-$charcoal    : #555555;
-$tuatara     : #444444;
-$oil         : #333333;
-$jet         : #222222;
-$black       : #000000;
+.social-facebook { background: $primary-blue; }
+.social-twitter { background: $primary-cyan; }
+.social-vk { background: $primary-brown; }
+.social-google-plus { background: $primary-red; }
+.social-email { background: $primary-orange; }
