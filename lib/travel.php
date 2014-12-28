@@ -101,4 +101,77 @@ endif; // p1_taxonomy_body_class
 // add taxoonomy and terms to body_class
 add_filter( 'body_class', 'p1_taxonomy_body_class' );
 
+if ( ! function_exists( 'p1_gmaps_load' ) ) :
+/**
+ * Append gmaps scripts to the bottom
+ */
+function p1_gmaps_load(  )
+{
+    global $wp_query, $post;
+    if (is_tax( 'countries' )) {
+	    $current_country = $wp_query->get_queried_object()->slug;
+		$terms = get_terms( 'countries' );
+		if ( ! empty( $terms ) && ! is_wp_error( $terms ) ) {
+			$all_country_slugs = array_map(function($o) { return ucfirst($o->slug); }, $terms);
+			$other_country_slugs = array_filter($all_country_slugs, function($a) use($current_country) { return $a !== ucfirst($current_country); });
+			$gmaps_all_query = "Name IN ('" . implode($all_country_slugs, "','") . "')";
+			$gmaps_other_query = "Name IN ('" . implode($other_country_slugs, "','") . "')";
+			$current_query = "Name IN ('" . ucfirst($current_country) . "')";
+
+    		echo "\n<script type='text/javascript' src='http://maps.googleapis.com/maps/api/js?key=AIzaSyDW6yLw5xxjchnk0cyo8NeTAZ-XimgtxDk'></script>";
+			echo "\n<script type='text/javascript'>
+					var c_map;
+
+					function init_map() {
+				 		c_map = new google.maps.Map(document.getElementById('map-canvas'), {
+				 			center: new google.maps.LatLng(30,0),
+				 			zoom: 2,
+				 			disableDefaultUI: true,
+				 			mapTypeId: google.maps.MapTypeId.ROADMAP
+				 		});
+					}
+
+					function init_ftl() {
+				 		var world_geometry = new google.maps.FusionTablesLayer({
+				 			query: {
+				 				select: 'geometry',
+				 				from: '1N2LBk4JHwWpOY4d9fobIn27lfnZ5MDy-NoqqRpk',
+				 				where: \"$gmaps_all_query\"
+				 			},
+				 			styles: [{
+				 				where: \"$current_query\",
+				 				markerOptions: {
+									iconName: 'red_circle'
+								},
+				 				polygonOptions: {
+				 					fillColor: '#EB6841',
+				 					fillOpacity: 0.3
+				 				}
+				 			}, {
+				 				where: \"$gmaps_other_query\",
+				 				polygonOptions: {
+				 					fillColor: '#00A0B0',
+				 					fillOpacity: 0.5
+				 				}
+				 			}],
+				 			map: c_map,
+				 			suppressInfoWindows: true
+				 		});
+
+				 		google.maps.event.addListener(world_geometry, 'click', function(e) {
+				 			document.location.href = '../' + e.row['Name'].value.toLowerCase();
+				 		});
+				 	}
+
+				 	$(window).on('load', function() {
+				 		init_map();
+				 		setTimeout(init_ftl, 0);
+				 	});
+				</script>";
+		}
+    }
+}
+endif; // p1_gmaps_load
+add_action( 'wp_footer', 'p1_gmaps_load', 100 );
+
 ?>
