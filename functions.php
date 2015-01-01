@@ -147,9 +147,41 @@ if ( ! function_exists( 'perlovs_wp_title_for_home' ) ) :
  */
 function perlovs_wp_title_for_home( $title )
 {
-  if( empty( $title ) && ( is_home() || is_front_page() ) ) {
-    return get_bloginfo( 'name' ) . ' | ' . get_bloginfo( 'description' );
-}
-return $title;
+    if( empty( $title ) && ( is_home() || is_front_page() ) ) {
+        return get_bloginfo( 'name' ) . ' | ' . get_bloginfo( 'description' );
+    }
+    return $title;
 }
 endif; // perlovs_wp_title_for_home
+
+add_filter( 'the_content_more_link', 'remove_more_link_scroll' );
+if ( ! function_exists( 'remove_more_link_scroll' ) ) :
+/**
+ * Remove hash at more url
+ */
+function remove_more_link_scroll( $link ) {
+    $link = preg_replace( '|#more-[0-9]+|', '', $link );
+    return $link;
+}
+endif; // remove_more_link_scroll
+
+add_filter( 'the_content_more_link', 'modify_read_more_link' );
+if ( ! function_exists( 'modify_read_more_link' ) ) :
+/**
+ * Make pretty more link + add class for styling + add id for analytics
+ */
+function modify_read_more_link() {
+    return '<a class="more-link" id="more-' .  get_the_ID() . '" href="' . get_permalink() . '" title="' . the_title_attribute( 'echo=0' ) . '">' . __('Continue reading...', 'perlovs') . '</a>';
+}
+endif; // modify_read_more_link
+
+add_filter('excerpt_more', 'modify_excerpt_more');
+if ( ! function_exists( 'modify_excerpt_more' ) ) :
+/**
+ * Make pretty more link + add class for styling + add id for analytics
+ */
+function modify_excerpt_more($more) {
+    global $post;
+    return '<a class="more-link" id="more-' .  $post->ID . '" href="' . get_permalink($post->ID) . '" title="' . the_title_attribute( array('echo' => '0', 'post' => $post->ID )) . '">' . __('Continue reading...', 'perlovs') . '</a>';
+}
+endif; // modify_excerpt_more
