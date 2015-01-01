@@ -430,8 +430,12 @@
 // Container
 .pagination-centered {
 	display: block;
-	margin: .25em auto;
+	margin: .25em auto .5em;
 	text-align: center;
+
+	#single-nav & {
+		margin: .25em auto;
+	}
 }
 
 // Pagination colorize
@@ -484,6 +488,7 @@ ul.pagination {
 // Breadcrumbs
 // -------------------
 .breadcrumbs {
+	color: $breadcrumbs-color;
 	overflow: hidden;
 
 	& > * {
