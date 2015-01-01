@@ -20,7 +20,7 @@
 	}
 
 	// Compensate margin of span from more tag
-	span[id*="more"] {
+	p span[id*="more"]:first-child {
 		display: block;
 		margin-top: -1.5em;
 	}
