@@ -49,15 +49,36 @@ if ( ! function_exists( 'p1_breadcrumbs') ) :
 	function p1_breadcrumbs($visibility = '') {
 		global $post;
 
-		// Travel posts/lists
-		if (get_the_terms( $post->ID, 'travel' )) {
-			$travel = array_pop(get_the_terms( $post->ID, 'travel' ));
-			$links = '<a href="' . esc_url( home_url( '/' ) ) . 'travel">' . __('Travel', 'perlovs') . '</a>';
-			$links .= '<span class="divider"></span><a href="' . get_term_link( $travel ) . '">' . $travel->name . '</a>';
+		if (!is_archive()) {
+			// Travel posts/lists
+			if (get_the_terms( $post->ID, 'travel' )) {
+				$travel = array_pop(get_the_terms( $post->ID, 'travel' ));
+				$links = '<a href="' . esc_url( home_url( '/' ) ) . 'travel">' . __('Travel', 'perlovs') . '</a>';
+				$links .= '<span class="divider"></span><a href="' . get_term_link( $travel ) . '">' . $travel->name . '</a>';
+			}
+			// Single post, not travel
+			elseif (is_single()) {
+				$links = get_the_category_list('<span class="divider"></span>', 'multiple');
+			}
 		}
-		// Single post, not travel
-		elseif (is_single()) {
-			$links = get_the_category_list('<span class="divider"></span>', 'multiple');
+		// Category/tag/date archives
+		elseif (is_tag() || is_category() || is_date()) {
+			$links = __('archives', 'perlovs');
+
+			if (is_month() || is_day()) {
+				$archive_year  = get_the_date('Y');
+				$links .= '<span class="divider"></span><a href="' . get_year_link($archive_year) . '">' . get_the_date('Y') . '</a>';
+			}
+
+			if (is_day()) {
+				$archive_month  = get_the_date('m');
+				$links .= '<span class="divider"></span><a href="' . get_month_link( $archive_year, $archive_month) . '">' . get_the_date('F') . '</a>';
+			}
+		}
+		// Travel/countries taxonomy archives
+		elseif (is_tax('travel') || is_tax('countries')) {
+			$links = '<a href="' . esc_url( home_url( '/' ) ) . 'travel">' . __('Travel', 'perlovs') . '</a>';
+			$links .= '<span class="divider"></span>' . __('archives', 'perlovs');
 		}
 
 		// Append home link

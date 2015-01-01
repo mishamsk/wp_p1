@@ -34,7 +34,11 @@ $overlay-color: rgba(#FFF, 0.5);
 $abbr-border-color: $border-color;
 $anchor-color: $primary-cyan;
 $anchor-visited-color: $primary-blue;
+$blockquote-color: #848484;
+$blockquote-quotes-color: #444;
+$blockquote-cite-color: #444;
 $body-text-color: #000;
+$breadcrumbs-color: #888;
 $code-bg-color: #F4F4F4;
 $code-border-color: #848484;
 $dl-border-color: $border-color;
@@ -74,9 +78,6 @@ $card-bg-color: #FFF;
 // Article
 $article-footer-bg-color: #F4F4F4;
 $hr-border-color: $border-color;
-$blockquote-color: $h-small-color;
-$blockquote-quotes-color: $h-color;
-$blockquote-cite-color: $h-color;
 
 // Article footer
 $comment-toggle-border-color: $border-color;
