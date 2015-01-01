@@ -182,6 +182,6 @@ if ( ! function_exists( 'modify_excerpt_more' ) ) :
  */
 function modify_excerpt_more($more) {
     global $post;
-    return '<a class="more-link" id="more-' .  $post->ID . '" href="' . get_permalink($post->ID) . '" title="' . the_title_attribute( array('echo' => '0', 'post' => $post->ID )) . '">' . __('Continue reading...', 'perlovs') . '</a>';
+    return '...<a class="more-link" id="more-' .  $post->ID . '" href="' . get_permalink($post->ID) . '" title="' . the_title_attribute( array('echo' => '0', 'post' => $post->ID )) . '">' . __('Continue reading...', 'perlovs') . '</a>';
 }
 endif; // modify_excerpt_more
