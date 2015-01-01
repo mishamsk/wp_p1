@@ -73,7 +73,7 @@ html, body {
 // Articles
 .card {
 	background-color: $card-bg-color;
-	margin: .5em -.5em;
+	margin: .5em 0;
 	padding: .5em 1em;
 
 	@include container-shadow(1, 1, false);
