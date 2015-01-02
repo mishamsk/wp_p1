@@ -101,6 +101,12 @@ article footer {
 	}
 }
 
+.post-time, .post-author, .post-countries {
+	margin-right: 1.5em;
+	white-space: nowrap;
+	word-wrap: normal;
+}
+
 .post-tags {
 	a:first-child {
 		margin-left: .3em;
