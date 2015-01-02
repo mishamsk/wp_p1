@@ -2,9 +2,16 @@
 /**
  * The default template for displaying content. Used for index/archive/search.
  */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	header( 'Status: 403 Forbidden' );
+	header( 'HTTP/1.1 403 Forbidden' );
+	exit;
+}
+
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class('card'); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class('card archive-article'); ?>>
 	<div class="row">
 	<?php if ( has_post_thumbnail() ) : ?>
 		<div class="small-12 medium-4 large-6 columns">
@@ -16,7 +23,7 @@
 	<?php else : ?>
 		<div class="small-12 columns">
 	<?php endif; // has_post_thumbnail() ?>
-			<div id="content-<?php the_ID(); ?>" class="blogroll-content">
+			<div id="content-<?php the_ID(); ?>">
 				<header id="header-<?php the_ID(); ?>">
 					<h1><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
 					<h6><?php p1_meta(); ?></h6>
@@ -31,6 +38,9 @@
 					    }
 					?>
 				</div>
+				<footer class="archive-article-footer">
+					<a class="more-link" id="more-<?php the_ID(); ?>" href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php _e('Continue reading...', 'perlovs'); ?></a>
+				</footer>
 			</div>
 		</div> <!-- .small-12 medium-8 xlarge-6 columns -->
 	</div> <!-- .row -->

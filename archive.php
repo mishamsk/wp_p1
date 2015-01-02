@@ -1,7 +1,14 @@
 <?php
-	/*
-		General template for archive pages, works for regular categories, tags
-	*/
+/*
+	General template for archive pages, works for regular categories, tags
+*/
+
+if ( ! defined( 'ABSPATH' ) ) {
+	header( 'Status: 403 Forbidden' );
+	header( 'HTTP/1.1 403 Forbidden' );
+	exit;
+}
+
 	get_header();
 ?>
 	<div class="row">

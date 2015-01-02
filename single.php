@@ -4,7 +4,7 @@
 <?php
 	while (have_posts()) : the_post();
 ?>
-		<article id="post-<?php the_ID(); ?>" <?php post_class('card'); ?>>
+		<article id="post-<?php the_ID(); ?>" <?php post_class('card single-article'); ?>>
 			<header id="single-header">
 				<h5><?php p1_breadcrumbs(); ?></h5>
 				<h1 class="entry-title"><?php the_title(); ?></h1>

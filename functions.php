@@ -36,6 +36,7 @@ function perlovs_setup() {
 
 	// This theme uses Featured Images (also known as post thumbnails) for archive pages
 	add_theme_support( 'post-thumbnails' );
+    set_post_thumbnail_size( 470, 470 );
 
 	// Add HTML5 elements
 	add_theme_support( 'html5', array( 'comment-list', 'search-form', 'comment-form') );
@@ -82,21 +83,6 @@ function perlovs_setup() {
     remove_action('wp_footer', 'dsq_output_footer_comment_js');
 }
 endif; // perlovs_setup
-
-add_action( 'wp_footer', 'perlovs_disqus_lazy_load', 100 );
-if ( ! function_exists( 'perlovs_disqus_lazy_load' ) ) :
-/**
- * Bind disqus to comment-toggle buttons
- */
-function perlovs_disqus_lazy_load(  )
-{
-    global $post;
-    if (is_single() && ( have_comments() || 'open' == $post->comment_status )) {
-        echo '
-            <script type="text/javascript">$(".comment-toggle").perlovsDisqus({disqus_shortname: disqus_shortname});</script>';
-    }
-}
-endif; // perlovs_disqus_lazy_load
 
 add_action( 'wp_enqueue_scripts', 'perlovs_scripts' );
 if ( ! function_exists( 'perlovs_scripts' ) ) :
@@ -154,34 +140,17 @@ function perlovs_wp_title_for_home( $title )
 }
 endif; // perlovs_wp_title_for_home
 
-add_filter( 'the_content_more_link', 'remove_more_link_scroll' );
-if ( ! function_exists( 'remove_more_link_scroll' ) ) :
+add_action( 'wp_footer', 'perlovs_disqus_lazy_load', 100 );
+if ( ! function_exists( 'perlovs_disqus_lazy_load' ) ) :
 /**
- * Remove hash at more url
+ * Bind disqus to comment-toggle buttons
  */
-function remove_more_link_scroll( $link ) {
-    $link = preg_replace( '|#more-[0-9]+|', '', $link );
-    return $link;
-}
-endif; // remove_more_link_scroll
-
-add_filter( 'the_content_more_link', 'modify_read_more_link' );
-if ( ! function_exists( 'modify_read_more_link' ) ) :
-/**
- * Make pretty more link + add class for styling + add id for analytics
- */
-function modify_read_more_link() {
-    return '<a class="more-link" id="more-' .  get_the_ID() . '" href="' . get_permalink() . '" title="' . the_title_attribute( 'echo=0' ) . '">' . __('Continue reading...', 'perlovs') . '</a>';
-}
-endif; // modify_read_more_link
-
-add_filter('excerpt_more', 'modify_excerpt_more');
-if ( ! function_exists( 'modify_excerpt_more' ) ) :
-/**
- * Make pretty more link + add class for styling + add id for analytics
- */
-function modify_excerpt_more($more) {
+function perlovs_disqus_lazy_load(  )
+{
     global $post;
-    return '...<a class="more-link" id="more-' .  $post->ID . '" href="' . get_permalink($post->ID) . '" title="' . the_title_attribute( array('echo' => '0', 'post' => $post->ID )) . '">' . __('Continue reading...', 'perlovs') . '</a>';
+    if (is_single() && ( have_comments() || 'open' == $post->comment_status )) {
+        echo '
+            <script type="text/javascript">$(".comment-toggle").perlovsDisqus({disqus_shortname: disqus_shortname});</script>';
+    }
 }
-endif; // modify_excerpt_more
+endif; // perlovs_disqus_lazy_load

@@ -26,7 +26,7 @@ $darker-brown: darken($primary-brown, $darken);
 $lighter-brown: lighten($primary-brown, $lighten);
 
 $border-color: #444;
-$hover-bg-color: #DDD;
+$hover-bg-color: #EEE;
 $current-bg-color: #888;
 $overlay-color: rgba(#FFF, 0.5);
 
@@ -78,6 +78,8 @@ $card-bg-color: #FFF;
 // Article
 $article-footer-bg-color: #F4F4F4;
 $hr-border-color: $border-color;
+$more-link-bg-color: $primary-orange;
+$more-link-color: #FFF;
 
 // Article footer
 $comment-toggle-border-color: $border-color;

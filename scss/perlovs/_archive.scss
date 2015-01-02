@@ -10,3 +10,44 @@
 	margin: .5em 0 0;
 	padding: 0 1em;
 }
+
+// -------------------
+// Article
+// -------------------
+
+.archive-article {
+	img {
+		display: block;
+		margin: 0 auto;
+	}
+}
+
+.archive-article-footer {
+	margin-top: 1.5em;
+	text-align: center;
+
+	@media #{$medium-up} {
+		text-align: right;
+	}
+}
+
+.more-link {
+	background-color: $more-link-bg-color;
+	color: $more-link-color;
+	display: inline-block;
+	padding: .3em;
+
+	&:visited {
+		color: $more-link-color;
+	}
+
+	&:hover,
+	&:focus,
+	&:active {
+		text-decoration: none;
+
+		@include container-shadow(1);
+	}
+
+	@include border-radius(.25em, .25em);
+}
