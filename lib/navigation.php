@@ -49,7 +49,7 @@ if ( ! function_exists( 'p1_breadcrumbs') ) :
 	function p1_breadcrumbs($visibility = '') {
 		global $post;
 
-		if (!is_archive()) {
+		if (is_single()) {
 			// Travel posts/lists
 			if (get_the_terms( $post->ID, 'travel' )) {
 				$travel = array_pop(get_the_terms( $post->ID, 'travel' ));
@@ -60,25 +60,57 @@ if ( ! function_exists( 'p1_breadcrumbs') ) :
 			elseif (is_single()) {
 				$links = get_the_category_list('<span class="divider"></span>', 'multiple');
 			}
+
+			// Append current object
+			$links .= '<span class="divider"></span><span class="current">' . strtolower($post->post_title) . '</span>';
 		}
 		// Category/tag/date archives
-		elseif (is_tag() || is_category() || is_date()) {
-			$links = __('archives', 'perlovs');
+		elseif (is_tag()) {
+			$links = __('tag archives', 'perlovs');
+
+			// Append current object
+			$links .= '<span class="divider"></span><span class="current">' . strtolower(get_queried_object()->name) . '</span>';
+		}
+		// Category/tag/date archives
+		elseif (is_category()) {
+			$links = __('category archives', 'perlovs');
+
+			// Append current object
+			$links .= '<span class="divider"></span><span class="current">' . strtolower(get_queried_object()->name) . '</span>';
+		}
+		// Category/tag/date archives
+		elseif (is_date()) {
+			$links = __('date archives', 'perlovs');
 
 			if (is_month() || is_day()) {
 				$archive_year  = get_the_date('Y');
 				$links .= '<span class="divider"></span><a href="' . get_year_link($archive_year) . '">' . get_the_date('Y') . '</a>';
 			}
+			else {
+				$links .= '<span class="divider"></span><span class="current">' . get_the_date('Y') . '</span>';
+			}
+
+			if (is_month()) {
+				$links .= '<span class="divider"></span><span class="current">' . get_the_date('m') . '</span>';
+			}
 
 			if (is_day()) {
 				$archive_month  = get_the_date('m');
 				$links .= '<span class="divider"></span><a href="' . get_month_link( $archive_year, $archive_month) . '">' . get_the_date('F') . '</a>';
+				$links .= '<span class="divider"></span><span class="current">' . get_the_date('d') . '</span>';
 			}
 		}
 		// Travel/countries taxonomy archives
 		elseif (is_tax('travel') || is_tax('countries')) {
 			$links = '<a href="' . esc_url( home_url( '/' ) ) . 'travel">' . __('Travel', 'perlovs') . '</a>';
 			$links .= '<span class="divider"></span>' . __('archives', 'perlovs');
+		}
+		// Category/tag/date archives
+		elseif (is_search()) {
+			$links = __('search results', 'perlovs');
+
+			// Append current object
+			$links .= '<span class="divider"></span><span class="current">' . strtolower(get_search_query()) . '</span>';
 		}
 
 		// Append home link

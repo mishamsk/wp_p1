@@ -8,7 +8,6 @@ Mixin parameters
     $inv: false !default - if true display shadow above rather than below object
 */
 @mixin shadow-base($trans: true, $z-base: 100, $z: 0, $shadow_bt: null, $shadow_tp: null) {
-    border-radius: inherit;
     @if $trans {
         transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1);
     }

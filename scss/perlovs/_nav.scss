@@ -145,7 +145,7 @@
 			display: inline-block;
 			line-height: 1.5em;
 			margin: 0;
-			padding: .25em 3em .25em .5em;
+			padding: .2em 3em .2em .5em;
 			width: 100%;
 
 			&:focus, &:active {
@@ -163,7 +163,7 @@
 			bottom: .4em; // font is 1.25 thus .5em of parent is .4em on this
 			color: $anchor-color;
 			line-height: 1.5em;
-			padding: 0.25em .5em;
+			padding: .2em .5em;
 			position: absolute;
 			right: .4em; // font is 1.25 thus .5em of parent is .4em on this
 
@@ -447,16 +447,19 @@ ul.pagination {
 		color: $anchor-color;
 		display: inline-block;
 		height: 1.5em;
+		margin: 0 .15em;
 		width: 1.5em;
 
 		@include border-radius(50%);
-		@include transition(background 300ms ease);
+		@include transition(background 300ms ease, box-shadow 500ms cubic-bezier(0.4, 0, 0.2, 1));
 
 		&:hover,
 		&:focus,
 		&:active {
 			background-color: $pagination-hover-bg-color;
 			cursor: pointer;
+
+			@include container-shadow(1, 100, false);
 		}
 
 		&.current,
@@ -465,6 +468,8 @@ ul.pagination {
 			background-color: $pagination-current-bg-color;
 			color: $pagination-current-color;
 			cursor: default;
+
+			@include box-shadow(none);
 		}
 
 		&.unavailable,
@@ -473,6 +478,8 @@ ul.pagination {
 			background: none;
 			color: $pagination-unavailable-color;
 			cursor: default;
+
+			@include box-shadow(none);
 		}
 	}
 
@@ -495,11 +502,24 @@ ul.pagination {
 		text-transform: lowercase;
 	}
 
+	a {
+		&:hover,
+		&:focus,
+		&:active {
+			text-decoration: underline;
+		}
+	}
+
 	.divider:before {
 		content: ">";
 		margin: 0 .2em;
 		position: relative;
 		text-decoration: none;
 		top: 1px;
+	}
+
+	.current {
+		font-weight: normal;
+		font-style: italic;
 	}
 }
