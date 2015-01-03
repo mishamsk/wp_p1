@@ -1,0 +1,33 @@
+/*!
+	WP P1 helpers classes and mixin which did not fit elsewhere but do not deserve separate file
+*/
+
+// "Card" effect
+.card {
+	background-color: $card-bg-color;
+	margin: .5em 0;
+	padding: .5em 1em;
+
+	@include container-shadow(1, 1, false);
+}
+
+@mixin p1-button() {
+	background-color: $button-link-bg-color;
+	color: $button-link-color;
+	padding: .3em;
+	text-align: center;
+
+	&:visited {
+		color: $button-link-color;
+	}
+
+	&:hover,
+	&:focus,
+	&:active {
+		text-decoration: none;
+
+		@include container-shadow(1);
+	}
+
+	@include border-radius(.25em, .25em);
+}

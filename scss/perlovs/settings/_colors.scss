@@ -48,6 +48,11 @@ $h-small-color: #848484;
 $th-border-color: $border-color;
 $thead-bg-color: $hover-bg-color;
 
+// Helpers
+$button-link-bg-color: $primary-orange;
+$button-link-color: #FFF;
+$card-bg-color: #FFF;
+
 // Header
 $header-color: #FFF;
 $header-bg-color: $primary-orange;
@@ -73,13 +78,10 @@ $off-canvas-overlay-background-hover: $overlay-color;
 
 // Body
 $body-bg-color: #FAFAFA;
-$card-bg-color: #FFF;
 
 // Article
 $article-footer-bg-color: #F4F4F4;
 $hr-border-color: $border-color;
-$more-link-bg-color: $primary-orange;
-$more-link-color: #FFF;
 
 // Article footer
 $comment-toggle-border-color: $border-color;

@@ -1,5 +1,5 @@
 /*
-	P1 Wordpress theme archives (category, tags) styles
+	P1 Wordpress theme archives (category, tags, search, date etc.) styles
 */
 
 // -------------------
@@ -32,22 +32,7 @@
 }
 
 .more-link {
-	background-color: $more-link-bg-color;
-	color: $more-link-color;
 	display: inline-block;
-	padding: .3em;
 
-	&:visited {
-		color: $more-link-color;
-	}
-
-	&:hover,
-	&:focus,
-	&:active {
-		text-decoration: none;
-
-		@include container-shadow(1);
-	}
-
-	@include border-radius(.25em, .25em);
+	@include p1-button();
 }
