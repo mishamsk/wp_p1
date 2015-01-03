@@ -96,7 +96,7 @@ if ( ! function_exists( 'p1_breadcrumbs') ) :
 
 			if (is_day()) {
 				$archive_month  = get_the_date('m');
-				$links .= '<span class="divider"></span><a href="' . get_month_link( $archive_year, $archive_month) . '">' . get_the_date('F') . '</a>';
+				$links .= '<span class="divider"></span><a href="' . get_month_link( $archive_year, $archive_month) . '">' . get_the_date('m') . '</a>';
 				$links .= '<span class="divider"></span><span class="current">' . get_the_date('d') . '</span>';
 			}
 		}
