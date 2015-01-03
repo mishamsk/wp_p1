@@ -26,8 +26,15 @@ if ( have_posts() ) :
 <?php
 	endwhile;
 else :
-	get_template_part( 'content', 'none' );
-
+?>
+		<div class="row">
+			<div class="small-12 columns">
+<?php
+				get_template_part( 'content', 'none' );
+?>
+			</div> <!-- .small-12 columns -->
+		</div> <!-- .row-->
+<?php
 endif; // end have_posts() check
 
 p1_pagination();
