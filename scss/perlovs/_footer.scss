@@ -8,12 +8,17 @@
 
 #page-footer {
 	background-color: $footer-bg-color;
-	padding: 1rem 0;
+	padding: .5em 0;
+
+	@media #{$large-up} {
+		padding: 1em 0;
+	}
 
 	p {
 		color: $footer-p-color;
-		font-size: 0.75em;
-		margin: 0.1rem 0;
+		font-size: 0.8em;
+		line-height: 1.25em;
+		margin: 0;
 	}
 
 	a:visited {

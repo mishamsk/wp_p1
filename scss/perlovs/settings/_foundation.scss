@@ -147,10 +147,10 @@ $last-child-float: $opposite-direction;
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
 $small-range: (0em, 767 / 16 * 1em);
-$medium-range: (768 / 16 * 1em, 1019 / 16 * 1em);
-$large-range: (1020 / 16 * 1em, 1129 / 16 * 1em);
-$xlarge-range: (1130 / 16 * 1em, 1920 / 16 * 1em);
-$xxlarge-range: (1921 / 16 * 1em, 99999999em);
+$medium-range: (768 / 16 * 1em, 1129 / 16 * 1em);
+$large-range: (1130 / 16 * 1em, 1919 / 16 * 1em);
+$xlarge-range: (1920 / 16 * 1em, 2559 / 16 * 1em);
+$xxlarge-range: (2560 / 16 * 1em, 99999999em);
 
 $screen: "only screen";
 
