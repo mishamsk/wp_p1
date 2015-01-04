@@ -2,26 +2,40 @@
 /**
  * The template for displaying a "No posts found" message
  */
+
+	if ( ! defined( 'ABSPATH' ) ) {
+		header( 'Status: 403 Forbidden' );
+		header( 'HTTP/1.1 403 Forbidden' );
+		exit;
+	}
+
 ?>
 
-<header class="page-header">
-	<h1 class="page-title"><?php _e( 'Nothing Found', 'FoundationPress' ); ?></h1>
-</header>
+	<div class="row">
+		<div class="small-12 columns">
+			<?php get_search_form(); ?>
+		</div> <!-- .small-12 columns -->
+	</div> <!-- .row-->
+	<div class="row">
+		<div class="small-12 columns">
+			<h1 class="secondary-title"><?php _e('Recent posts', 'perlovs'); ?></h1>
+		</div> <!-- .small-12 columns -->
+	</div> <!-- .row-->
 
-<div class="page-content">
-	<?php if ( is_home() && current_user_can( 'publish_posts' ) ) : ?>
+<?php
+	$args = array( 'numberposts' => 5, 'post_status'=> 'publish');
+	$recent_posts = wp_get_recent_posts( $args, OBJECT );
 
-	<p><?php printf( __( 'Ready to publish your first post? <a href="%1$s">Get started here</a>.', 'FoundationPress' ), admin_url( 'post-new.php' ) ); ?></p>
+	foreach ( $recent_posts as $post ) : setup_postdata( $post ); ?>
+		<div class="row">
+			<div class="small-12 columns">
+<?php
+				get_template_part( 'content', get_post_format() );
+?>
+			</div> <!-- .small-12 columns -->
+		</div> <!-- .row-->
+<?php
+	endforeach;
 
-	<?php elseif ( is_search() ) : ?>
-
-	<p><?php _e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'FoundationPress' ); ?></p>
-	<?php get_search_form(); ?>
-
-	<?php else : ?>
-
-	<p><?php _e( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', 'FoundationPress' ); ?></p>
-	<?php get_search_form(); ?>
-
-	<?php endif; ?>
-</div>
+	wp_reset_postdata();
+?>
