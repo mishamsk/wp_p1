@@ -116,60 +116,13 @@
 		}
 
 		.search-form {
-			background-color: $search-form-bg-color;
 			display: inline-block;
 			min-width: rem-calc(300);
-			padding: .5em;
-			position: relative;
-			text-align: left;
 			top: -50%;
 			width: 50%;
 
 			@include container-shadow(2);
 			@include transition(top 500ms ease);
-
-			input {
-				font-size: 1.25em;
-			}
-		}
-
-		.search-label {
-			color: $h-small-color;
-			margin-top: 0;
-			margin-bottom: .25em;
-			text-align: center;
-		}
-
-		.search-field {
-			border: 1px solid #EEEEEE;
-			display: inline-block;
-			line-height: 1.5em;
-			margin: 0;
-			padding: .2em 3em .2em .5em;
-			width: 100%;
-
-			&:focus, &:active {
-				border: 1px solid #EEEEEE;
-				outline: none;
-
-				@include container-shadow(1);
-			}
-		}
-
-		.search-submit {
-			background: none;
-			border: none;
-			border-bottom: 1px solid #EEEEEE;
-			bottom: .4em; // font is 1.25 thus .5em of parent is .4em on this
-			color: $anchor-color;
-			line-height: 1.5em;
-			padding: .2em .5em;
-			position: absolute;
-			right: .4em; // font is 1.25 thus .5em of parent is .4em on this
-
-			&:hover {
-				text-decoration: underline;
-			}
 		}
 
 		&.expanded {
