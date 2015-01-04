@@ -1,0 +1,34 @@
+/*
+	WP P1 misc settings
+*/
+
+//----------------------
+// Variables
+//----------------------
+
+//----------------------
+// Functions
+//----------------------
+
+//----------------------
+// Mixins
+//----------------------
+
+//----------------------
+// Classes
+//----------------------
+
+*,
+*:before,
+*:after {
+  @include box-sizing(border-box);
+}
+
+// "Card" effect
+.card {
+	background-color: $card-bg-color;
+	margin: .5em 0;
+	padding: .5em 1em;
+
+	@include container-shadow(1, 1, false);
+}

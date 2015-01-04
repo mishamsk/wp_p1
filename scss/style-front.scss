@@ -1,17 +1,21 @@
 @charset "UTF-8";
 
 @import "compass/css3";
-@import "perlovs/settings/colors";
-@import "perlovs/settings/foundation";
-@import "perlovs/settings/fndtion-inc-front";
-@import "normalize";
-@import "foundation";
-@import "perlovs/settings/general";
-@import "perlovs/cat-colorize";
-@import "perlovs/container-shadow";
-@import "perlovs/icons";
-@import "perlovs/logo";
-@import "perlovs/type";
+@import "perlovs/essentials/*";
+@import "perlovs/settings/*";
+@import "perlovs/base/*";
+
+// Home.nav
+$home-nav-font-size: rem-calc(22);
+$home-nav-margin: $home-nav-font-size / 2;
+$home-nav-li-margin: rem-calc(11);
+$home-nav-a-color: #FFF;
+$home-nav-a-initial-opacity: 0.6;
+$home-nav-a-transition: opacity 1000ms;
+
+// Home.Article
+$home-article-bg-color: #FFF;
+$home-article-padding: rem-calc(16);
 
 // -----------------------
 // Home
@@ -44,7 +48,6 @@ nav {
 
 		a {
 			color: $home-nav-a-color;
-			font-family: $header-font-family;
 			font-size: $home-nav-font-size;
 			font-style: normal;
 			font-weight: lighter;
@@ -101,7 +104,7 @@ section:not(#main), footer {
 	background-size: cover;
 	min-height: 100%;
 	left: auto;
-	padding: $home-nav-margin * 2 + $home-nav-font-size * $base-line-height 0 0 0;
+	padding: $home-nav-margin * 2 + $home-nav-font-size 0 0 0;
 	position: relative;
 	top: auto;
 	width: 100%;
@@ -109,7 +112,7 @@ section:not(#main), footer {
 	@media #{$medium-up} {
 		height: 100%;
 		overflow: hidden;
-		padding: $home-nav-margin * 2 + $home-nav-font-size * $base-line-height 0;
+		padding: $home-nav-margin * 2 + $home-nav-font-size 0;
 		position: absolute;
 	}
 }
@@ -119,7 +122,7 @@ section:not(#main), footer {
 		(home-blog, 2, $darker-cyan),
 		(home-travel, 3, $lighter-green),
 		(home-authors, 4, $primary-yellow),
-		(page-footer, 5, $charcoal) {
+		(page-footer, 5, #444) {
 	##{$section} {
 		@if $bg-image != null {
 			background-image: image-url("#{$bg-image}.jpg");
@@ -145,7 +148,7 @@ section:not(#main), footer {
 		@include translate($translate-x: -50%, $translate-y: -50%);
 
 		p {
-			color: $white;
+			color: #FFF;
 			margin-top: -1rem;
 		}
 
@@ -188,7 +191,7 @@ section:not(#main), footer {
 
 		article {
 			.entry-content a {
-				@include button();
+				@include p1_button();
 			}
 		}
 	}
@@ -223,7 +226,7 @@ section:not(#main), footer {
 .search-submit {
 	.home & {
 		@include grid-column($columns:2);
-		@include button();
+		@include p1_button();
 		font-size: 1em;
 		padding: .5em;
 	}

@@ -13,22 +13,15 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 @charset "UTF-8";
 
 @import "compass/css3";
-@import "perlovs/settings/foundation";
-@import "perlovs/settings/fndtion-inc-general";
-@import "normalize";
-@import "foundation";
-@import "perlovs/settings/colors";
-@import "perlovs/settings/general";
-@import "perlovs/container-shadow";
-@import "perlovs/helpers";
-@import "perlovs/icons";
-@import "perlovs/type";
-@import "perlovs/nav";
-@import "perlovs/single";
-@import "perlovs/footer";
-@import "perlovs/header";
-@import "perlovs/search";
-@import "perlovs/archive";
+@import "perlovs/essentials/*";
+@import "perlovs/settings/*";
+@import "perlovs/base/*";
+@import "perlovs/layout/nav";
+@import "perlovs/layout/single";
+@import "perlovs/layout/footer";
+@import "perlovs/layout/header";
+@import "perlovs/layout/search";
+@import "perlovs/layout/archive";
 
 // -----------------------
 // General wrappers

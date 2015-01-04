@@ -1,0 +1,46 @@
+/*
+	WP P1 buttons classes and mixin
+*/
+
+//----------------------
+// Variables
+//----------------------
+
+
+//----------------------
+// Functions
+//----------------------
+
+
+//----------------------
+// Mixins
+//----------------------
+
+@mixin p1-button() {
+	background-color: $button-link-bg-color;
+	color: $button-link-color;
+	padding: .3em;
+	text-align: center;
+
+	&:visited {
+		color: $button-link-color;
+	}
+
+	&:hover,
+	&:focus,
+	&:active {
+		text-decoration: none;
+
+		@include container-shadow(1);
+	}
+
+	@include border-radius(.25em, .25em);
+}
+
+//----------------------
+// Classes
+//----------------------
+
+.button {
+	@include p1-button();
+}
