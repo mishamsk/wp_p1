@@ -112,6 +112,20 @@ if ( ! function_exists( 'p1_breadcrumbs') ) :
 			// Append current object
 			$links .= '<span class="divider"></span><span class="current">' . strtolower(get_search_query()) . '</span>';
 		}
+		elseif (is_home()) {
+			$links = __('blog', 'perlovs');
+		}
+		elseif (is_page()) {
+			// Current object
+			$links = '<span class="current">' . strtolower($post->post_title) . '</span>';
+
+			if($post->post_parent){
+                $ancestors = get_post_ancestors( $post->ID );
+                foreach ( $ancestors as $ancestor ) {
+                    $links = '<a href="' . get_permalink($ancestor) . '" title="' . get_the_title($ancestor) . '">' . strtolower(get_the_title($ancestor)) . '</a><span class="divider"></span>' . $links;
+                }
+            }
+		}
 
 		// Append home link
 		$links = '<a href="' . esc_url( home_url( '/' ) ) . '" rel="home">' . __('Home', 'perlovs') . '</a><span class="divider"></span>' . $links;
@@ -179,30 +193,34 @@ endif; // p1_pagination
  * Display single post pagination
 */
 if ( ! function_exists( 'p1_single_pagination') ) :
-	function p1_single_pagination() {
+	function p1_single_pagination($prev_next = TRUE) {
 		global $wp_query, $multipage, $page, $numpages, $post;
 
 		echo '<div id="single-nav" class="row footer-nav">';
 
-		$previous = '<div class="columns small-12 medium-4"><h5 class="previous-post-link small-text-center medium-text-left">%link</h5></div>';
+		if ($prev_next) {
+			$previous = '<div class="columns small-12 medium-4"><h5 class="previous-post-link small-text-center medium-text-left">%link</h5></div>';
 
-		$prev_post = get_previous_post();
-		if (!empty( $prev_post ) || $multipage)
-			$next = '<div class="columns small-12 medium-4"><h5 class="next-post-link small-text-center medium-text-right">%link</h5></div>';
-		else
-			$next = '<div class="columns small-12 medium-4 medium-offset-8"><h5 class="next-post-link small-text-center medium-text-right">%link</h5></div>';
+			$prev_post = get_previous_post();
+			if (!empty( $prev_post ) || $multipage)
+				$next = '<div class="columns small-12 medium-4"><h5 class="next-post-link small-text-center medium-text-right">%link</h5></div>';
+			else
+				$next = '<div class="columns small-12 medium-4 medium-offset-8"><h5 class="next-post-link small-text-center medium-text-right">%link</h5></div>';
 
-		// Travel posts/lists
-		if (get_the_terms( $post->ID, 'travel' )) {
-			previous_post_link( $previous, '&lt;&lt; %title', true, '', 'travel' );
+			// Travel posts/lists
+			if (get_the_terms( $post->ID, 'travel' )) {
+				previous_post_link( $previous, '&lt;&lt; %title', true, '', 'travel' );
+			}
+			else {
+				$travel_terms = get_terms( 'travel', array('fields' => 'ids') );
+				previous_post_link( $previous, '&lt;&lt; %title', false, $travel_terms);
+			}
 		}
 		else {
-			$travel_terms = get_terms( 'travel', array('fields' => 'ids') );
-			previous_post_link( $previous, '&lt;&lt; %title', false, $travel_terms);
+			$prev_post = FALSE;
 		}
 
 		if ($multipage) {
-			$prev_post = get_previous_post();
 			if (!empty( $prev_post ))
 				echo '<div class="columns small-12 medium-4"><div id="pagination" class="pagination-centered">';
 			else
@@ -230,13 +248,15 @@ if ( ! function_exists( 'p1_single_pagination') ) :
 			echo '</div><!--// end .columns -->';
 		}
 
-		// Travel posts/lists
-		if (get_the_terms( $post->ID, 'travel' )) {
-			next_post_link( $next, '%title &gt;&gt;', true, '', 'travel' );
-		}
-		else {
-			$travel_terms = get_terms( 'travel', array('fields' => 'ids') );
-			next_post_link( $next, '%title &gt;&gt;', false, $travel_terms);
+		if ($prev_next) {
+			// Travel posts/lists
+			if (get_the_terms( $post->ID, 'travel' )) {
+				next_post_link( $next, '%title &gt;&gt;', true, '', 'travel' );
+			}
+			else {
+				$travel_terms = get_terms( 'travel', array('fields' => 'ids') );
+				next_post_link( $next, '%title &gt;&gt;', false, $travel_terms);
+			}
 		}
 
 		echo '</div><!--// end .row -->';

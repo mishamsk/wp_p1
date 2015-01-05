@@ -1,39 +1,25 @@
-<?php get_header(); ?>
+<?php
+/*
+	Blog index
+*/
 
-<?php
-if ( have_posts() ) :
-	$count = 1;
+if ( ! defined( 'ABSPATH' ) ) {
+	header( 'Status: 403 Forbidden' );
+	header( 'HTTP/1.1 403 Forbidden' );
+	exit;
+}
 
-	while ( have_posts() ) :
-		the_post();
-		if ($count % 2 == 1) :
-			if ($count > 1)	:
+	get_header();
 ?>
-			</div> <!-- .row-->
+	<div class="row">
+		<div class="small-12 columns">
+			<header id="archive-header">
+				<h5><?php p1_breadcrumbs(); ?></h5>
+				<h1 class="page-title"><?php _e('Everything we\'ve written', 'perlovs'); ?></h1>
+			</header>
+		</div> <!-- .small-12 columns -->
+	</div> <!-- .row-->
 <?php
-			endif; // $count > 1
+	get_template_part( 'blogroll');
+	get_footer();
 ?>
-			<div class="row">
-<?php
-		endif; // $count % 2 == 1
-?>
-				<div class="small-12 large-6 columns">
-<?php
-					get_template_part( 'content', get_post_format() );
-?>
-				</div> <!-- .small-12 large-6 columns -->
-<?php
-		$count += 1;
-	endwhile;
-?>
-			</div> <!-- .row-->
-<?php
-else :
-	get_template_part( 'content', 'none' );
-
-endif; // end have_posts() check
-
-p1_pagination();
-?>
-
-<?php get_footer(); ?>

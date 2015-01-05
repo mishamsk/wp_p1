@@ -39,7 +39,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					?>
 				</div>
 				<footer class="archive-article-footer">
-					<a class="more-link" id="more-<?php the_ID(); ?>" href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php _e('Continue reading...', 'perlovs'); ?></a>
+					<a class="more-link button" id="more-<?php the_ID(); ?>" href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php _e('Continue reading...', 'perlovs'); ?></a>
 				</footer>
 			</div>
 		</div> <!-- .small-12 medium-8 xlarge-6 columns -->
