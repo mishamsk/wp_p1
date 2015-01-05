@@ -6,16 +6,16 @@
 @import "perlovs/base/*";
 
 // Home.nav
-$home-nav-font-size: rem-calc(22);
+$home-nav-font-size: em-calc(22);
 $home-nav-margin: $home-nav-font-size / 2;
-$home-nav-li-margin: rem-calc(11);
+$home-nav-li-margin: em-calc(11);
 $home-nav-a-color: #FFF;
 $home-nav-a-initial-opacity: 0.6;
 $home-nav-a-transition: opacity 1000ms;
 
 // Home.Article
 $home-article-bg-color: #FFF;
-$home-article-padding: rem-calc(16);
+$home-article-padding: em-calc(16);
 
 // -----------------------
 // Home
@@ -149,7 +149,7 @@ section:not(#main), footer {
 
 		p {
 			color: #FFF;
-			margin-top: -1rem;
+			margin-top: -1em;
 		}
 
 	}

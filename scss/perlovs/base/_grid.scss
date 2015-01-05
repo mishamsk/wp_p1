@@ -4,9 +4,9 @@
 // Variables
 //----------------------
 
-$row-width: rem-calc(1020);
+$row-width: em-calc(1020);
 $total-columns: 12;
-$column-gutter: 1em; // 40px for large screens
+$column-gutter: em-calc(20);
 
 $opposite-direction: right;
 $default-float: left;

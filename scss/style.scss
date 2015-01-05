@@ -53,9 +53,9 @@ html, body {
 
 	// Admin bar
 	.admin-bar & {
-		top: rem-calc(46);
+		top: em-calc(46);
 		@media #{$medium-up} {
-			top: rem-calc(32);
+			top: em-calc(32);
 		}
 	}
 }
