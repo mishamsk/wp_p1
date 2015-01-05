@@ -1,0 +1,165 @@
+/*
+	WP P1 unit calculations (includes compass import)
+*/
+
+//----------------------
+// Variables
+//----------------------
+
+$base-font-size: 20px;
+$base-line-height: 30px;
+$relative-line-height: $base-line-height / $base-font-size;
+$rhythm-unit: "em";
+
+//----------------------
+// Imports
+//----------------------
+
+@import "compass/typography/vertical_rhythm";
+
+//----------------------
+// Functions
+//----------------------
+
+// STRIP UNIT
+// It strips the unit of measure and returns it
+@function strip-unit($num) {
+  @return $num / ($num * 0 + 1);
+}
+
+// Convert any CSS <length> or <percentage> value to any another.
+//
+// @param $length
+//   A css <length> or <percentage> value
+//
+// @param $to-unit
+//   String matching a css unit keyword, e.g. 'em', '%', etc.
+//
+// @param $from-context
+//   When converting from relative units, the absolute length (in px) to
+//   which $length refers (e.g. for $lengths in em units, would normally be the
+//   font-size of the current element).
+//
+// @param $to-context
+//   For converting to relative units, the absolute length in px to which the
+//   output value will refer. Defaults to the same as $from-context, since it is
+//   rarely needed.
+@function convert-length(
+    $length,
+    $to-unit,
+    $from-context: $base-font-size,
+    $to-context: $from-context
+    ) {
+
+    $length: if(unitless($length), $length * 1px, $length);
+    $from-unit: unit($length);
+
+    // Optimize for cases where `from` and `to` units are accidentally the same.
+    @if $from-unit == $to-unit and $from-context == $to-context { @return $length; }
+
+    // Context values must be in px so we can determine a conversion ratio for
+    // relative units.
+    @if unit($from-context) != 'px' { @warn "Paremeter $from-context must resolve to a value in pixel units."; }
+    @if unit($to-context) != 'px' { @warn "Parameter $to-context must resolve to a value in pixel units."; }
+
+    // Convert input length to pixels
+    $px-length: $length;
+
+    @if $from-unit != 'px' {
+        // Convert relative units using the from-context parameter.
+        @if      $from-unit == 'em'  { $px-length: $length * $from-context / 1em }
+        @else if $from-unit == 'rem' { $px-length: $length * $base-font-size / 1rem }
+        @else if $from-unit == '%'   { $px-length: $length * $from-context / 100% }
+        @else if $from-unit == 'ex'  { $px-length: $length * $from-context / 2ex }
+        // Convert absolute units using Sass' conversion table.
+        @else if $from-unit == 'in'  or
+                $from-unit == 'mm'  or
+                $from-unit == 'cm'  or
+                $from-unit == 'pt'  or
+                $from-unit == 'pc'  { $px-length: 0px + $length }
+        // Certain units can't be converted.
+        @else if $from-unit == 'ch'  or
+                $from-unit == 'vw'  or
+                $from-unit == 'vh'  or
+                $from-unit == 'vmin' {
+            @warn "#{$from-unit} units can't be reliably converted; Returning original value.";
+            @return $length;
+        }
+        @else {
+            @warn "#{$from-unit} is an unknown length unit. Returning original value.";
+            @return $length;
+        }
+    }
+
+    // Convert length in pixels to the output unit
+    $output-length: $px-length;
+    @if $to-unit != 'px' {
+        // Relative units
+        @if      $to-unit == 'em'  { $output-length: $px-length * 1em / $to-context }
+        @else if $to-unit == 'rem' { $output-length: $px-length * 1rem / $base-font-size }
+        @else if $to-unit == '%'   { $output-length: $px-length * 100% / $to-context }
+        @else if $to-unit == 'ex'  { $output-length: $px-length * 2ex / $to-context }
+        // Absolute units
+        @else if $to-unit == 'in'  { $output-length: 0in + $px-length }
+        @else if $to-unit == 'mm'  { $output-length: 0mm + $px-length }
+        @else if $to-unit == 'cm'  { $output-length: 0cm + $px-length }
+        @else if $to-unit == 'pt'  { $output-length: 0pt + $px-length }
+        @else if $to-unit == 'pc'  { $output-length: 0pc + $px-length }
+        // Non-convertible units
+        @else if $to-unit == 'ch'  or
+                $to-unit == 'vw'  or
+                $to-unit == 'vh'  or
+                $to-unit == 'vmin' {
+            @warn "#{$to-unit} units can't be reliably converted; Returning original value.";
+            @return $length;
+        }
+        @else {
+            @warn "#{$to-unit} is an unknown length unit. Returning original value.";
+            @return $length;
+        }
+    }
+
+    // Turn 0unit into 0
+    @if (strip-unit($output-length) == 0) { @return 0; }
+
+    @return $output-length;
+}
+
+// EM CALC
+
+// New Syntax, allows to optionally calculate on a different base value to counter compounding effect of em's.
+// Call with 1, 2, 3 or 4 parameters, 'px' is not required but supported:
+//
+//   em-calc(10 20 30px 40);
+//
+// Space delimited, if you want to delimit using comma's, wrap it in another pair of brackets
+//
+//   em-calc((10, 20, 30, 40px));
+//
+// Optionally call with a different base (eg: 8px) to calculate em.
+//
+//   em-calc(16px 32px 48px, 8px);
+//
+// If you require to comma separate your list
+//
+//   em-calc((16px, 32px, 48), 8px);
+
+@function em-calc($values, $from-context: $base-font-size, $to-context: $from-context) {
+  $max: length($values);
+
+  @if $max == 1 { @return convert-length(nth($values, 1), 'em', $from-context, $to-context); }
+
+  $emValues: ();
+  @for $i from 1 through $max {
+    $emValues: append($emValues, convert-length(nth($values, $i), 'em', $from-context, $to-context));
+  }
+  @return $emValues;
+}
+
+//----------------------
+// Mixins
+//----------------------
+
+//----------------------
+// Classes
+//----------------------
