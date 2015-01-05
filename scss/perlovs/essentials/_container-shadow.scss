@@ -31,7 +31,7 @@ Mixin parameters
 }
 
 @mixin container-shadow($lev, $z-base: 100, $trans: true, $inv: false) {
-    @if $lev == 1 {
+    @if $lev == 0 {
         @include shadow-base($trans, $z-base, $z: 1);
     }
     @if $inv == false {
