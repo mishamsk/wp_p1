@@ -21,6 +21,13 @@ require_once('lib/entry-helpers.php');
 // Travel taxonomies
 require_once('lib/travel.php');
 
+// Travel taxonomies
+require_once('lib/search-func.php');
+
+/**
+ * Functions
+ */
+
 add_action( 'after_setup_theme', 'perlovs_setup' );
 if ( ! function_exists( 'perlovs_setup' ) ) :
 /**

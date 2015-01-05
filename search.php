@@ -27,7 +27,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 ?>
 	<div class="row">
 		<div class="small-12 columns">
-			<?php get_search_form(); ?>
+			<?php p1_searchform($form_classes = 'card', $id = 'search-page-search'); ?>
 		</div> <!-- .small-12 columns -->
 	</div> <!-- .row-->
 <?php

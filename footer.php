@@ -35,11 +35,11 @@
 				<footer id="page-footer" role="contentinfo" data-page-name="credits">
 					<div class="row">
 						<div class="small-12 medium-6 columns">
-							<p class="text-center"><?php _e( 'Share:', 'perlovs' ); ?></p><?php p1_social(); ?>
+							<p class="text-center"><?php _e( 'Share:', 'perlovs' ); ?></p><?php p1_social($id = 'footer-social-share'); ?>
 						</div>
 						<div class="small-12 medium-6 columns">
 							<p class="text-center"><?php _e( 'Search:', 'perlovs' ); ?></p>
-							<div class="search-container"><?php get_search_form(); ?></div>
+							<div class="search-container"><?php p1_searchform($form_classes = 'card', $id = 'footer-search'); ?></div>
 						</div><!-- .small-12 columns -->
 					</div><!-- .row -->
 					<div class="row">

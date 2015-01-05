@@ -54,11 +54,11 @@
 				<a href="#" class="off-canvas-toggle icon-g-menu"></a>
 				<div class="social-container">
 					<a href="#" class="share-toggle icon-g-share nav-toggle"></a>
-					<?php p1_social(); ?>
+					<?php p1_social($id = 'float-nav-social-share'); ?>
 				</div>
 				<div class="search-container">
 					<a href="#" class="search-toggle icon-g-search nav-toggle"></a>
-					<div class="search-form-container nav-toggle"><?php get_search_form(); ?></div>
+					<div class="search-form-container nav-toggle"><?php p1_searchform($form_classes = 'card', $id = 'float-nav-search'); ?></div>
 				</div>
 				<?php if (is_single() && ( have_comments() || 'open' == $post->comment_status )) { ?><a href="#" class="comment-toggle icon-g-comment"></a><?php } ?>
 			</nav>

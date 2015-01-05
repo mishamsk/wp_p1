@@ -13,7 +13,7 @@
 
 	<div class="row">
 		<div class="small-12 columns">
-			<?php get_search_form(); ?>
+			<?php p1_searchform($form_classes = 'card', $id = 'empty-page-search'); ?>
 		</div> <!-- .small-12 columns -->
 	</div> <!-- .row-->
 	<div class="row">

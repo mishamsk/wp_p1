@@ -15,13 +15,13 @@ if ( ! function_exists( 'p1_social' ) ) :
 /**
  * Print out social buttons in horizontal icon bar
  */
-	function p1_social(  )
+	function p1_social($id = NULL)
 	{
 		$title = urlencode( get_the_title() );
 		$url = urlencode( get_permalink() );
 		?>
 
-		<div id="social-sharing-bar">
+		<div <?php echo $id ? 'id="' . $id . '"' : ''; ?> class="social-sharing-bar">
 		  <a class="social-facebook" rel="external nofollow" href="https://www.facebook.com/dialog/share?app_class=386141574823982&amp;display=popup&amp;href=<?php echo $url; ?>&amp;redirect_uri=<?php echo $url; ?>" target="_blank" title="Поделись в Facebook!">
 		    <i class="icon-social-facebook"></i>
 		  </a>
