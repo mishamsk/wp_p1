@@ -6,6 +6,15 @@
 // Variables
 //----------------------
 
+$button-border-radius: .25em, .25em;
+$button-border-width: 1px;
+$button-border-style: solid;
+$button-hover-border-width: 1px;
+$button-hover-border-style: solid;
+$button-current-border-width: 1px;
+$button-current-border-style: solid;
+$button-unavailable-border-width: 1px;
+$button-unavailable-border-style: solid;
 
 //----------------------
 // Functions
@@ -16,25 +25,76 @@
 // Mixins
 //----------------------
 
-@mixin p1-button() {
-	background-color: $button-link-bg-color;
+@mixin p1-button($font-size: $base-font-size, $round: false, $current: false, $unavailable: false, $transparent: false) {
+	$to-size: convert-length($font-size, 'px');
+
+	background-color: if($transparent == false, $button-bg-color, rgba($button-bg-color, $transparent));
+	border: $button-border-width $button-border-style $button-border-color;
 	color: $button-link-color;
-	padding: .3em;
+	font-size: em-calc($font-size);
 	text-align: center;
+
+	@include transition(color 300ms ease);
+
+	@if $round != false {
+		height: em-calc($round, $to-context:$to-size);
+		line-height: em-calc($round, $to-context:$to-size) - em-calc($button-border-width * 2, $to-context:$to-size);
+		width: em-calc($round, $to-context:$to-size);
+		@include border-radius(50%);
+	}
+	@else {
+		padding: .25em;
+		@include border-radius($button-border-radius);
+	}
 
 	&:visited {
 		color: $button-link-color;
 	}
 
 	&:hover,
-	&:focus,
 	&:active {
+		background-color: if($transparent == false, $button-hover-bg-color, rgba($button-hover-bg-color, $transparent));
+		border: $button-hover-border-width $button-hover-border-style $button-hover-border-color;
+		color: $button-hover-link-color;
+		cursor: pointer;
 		text-decoration: none;
-
-		@include container-shadow(1);
 	}
 
-	@include border-radius(.25em, .25em);
+	&:focus {
+
+	}
+
+	@if $current != false {
+		&.current,
+		&.current:hover,
+		&.current:active {
+			background-color: $button-current-bg-color;
+			border: $button-current-border-width $button-current-border-style $button-current-border-color;
+			color: $button-current-link-color;
+			cursor: default;
+			text-decoration: none;
+		}
+
+		&.current:focus {
+			outline: none;
+		}
+	}
+
+	@if $unavailable != false {
+		&.unavailable,
+		&.unavailable:hover,
+		&.unavailable:active {
+			background-color: if($transparent == false, $button-unavailable-bg-color, rgba($button-unavailable-bg-color, $transparent));
+			border: $button-unavailable-border-width $button-unavailable-border-style $button-unavailable-border-color;
+			color: $button-unavailable-link-color;
+			cursor: default;
+			text-decoration: none;
+		}
+
+		&.unavailable:focus {
+			outline: none;
+		}
+	}
 }
 
 //----------------------
@@ -42,5 +102,5 @@
 //----------------------
 
 .button {
-	@include p1-button();
+	@include p1-button($transparent: 0);
 }

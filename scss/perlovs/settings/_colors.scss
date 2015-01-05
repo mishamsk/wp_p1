@@ -1,7 +1,7 @@
 // P1 Wordpress theme color variables
 
 // Pallete Colors
-$darken: 10%;
+$darken: 20%;
 $lighten: 10%;
 $primary-blue: #225B66;
 $darker-blue: darken($primary-blue, $darken);
@@ -19,52 +19,60 @@ $primary-red: #CC333F;
 $darker-red: darken($primary-red, $darken);
 $lighter-red: lighten($primary-red, $lighten);
 $primary-orange: #EB6841;
-$darker-orange: darken($primary-orange, $darken);
+$darker-orange: #862A0E;
 $lighter-orange: lighten($primary-orange, $lighten);
 $primary-brown: #6A4A3C;
 $darker-brown: darken($primary-brown, $darken);
 $lighter-brown: lighten($primary-brown, $lighten);
+$primary-grey: #515151;
 
-$border-color: #444;
+$border-color: $primary-grey;
 $hover-bg-color: #EEE;
-$current-bg-color: #888;
+$current-bg-color: $primary-grey;
 $overlay-color: rgba(#FFF, 0.5);
 
 // Type
 $abbr-border-color: $border-color;
-$anchor-color: $primary-cyan;
-$anchor-visited-color: $primary-blue;
+$anchor-color: $primary-orange;
+$anchor-visited-color: $darker-orange;
 $blockquote-color: #848484;
-$blockquote-quotes-color: #444;
-$blockquote-cite-color: #444;
+$blockquote-quotes-color: $primary-grey;
+$blockquote-cite-color: $primary-grey;
 $body-text-color: #000;
 $breadcrumbs-color: #888;
 $code-bg-color: #F4F4F4;
 $code-border-color: #848484;
 $dl-border-color: $border-color;
-$dt-color: #444;
-$h-color: #444;
+$dt-color: $primary-grey;
+$h-color: $primary-grey;
 $h-small-color: #848484;
 $th-border-color: $border-color;
 $thead-bg-color: $hover-bg-color;
 
-// Helpers
-$button-link-bg-color: $primary-orange;
-$button-link-color: #FFF;
+// Body
+$body-bg-color: #FAFAFA;
+
+// Base
+$button-bg-color: $body-bg-color;
+$button-border-color: $border-color;
+$button-link-color: $border-color;
+$button-hover-bg-color: $body-bg-color;
+$button-hover-border-color: $border-color;
+$button-hover-link-color: $anchor-color;
+$button-current-bg-color: $current-bg-color;
+$button-current-border-color: $current-bg-color;
+$button-current-link-color: #FFF;
+$button-unavailable-bg-color: $body-bg-color;
+$button-unavailable-border-color: #AAA;
+$button-unavailable-link-color: #AAA;
 $card-bg-color: #FFF;
 
 // Header
 $header-color: #FFF;
-$header-bg-color: $primary-orange;
+$header-bg-color: $primary-grey;
 $off-canvas-toggle-icon-color: $header-color;
 
 // Float-nav
-$comment-toggle-bg-color: $primary-brown;
-$float-nav-button-icon-color: #FFF;
-$off-canvas-toggle-bg-color: $header-bg-color;
-$share-toggle-bg-color: $primary-red;
-$search-toggle-bg-color: $primary-yellow;
-
 $search-overlay-background: $overlay-color;
 $search-overlay-background-hover: $overlay-color;
 
@@ -76,9 +84,6 @@ $off-canvas-current-color: #FFF;
 $off-canvas-overlay-background: $overlay-color;
 $off-canvas-overlay-background-hover: $overlay-color;
 
-// Body
-$body-bg-color: #FAFAFA;
-
 // Article
 $article-footer-bg-color: #F4F4F4;
 $hr-border-color: $border-color;
@@ -87,21 +92,15 @@ $hr-border-color: $border-color;
 $comment-toggle-border-color: $border-color;
 $comment-toggle-hover-bg-color: $hover-bg-color;
 
-// Pagination
-$pagination-hover-bg-color: $hover-bg-color;
-$pagination-current-bg-color: $current-bg-color;
-$pagination-current-color: #FFF;
-$pagination-unavailable-color: #AAA;
-
 // Footer colors
-$footer-bg-color: #444;
+$footer-bg-color: $primary-grey;
 $footer-p-color: #FFF;
 
 // -----------------------
 // Social sharing
 // -----------------------
-.social-facebook { background: $primary-blue; }
-.social-twitter { background: $primary-cyan; }
-.social-vk { background: $primary-brown; }
-.social-google-plus { background: $primary-red; }
-.social-email { background: $primary-orange; }
+$social-facebook-color: $primary-blue;
+$social-twitter-color: $primary-cyan;
+$social-vk-color: $primary-brown;
+$social-google-plus-color: $primary-red;
+$social-email-color: $primary-orange;

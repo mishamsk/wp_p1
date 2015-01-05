@@ -7,28 +7,23 @@
 //----------------------
 
 // Float nav
-$float-nav-offset: rem-calc(8);
-$float-nav-button-diameter: rem-calc(54);
-$float-nav-button-font-size: rem-calc(38);
-$float-nav-button-margin: rem-calc(8);
-$float-nav-button-md-coef: 1;
-$float-nav-share-toggle-margin-fix: rem-calc(56);
-$float-nav-comment-toggle-margin-fix: 0.6rem;
+$float-nav-button-diameter: em-calc(54);
+$float-nav-button-font-size: 40px;
 
 // Off canvas
 $off-canvas-pos: left;
 $off-canvas-transition: top 300ms ease, transform 300ms ease;
-$off-canvas-menu-shadow-offset-x: rem-calc(3);
-$off-canvas-menu-box-shadow: $off-canvas-menu-shadow-offset-x 0 rem-calc(5) 0px rgba(0, 0, 0, 0.4);
-$off-canvas-link-padding: rem-calc(10 15);
+$off-canvas-menu-shadow-offset-x: em-calc(3);
+$off-canvas-menu-box-shadow: $off-canvas-menu-shadow-offset-x 0 em-calc(5) 0px rgba(0, 0, 0, 0.4);
+$off-canvas-link-padding: em-calc(10 15);
 $off-canvas-link-border-bottom: none;
 $off-canvas-link-transition: background 500ms ease;
-$off-canvas-child-link-padding: rem-calc(10 15 10 30);
+$off-canvas-child-link-padding: em-calc(10 15 10 30);
 $off-canvas-overlay-transition: background 300ms ease;
 $off-canvas-overlay-cursor: pointer;
 $off-canvas-overlay-box-shadow: -4px 0 4px rgba(#000, 0.5), 4px 0 4px rgba(#000, 0.5);
 $off-canvas-toggle-offset: 0;
-$off-canvas-width: rem-calc(250);
+$off-canvas-width: em-calc(250);
 
 //----------------------
 // Classes
@@ -36,12 +31,12 @@ $off-canvas-width: rem-calc(250);
 
 // Float nav
 #float-nav {
-	bottom: $float-nav-offset;
+	bottom: .5em;
 	display: block;
 	margin: 0;
 	padding: 0;
 	position: fixed;
-	right: $float-nav-offset;
+	right: .5em;
 	text-align: center;
 	text-indent: 0;
 	vertical-align: middle;
@@ -49,12 +44,12 @@ $off-canvas-width: rem-calc(250);
 	@media #{$large-up} {
 		bottom: initial;
 		left: 50%;
-		margin-left: -$row-width / 2 -$float-nav-button-diameter;
+		margin-left: -$row-width / 2 - $float-nav-button-diameter - em-calc(10);
 		right: initial;
-		top: $float-nav-offset;
+		top: 4em; //3em site-header + 1em page-header
 
 		.admin-bar & {
-			top: $float-nav-offset + rem-calc(32);
+			top: 4em + em-calc(32);
 		}
 	}
 
@@ -63,51 +58,23 @@ $off-canvas-width: rem-calc(250);
 	}
 
 	a {
-		border: none;
-		color: $float-nav-button-icon-color;
 		display: inline-block;
-		font-size: $float-nav-button-font-size;
-		height: $float-nav-button-diameter;
-		line-height: $float-nav-button-diameter;
 		margin: 0;
 		position: relative;
-		text-decoration: none;
-		width: $float-nav-button-diameter;
 
 		@media #{$large-up} {
 			display: block;
-			margin-bottom: $float-nav-offset;
+			margin-bottom: em-calc(8, $to-context: $float-nav-button-font-size);
+
+			@include container-shadow(0, 1000, false);
 		}
 
-		@if $float-nav-button-md-coef != 1 {
-			@media #{$medium-up} {
-				font-size: $float-nav-button-font-size * $float-nav-button-md-coef;
-				height: $float-nav-button-diameter * $float-nav-button-md-coef;
-				line-height: $float-nav-button-diameter * $float-nav-button-md-coef;
-				width: $float-nav-button-diameter * $float-nav-button-md-coef;
-			}
-		}
-
-		@include transition(all 300ms ease);
-		@include container-shadow(2);
-		@include border-radius(50%);
-
-		&:hover {
-			@include container-shadow(3);
-			@include border-radius(50%);
-			top: -1px;
-		}
-
-		&:active {
-			@include container-shadow(1);
-			@include border-radius(50%);
-		}
+		@include container-shadow(2, 1000, false);
+		@include p1-button($font-size: $float-nav-button-font-size, $round: $float-nav-button-diameter, $transparent: 0.5);
 	}
 
 	.off-canvas-toggle {
-		background-color: $off-canvas-toggle-bg-color;
 		display: none;
-		margin-top: $float-nav-offset;
 
 		@media #{$large-up} {
 			display: block;
@@ -122,7 +89,7 @@ $off-canvas-width: rem-calc(250);
 		}
 
 		.search-toggle {
-			background-color: $search-toggle-bg-color;
+
 		}
 
 		.search-form-container {
@@ -147,7 +114,7 @@ $off-canvas-width: rem-calc(250);
 
 		.search-form {
 			display: inline-block;
-			min-width: rem-calc(300);
+			min-width: em-calc(300);
 			top: -50%;
 			width: 50%;
 
@@ -177,53 +144,59 @@ $off-canvas-width: rem-calc(250);
 		}
 
 		.share-toggle {
-			background-color: $share-toggle-bg-color;
-
 			// Fix to center icon
 			&:before {
-				left: 50%;
-				margin-left: -$float-nav-share-toggle-margin-fix;
+				left: em-calc(-1px, $to-context: $float-nav-button-font-size);
 				position: relative;
 			}
 		}
 
-		#social-sharing-bar {
-			bottom: $float-nav-button-diameter + $float-nav-offset;
+		.social-sharing-bar {
+			bottom: $float-nav-button-diameter + em-calc(10);
 			display: block;
 			position: absolute;
-			right: rem-calc(-300);
-			width: rem-calc(291);
+			right: em-calc(-350);
+			width: em-calc(291);
 
 			@media #{$large-up} {
 				bottom: initial;
-				left: $float-nav-button-diameter + $float-nav-offset;
+				left: $float-nav-button-diameter + em-calc(10);
 				right: initial;
-				top: rem-calc(-350);
+				top: em-calc(-450);
 				width: auto;
+
+				a {
+					@include container-shadow(2, 1000, false);
+				}
 			}
 
 			@include transition(top 500ms ease, right 500ms ease);
 		}
 
 		&.expanded {
-			#social-sharing-bar {
+			.social-sharing-bar {
 				right: 0;
 
 				@media #{$large-up} {
-					top: $float-nav-offset;
+					right: initial;
+					top: 0;
 				}
 
 				@include translate3d(0, 0, 0);
 			}
 		}
+
+		.social-facebook { color: $social-facebook-color; }
+		.social-twitter { color: $social-twitter-color; }
+		.social-vk { color: $social-vk-color; }
+		.social-google-plus { color: $social-google-plus-color; }
+		.social-email { color: $social-email-color; }
 	}
 
 	.comment-toggle {
-		background-color: $comment-toggle-bg-color;
-
 		// Fix to center icon
 		&:before {
-			margin-top: $float-nav-comment-toggle-margin-fix;
+			margin-top: em-calc(7px, $to-context: $float-nav-button-font-size);
 		}
 	}
 }
@@ -275,17 +248,13 @@ $off-canvas-width: rem-calc(250);
 		@media #{$large-up} {
 			bottom: auto;
 			left: 50%;
-			margin-left: -$row-width / 2 + 1rem;
-			margin-top: $float-nav-offset;
+			margin-left: -$row-width / 2;
+			margin-top: 4em;
 			max-height: 80%;
 			position: fixed;
-			top: -100%;
+			top: -200%;
 
 			@include container-shadow(2, 1000, false);
-
-			.admin-bar & {
-				top: $float-nav-offset + rem-calc(32);
-			}
 		}
 
 		> li:first-child a {
@@ -386,7 +355,7 @@ $off-canvas-width: rem-calc(250);
 		}
 
 		@media #{$large-up} {
-			top: $float-nav-offset;
+			top: 0;
 
 			@include translate3d(0, 0, 0);
 		}
@@ -421,44 +390,10 @@ ul.pagination {
 	margin: 0;
 
 	li {
-		background: none;
-		color: $anchor-color;
 		display: inline-block;
-		height: 1.5em;
 		margin: 0 .15em;
-		width: 1.5em;
 
-		@include border-radius(50%);
-		@include transition(background 300ms ease, box-shadow 500ms cubic-bezier(0.4, 0, 0.2, 1));
-
-		&:hover,
-		&:focus,
-		&:active {
-			background-color: $pagination-hover-bg-color;
-			cursor: pointer;
-
-			@include container-shadow(1, 100, false);
-		}
-
-		&.current,
-		&.current:hover,
-		&.current:focus {
-			background-color: $pagination-current-bg-color;
-			color: $pagination-current-color;
-			cursor: default;
-
-			@include box-shadow(none);
-		}
-
-		&.unavailable,
-		&.unavailable:hover,
-		&.unavailable:focus {
-			background: none;
-			color: $pagination-unavailable-color;
-			cursor: default;
-
-			@include box-shadow(none);
-		}
+		@include p1-button($font-size: 1em, $round: 1.5em, $current: true, $unavailable: true, $transparent: 0);
 	}
 
 	a {
@@ -476,6 +411,7 @@ ul.pagination {
 
 	& > * {
 		text-transform: lowercase;
+		white-space: nowrap;
 	}
 
 	a {
@@ -492,10 +428,25 @@ ul.pagination {
 		position: relative;
 		text-decoration: none;
 		top: 1px;
+		white-space: normal;
 	}
 
 	.current {
 		font-weight: normal;
 		font-style: italic;
+	}
+
+	// bug fix related to font boosting on mobile (different fonts change size differently)
+	// basically disable font scaling on mobile (do not respect user set values too...)
+	max-height: 1000000px;
+	-moz-text-size-adjust:none;
+	-ms-text-size-adjust:none;
+	-webkit-text-size-adjust:none;
+
+	@media #{$large-up} {
+		max-height: none;
+		-moz-text-size-adjust:auto;
+		-ms-text-size-adjust:auto;
+		-webkit-text-size-adjust:auto;
 	}
 }
