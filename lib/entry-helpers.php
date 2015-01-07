@@ -26,7 +26,7 @@ if(!function_exists('p1_meta')) :
     		$archive_month = get_the_time('m');
     		$archive_day   = get_the_time('d');
             echo '<time class="icon-g-time post-time" datetime="' . get_the_time('c') .'">';
-            echo '	<a href="' . get_day_link( $archive_year, $archive_month, $archive_day) . '">' . get_the_time('j (l)') . '</a>, ';
+            echo '	<a href="' . get_day_link( $archive_year, $archive_month, $archive_day) . '">' . get_the_time('j') . '</a>, ';
             echo '	<a href="' . get_month_link( $archive_year, $archive_month) . '">' . get_the_time('F') . '</a>, ';
             echo '	<a href="' . get_year_link( $archive_year) . '">' . get_the_time('Y') . '</a>';
             echo '</time>';
