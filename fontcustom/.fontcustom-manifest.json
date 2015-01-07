@@ -1,13 +1,13 @@
 {
   "checksum": {
-    "previous": "796f8510160beb947f5eafc7d5f2c2808533926db09168ba78f1b0739c8085b2",
-    "current": "796f8510160beb947f5eafc7d5f2c2808533926db09168ba78f1b0739c8085b2"
+    "previous": "3d19e3ec09758b2a2e9711a2418d4730540de22508de72bcfec8ef4d309eb550",
+    "current": "3d19e3ec09758b2a2e9711a2418d4730540de22508de72bcfec8ef4d309eb550"
   },
   "fonts": [
-    "../fonts/icons.ttf",
-    "../fonts/icons.svg",
-    "../fonts/icons.woff",
-    "../fonts/icons.eot"
+    "../fonts/icons_3d19e3ec09758b2a2e9711a2418d4730.ttf",
+    "../fonts/icons_3d19e3ec09758b2a2e9711a2418d4730.svg",
+    "../fonts/icons_3d19e3ec09758b2a2e9711a2418d4730.woff",
+    "../fonts/icons_3d19e3ec09758b2a2e9711a2418d4730.eot"
   ],
   "glyphs": {
     "at-sign": {
@@ -102,9 +102,9 @@
       "templates": "templates",
       "vectors": "vectors"
     },
-    "no_hash": true,
+    "no_hash": false,
     "output": {
-      "css": "../scss/perlovs",
+      "css": "../scss/perlovs/base",
       "fonts": "../fonts",
       "preview": "."
     },
@@ -116,7 +116,7 @@
     ]
   },
   "templates": [
-    "../scss/perlovs/_icons.scss",
+    "../scss/perlovs/base/_icons.scss",
     "./icons-preview.html"
   ]
 }
