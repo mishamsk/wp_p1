@@ -26,7 +26,7 @@
 <?php
 		endwhile;
 
-		p1_pagination();
+		perlovs_pagination();
 	else :
 		get_template_part( 'content', 'none' );
 	endif; // end have_posts() check

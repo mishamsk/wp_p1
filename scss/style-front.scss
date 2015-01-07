@@ -191,7 +191,7 @@ section:not(#main), footer {
 
 		article {
 			.entry-content a {
-				@include p1_button();
+				@include perlovs_button();
 			}
 		}
 	}
@@ -226,7 +226,7 @@ section:not(#main), footer {
 .search-submit {
 	.home & {
 		@include grid-column($columns:2);
-		@include p1_button();
+		@include perlovs_button();
 		font-size: 1em;
 		padding: .5em;
 	}

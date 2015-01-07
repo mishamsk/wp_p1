@@ -14,8 +14,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 /*
 	Generates meta for post
 */
-if(!function_exists('p1_meta')) :
-    function p1_meta() {
+if(!function_exists('perlovs_meta')) :
+    function perlovs_meta() {
     	global $post;
 
         $need_divider = false;

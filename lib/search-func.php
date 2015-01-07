@@ -15,8 +15,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Function to display search-form (with options)
 */
-if ( ! function_exists( 'p1_searchform') ) :
-	function p1_searchform($form_classes = '', $id = NULL, $post_filter = 'post', $search_label_text = NULL, $search_placeholder_text = NULL, $search_submit_text = NULL) {
+if ( ! function_exists( 'perlovs_searchform') ) :
+	function perlovs_searchform($form_classes = '', $id = NULL, $post_filter = 'post', $search_label_text = NULL, $search_placeholder_text = NULL, $search_submit_text = NULL) {
 
 		if (is_null($search_label_text)) $search_label_text = __( 'Search', 'perlovs' );
 		if (is_null($search_placeholder_text)) $search_placeholder_text = __( 'Type in and hit enter...', 'perlovs' );
@@ -29,6 +29,6 @@ if ( ! function_exists( 'p1_searchform') ) :
 		echo '	<input type="submit" class="search-submit" value="' . $search_submit_text . '" />';
 		echo '</form>';
 	}
-endif; // p1_searchform
+endif; // perlovs_searchform
 
 ?>

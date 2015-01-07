@@ -26,7 +26,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<div id="content-<?php the_ID(); ?>">
 				<header id="header-<?php the_ID(); ?>">
 					<h1><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
-					<h6><?php p1_meta(); ?></h6>
+					<h6><?php perlovs_meta(); ?></h6>
 				</header>
 				<div class="entry-content">
 					<?php

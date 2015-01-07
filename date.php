@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<div class="row">
 		<div class="small-12 columns">
 			<header id="archive-header">
-				<h5><?php p1_breadcrumbs(); ?></h5>
+				<h5><?php perlovs_breadcrumbs(); ?></h5>
 
 					<?php get_calendar(); wp_get_archives(); ?>
 

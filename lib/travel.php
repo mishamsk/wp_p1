@@ -79,11 +79,11 @@ function create_travel_taxonomies() {
 	register_taxonomy( 'countries', array( 'post' ), $args );
 }
 
-if ( ! function_exists( 'p1_taxonomy_body_class' ) ) :
+if ( ! function_exists( 'perlovs_taxonomy_body_class' ) ) :
 /**
  * add taxoonomy and terms to body_class
  */
-function p1_taxonomy_body_class( $classes )
+function perlovs_taxonomy_body_class( $classes )
 {
 	if( is_singular() )
 	{
@@ -96,16 +96,16 @@ function p1_taxonomy_body_class( $classes )
 	}
 	return $classes;
 }
-endif; // p1_taxonomy_body_class
+endif; // perlovs_taxonomy_body_class
 
 // add taxoonomy and terms to body_class
-add_filter( 'body_class', 'p1_taxonomy_body_class' );
+add_filter( 'body_class', 'perlovs_taxonomy_body_class' );
 
-if ( ! function_exists( 'p1_gmaps_load' ) ) :
+if ( ! function_exists( 'perlovs_gmaps_load' ) ) :
 /**
  * Append gmaps scripts to the bottom
  */
-function p1_gmaps_load(  )
+function perlovs_gmaps_load(  )
 {
     global $wp_query, $post;
     if (is_tax( 'countries' )) {
@@ -171,7 +171,7 @@ function p1_gmaps_load(  )
 		}
     }
 }
-endif; // p1_gmaps_load
-add_action( 'wp_footer', 'p1_gmaps_load', 100 );
+endif; // perlovs_gmaps_load
+add_action( 'wp_footer', 'perlovs_gmaps_load', 100 );
 
 ?>

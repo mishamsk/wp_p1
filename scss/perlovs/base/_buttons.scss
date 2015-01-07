@@ -1,5 +1,5 @@
 /*
-	WP P1 buttons classes and mixin
+	WP Perlovs buttons classes and mixin
 */
 
 //----------------------
@@ -25,7 +25,7 @@ $button-unavailable-border-style: solid;
 // Mixins
 //----------------------
 
-@mixin p1-button($font-size: $base-font-size, $round: false, $current: false, $unavailable: false, $transparent: false) {
+@mixin perlovs-button($font-size: $base-font-size, $round: false, $current: false, $unavailable: false, $transparent: false) {
 	$to-size: convert-length($font-size, 'px');
 
 	background-color: if($transparent == false, $button-bg-color, rgba($button-bg-color, $transparent));
@@ -102,5 +102,5 @@ $button-unavailable-border-style: solid;
 //----------------------
 
 .button {
-	@include p1-button($transparent: 0);
+	@include perlovs-button($transparent: 0);
 }

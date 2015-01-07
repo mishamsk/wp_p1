@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<div class="row">
 		<div class="small-12 columns">
 			<header id="archive-header">
-				<h5><?php p1_breadcrumbs(); ?></h5>
+				<h5><?php perlovs_breadcrumbs(); ?></h5>
 				<h1 class="page-title"><?php echo have_posts() ? __('Look what we\'ve found!', 'perlovs') : __('Good things come to those who wait!', 'perlovs') ?></h1>
 <?php
 				if (!have_posts()) echo '<h6 class="archive-description">' . __('Sorry, we have tried but could not find what you were looking for. Please try something different ;-)', 'perlovs') . '</h6>';
@@ -27,7 +27,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 ?>
 	<div class="row">
 		<div class="small-12 columns">
-			<?php p1_searchform($form_classes = 'card', $id = 'search-page-search'); ?>
+			<?php perlovs_searchform($form_classes = 'card', $id = 'search-page-search'); ?>
 		</div> <!-- .small-12 columns -->
 	</div> <!-- .row-->
 <?php

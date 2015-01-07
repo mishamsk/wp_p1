@@ -8,5 +8,5 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-p1_searchform();
+perlovs_searchform();
 ?>

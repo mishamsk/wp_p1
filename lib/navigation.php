@@ -45,8 +45,8 @@ endif; // menu_mobile_off_canvas
  * Display breadcrumbs
  * @visibility - wrapper class (defaults to all)
 */
-if ( ! function_exists( 'p1_breadcrumbs') ) :
-	function p1_breadcrumbs($visibility = '') {
+if ( ! function_exists( 'perlovs_breadcrumbs') ) :
+	function perlovs_breadcrumbs($visibility = '') {
 		global $post;
 
 		if (is_single()) {
@@ -134,13 +134,13 @@ if ( ! function_exists( 'p1_breadcrumbs') ) :
 		echo $links;
 		echo '</nav><!--// end .breadcrumbs -->';
 	}
-endif; // p1_breadcrumbs
+endif; // perlovs_breadcrumbs
 
 /**
  * Display pagination
 */
-if ( ! function_exists( 'p1_pagination') ) :
-	function p1_pagination() {
+if ( ! function_exists( 'perlovs_pagination') ) :
+	function perlovs_pagination() {
 		global $wp_query;
 
 		$big = 999999999; // This needs to be an unlikely integer
@@ -187,13 +187,13 @@ if ( ! function_exists( 'p1_pagination') ) :
 			echo '</div><!--// end .pagination -->';
 		}
 	}
-endif; // p1_pagination
+endif; // perlovs_pagination
 
 /**
  * Display single post pagination
 */
-if ( ! function_exists( 'p1_single_pagination') ) :
-	function p1_single_pagination($prev_next = TRUE) {
+if ( ! function_exists( 'perlovs_single_pagination') ) :
+	function perlovs_single_pagination($prev_next = TRUE) {
 		global $wp_query, $multipage, $page, $numpages, $post;
 
 		echo '<div id="single-nav" class="row footer-nav">';
@@ -261,6 +261,6 @@ if ( ! function_exists( 'p1_single_pagination') ) :
 
 		echo '</div><!--// end .row -->';
 	}
-endif; // p1_single_pagination
+endif; // perlovs_single_pagination
 
 ?>

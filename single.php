@@ -6,9 +6,9 @@
 ?>
 		<article id="post-<?php the_ID(); ?>" <?php post_class('card single-article'); ?>>
 			<header id="single-header">
-				<h5><?php p1_breadcrumbs(); ?></h5>
+				<h5><?php perlovs_breadcrumbs(); ?></h5>
 				<h1 class="entry-title"><?php the_title(); ?></h1>
-				<h6><?php p1_meta(); ?></h6>
+				<h6><?php perlovs_meta(); ?></h6>
 			</header>
 
 			<div class="entry-content">
@@ -18,7 +18,7 @@
 			</div>
 			<footer id="single-footer">
 
-				<?php p1_single_pagination(); ?>
+				<?php perlovs_single_pagination(); ?>
 				<div class="entry-comments">
 					<?php if (is_single() && ( have_comments() || 'open' == $post->comment_status )) { ?>
 						<div href="#" class="comment-toggle">

@@ -1,5 +1,5 @@
 /*
-	P1 Wordpress theme navigation elements styles (breadcrumbs, pagination, menus, etc...)
+	Perlovs Wordpress theme navigation elements styles (breadcrumbs, pagination, menus, etc...)
 */
 
 //----------------------
@@ -70,7 +70,7 @@ $off-canvas-width: em-calc(250);
 		}
 
 		@include container-shadow(2, 1000, false);
-		@include p1-button($font-size: $float-nav-button-font-size, $round: $float-nav-button-diameter, $transparent: 0.5);
+		@include perlovs-button($font-size: $float-nav-button-font-size, $round: $float-nav-button-diameter, $transparent: 0.5);
 	}
 
 	.off-canvas-toggle {
@@ -393,7 +393,7 @@ ul.pagination {
 		display: inline-block;
 		margin: 0 .15em;
 
-		@include p1-button($font-size: 1em, $round: 1.5em, $current: true, $unavailable: true, $transparent: 0);
+		@include perlovs-button($font-size: 1em, $round: 1.5em, $current: true, $unavailable: true, $transparent: 0);
 	}
 
 	a {

@@ -12,6 +12,6 @@
 
 <?php endif; // end have_posts() check ?>
 
-<?php p1_pagination(); ?>
+<?php perlovs_pagination(); ?>
 
 <?php get_footer(); ?>

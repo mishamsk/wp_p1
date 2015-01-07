@@ -11,11 +11,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 *
 */
 
-if ( ! function_exists( 'p1_social' ) ) :
+if ( ! function_exists( 'perlovs_social' ) ) :
 /**
  * Print out social buttons in horizontal icon bar
  */
-	function p1_social($id = NULL)
+	function perlovs_social($id = NULL)
 	{
 		$title = urlencode( get_the_title() );
 		$url = urlencode( get_permalink() );
@@ -41,6 +41,6 @@ if ( ! function_exists( 'p1_social' ) ) :
 
 	<?php
 	}
-endif; // p1_social
+endif; // perlovs_social
 
 ?>
