@@ -1,18 +1,22 @@
 {
   "checksum": {
-    "previous": "3d19e3ec09758b2a2e9711a2418d4730540de22508de72bcfec8ef4d309eb550",
-    "current": "3d19e3ec09758b2a2e9711a2418d4730540de22508de72bcfec8ef4d309eb550"
+    "previous": "3111f582004223efc30fb18d716ae903c484a6e486eddcb75d99032bc0636e80",
+    "current": "3111f582004223efc30fb18d716ae903c484a6e486eddcb75d99032bc0636e80"
   },
   "fonts": [
-    "../fonts/icons_3d19e3ec09758b2a2e9711a2418d4730.ttf",
-    "../fonts/icons_3d19e3ec09758b2a2e9711a2418d4730.svg",
-    "../fonts/icons_3d19e3ec09758b2a2e9711a2418d4730.woff",
-    "../fonts/icons_3d19e3ec09758b2a2e9711a2418d4730.eot"
+    "../fonts/icons_3111f582004223efc30fb18d716ae903.ttf",
+    "../fonts/icons_3111f582004223efc30fb18d716ae903.svg",
+    "../fonts/icons_3111f582004223efc30fb18d716ae903.woff",
+    "../fonts/icons_3111f582004223efc30fb18d716ae903.eot"
   ],
   "glyphs": {
     "at-sign": {
       "codepoint": 61761,
       "source": "vectors/at-sign.svg"
+    },
+    "family": {
+      "codepoint": 61794,
+      "source": "vectors/family.svg"
     },
     "g-author": {
       "codepoint": 61782,
@@ -89,6 +93,10 @@
     "social-vk": {
       "codepoint": 61760,
       "source": "vectors/social-vk.svg"
+    },
+    "traveler": {
+      "codepoint": 61793,
+      "source": "vectors/traveler.svg"
     }
   },
   "options": {
