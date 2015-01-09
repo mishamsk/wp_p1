@@ -34,8 +34,6 @@
 			$floatNav = $(settings.floatNavContainer),
 			$offCanvas = $(settings.offCanvasContainer);
 
-		var Modernizr = window.Modernizr || {};
-
 		$.fn.openOffCanvas = function(e) {
 			e.preventDefault();
 			$('body').addClass(settings.offCanvasMoveClass);
