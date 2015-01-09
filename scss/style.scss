@@ -3,9 +3,9 @@ Theme Name: Perlovs
 Theme URI: http://perlovs.com/
 Author: Mikhail Perlov
 Author URI: http://perlovs.com/
-Description:
-Version: 0.0.2
-Tags: clean, colors, corporate, creative, flexible, ipad, iphone, isotope, light, modern, page builder, responsive, retina ready, shortcodes, slider, localization
+Description: Theme developed specificaly for http://perlovs.com/
+Version: 1.0.0
+Tags: clean, creative, ipad, iphone, light, modern, responsive, retina ready, localization
 
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -14,7 +14,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 @import "compass/css3";
 @import "perlovs/essentials/*";
-@import "perlovs/settings/*";
+@import "perlovs/settings/perlovs";
 @import "perlovs/base/*";
 @import "perlovs/layout/nav";
 @import "perlovs/layout/single";
@@ -22,46 +22,3 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 @import "perlovs/layout/header";
 @import "perlovs/layout/search";
 @import "perlovs/layout/archive";
-
-// -----------------------
-// General wrappers
-// -----------------------
-html, body {
-	height: 100%;
-	overflow: hidden;
-	width: 100%;
-
-	@media print {
-		height: auto;
-	}
-}
-
-#page-wrapper {
-	height: 100%;
-	margin: 0;
-	padding: 0;
-	overflow-x: hidden;
-	overflow-y: scroll;
-	width: 100%;
-
-	-webkit-overflow-scrolling: touch;
-	-ms-overflow-style: -ms-autohiding-scrollbar;
-
-	@media print {
-		height: auto;
-	}
-
-	// Admin bar
-	.admin-bar & {
-		top: em-calc(46);
-		@media #{$medium-up} {
-			top: em-calc(32);
-		}
-	}
-}
-
-#main {
-	min-height: calc(100% - 6em);
-	overflow-x: hidden;
-	width: 100%;
-}
