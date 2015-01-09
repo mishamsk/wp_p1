@@ -31,7 +31,7 @@
 		},
 	"\/bower_components\/fastclick\/lib\/fastclick.js": {
 		"fileType": 64,
-		"ignore": 0,
+		"ignore": 1,
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/bower_components\/fastclick\/lib\/fastclick.js",
 		"outputAbbreviatedPath": "\/bower_components\/fastclick\/lib\/min\/fastclick-min.js",
@@ -846,35 +846,35 @@
 "manualImportLinks": {
 	"\/js\/app-front.js": [
 		{
-			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/js\/perlovs\/perlovs-general.js",
+			"followForSyntaxChecking": 0,
+			"linkedFileAbbreviatedPath": "\/bower_components\/fastclick\/lib\/fastclick.js",
 			"position": 0,
-			"type": 0
-			},
-		{
-			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/js\/perlovs\/perlovs-onepage.js",
-			"position": 1,
 			"type": 0
 			}
 		],
 	"\/js\/app.js": [
 		{
-			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/js\/perlovs\/perlovs-general.js",
+			"followForSyntaxChecking": 0,
+			"linkedFileAbbreviatedPath": "\/bower_components\/fastclick\/lib\/fastclick.js",
 			"position": 0,
 			"type": 0
 			},
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/js\/perlovs\/perlovs-nav.js",
+			"linkedFileAbbreviatedPath": "\/js\/perlovs\/perlovs-general.js",
 			"position": 1,
 			"type": 0
 			},
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/js\/perlovs\/perlovs-disqus.js",
+			"linkedFileAbbreviatedPath": "\/js\/perlovs\/perlovs-nav.js",
 			"position": 2,
+			"type": 0
+			},
+		{
+			"followForSyntaxChecking": 1,
+			"linkedFileAbbreviatedPath": "\/js\/perlovs\/perlovs-disqus.js",
+			"position": 3,
 			"type": 0
 			}
 		]
