@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: P1 v0.0.2\n"
+"Project-Id-Version: Perlovs v1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2014-11-15 12:45:13+0000\n"
+"PO-Revision-Date: 2015-01-08 20:14:48+0000\n"
 "Last-Translator: misha <mishamsk@gmail.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -20,183 +20,84 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Textdomain-Support: yes"
 
-#: footer.php:25
+#: footer.php:10
 #, php-format
 #@ perlovs
 msgid "Copyright &copy; %s %s. All Rights Reserved."
 msgstr "Copyright &copy; %s %s. Все права защищены."
 
-#: lib/navigation.php:60
-#@ perlovs
-msgid "Right top bar menu"
-msgstr "Меню в заголовке справа"
-
-#: lib/navigation.php:61
+#: lib/navigation.php:19
 #@ perlovs
 msgid "Mobile Menu"
 msgstr "Мобильное меню"
 
-#: 404.php:8
-#@ FoundationPress
+#: 404.php:5
+#@ perlovs
 msgid "File Not Found"
 msgstr ""
 
-#: 404.php:12
-#@ FoundationPress
+#: 404.php:9
+#@ perlovs
 msgid "The page you are looking for might have been removed, had its name changed, or is temporarily unavailable."
 msgstr ""
 
-#: 404.php:14
-#@ FoundationPress
+#: 404.php:11
+#@ perlovs
 msgid "Please try the following:"
 msgstr ""
 
-#: 404.php:16
-#@ FoundationPress
+#: 404.php:13
+#@ perlovs
 msgid "Check your spelling"
 msgstr ""
 
-#: 404.php:17
+#: 404.php:14
 #, php-format
-#@ FoundationPress
+#@ perlovs
 msgid "Return to the <a href=\"%s\">home page</a>"
 msgstr ""
 
-#: 404.php:18
-#@ FoundationPress
+#: 404.php:15
+#@ perlovs
 msgid "Click the <a href=\"javascript:history.back()\">Back</a> button"
 msgstr ""
 
 #: comments.php:4
 #@ perlovs
 msgid "Cheating is bad!"
-msgstr ""
+msgstr "Хакерам здесь не место!"
 
 #: comments.php:9
 #@ perlovs
 msgid "This post is password protected. Enter the password to view comments."
 msgstr ""
 
-#: content-none.php:11
-#@ FoundationPress
-msgid "Nothing Found"
-msgstr ""
-
-#: content-none.php:17
-#, php-format
-#@ FoundationPress
-msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
-msgstr ""
-
-#: content-none.php:21
-#@ FoundationPress
-msgid "Sorry, but nothing matched your search terms. Please try again with some different keywords."
-msgstr ""
-
-#: content-none.php:26
-#@ FoundationPress
-msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
-msgstr ""
-
-#: content.php:18
-#: front-page.php:33
-#: front-page.php:54
-#: front-page.php:78
+#: content.php:42
 #@ perlovs
 msgid "Continue reading..."
-msgstr ""
+msgstr "Читать дальше..."
 
-#: footer.php:16
+#: footer.php:13
 #@ perlovs
-msgid "Share:"
-msgstr ""
-
-#: footer.php:19
-#@ perlovs
-msgid "Search:"
-msgstr ""
-
-#: footer.php:28
-#, php-format
-#@ perlovs
-msgid "Credits and honors: %s."
-msgstr ""
-
-#: footer.php:28
-#@ default
 msgid "here"
-msgstr ""
+msgstr "здесь"
 
 #: front-page.php:6
 #@ perlovs
 msgid "We blog about Life, the Universe, and Everything"
 msgstr ""
 
-#: front-page.php:60
-#: front-page.php:84
-#@ perlovs
-msgid "That is all for now. We have to write more..."
-msgstr ""
-
-#: front-page.php:94
-#@ perlovs
-msgid "Oops, nothing have been posted in here yet..."
-msgstr ""
-
-#: header.php:54
-#@ perlovs
-msgid "Share if you care,"
-msgstr ""
-
-#: header.php:56
-#@ perlovs
-msgid "or search for more..."
-msgstr ""
-
-#: header.php:111
-#@ perlovs
-msgid "Blog"
-msgstr ""
-
-#: header.php:112
+#: lib/navigation.php:56
+#: lib/navigation.php:105
 #: lib/travel.php:36
 #@ perlovs
 msgid "Travel"
-msgstr ""
+msgstr "Путешествия"
 
-#: header.php:113
-#@ perlovs
-msgid "Authors"
-msgstr ""
-
-#: lib/entry-helpers.php:15
-#, php-format
-#@ FoundationPress
-msgid "Posted on %s at %s."
-msgstr ""
-
-#: lib/entry-helpers.php:16
-#@ FoundationPress
-msgid "Written by"
-msgstr ""
-
-#: lib/navigation.php:156
-#: lib/navigation.php:168
-#@ perlovs
-msgid "&laquo;"
-msgstr ""
-
-#: lib/navigation.php:157
-#: lib/navigation.php:187
-#@ perlovs
-msgid "&raquo;"
-msgstr ""
-
-#: lib/navigation.php:174
-#@ default
+#: lib/navigation.php:172
 #@ perlovs
 msgid "&hellip;"
-msgstr ""
+msgstr "&hellip;"
 
 #: lib/travel.php:21
 #@ perlovs
@@ -337,24 +238,133 @@ msgstr "Страны не найдены"
 msgid "Countries"
 msgstr "Страны"
 
-#: searchform.php:14
-#@ perlovs
-msgid "Looking for something? Just search..."
-msgstr ""
-
-#: searchform.php:17
+#: lib/search-func.php:22
 #@ perlovs
 msgid "Type in and hit enter..."
-msgstr ""
+msgstr "Что ищем?"
 
-#: searchform.php:20
+#: lib/search-func.php:23
 #@ perlovs
 msgid "Go!"
-msgstr ""
+msgstr "Искать!"
 
-#: single.php:18
-#: travel.php:22
+#: travel.php:19
 #@ perlovs
 msgid "Pages:"
-msgstr ""
+msgstr "Страницы: "
+
+#: archive.php:18
+#: date.php:21
+#@ perlovs
+msgid "All posts tagged: "
+msgstr "Все посты с тэгом: "
+
+#: archive.php:18
+#: date.php:21
+#@ perlovs
+msgid "All posts in category: "
+msgstr "Все записи в категории: "
+
+#: archive.php:21
+#: date.php:23
+#@ perlovs
+msgid "Nothing in here ;-("
+msgstr "Здесь ничего нет ;-("
+
+#: content-none.php:21
+#@ perlovs
+msgid "Recent posts"
+msgstr "Последние записи"
+
+#: footer.php:13
+#, php-format
+#@ perlovs
+msgid "Credits and honors: %s"
+msgstr "Благодарности: %s"
+
+#: home.php:18
+#@ perlovs
+msgid "Everything we've written"
+msgstr "Все, что мы написали"
+
+#: lib/entry-helpers.php:75
+#@ perlovs
+msgid "No title"
+msgstr "Без названия"
+
+#: lib/navigation.php:69
+#@ perlovs
+msgid "tag archives"
+msgstr "архивы тэгов"
+
+#: lib/navigation.php:76
+#@ perlovs
+msgid "category archives"
+msgstr "архивы категорий"
+
+#: lib/navigation.php:83
+#@ perlovs
+msgid "date archives"
+msgstr "архивы по датам"
+
+#: lib/navigation.php:106
+#@ perlovs
+msgid "archives"
+msgstr "архивы"
+
+#: lib/navigation.php:110
+#@ perlovs
+msgid "search results"
+msgstr "поиск"
+
+#: lib/navigation.php:116
+#@ perlovs
+msgid "blog"
+msgstr "блог"
+
+#: lib/navigation.php:131
+#@ perlovs
+msgid "Home"
+msgstr "Главная"
+
+#: lib/navigation.php:154
+#: lib/navigation.php:166
+#: lib/navigation.php:231
+#: lib/navigation.php:233
+#@ perlovs
+msgid "&lt;"
+msgstr "&lt;"
+
+#: lib/navigation.php:155
+#: lib/navigation.php:185
+#: lib/navigation.php:243
+#: lib/navigation.php:245
+#@ perlovs
+msgid "&gt;"
+msgstr "&gt;"
+
+#: lib/search-func.php:21
+#@ perlovs
+msgid "Search"
+msgstr "Поиск"
+
+#: search.php:18
+#@ perlovs
+msgid "Look what we've found!"
+msgstr "Смотри, что удалось найти!"
+
+#: search.php:18
+#@ perlovs
+msgid "Good things come to those who wait!"
+msgstr "Кто ищет, тот всегда найдет!"
+
+#: search.php:20
+#@ perlovs
+msgid "Sorry, we have tried but could not find what you were looking for. Please try something different ;-)"
+msgstr "Прости, мы искали искали, но не смогли найти то, что ты просил. Попробуй что-нибудь другое;-)"
+
+#: single.php:25
+#@ perlovs
+msgid "Leave a thought!"
+msgstr "Что скажешь?"
 
