@@ -126,6 +126,11 @@ if ( ! function_exists( 'perlovs_breadcrumbs') ) :
                 }
             }
 		}
+		// Author archives
+		elseif (is_author()) {
+			$links = '<a href="' . esc_url( home_url( '/#author' ) ) . '">' . __('authors', 'perlovs') . '</a>';
+			$links .= '<span class="divider"></span>' . get_the_author();
+		}
 
 		// Append home link
 		$links = '<a href="' . esc_url( home_url( '/' ) ) . '" rel="home">' . __('Home', 'perlovs') . '</a><span class="divider"></span>' . $links;
