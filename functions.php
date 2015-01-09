@@ -4,6 +4,8 @@
  */
 define( 'PERLOVS_THEME_URL', get_template_directory_uri() );
 define( 'PERLOVS_THEME_TEMPLATE', get_stylesheet_directory() );
+define( 'PERLOVS_FF_CATEGORY_SLUG', 'friends-family');
+define( 'PERLOVS_TRAVEL_CATEGORY_SLUG', 'travel');
 
 /**
  * Includes
@@ -88,6 +90,11 @@ function perlovs_setup() {
 
     // Disqus lazy load
     remove_action('wp_footer', 'dsq_output_footer_comment_js');
+
+    // Global vars for blog separation and such
+    global $perlovs_ff_category_id, $perlovs_travel_category_id;
+    $perlovs_ff_category_id = get_category_by_slug(PERLOVS_FF_CATEGORY_SLUG)->term_id;
+    $perlovs_travel_category_id = get_category_by_slug(PERLOVS_TRAVEL_CATEGORY_SLUG)->term_id;
 }
 endif; // perlovs_setup
 

@@ -98,7 +98,7 @@ body {
 // 	background-position: left .5em !important;
 // }
 
-// Foundation align classes
+// Text align classes
 @include align-classes;
 
 /* Default Link Styles */
@@ -107,15 +107,22 @@ a {
 	line-height: inherit;
 	text-decoration: none;
 
-	article &, footer & {
+
+	&:hover,
+	&:focus,
+	&:active {
+		text-decoration: underline;
+	}
+
+	&:visited {
+		color: $anchor-visited-color;
+	}
+
+	#off-canvas-menu &, #page-header &, .social-sharing-bar &, &[class*="icon"] {
 		&:hover,
 		&:focus,
 		&:active {
-			text-decoration: underline;
-		}
-
-		&:visited {
-			color: $anchor-visited-color;
+			text-decoration: none;
 		}
 	}
 }
@@ -169,7 +176,11 @@ h1 {
 	@include rhythm-margins(2, 0, 40px);
 
 	header & {
-		@include adjust-font-size-to(40px);
+		@include rhythm-margins(0, 0, 40px);
+	}
+
+	.home & {
+		@include adjust-font-size-to(30px, 1.5);
 		@include rhythm-margins(0, 0, 40px);
 	}
 
@@ -178,8 +189,12 @@ h1 {
 		@include rhythm-margins(2, 0, 50px);
 
 		header & {
-			@include adjust-font-size-to(50px);
 			@include rhythm-margins(0, 0, 50px);
+		}
+
+		.home & {
+			@include adjust-font-size-to(40px, 2);
+			@include rhythm-margins(0, 0, 40px);
 		}
 	}
 }

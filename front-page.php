@@ -1,122 +1,105 @@
-<?php get_header(); ?>
-<div class="home-wrapper">
-	<section id="home-greeting" data-page-name="home">
-		<div class="row">
-			<div class="small-12 columns">
-				<div class="logo"><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
-				<p class="text-center"><?php _e( 'We blog about Life, the Universe, and Everything', 'perlovs' ); ?></p>
-			</div> <!-- columns -->
-		</div> <!-- row -->
-	</section> <!-- #home-greeting -->
-	<section id="home-blog" data-page-name="blog">
-		<?php
-		$qblog = new WP_Query(array(
-			    'posts_per_page'   => 3,
-			    'post_type' => 'post',
-			    'meta_key' => '_thumbnail_id'
-			));
+<?php get_header();
 
-		if ( $qblog->have_posts() ) : ?>
-			<div class="row">
-				<div class="small-12 medium-6 columns">
-					<?php $qblog->the_post(); ?>
-					<div class="article-wrapper">
-						<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-							<header>
-								<?php if ( has_post_thumbnail() ) the_post_thumbnail(); ?>
-								<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-								<?php // FoundationPress_entry_meta(); ?>
-							</header>
-							<div class="entry-content">
-								<?php
-									global $more;    // Declare global $more (before the loop).
-									$more = 0;
-									the_content(__('Continue reading...', 'perlovs')); ?>
-							</div>
-						</article>
-					</div> <!-- .article-wrapper -->
-				</div> <!-- columns -->
-				<div class="small-12 medium-6 columns">
-					<div class="row">
-						<div class="small-12 columns">
-							<?php if ( $qblog->have_posts() ) :
-									$qblog->the_post(); ?>
-								<div class="article-wrapper">
-									<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-										<header>
-											<?php if ( has_post_thumbnail() ) the_post_thumbnail(); ?>
-											<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-											<?php // prelovs_entry_meta(); ?>
-										</header>
-										<div class="entry-content">
-											<?php
-												global $more;    // Declare global $more (before the loop).
-												$more = 0;
-												the_content(__('Continue reading...', 'perlovs')); ?>
-										</div>
-									</article>
-								</div>
-							<?php else : ?>
-								<article class="empty">
-									<?php _e( 'That is all for now. We have to write more...', 'perlovs' ); ?>
-								</article>
-							<?php endif; ?>
-						</div> <!-- columns -->
-						<div class="small-12 columns">
-							<?php if ( $qblog->have_posts() ) :
-									$qblog->the_post(); ?>
-								<div class="article-wrapper">
-									<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-										<header>
-											<?php if ( has_post_thumbnail() ) the_post_thumbnail(); ?>
-											<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-											<?php // prelovs_entry_meta(); ?>
-										</header>
-										<div class="entry-content">
-											<?php
-												global $more;    // Declare global $more (before the loop).
-												$more = 0;
-												the_content(__('Continue reading...', 'perlovs')); ?>
-										</div>
-									</article>
-								</div>
-							<?php else : ?>
-								<article class="empty">
-									<?php _e( 'That is all for now. We have to write more...', 'perlovs' ); ?>
-								</article>
-							<?php endif; ?>
-						</div> <!-- columns -->
-					</div> <!-- row -->
-				</div> <!-- columns -->
-			</div> <!-- row -->
-		<?php else : ?>
-			<div class="row">
-				<div class="small-8 small-centered columns">
-					<h1 class="text-center"><?php _e( 'Oops, nothing have been posted in here yet...', 'perlovs' ); ?></h1>
-				</div> <!-- columns -->
-			</div> <!-- row -->
-		<?php
-		endif; // if ( $qblog->have_posts() ) :
+// Get latest travel and friends & family post thumbnails
+$args = array( 'numberposts' => 1, 'post_status' => 'publish', 'category_name' => PERLOVS_TRAVEL_CATEGORY_SLUG);
+$recent_posts = wp_get_recent_posts( $args, OBJECT );
+$travel_post_id = $recent_posts[0]->ID;
+$travel_bg_image = '';
 
-		wp_reset_postdata();  ?>
-	</section> <!-- #home-blog -->
-	<section id="home-travel" data-page-name="travel">
-		<div class="row">
-			<div class="small-12 small-centered columns">
+if ( get_the_post_thumbnail( $travel_post_id, 'full' )) {
+	$travel_bg_image = get_the_post_thumbnail( $travel_post_id, 'full' );
+	$preg_ar = array();
+	preg_match('/src="([^"]*)"/i', $travel_bg_image, $preg_ar);
+	$travel_bg_image = 'background-image: url(' . $preg_ar[1] . ');';
+}
 
-			</div> <!-- columns -->
-		</div> <!-- row -->
-	</section> <!-- #home-travel -->
-	<section id="home-authors" data-page-name="authors">
-		<div class="row">
-			<div class="small-12 medium-6 columns">
-				<img src="<?php echo get_stylesheet_directory_uri() ?>/img/masha-avatar.jpg">
-			</div> <!-- columns -->
-			<div class="small-12 medium-6 columns">
-				<p>
-					Меня зовут Маша!
-				</p>
-			</div> <!-- columns -->
-		</div> <!-- row -->
-	</section> <!-- #home-authors -->
+$args = array( 'numberposts' => 1, 'post_status' => 'publish', 'category_name' => PERLOVS_FF_CATEGORY_SLUG);
+$recent_posts = wp_get_recent_posts( $args, OBJECT );
+$ff_post_id = $recent_posts[0]->ID;
+$ff_bg_image = '';
+
+if ( get_the_post_thumbnail( $ff_post_id, 'full' )) {
+	$ff_bg_image = get_the_post_thumbnail( $ff_post_id, 'full' );
+	$preg_ar = array();
+	preg_match('/src="([^"]*)"/i', $ff_bg_image, $preg_ar);
+	$ff_bg_image = 'background-image: url(' . $preg_ar[1] . ');';
+}
+
+?>
+	<div class="row">
+		<div class="small-12 columns">
+			<div class="first-section-header">
+				<h1>Здесь можно почитать</h1>
+			</div>
+		</div> <!-- columns -->
+	</div> <!-- row -->
+	<div class="row">
+		<div class="small-12 medium-6 columns">
+			<section id="travel" data-page-name="travel" class="card section-bg-image" <?php if ($travel_bg_image != '') echo 'style="' . $travel_bg_image . '"'?>>
+				<div class="home-section-title card"><h1><a href="<?php echo esc_url( home_url( '/' ) ) . 'travel'; ?>">О наших путешествиях</a></h1></div>
+			</section> <!-- #travel -->
+		</div> <!-- columns -->
+		<div class="small-12 medium-6 columns">
+			<section id="friends-family" data-page-name="friends-family" class="card section-bg-image" <?php if ($ff_bg_image != '') echo 'style="' . $ff_bg_image . '"'?>>
+				<div class="home-section-title card"><h1><a href="<?php echo get_term_link( PERLOVS_FF_CATEGORY_SLUG, 'category' ); ?>">О нашей семье и друзьях</a></h1></div>
+			</section> <!-- #friends-family -->
+		</div> <!-- columns -->
+	</div> <!-- row -->
+	<div class="row">
+		<div class="small-12 columns">
+			<div class="home-section-header">
+				<h1>Можно поискать что-нибудь</h1>
+			</div>
+		</div> <!-- columns -->
+	</div> <!-- row -->
+	<div class="row">
+		<div class="small-12 columns">
+			<section id="search" data-page-name="search" class="card">
+				<?php perlovs_searchform($form_classes = '', $id = 'home-search-form'); ?>
+			</section> <!-- #search-share -->
+		</div> <!-- columns -->
+	</div> <!-- row -->
+	<div class="row">
+		<div class="small-12 columns">
+			<div class="home-section-header">
+				<h1>О нас</h1>
+			</div>
+		</div> <!-- columns -->
+	</div> <!-- row -->
+	<div class="row">
+		<div class="small-12 columns">
+			<section id="authors" data-page-name="authors">
+				<div class="row">
+					<div class="small-12 medium-6 columns">
+						<div id="author-masha" class="card author-card">
+							<a href="<?php echo get_author_posts_url(get_user_by( 'login', 'masha' )->ID); ?>"><img class="author-avatar" src="<?php echo get_stylesheet_directory_uri() ?>/img/masha-avatar.jpg"></a>
+							<h1 class="author-name"><a href="<?php echo get_author_posts_url(get_user_by( 'login', 'masha' )->ID); ?>">Маша</a></h1>
+							<p class="author-answer" data-question="Снимаю на">Зенит</p>
+						</div>
+					</div> <!-- columns -->
+					<div class="small-12 medium-6 columns">
+						<div id="author-misha" class="card author-card">
+							<a href="<?php echo get_author_posts_url(get_user_by( 'login', 'misha' )->ID); ?>"><img class="author-avatar" src="<?php echo get_stylesheet_directory_uri() ?>/img/misha-avatar.jpg"></a>
+							<h1 class="author-name"><a href="<?php echo get_author_posts_url(get_user_by( 'login', 'misha' )->ID); ?>">Миша</a></h1>
+							<p class="author-answer" data-question="Снимаю на">Nikon D700</p>
+						</div>
+					</div> <!-- columns -->
+				</div> <!-- row -->
+			</section> <!-- #authors -->
+		</div> <!-- columns -->
+	</div> <!-- row -->
+	<div class="row">
+		<div class="small-12 columns">
+			<div class="home-section-header">
+				<h1>Понравилось? Расскажи друзьям</h1>
+			</div>
+		</div> <!-- columns -->
+	</div> <!-- row -->
+	<div class="row">
+		<div class="small-12 columns">
+			<section id="share" data-page-name="share" class="card">
+				<?php perlovs_social($id = 'home-social-share-bar'); ?>
+			</section> <!-- #search-share -->
+		</div> <!-- columns -->
+	</div> <!-- row -->
 <?php get_footer(); ?>

@@ -2,255 +2,84 @@
 
 @import "compass/css3";
 @import "perlovs/essentials/*";
-@import "perlovs/settings/*";
+@import "perlovs/settings/perlovs";
 @import "perlovs/base/*";
+@import "perlovs/layout/footer";
+@import "perlovs/layout/header";
+@import "perlovs/layout/search";
 
-// Home.nav
-$home-nav-font-size: em-calc(22);
-$home-nav-margin: $home-nav-font-size / 2;
-$home-nav-li-margin: em-calc(11);
-$home-nav-a-color: #FFF;
-$home-nav-a-initial-opacity: 0.6;
-$home-nav-a-transition: opacity 1000ms;
-
-// Home.Article
-$home-article-bg-color: #FFF;
-$home-article-padding: em-calc(16);
-
-// -----------------------
-// Home
-// -----------------------
-body.home {
-
-	height: 100%;
-	margin: 0;
-	overflow: auto;
-	// @media #{$medium-up} {
-	// 	overflow: hidden;
-	// }
-	padding: 0;
-	width: 100%;
+// Hide site navigation
+.tab-bar .off-canvas-toggle, #float-nav, #off-canvas-menu {
+	display: none;
 }
 
-nav {
-	position: fixed;
-	right: $column-gutter;
-	top: $home-nav-margin;
-	z-index: 999;
+.home p, .home h1 {
+	text-align: center;
+}
 
-	ul {
+.first-section-header {
+	@include content-padding($padding-top: 0);
+
+	h1 {
 		margin: 0;
 	}
-
-	li {
-		display: inline-block;
-		margin: 0 $home-nav-li-margin / 2;
-
-		a {
-			color: $home-nav-a-color;
-			font-size: $home-nav-font-size;
-			font-style: normal;
-			font-weight: lighter;
-			opacity: $home-nav-a-initial-opacity;
-			text-decoration: none;
-			@include transition($home-nav-a-transition);
-
-			&.current {
-				opacity: 1;
-			}
-
-			@media #{$medium-up} {
-				&:hover {
-					opacity: 1;
-				}
-			}
-
-			&:visited {
-				color: $home-nav-a-color;
-				opacity: $home-nav-a-initial-opacity;
-			}
-		}
-	}
 }
 
-#main {
-	height: 100%;
-	margin: 0;
-	overflow: scroll;
-	-webkit-overflow-scrolling: touch;
-	-ms-overflow-style: -ms-autohiding-scrollbar;
+.home-section-header {
+	margin-top: 2em;
 
-	// @media #{$medium-up} {
-	// 	overflow: hidden;
-	// }
-	padding: 0;
-	width: 100%;
-
-	@include translate3d(0, 0, 0);
+	@include content-padding($padding-top: 0);
 }
 
-.home-wrapper {
-	float: left;
-	height: 100%;
-	margin: 0 auto;
-	position: relative;
-	width: 100%;
-}
-
-section:not(#main), footer {
-	background-attachment: scroll;
-	background-position: center center;
+.section-bg-image {
+	background-position: 50% 50%;
 	background-repeat: no-repeat;
 	background-size: cover;
-	min-height: 100%;
-	left: auto;
-	padding: $home-nav-margin * 2 + $home-nav-font-size 0 0 0;
-	position: relative;
-	top: auto;
-	width: 100%;
-
-	@media #{$medium-up} {
-		height: 100%;
-		overflow: hidden;
-		padding: $home-nav-margin * 2 + $home-nav-font-size 0;
-		position: absolute;
-	}
+	height: 15em;
 }
 
-@each $section, $pos, $bg-color, $bg-image in
-		(home-greeting, 1, $primary-blue, fback-greeting),
-		(home-blog, 2, $darker-cyan),
-		(home-travel, 3, $lighter-green),
-		(home-authors, 4, $primary-yellow),
-		(page-footer, 5, #444) {
-	##{$section} {
-		@if $bg-image != null {
-			background-image: image-url("#{$bg-image}.jpg");
-		}
-		@else {
-			background-color: $bg-color;
-		}
+.home-section-title {
+	bottom: .5em;
+	left: 1em;
+	position: absolute;
+	right: 1em;
+}
+
+.search-label {
+	display: none;
+}
+
+.author-avatar {
+	height: 10em;
+
+	@include border-radius(50%);
+}
+
+.author-answer {
+	&:before {
+		content: attr(data-question);
+		display: block;
+		margin: 0;
+
 		@media #{$medium-up} {
-			top: ($pos - 1) * 100% !important;
+			display: none;
 		}
 	}
 }
 
-#home-greeting {
-	height: 100% !important;
-	padding-top: 0 !important;
-	top: 0 !important;
+.author-card {
+	text-align: center;
+}
 
-	.row {
-		left: 50%;
-		position: absolute;
-		top: 50%;
-		@include translate($translate-x: -50%, $translate-y: -50%);
+#share {
+	padding: .5em .25em;
+}
 
-		p {
-			color: #FFF;
-			margin-top: -1em;
-		}
+#home-social-share-bar {
+	text-align: center;
 
-	}
-
-	// Logo
-	@include perlovs-logo($base-size: 1.5rem);
-
-	@media #{$medium-up} {
-		@include perlovs-logo($base-size: 2rem);
+	a {
+		display: inline-block;
+		@include perlovs-button($font-size: em-calc(40), $round: em-calc(54), $transparent: 0);
 	}
 }
-
-#home-blog, #home-travel {
-	.row {
-		height: 100%;
-
-		> .column, > .columns {
-			height: 100%;
-		}
-
-		.article-wrapper {
-			background-color: $home-article-bg-color;
-			margin-bottom: $home-article-padding;
-			max-height: 100%;
-			overflow: hidden;
-			padding: $home-article-padding $home-article-padding 0;
-			position: relative;
-
-			&:after{
-				content: ' ';
-				display: block;
-				background-color: $home-article-bg-color;
-				height: $home-article-padding;
-				width: 100%;
-				position: absolute;
-				bottom: 0;
-			}
-		}
-
-		article {
-			.entry-content a {
-				@include perlovs_button();
-			}
-		}
-	}
-}
-
-#home-authors {
-
-}
-
-// -----------------------
-// Search form
-// -----------------------
-
-.search-container {
-	.home & {
-		@include grid-row(collapse);
-	}
-}
-
-.search-form {
-
-}
-
-.search-field {
-	.home & {
-		@include grid-column($columns:10);
-		font-size: 1em;
-		padding: .5em;
-	}
-}
-
-.search-submit {
-	.home & {
-		@include grid-column($columns:2);
-		@include perlovs_button();
-		font-size: 1em;
-		padding: .5em;
-	}
-}
-
-// -----------------------
-// Social sharing
-// -----------------------
-
-.social-bar {
-
-	#social-facebook { background: $primary-blue; }
-	#social-twitter { background: $primary-cyan; }
-	#social-vk { background: $primary-green; }
-	#social-google-plus { background: $primary-red; }
-	#social-email { background: $primary-yellow; }
-
-	vertical-align: middle;
-
-	.has-tip {
-		border-bottom: none;
-	}
-}
-
-// -----------------------
-// Footer
-// -----------------------

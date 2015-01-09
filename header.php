@@ -32,23 +32,19 @@
 		Гораздо лучше и приятнее смотреть его в чем-то более современном!;)
 	</div>
 	<![endif]-->
-	<?php
-	/*
-	*
-	*	Header for all pages except front page
-	*
-	*/
-	if (!is_front_page()) :
-	?>
 	<div id="page-wrapper">
 		<aside id="off-canvas-menu" aria-hidden="true">
 			<?php menu_mobile_off_canvas(); ?>
 			<a class="exit-off-canvas"></a>
 		</aside>
-		<header id="page-header" role="banner">
+		<header id="page-header" role="banner" data-page-name="home">
 			<div class="tab-bar row">
 				<a href="#" class="off-canvas-toggle icon-g-menu"></a>
-				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="tab-bar-title" rel="home">Perlov's</a>
+				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="site-title" rel="home"><?php bloginfo( 'name' ); ?></a>
+				<?php $description = get_bloginfo( 'description', 'display' );
+					if ( $description || is_customize_preview() ) : ?>
+						<p class="site-description"><?php echo $description; ?></p>
+				<?php endif; ?>
 			</div>
 			<nav id="float-nav" role="navigation">
 				<a href="#" class="off-canvas-toggle icon-g-menu"></a>
@@ -64,26 +60,3 @@
 			</nav>
 		</header><!-- #page-header -->
 		<section id="main" role="main">
-	<?php
-	/*
-	*
-	*	Header for the front page
-	*
-	*/
-		else :
-	?>
-	<header id="page-header" role="banner">
-		<nav role="navigation">
-			<ul>
-				<li><a href="#blog" data-page-name="blog"><?php _e( 'Blog', 'perlovs' ); ?></a></li>
-				<li><a href="#travel" data-page-name="travel"><?php _e( 'Travel', 'perlovs' ); ?></a></li>
-				<li><a href="#authors" data-page-name="authors"><?php _e( 'Authors', 'perlovs' ); ?></a></li>
-				<li><a href="#credits" data-page-name="credits"><i class="icon-magnifying-glass"></i></a></li>
-			</ul>
-		</nav>
-	</header><!-- #page-header -->
-	<section id="main" role="main">
-	<?php endif; // end !is_front_page() check ?>
-
-
-
