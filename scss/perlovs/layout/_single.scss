@@ -6,37 +6,50 @@
 // Post content area
 // -------------------
 
-.entry-content {
+.single-article {
 	overflow: hidden;
 
-	// Force center aligned images in posts
-	img {
-		display: block;
-		margin: 1.5em auto 0 auto;
-	}
+	.entry-content {
+		overflow: visible;
 
-	p + img {
-		margin: 0 auto;
-	}
+		// Force center aligned images in posts
+		img {
+			display: block;
+			margin: 1.5em auto 0;
+		}
 
-	// Compensate margin of span from more tag
-	p span[id*="more"]:first-child {
-		display: block;
-		margin-top: -1.5em;
-	}
+		.image-container {
+			margin: 1.5em -1em 0;
 
-	// bug fix related to font boosting on mobile (different fonts change size differently)
-	// basically disable font scaling on mobile (do not respect user set values too...)
-	max-height: 1000000px;
-	-moz-text-size-adjust:none;
-	-ms-text-size-adjust:none;
-	-webkit-text-size-adjust:none;
+			img {
+				margin: 0 auto;
+			}
+		}
 
-	@media #{$large-up} {
-		max-height: none;
-		-moz-text-size-adjust:auto;
-		-ms-text-size-adjust:auto;
-		-webkit-text-size-adjust:auto;
+		// Set smaller margin between caption and img
+		p + .image-container {
+			margin: .25em -1em 0;
+		}
+
+		// Compensate margin of span from more tag
+		p span[id*="more"]:first-child {
+			display: block;
+			margin-top: -1.5em;
+		}
+
+		// bug fix related to font boosting on mobile (different fonts change size differently)
+		// basically disable font scaling on mobile (do not respect user set values too...)
+		max-height: 1000000px;
+		-moz-text-size-adjust:none;
+		-ms-text-size-adjust:none;
+		-webkit-text-size-adjust:none;
+
+		@media #{$large-up} {
+			max-height: none;
+			-moz-text-size-adjust:auto;
+			-ms-text-size-adjust:auto;
+			-webkit-text-size-adjust:auto;
+		}
 	}
 }
 
@@ -46,8 +59,13 @@
 
 article.single-article footer {
 	background-color: $article-footer-bg-color;
-	margin: .5em -1em -.5em;
-	padding: .25em 1em;
+	margin: .5em (-($content-side-padding)) -.5em;
+
+	@media #{$medium-up} {
+		margin: .5em (-($content-side-padding-medium-up)) -.5em;
+	}
+
+	@include content-padding($padding-top: .25em);
 
 	// @include box-shadow(inset 0 7px 5px -4px rgba(0, 0, 0, 0.16));
 }

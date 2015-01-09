@@ -95,9 +95,10 @@
 
 		.search-form {
 			display: inline-block;
+			max-width: $row-width - $column-gutter - 2em;
 			min-width: em-calc(300);
 			top: -50%;
-			width: 50%;
+			width: 80%;
 
 			@include container-shadow(2);
 			@include transition(top 500ms ease);
@@ -240,11 +241,15 @@
 
 		> li:first-child a {
 			background-color: $header-bg-color;
-			color: $header-color;
+			color: $site-title-color;
 			font-family: 'Dancing Script', cursive;
 
 			&:hover {
 				background-color: $header-bg-color;
+			}
+
+			&:visited {
+				color: $site-title-color;
 			}
 		}
 
@@ -265,6 +270,10 @@
 
 				&:hover {
 					background-color: $off-canvas-hover-bg-color;
+				}
+
+				&:visited {
+					color: $anchor-color;
 				}
 			}
 
@@ -353,6 +362,25 @@
 	}
 }
 
+// Tab-bar
+#page-header .tab-bar .off-canvas-toggle {
+	color: $off-canvas-toggle-icon-color;
+	display: inline-block;
+	font-size: 2em;
+	left: $off-canvas-toggle-offset;
+	position: absolute;
+	text-decoration: none;
+	width: 0;
+
+	&:visited {
+		color: $off-canvas-toggle-icon-color;
+	}
+
+	@media #{$large-up} {
+		display: none;
+	}
+}
+
 // Pagination
 
 // Container
@@ -389,6 +417,7 @@ ul.pagination {
 .breadcrumbs {
 	color: $breadcrumbs-color;
 	overflow: hidden;
+	text-transform: lowercase;
 
 	& > * {
 		text-transform: lowercase;

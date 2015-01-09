@@ -57,11 +57,11 @@ endif;
 add_filter('the_content', 'filter_ptags_on_images');
 if(!function_exists('filter_ptags_on_images')) :
     /*
-        WP wraps all images in <p> tags which is not nice for css
+        WP wraps all images in <p> tags, add special class for styling
     */
 	function filter_ptags_on_images($content)
 	{
-	    return preg_replace('/<p>\s*(<a .*>)?\s*(<img .* \/>)\s*(<\/a>)?\s*<\/p>/iU', '\1\2\3', $content);
+	    return preg_replace('/<p>\s*(<a .*>)?\s*(<img .* \/>)\s*(<\/a>)?\s*<\/p>/iU', '<p class="image-container">\1\2\3<p>', $content);
 	}
 endif; // filter_ptags_on_images
 

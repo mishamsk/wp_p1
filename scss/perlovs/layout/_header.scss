@@ -15,31 +15,50 @@
 
 	// Shadow
 	@include container-shadow(1);
-}
 
-// Tab-bar
-.tab-bar {
-	text-align: center;
-	text-indent: 0;
+	.home & {
+		margin: 2em 0;
 
-	.off-canvas-toggle {
-		color: $off-canvas-toggle-icon-color;
+		// Disable shadow
+		@include container-shadow(0);
+	}
+
+	// Tab-bar
+	.tab-bar {
+		text-align: center;
+		text-indent: 0;
+
+		.home & {
+			padding: 1em 0 2em;
+		}
+	}
+
+	.site-title {
+		color: $site-title-color;
 		display: inline-block;
+		font-family: 'Dancing Script', cursive;
 		font-size: 2em;
-		left: $off-canvas-toggle-offset;
-		position: absolute;
-		text-decoration: none;
-		width: 0;
 
-		@media #{$large-up} {
-			display: none;
+		&:visited {
+			color: $site-title-color;
+		}
+
+		.home & {
+			font-size: 4em;
+		}
+	}
+
+	.site-description {
+		display: none;
+		text-align: center;
+
+		.home & {
+			color: $site-description-color;
+			display: block;
+			margin-top: 0;
+
+			@include adjust-font-size-to(16px);
 		}
 	}
 }
 
-.tab-bar-title {
-	color: $header-color;
-	display: inline-block;
-	font-family: 'Dancing Script', cursive;
-	font-size: 2em;
-}

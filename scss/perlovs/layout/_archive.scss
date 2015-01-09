@@ -6,14 +6,14 @@
 // Header area
 // -------------------
 
-#archive-header {
+#archive-header, .secondary-title {
 	margin: .5em 0 0;
-	padding: 0 1em;
+
+	@include content-padding($padding-top: 0);
 }
 
-.secondary-title {
-	margin: .2em 0 0;
-	padding: 0 .4em;
+.secondary-title h1 {
+	margin-top: .2em;
 }
 
 // -------------------
@@ -24,6 +24,42 @@
 	img {
 		display: block;
 		margin: 0 auto;
+	}
+
+	.entry-content {
+		overflow: hidden;
+
+		// bug fix related to font boosting on mobile (different fonts change size differently)
+		// basically disable font scaling on mobile (do not respect user set values too...)
+		max-height: 1000000px;
+		-moz-text-size-adjust:none;
+		-ms-text-size-adjust:none;
+		-webkit-text-size-adjust:none;
+
+		@media #{$large-up} {
+			max-height: none;
+			-moz-text-size-adjust:auto;
+			-ms-text-size-adjust:auto;
+			-webkit-text-size-adjust:auto;
+		}
+	}
+}
+
+.archive-article-bg-image {
+	background-position: 50% 50%;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.archive-article-placeholder {
+	//min-height: 15em;
+}
+
+.archive-article-content {
+	background-color: rgba($card-bg-color, 0.8);
+
+	@media #{$medium-up} {
+		background-color: $card-bg-color;
 	}
 }
 

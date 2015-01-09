@@ -14,6 +14,14 @@
 // Mixins
 //----------------------
 
+@mixin content-padding($padding-top: .5em) {
+	padding: $padding-top $content-side-padding;
+
+	@media #{$medium-up} {
+		padding: $padding-top $content-side-padding-medium-up;
+	}
+}
+
 //----------------------
 // Classes
 //----------------------
@@ -28,8 +36,8 @@
 .card {
 	background-color: $card-bg-color;
 	margin: .5em 0;
-	padding: .5em 1em;
 
+	@include content-padding();
 	@include container-shadow(1, 1, false);
 }
 

@@ -18,7 +18,7 @@
 	</div> <!-- .row-->
 	<div class="row">
 		<div class="small-12 columns">
-			<h1 class="secondary-title"><?php _e('Recent posts', 'perlovs'); ?></h1>
+			<div class="secondary-title"><h1><?php _e('Recent posts', 'perlovs'); ?></h1></div>
 		</div> <!-- .small-12 columns -->
 	</div> <!-- .row-->
 
