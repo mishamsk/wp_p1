@@ -169,7 +169,7 @@ if ( ! function_exists( 'perlovs_pagination') ) :
 				// replace for current page
 				$link = str_replace( "<span class='page-numbers current'>", '<li class="current"><a href="#">', $link );
 				// replace for dots
-				$link = str_replace( '<span class="page-numbers dots">' . __( '&hellip;' ), '<li class="unavailable" aria-disabled="true"><a href="#">' . __( '&hellip;', 'perlovs' ), $link );
+				$link = str_replace( '<span class="page-numbers dots">' . __( '&hellip;', 'perlovs' ), '<li class="unavailable" aria-disabled="true"><a href="#">' . __( '&hellip;', 'perlovs' ), $link );
 				$link = str_replace( "</span>", "</a>", $link );
 
 				// replace for normal numbers
