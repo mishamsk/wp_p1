@@ -24,9 +24,11 @@ if ( ! function_exists( 'perlovs_searchform') ) :
 
 		echo '<form role="search" method="get"' . ($id ? 'id="' . $id . '"' : '') . 'class="search-form ' . $form_classes . '" action="' . home_url( '/' ) . '">';
 		echo '	<p class="search-label">' . $search_label_text . '</p>';
-		echo '	<input type="text" class="search-field" placeholder="' . $search_placeholder_text . '" value="" name="s" />';
-		echo '	<input type="hidden" value="' . $post_filter . '" name="post_type" id="post_type" />';
-		echo '	<input type="submit" class="search-submit" value="' . $search_submit_text . '" />';
+		echo '	<div class="search-inner-container">';
+		echo '		<input type="text" class="search-field" placeholder="' . $search_placeholder_text . '" value="" name="s" />';
+		echo '		<input type="hidden" value="' . $post_filter . '" name="post_type" id="post_type" />';
+		echo '		<input type="submit" class="search-submit" value="' . $search_submit_text . '" />';
+		echo '	</div>';
 		echo '</form>';
 	}
 endif; // perlovs_searchform

@@ -14,12 +14,16 @@
 	text-align: center;
 }
 
+.search-inner-container {
+	position: relative;
+}
+
 .search-field {
 	border: 1px solid #EEEEEE;
 	display: inline-block;
 	line-height: 1.5em;
 	margin: 0;
-	padding: .2em 3em .2em .5em;
+	padding: .2em 5em .2em .5em;
 	width: 100%;
 	-webkit-appearance: none;
 
@@ -35,12 +39,12 @@
 	background: none;
 	border: none;
 	border-bottom: 1px solid #EEEEEE;
-	bottom: .4em; // font is 1.25 thus .5em of parent is .4em on this
+	bottom: 0;
 	color: $anchor-color;
 	line-height: 1.5em;
 	padding: .2em .5em;
 	position: absolute;
-	right: .8em; // font is 1.25 thus 1em of parent is .8em on this
+	right: 0;
 
 	&:hover {
 		text-decoration: underline;
