@@ -22,6 +22,14 @@
 	}
 }
 
+@mixin card {
+	background-color: $card-bg-color;
+	margin: .5em 0;
+
+	@include content-padding();
+	@include container-shadow(1, 1, false);
+}
+
 //----------------------
 // Classes
 //----------------------
@@ -29,16 +37,12 @@
 *,
 *:before,
 *:after {
-  @include box-sizing(border-box);
+	@include box-sizing(border-box);
 }
 
 // "Card" effect
 .card {
-	background-color: $card-bg-color;
-	margin: .5em 0;
-
-	@include content-padding();
-	@include container-shadow(1, 1, false);
+	@include card;
 }
 
 .left { float: left !important; }
