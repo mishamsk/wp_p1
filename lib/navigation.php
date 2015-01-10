@@ -41,6 +41,34 @@ if ( ! function_exists( 'menu_mobile_off_canvas' ) ) :
 	}
 endif; // menu_mobile_off_canvas
 
+add_action( 'pre_get_posts', 'perlovs_modify_query', 1 );
+if ( ! function_exists( 'perlovs_modify_query' ) ) :
+/**
+ * All modifications to query we need
+ * 1) ASC sort order for travel taxonoy archives
+ * 2) Separate blog parts, show travel and ff posts only on corresponging archives
+ */
+function perlovs_modify_query( $query )
+{
+	if ( is_admin() || !$query->is_main_query() )
+        return;
+
+    if ( $query->is_tax('travel') ) {
+        // ASC sort order for travel taxonoy archives
+        $query->set( 'order', 'ASC' );
+        return;
+    }
+
+    // Separate blog parts, show travel and ff posts only on corresponging archives
+    if ( !$query->is_tax('travel') && !$query->is_tax('countries') && !is_category(PERLOVS_FF_CATEGORY_SLUG) && !is_category(PERLOVS_TRAVEL_CATEGORY_SLUG) ) {
+    	global $perlovs_ff_category_id, $perlovs_travel_category_id;
+
+    	$query->set( 'cat', '-' . $perlovs_ff_category_id . ',-' . $perlovs_travel_category_id);
+        return;
+    }
+}
+endif; // perlovs_modify_query
+
 /**
  * Display breadcrumbs
  * @visibility - wrapper class (defaults to all)
@@ -49,6 +77,8 @@ if ( ! function_exists( 'perlovs_breadcrumbs') ) :
 	function perlovs_breadcrumbs($visibility = '') {
 		global $post;
 
+		$links = '';
+
 		if (is_single()) {
 			// Travel posts/lists
 			if (get_the_terms( $post->ID, 'travel' )) {
@@ -56,9 +86,18 @@ if ( ! function_exists( 'perlovs_breadcrumbs') ) :
 				$links = '<a href="' . esc_url( home_url( '/' ) ) . 'travel">' . __('Travel', 'perlovs') . '</a>';
 				$links .= '<span class="divider"></span><a href="' . get_term_link( $travel ) . '">' . $travel->name . '</a>';
 			}
-			// Single post, not travel
-			elseif (is_single()) {
+			// Single post in travel category without travel taxonomy (basically wrong input from author)
+			elseif (in_category( PERLOVS_TRAVEL_CATEGORY_SLUG )) {
+				$links = '<a href="' . esc_url( home_url( '/' ) ) . 'travel">' . __('Travel', 'perlovs') . '</a>';
+			}
+			// Single post in F&F category
+			elseif (in_category( PERLOVS_FF_CATEGORY_SLUG )) {
 				$links = get_the_category_list('<span class="divider"></span>', 'multiple');
+			}
+			// Single post in any other category
+			else {
+				$links = '<a href="'. get_author_posts_url(get_the_author_meta('ID')) .'" rel="author">блог '. get_the_author_meta('last_name') .'</a>';
+				$links .= '<span class="divider"></span>' . get_the_category_list('<span class="divider"></span>', 'multiple');
 			}
 
 			// Append current object
@@ -72,7 +111,7 @@ if ( ! function_exists( 'perlovs_breadcrumbs') ) :
 			$links .= '<span class="divider"></span><span class="current">' . strtolower(get_queried_object()->name) . '</span>';
 		}
 		// Category/tag/date archives
-		elseif (is_category() && !is_category(PERLOVS_FF_CATEGORY_SLUG)) {
+		elseif (is_category() && !is_category(PERLOVS_FF_CATEGORY_SLUG) && !is_category(PERLOVS_TRAVEL_CATEGORY_SLUG)) {
 			$links = __('category archives', 'perlovs');
 
 			// Append current object
@@ -82,6 +121,13 @@ if ( ! function_exists( 'perlovs_breadcrumbs') ) :
 		elseif (is_category(PERLOVS_FF_CATEGORY_SLUG)) {
 			// Append current object
 			$links = '<span class="current">' . strtolower(get_queried_object()->name) . '</span>';
+		}
+		// Travel archives
+		elseif (is_category(PERLOVS_TRAVEL_CATEGORY_SLUG)) {
+			$links = '<a href="' . esc_url( home_url( '/' ) ) . 'travel">' . __('Travel', 'perlovs') . '</a>';
+
+			// Append current object
+			$links .= '<span class="divider"></span><span class="current">' . __('category archives', 'perlovs') . '</span>';
 		}
 		// Category/tag/date archives
 		elseif (is_date()) {
@@ -108,7 +154,7 @@ if ( ! function_exists( 'perlovs_breadcrumbs') ) :
 		// Travel/countries taxonomy archives
 		elseif (is_tax('travel') || is_tax('countries')) {
 			$links = '<a href="' . esc_url( home_url( '/' ) ) . 'travel">' . __('Travel', 'perlovs') . '</a>';
-			$links .= '<span class="divider"></span>' . __('archives', 'perlovs');
+			$links .= '<span class="divider"></span>' . strtolower(get_queried_object()->name);
 		}
 		// Category/tag/date archives
 		elseif (is_search()) {
@@ -205,26 +251,40 @@ endif; // perlovs_pagination
 if ( ! function_exists( 'perlovs_single_pagination') ) :
 	function perlovs_single_pagination($prev_next = TRUE) {
 		global $wp_query, $multipage, $page, $numpages, $post;
+		global $perlovs_ff_category_id, $perlovs_travel_category_id;
 
 		echo '<div id="single-nav" class="row footer-nav">';
 
 		if ($prev_next) {
 			$previous = '<div class="columns small-12 medium-4"><h5 class="previous-post-link small-text-center medium-text-left">%link</h5></div>';
 
-			$prev_post = get_previous_post();
-			if (!empty( $prev_post ) || $multipage)
-				$next = '<div class="columns small-12 medium-4"><h5 class="next-post-link small-text-center medium-text-right">%link</h5></div>';
-			else
-				$next = '<div class="columns small-12 medium-4 medium-offset-8"><h5 class="next-post-link small-text-center medium-text-right">%link</h5></div>';
-
 			// Travel posts/lists
 			if (get_the_terms( $post->ID, 'travel' )) {
+				$prev_post = get_previous_post(true, '', 'travel');
 				previous_post_link( $previous, '&lt;&lt; %title', true, '', 'travel' );
+			}
+			elseif (in_category( PERLOVS_FF_CATEGORY_SLUG )) {
+				$prev_post = get_previous_post(true, $perlovs_ff_category_id);
+				previous_post_link( $previous, '&lt;&lt; %title', true, $perlovs_ff_category_id );
+			}
+			elseif (in_category( PERLOVS_TRAVEL_CATEGORY_SLUG )) {
+				$prev_post = get_previous_post(true, $perlovs_travel_category_id);
+				previous_post_link( $previous, '&lt;&lt; %title', true, $perlovs_travel_category_id );
 			}
 			else {
 				$travel_terms = get_terms( 'travel', array('fields' => 'ids') );
+				$travel_terms[] = $perlovs_ff_category_id;
+				$travel_terms[] = $perlovs_travel_category_id;
+				$prev_post = get_previous_post(false, $travel_terms);
 				previous_post_link( $previous, '&lt;&lt; %title', false, $travel_terms);
 			}
+
+			if (!empty( $prev_post ) || $multipage)
+				$next = '<div class="columns small-12 medium-4"><h5 class="next-post-link small-text-center medium-text-right">%link</h5></div>';
+			else
+				$next = '<div class="columns small-12 medium-4 right"><h5 class="next-post-link small-text-center medium-text-right">%link</h5></div>';
+
+
 		}
 		else {
 			$prev_post = FALSE;
@@ -263,8 +323,13 @@ if ( ! function_exists( 'perlovs_single_pagination') ) :
 			if (get_the_terms( $post->ID, 'travel' )) {
 				next_post_link( $next, '%title &gt;&gt;', true, '', 'travel' );
 			}
+			elseif (in_category( PERLOVS_FF_CATEGORY_SLUG )) {
+				next_post_link( $next, '%title &gt;&gt;', true, $perlovs_ff_category_id );
+			}
+			elseif (in_category( PERLOVS_TRAVEL_CATEGORY_SLUG )) {
+				next_post_link( $next, '%title &gt;&gt;', true, $perlovs_travel_category_id );
+			}
 			else {
-				$travel_terms = get_terms( 'travel', array('fields' => 'ids') );
 				next_post_link( $next, '%title &gt;&gt;', false, $travel_terms);
 			}
 		}
