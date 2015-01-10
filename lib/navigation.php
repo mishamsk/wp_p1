@@ -72,11 +72,16 @@ if ( ! function_exists( 'perlovs_breadcrumbs') ) :
 			$links .= '<span class="divider"></span><span class="current">' . strtolower(get_queried_object()->name) . '</span>';
 		}
 		// Category/tag/date archives
-		elseif (is_category()) {
+		elseif (is_category() && !is_category(PERLOVS_FF_CATEGORY_SLUG)) {
 			$links = __('category archives', 'perlovs');
 
 			// Append current object
 			$links .= '<span class="divider"></span><span class="current">' . strtolower(get_queried_object()->name) . '</span>';
+		}
+		// F&F archives
+		elseif (is_category(PERLOVS_FF_CATEGORY_SLUG)) {
+			// Append current object
+			$links = '<span class="current">' . strtolower(get_queried_object()->name) . '</span>';
 		}
 		// Category/tag/date archives
 		elseif (is_date()) {
