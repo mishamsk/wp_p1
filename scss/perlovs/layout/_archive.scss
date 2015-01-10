@@ -56,7 +56,7 @@
 }
 
 .archive-article-content {
-	background-color: rgba($card-bg-color, 0.8);
+	background-color: $archive-article-content-bg-color;
 
 	@media #{$medium-up} {
 		background-color: $card-bg-color;
