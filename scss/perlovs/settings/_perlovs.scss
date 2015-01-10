@@ -183,9 +183,12 @@ $off-canvas-width: em-calc(250);
 //----------------------
 // Media breakpoints
 //----------------------
+
+// Main
+
 $small-range: (0em, 767 / 16 * 1em); // avg - 543,5
-$medium-range: (768 / 16 * 1em, $row-width + 2 * ($float-nav-button-diameter + 2 * $float-nav-offset) - 1); // avg - 967,5 , 1020 (row-width) + 2 * (54 (float-nav button) + 2*10 (float-nav offset)) - 1
-$large-range: (1168 / 16 * 1em, 1919 / 16 * 1em);
+$medium-range: (768 / 16 * 1em, em-calc($row-width + 2 * ($float-nav-button-diameter + 2 * $float-nav-offset) - 1, $to-context: 16px)); // avg - 967,5
+$large-range: (em-calc($row-width + 2 * ($float-nav-button-diameter + 2 * $float-nav-offset), $to-context: 16px), 1919 / 16 * 1em);
 $xlarge-range: (1920 / 16 * 1em, 2559 / 16 * 1em);
 $xxlarge-range: (2560 / 16 * 1em, 99999999em);
 
