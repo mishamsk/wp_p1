@@ -101,6 +101,46 @@ function perlovs_setup() {
 }
 endif; // perlovs_setup
 
+add_filter( 'script_loader_src', 'perlovs_cache_busting' );
+add_filter( 'style_loader_src', 'perlovs_cache_busting' );
+if ( ! function_exists( 'perlovs_cache_busting' ) ) :
+/**
+ * Adds md5 hash to js and css filenames
+ */
+function perlovs_cache_busting( $src ) {
+    // Don't touch admin scripts.
+    if ( is_admin() ) {
+        return $src;
+    }
+
+    $_src = $src;
+    if ( '//' === substr( $_src, 0, 2 ) ) {
+        $_src = 'http:' . $_src;
+    }
+
+    $_src = parse_url( $_src );
+
+    // Give up if malformed URL.
+    if ( false === $_src ) {
+        return $src;
+    }
+
+    // Check if it's a local URL.
+    $wp = parse_url( home_url() );
+    if ( isset( $_src['host'] ) && $_src['host'] !== $wp['host'] ) {
+        return $src;
+    }
+
+    $hash = md5(dirname( __FILE__ ) . $_src['path']);
+
+    return preg_replace(
+        '/\.(js|css).*$/',
+        '\.' . $hash . '\.$1',
+        $src
+    );
+}
+endif; // perlovs_cache_busting
+
 add_action( 'wp_enqueue_scripts', 'perlovs_scripts' );
 if ( ! function_exists( 'perlovs_scripts' ) ) :
 /**
