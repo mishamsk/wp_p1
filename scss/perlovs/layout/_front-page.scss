@@ -57,9 +57,11 @@
 
 .author-card {
 	text-align: center;
+
+	@include card;
 }
 
-p + .author-contacts-header {
+p + .author-contacts-container {
 	margin-top: 1.5em;
 }
 
