@@ -20,6 +20,9 @@ require_once('lib/social-share.php');
 // Helper functions for single blog entries and pages
 require_once('lib/entry-helpers.php');
 
+// Helper functions for the front page
+require_once('lib/front-page-helpers.php');
+
 // Travel taxonomies
 require_once('lib/travel.php');
 
@@ -124,7 +127,7 @@ function perlovs_scripts() {
 	//wp_enqueue_script( 'fastclick', PERLOVS_THEME_URL . '/bower_components/foundation/js/vendor/fastclick.js', array(), null, true );
 	//wp_enqueue_script( 'theme_js', PERLOVS_THEME_URL .'/js/app.js', array( 'jq', 'fnd', 'fastclick' ), null, true );
     if(is_front_page()) {
-        wp_enqueue_script( 'theme_js', PERLOVS_THEME_URL .'/js/min/app-front-min.js', array('jquery'), null, true );
+        wp_enqueue_script( 'theme_js', PERLOVS_THEME_URL .'/js/min/app-front-min.js', array(), null, true );
     }
     else {
         wp_enqueue_script( 'theme_js', PERLOVS_THEME_URL .'/js/min/app-min.js', array('jquery'), null, true );
@@ -170,3 +173,27 @@ function perlovs_disqus_lazy_load(  )
     }
 }
 endif; // perlovs_disqus_lazy_load
+
+add_filter('user_contactmethods', 'perlovs_add_user_contactdata');
+if ( ! function_exists( 'perlovs_add_user_contactdata' ) ) :
+/**
+ * Comment
+ */
+function perlovs_add_user_contactdata( $user_contact )
+{
+    /* Add user contact methods */
+    $user_contact['facebook'] = __('Facebook Username', 'perlovs');
+    $user_contact['twitter'] = __('Twitter Username', 'perlovs');
+    $user_contact['instagram'] = __('Instagram Username', 'perlovs');
+    $user_contact['linkedin'] = __('Linkedin Username', 'perlovs');
+    $user_contact['vk'] = __('Vkontakte Username', 'perlovs');
+    $user_contact['google-plus'] = __('Google+ Username', 'perlovs');
+
+    /* Remove user contact methods */
+    unset($user_contact['aim']);
+    unset($user_contact['jabber']);
+
+    return $user_contact;
+}
+endif; // perlovs_add_user_contactdata
+

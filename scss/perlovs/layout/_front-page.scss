@@ -1,0 +1,92 @@
+// General
+// Hide site navigation
+.tab-bar .off-canvas-toggle, #float-nav, #off-canvas-menu {
+	display: none;
+}
+
+.home h1, .home h6 {
+	text-align: center;
+}
+
+// Section headers
+.first-section-header {
+	@include content-padding($padding-top: 0);
+
+	h1 {
+		margin: 0;
+	}
+}
+
+.home-section-header {
+	margin-top: 2em;
+
+	@include content-padding($padding-top: 0);
+}
+
+// Travel and ff sections
+.section-bg-image {
+	background-position: 50% 50%;
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 15em;
+}
+
+.home-section-title {
+	bottom: .5em;
+	left: 1em;
+	position: absolute;
+	right: 1em;
+}
+
+// Search
+.search-label {
+	display: none;
+}
+
+// About
+#about p {
+	margin-top: 0;
+}
+
+// Author
+.author-avatar {
+	height: 10em;
+
+	@include border-radius(50%);
+}
+
+.author-card {
+	text-align: center;
+}
+
+p + .author-contacts-header {
+	margin-top: 1.5em;
+}
+
+.author-contacts-bar {
+	margin: .25em auto;
+
+	a {
+		display: inline-block;
+		@include perlovs-button($font-size: em-calc(20), $round: em-calc(30), $transparent: 0);
+	}
+}
+
+.author-blog-link {
+	display: block;
+	margin-top: 1.5em;
+}
+
+// Share
+#share {
+	padding: .5em .25em;
+}
+
+#home-social-share-bar {
+	text-align: center;
+
+	a {
+		display: inline-block;
+		@include perlovs-button($font-size: em-calc(40), $round: em-calc(54), $transparent: 0);
+	}
+}

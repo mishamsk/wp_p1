@@ -1,31 +1,4 @@
-<?php get_header();
-
-// Get latest travel and friends & family post thumbnails
-$args = array( 'numberposts' => 1, 'post_status' => 'publish', 'category_name' => PERLOVS_TRAVEL_CATEGORY_SLUG);
-$recent_posts = wp_get_recent_posts( $args, OBJECT );
-$travel_post_id = $recent_posts[0]->ID;
-$travel_bg_image = '';
-
-if ( get_the_post_thumbnail( $travel_post_id, 'full' )) {
-	$travel_bg_image = get_the_post_thumbnail( $travel_post_id, 'full' );
-	$preg_ar = array();
-	preg_match('/src="([^"]*)"/i', $travel_bg_image, $preg_ar);
-	$travel_bg_image = 'background-image: url(' . $preg_ar[1] . ');';
-}
-
-$args = array( 'numberposts' => 1, 'post_status' => 'publish', 'category_name' => PERLOVS_FF_CATEGORY_SLUG);
-$recent_posts = wp_get_recent_posts( $args, OBJECT );
-$ff_post_id = $recent_posts[0]->ID;
-$ff_bg_image = '';
-
-if ( get_the_post_thumbnail( $ff_post_id, 'full' )) {
-	$ff_bg_image = get_the_post_thumbnail( $ff_post_id, 'full' );
-	$preg_ar = array();
-	preg_match('/src="([^"]*)"/i', $ff_bg_image, $preg_ar);
-	$ff_bg_image = 'background-image: url(' . $preg_ar[1] . ');';
-}
-
-?>
+<?php get_header(); ?>
 	<div class="row">
 		<div class="small-12 columns">
 			<div class="first-section-header">
@@ -35,12 +8,12 @@ if ( get_the_post_thumbnail( $ff_post_id, 'full' )) {
 	</div> <!-- row -->
 	<div class="row">
 		<div class="small-12 medium-6 columns">
-			<section id="travel" data-page-name="travel" class="card section-bg-image" <?php if ($travel_bg_image != '') echo 'style="' . $travel_bg_image . '"'?>>
+			<section id="travel" data-page-name="travel" class="card section-bg-image" <?php perlovs_get_bg_image_style(PERLOVS_TRAVEL_CATEGORY_SLUG) ?>>
 				<div class="home-section-title card"><h1><a href="<?php echo esc_url( home_url( '/' ) ) . 'travel'; ?>">О наших путешествиях</a></h1></div>
 			</section> <!-- #travel -->
 		</div> <!-- columns -->
 		<div class="small-12 medium-6 columns">
-			<section id="friends-family" data-page-name="friends-family" class="card section-bg-image" <?php if ($ff_bg_image != '') echo 'style="' . $ff_bg_image . '"'?>>
+			<section id="friends-family" data-page-name="friends-family" class="card section-bg-image" <?php perlovs_get_bg_image_style(PERLOVS_FF_CATEGORY_SLUG) ?>>
 				<div class="home-section-title card"><h1><a href="<?php echo get_term_link( PERLOVS_FF_CATEGORY_SLUG, 'category' ); ?>">О нашей семье и друзьях</a></h1></div>
 			</section> <!-- #friends-family -->
 		</div> <!-- columns -->
@@ -68,21 +41,20 @@ if ( get_the_post_thumbnail( $ff_post_id, 'full' )) {
 	</div> <!-- row -->
 	<div class="row">
 		<div class="small-12 columns">
+			<section id="about" data-page-name="about" class="card">
+				<p>Нас зовут Миша и Маша. Наша семья появилась в Москве в то самое лето, когда температура била все рекорды, а от пожаров весь город был окутан смогом. С тех пор мы немного подросли и воспитываем двух дочек. Мы оба любим маленькие путешествия, красивые фотографии и<del>, когда найдется время,</del> писать об этом здесь!</p>
+			</section>
+		</div> <!-- columns -->
+	</div> <!-- row -->
+	<div class="row">
+		<div class="small-12 columns">
 			<section id="authors" data-page-name="authors">
 				<div class="row">
 					<div class="small-12 medium-6 columns">
-						<div id="author-masha" class="card author-card">
-							<a href="<?php echo get_author_posts_url(get_user_by( 'login', 'masha' )->ID); ?>"><img class="author-avatar" src="<?php echo get_stylesheet_directory_uri() ?>/img/masha-avatar.jpg"></a>
-							<h1 class="author-name"><a href="<?php echo get_author_posts_url(get_user_by( 'login', 'masha' )->ID); ?>">Маша</a></h1>
-							<p class="author-answer" data-question="Снимаю на">Зенит</p>
-						</div>
+						<?php perlovs_get_author_card( 'masha' ); ?>
 					</div> <!-- columns -->
 					<div class="small-12 medium-6 columns">
-						<div id="author-misha" class="card author-card">
-							<a href="<?php echo get_author_posts_url(get_user_by( 'login', 'misha' )->ID); ?>"><img class="author-avatar" src="<?php echo get_stylesheet_directory_uri() ?>/img/misha-avatar.jpg"></a>
-							<h1 class="author-name"><a href="<?php echo get_author_posts_url(get_user_by( 'login', 'misha' )->ID); ?>">Миша</a></h1>
-							<p class="author-answer" data-question="Снимаю на">Nikon D700</p>
-						</div>
+						<?php perlovs_get_author_card( 'misha' ); ?>
 					</div> <!-- columns -->
 				</div> <!-- row -->
 			</section> <!-- #authors -->

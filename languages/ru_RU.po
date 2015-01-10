@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Perlovs v1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2015-01-08 20:14:48+0000\n"
+"PO-Revision-Date: 2015-01-10 11:52:00+0000\n"
 "Last-Translator: misha <mishamsk@gmail.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -72,7 +72,7 @@ msgstr "Хакерам здесь не место!"
 msgid "This post is password protected. Enter the password to view comments."
 msgstr ""
 
-#: content.php:42
+#: content.php:60
 #@ perlovs
 msgid "Continue reading..."
 msgstr "Читать дальше..."
@@ -82,11 +82,6 @@ msgstr "Читать дальше..."
 msgid "here"
 msgstr "здесь"
 
-#: front-page.php:6
-#@ perlovs
-msgid "We blog about Life, the Universe, and Everything"
-msgstr ""
-
 #: lib/navigation.php:56
 #: lib/navigation.php:105
 #: lib/travel.php:36
@@ -94,7 +89,7 @@ msgstr ""
 msgid "Travel"
 msgstr "Путешествия"
 
-#: lib/navigation.php:172
+#: lib/navigation.php:177
 #@ perlovs
 msgid "&hellip;"
 msgstr "&hellip;"
@@ -322,23 +317,23 @@ msgstr "поиск"
 msgid "blog"
 msgstr "блог"
 
-#: lib/navigation.php:131
+#: lib/navigation.php:136
 #@ perlovs
 msgid "Home"
 msgstr "Главная"
 
-#: lib/navigation.php:154
-#: lib/navigation.php:166
-#: lib/navigation.php:231
-#: lib/navigation.php:233
+#: lib/navigation.php:159
+#: lib/navigation.php:171
+#: lib/navigation.php:236
+#: lib/navigation.php:238
 #@ perlovs
 msgid "&lt;"
 msgstr "&lt;"
 
-#: lib/navigation.php:155
-#: lib/navigation.php:185
-#: lib/navigation.php:243
-#: lib/navigation.php:245
+#: lib/navigation.php:160
+#: lib/navigation.php:190
+#: lib/navigation.php:248
+#: lib/navigation.php:250
 #@ perlovs
 msgid "&gt;"
 msgstr "&gt;"
@@ -367,4 +362,39 @@ msgstr "Прости, мы искали искали, но не смогли н�
 #@ perlovs
 msgid "Leave a thought!"
 msgstr "Что скажешь?"
+
+#: functions.php:185
+#@ perlovs
+msgid "Facebook Username"
+msgstr "Имя пользователя в Facebook"
+
+#: functions.php:186
+#@ perlovs
+msgid "Twitter Username"
+msgstr "Имя пользователя в Twitter"
+
+#: functions.php:187
+#@ perlovs
+msgid "Instagram Username"
+msgstr "Имя пользователя в Instagram"
+
+#: functions.php:188
+#@ perlovs
+msgid "Linkedin Username"
+msgstr "Имя пользователя в LinkedIn"
+
+#: functions.php:189
+#@ perlovs
+msgid "Vkontakte Username"
+msgstr "Имя пользователя в Vkontakte"
+
+#: functions.php:190
+#@ perlovs
+msgid "Google+ Username"
+msgstr "Имя пользователя в Google+"
+
+#: lib/navigation.php:131
+#@ perlovs
+msgid "authors"
+msgstr "авторы"
 
