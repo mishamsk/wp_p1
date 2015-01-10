@@ -1,13 +1,13 @@
 {
   "checksum": {
-    "previous": "339d0971f0a4ed5300e77644eee50e66be5619e63f1f74f3ab14076b00e512a2",
-    "current": "339d0971f0a4ed5300e77644eee50e66be5619e63f1f74f3ab14076b00e512a2"
+    "previous": "58f4537d1533ff8d73522b6cfbff02450eaf8ca2260d6bcf900abfb97e76474e",
+    "current": "58f4537d1533ff8d73522b6cfbff02450eaf8ca2260d6bcf900abfb97e76474e"
   },
   "fonts": [
-    "../fonts/icons_339d0971f0a4ed5300e77644eee50e66.ttf",
-    "../fonts/icons_339d0971f0a4ed5300e77644eee50e66.svg",
-    "../fonts/icons_339d0971f0a4ed5300e77644eee50e66.woff",
-    "../fonts/icons_339d0971f0a4ed5300e77644eee50e66.eot"
+    "../fonts/icons_58f4537d1533ff8d73522b6cfbff0245.ttf",
+    "../fonts/icons_58f4537d1533ff8d73522b6cfbff0245.svg",
+    "../fonts/icons_58f4537d1533ff8d73522b6cfbff0245.woff",
+    "../fonts/icons_58f4537d1533ff8d73522b6cfbff0245.eot"
   ],
   "glyphs": {
     "at-sign": {

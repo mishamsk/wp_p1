@@ -1,5 +1,5 @@
 /*
-	Perlovs Wordpress theme archives (category, tags, search, date etc.) styles
+	Perlovs Wordpress theme archives (category, tags, search, date, 404 etc.) styles
 */
 
 // -------------------
@@ -74,4 +74,12 @@
 
 .more-link {
 	display: inline-block;
+}
+
+// 404
+.err-404 {
+	color: $err-404-color;
+	font-size: 7em;
+	line-height: 1.2em;
+	text-align: center;
 }

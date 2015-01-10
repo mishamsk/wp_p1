@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Perlovs v1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2015-01-10 11:52:00+0000\n"
+"PO-Revision-Date: 2015-01-10 13:45:09+0000\n"
 "Last-Translator: misha <mishamsk@gmail.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -31,36 +31,10 @@ msgstr "Copyright &copy; %s %s. Все права защищены."
 msgid "Mobile Menu"
 msgstr "Мобильное меню"
 
-#: 404.php:5
+#: 404.php:18
 #@ perlovs
 msgid "File Not Found"
-msgstr ""
-
-#: 404.php:9
-#@ perlovs
-msgid "The page you are looking for might have been removed, had its name changed, or is temporarily unavailable."
-msgstr ""
-
-#: 404.php:11
-#@ perlovs
-msgid "Please try the following:"
-msgstr ""
-
-#: 404.php:13
-#@ perlovs
-msgid "Check your spelling"
-msgstr ""
-
-#: 404.php:14
-#, php-format
-#@ perlovs
-msgid "Return to the <a href=\"%s\">home page</a>"
-msgstr ""
-
-#: 404.php:15
-#@ perlovs
-msgid "Click the <a href=\"javascript:history.back()\">Back</a> button"
-msgstr ""
+msgstr "Такой страницы здесь нет..."
 
 #: comments.php:4
 #@ perlovs
@@ -83,13 +57,13 @@ msgid "here"
 msgstr "здесь"
 
 #: lib/navigation.php:56
-#: lib/navigation.php:105
+#: lib/navigation.php:110
 #: lib/travel.php:36
 #@ perlovs
 msgid "Travel"
 msgstr "Путешествия"
 
-#: lib/navigation.php:177
+#: lib/navigation.php:182
 #@ perlovs
 msgid "&hellip;"
 msgstr "&hellip;"
@@ -261,6 +235,7 @@ msgid "All posts in category: "
 msgstr "Все записи в категории: "
 
 #: archive.php:21
+#: category-friends-family.php:21
 #: date.php:23
 #@ perlovs
 msgid "Nothing in here ;-("
@@ -297,43 +272,43 @@ msgstr "архивы тэгов"
 msgid "category archives"
 msgstr "архивы категорий"
 
-#: lib/navigation.php:83
+#: lib/navigation.php:88
 #@ perlovs
 msgid "date archives"
 msgstr "архивы по датам"
 
-#: lib/navigation.php:106
+#: lib/navigation.php:111
 #@ perlovs
 msgid "archives"
 msgstr "архивы"
 
-#: lib/navigation.php:110
+#: lib/navigation.php:115
 #@ perlovs
 msgid "search results"
 msgstr "поиск"
 
-#: lib/navigation.php:116
+#: lib/navigation.php:121
 #@ perlovs
 msgid "blog"
 msgstr "блог"
 
-#: lib/navigation.php:136
+#: lib/navigation.php:141
 #@ perlovs
 msgid "Home"
 msgstr "Главная"
 
-#: lib/navigation.php:159
-#: lib/navigation.php:171
-#: lib/navigation.php:236
-#: lib/navigation.php:238
+#: lib/navigation.php:164
+#: lib/navigation.php:176
+#: lib/navigation.php:241
+#: lib/navigation.php:243
 #@ perlovs
 msgid "&lt;"
 msgstr "&lt;"
 
-#: lib/navigation.php:160
-#: lib/navigation.php:190
-#: lib/navigation.php:248
-#: lib/navigation.php:250
+#: lib/navigation.php:165
+#: lib/navigation.php:195
+#: lib/navigation.php:253
+#: lib/navigation.php:255
 #@ perlovs
 msgid "&gt;"
 msgstr "&gt;"
@@ -393,8 +368,13 @@ msgstr "Имя пользователя в Vkontakte"
 msgid "Google+ Username"
 msgstr "Имя пользователя в Google+"
 
-#: lib/navigation.php:131
+#: lib/navigation.php:136
 #@ perlovs
 msgid "authors"
 msgstr "авторы"
+
+#: 404.php:19
+#@ perlovs
+msgid "The page you are looking for might have been removed, had its name changed, or is temporarily unavailable. You can try to go <a href=\"javascript:history.back()\">back</a> or use the search below."
+msgstr "Страницу, которую ты искал либо удалили, либо зачем-то переименовали, а может быть тебе дали неправильную ссылку. Можешь вернуться <a href=\"javascript:history.back()\">назад</a> или воспользоваться поиском ниже."
 
