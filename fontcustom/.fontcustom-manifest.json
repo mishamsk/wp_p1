@@ -1,13 +1,13 @@
 {
   "checksum": {
-    "previous": "3111f582004223efc30fb18d716ae903c484a6e486eddcb75d99032bc0636e80",
-    "current": "3111f582004223efc30fb18d716ae903c484a6e486eddcb75d99032bc0636e80"
+    "previous": "339d0971f0a4ed5300e77644eee50e66be5619e63f1f74f3ab14076b00e512a2",
+    "current": "339d0971f0a4ed5300e77644eee50e66be5619e63f1f74f3ab14076b00e512a2"
   },
   "fonts": [
-    "../fonts/icons_3111f582004223efc30fb18d716ae903.ttf",
-    "../fonts/icons_3111f582004223efc30fb18d716ae903.svg",
-    "../fonts/icons_3111f582004223efc30fb18d716ae903.woff",
-    "../fonts/icons_3111f582004223efc30fb18d716ae903.eot"
+    "../fonts/icons_339d0971f0a4ed5300e77644eee50e66.ttf",
+    "../fonts/icons_339d0971f0a4ed5300e77644eee50e66.svg",
+    "../fonts/icons_339d0971f0a4ed5300e77644eee50e66.woff",
+    "../fonts/icons_339d0971f0a4ed5300e77644eee50e66.eot"
   ],
   "glyphs": {
     "at-sign": {
@@ -61,6 +61,10 @@
     "rss": {
       "codepoint": 61766,
       "source": "vectors/rss.svg"
+    },
+    "sad": {
+      "codepoint": 61795,
+      "source": "vectors/sad.svg"
     },
     "social-facebook": {
       "codepoint": 61753,
