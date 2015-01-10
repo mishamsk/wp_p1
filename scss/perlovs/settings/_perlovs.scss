@@ -206,6 +206,11 @@ $medium-only: "#{$screen} and (min-width:#{lower-bound($medium-range)}) and (max
 
 $large-up: "#{$screen} and (min-width:#{lower-bound($large-range)})";
 $large-only: "#{$screen} and (min-width:#{lower-bound($large-range)}) and (max-width:#{upper-bound($large-range)})";
+
+// Additional
+$author-archive-smaller-range: (em-calc(372px, $to-context: 16px), 767 / 16 * 1em);
+$author-archive-smaller-up: "#{$screen} and (min-width:#{lower-bound($author-archive-smaller-range)})";
+
 //----------------------
 // END Media breakpoints
 //----------------------

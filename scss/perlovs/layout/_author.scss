@@ -1,0 +1,64 @@
+/*
+	Perlovs Wordpress theme author archives styles
+*/
+
+// -------------------
+// Author Header area
+// -------------------
+
+.author-card {
+	text-align: center;
+
+	@media #{$author-archive-smaller-up} {
+		text-align: left;
+
+		@include clearfix;
+	}
+
+	@media #{$medium-up} {
+		&:before, &:after { content: " "; display: none; }
+  		&:after { clear: none; }
+	}
+}
+
+.author-avatar {
+	display: inline-block;
+	height: em-calc(60px); // height of contacts setcion
+	margin-left: 1em;
+	width: em-calc(60px); // height of contacts setcion
+
+	@include border-radius(50%);
+
+	@media #{$author-archive-smaller-up} {
+		float: right;
+	}
+}
+
+.author-name, .author-bio-header, .author-bio, .author-blog-link {
+	display: none;
+}
+
+.author-contacts-container {
+	display: inline-block;
+
+	h6 {
+		text-align: center;
+	}
+
+	@media #{$author-archive-smaller-up} {
+		float: right;
+
+		h6 {
+			text-align: left;
+		}
+	}
+}
+
+.author-contacts-bar {
+	margin: 0 auto;
+
+	a {
+		display: inline-block;
+		@include perlovs-button($font-size: em-calc(20), $round: em-calc(30), $transparent: 0);
+	}
+}

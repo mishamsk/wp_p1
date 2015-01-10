@@ -133,8 +133,8 @@ if ( ! function_exists( 'perlovs_breadcrumbs') ) :
 		}
 		// Author archives
 		elseif (is_author()) {
-			$links = '<a href="' . esc_url( home_url( '/#author' ) ) . '">' . __('authors', 'perlovs') . '</a>';
-			$links .= '<span class="divider"></span>' . get_the_author();
+			// $links = '<a href="' . esc_url( home_url( '/#authors' ) ) . '">' . __('authors', 'perlovs') . '</a>';
+			$links .= '<span class="current">блог ' . get_queried_object()->last_name . '</span>';
 		}
 
 		// Append home link
