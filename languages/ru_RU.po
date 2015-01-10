@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Perlovs v1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2015-01-10 13:45:09+0000\n"
+"PO-Revision-Date: 2015-01-10 20:04:48+0000\n"
 "Last-Translator: misha <mishamsk@gmail.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -56,14 +56,14 @@ msgstr "Читать дальше..."
 msgid "here"
 msgstr "здесь"
 
-#: lib/navigation.php:56
-#: lib/navigation.php:110
+#: lib/navigation.php:58
+#: lib/navigation.php:112
 #: lib/travel.php:36
 #@ perlovs
 msgid "Travel"
 msgstr "Путешествия"
 
-#: lib/navigation.php:182
+#: lib/navigation.php:184
 #@ perlovs
 msgid "&hellip;"
 msgstr "&hellip;"
@@ -78,7 +78,7 @@ msgstr "Путешествия"
 #@ perlovs
 msgctxt "taxonomy singular name"
 msgid "Trip"
-msgstr "Поездка"
+msgstr "Путешествие"
 
 #: lib/travel.php:23
 #@ perlovs
@@ -98,22 +98,22 @@ msgstr "Все путешествия"
 #: lib/travel.php:28
 #@ perlovs
 msgid "Edit Trip"
-msgstr "Редактировать поездку"
+msgstr "Редактировать путешествие"
 
 #: lib/travel.php:29
 #@ perlovs
 msgid "Update Trip"
-msgstr "Обновить поездку"
+msgstr "Обновить путешествие"
 
 #: lib/travel.php:30
 #@ perlovs
 msgid "Add New Trip"
-msgstr "Добавить новую поездку"
+msgstr "Добавить новое путешествие"
 
 #: lib/travel.php:31
 #@ perlovs
 msgid "New Trip Name"
-msgstr "Имя новой поездки"
+msgstr "Имя нового путешествия"
 
 #: lib/travel.php:32
 #@ perlovs
@@ -257,58 +257,53 @@ msgstr "Благодарности: %s"
 msgid "Everything we've written"
 msgstr "Все, что мы написали"
 
-#: lib/entry-helpers.php:75
+#: lib/entry-helpers.php:125
 #@ perlovs
 msgid "No title"
 msgstr "Без названия"
 
-#: lib/navigation.php:69
+#: lib/navigation.php:71
 #@ perlovs
 msgid "tag archives"
 msgstr "архивы тэгов"
 
-#: lib/navigation.php:76
+#: lib/navigation.php:78
 #@ perlovs
 msgid "category archives"
 msgstr "архивы категорий"
 
-#: lib/navigation.php:88
+#: lib/navigation.php:90
 #@ perlovs
 msgid "date archives"
 msgstr "архивы по датам"
 
-#: lib/navigation.php:111
-#@ perlovs
-msgid "archives"
-msgstr "архивы"
-
-#: lib/navigation.php:115
+#: lib/navigation.php:117
 #@ perlovs
 msgid "search results"
 msgstr "поиск"
 
-#: lib/navigation.php:121
+#: lib/navigation.php:123
 #@ perlovs
 msgid "blog"
 msgstr "блог"
 
-#: lib/navigation.php:141
+#: lib/navigation.php:143
 #@ perlovs
 msgid "Home"
 msgstr "Главная"
 
-#: lib/navigation.php:164
-#: lib/navigation.php:176
-#: lib/navigation.php:241
+#: lib/navigation.php:166
+#: lib/navigation.php:178
 #: lib/navigation.php:243
+#: lib/navigation.php:245
 #@ perlovs
 msgid "&lt;"
 msgstr "&lt;"
 
-#: lib/navigation.php:165
-#: lib/navigation.php:195
-#: lib/navigation.php:253
+#: lib/navigation.php:167
+#: lib/navigation.php:197
 #: lib/navigation.php:255
+#: lib/navigation.php:257
 #@ perlovs
 msgid "&gt;"
 msgstr "&gt;"
@@ -338,37 +333,37 @@ msgstr "Прости, мы искали искали, но не смогли н�
 msgid "Leave a thought!"
 msgstr "Что скажешь?"
 
-#: functions.php:185
+#: functions.php:225
 #@ perlovs
 msgid "Facebook Username"
 msgstr "Имя пользователя в Facebook"
 
-#: functions.php:186
+#: functions.php:226
 #@ perlovs
 msgid "Twitter Username"
 msgstr "Имя пользователя в Twitter"
 
-#: functions.php:187
+#: functions.php:227
 #@ perlovs
 msgid "Instagram Username"
 msgstr "Имя пользователя в Instagram"
 
-#: functions.php:188
+#: functions.php:228
 #@ perlovs
 msgid "Linkedin Username"
 msgstr "Имя пользователя в LinkedIn"
 
-#: functions.php:189
+#: functions.php:229
 #@ perlovs
 msgid "Vkontakte Username"
 msgstr "Имя пользователя в Vkontakte"
 
-#: functions.php:190
+#: functions.php:230
 #@ perlovs
 msgid "Google+ Username"
 msgstr "Имя пользователя в Google+"
 
-#: lib/navigation.php:136
+#: lib/navigation.php:138
 #@ perlovs
 msgid "authors"
 msgstr "авторы"
@@ -377,4 +372,25 @@ msgstr "авторы"
 #@ perlovs
 msgid "The page you are looking for might have been removed, had its name changed, or is temporarily unavailable. You can try to go <a href=\"javascript:history.back()\">back</a> or use the search below."
 msgstr "Страницу, которую ты искал либо удалили, либо зачем-то переименовали, а может быть тебе дали неправильную ссылку. Можешь вернуться <a href=\"javascript:history.back()\">назад</a> или воспользоваться поиском ниже."
+
+#: author.php:21
+#@ perlovs
+msgid "This is my blog"
+msgstr "Это мой блог"
+
+#: author.php:23
+#@ perlovs
+msgid "I have not written anything yet  ;-( But you can search for something different"
+msgstr "Я еще ничего не написал(а) :-( Но ты можешь поискать по другим разделам!"
+
+#: taxonomy-travel.php:18
+#, php-format
+#@ perlovs
+msgid "Table of contents for the \"%s\" trip"
+msgstr "Оглавление путешествия \"%s\""
+
+#: taxonomy-travel.php:21
+#@ perlovs
+msgid "This trip is empty for now. Come back later!"
+msgstr "Про это путешествие мы еще ничего не написали. Возвращайся чуть позже!"
 
