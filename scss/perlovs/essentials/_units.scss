@@ -59,8 +59,30 @@ $rhythm-unit: "em";
 
     // Context values must be in px so we can determine a conversion ratio for
     // relative units.
-    @if unit($from-context) != 'px' { @warn "Paremeter $from-context must resolve to a value in pixel units."; }
-    @if unit($to-context) != 'px' { @warn "Parameter $to-context must resolve to a value in pixel units."; }
+    @if unit($from-context) != 'px' {
+        @warn "Converting paremeter $from-context to pixel units using base-font-size!";
+        // Convert relative units using the base-font-size.
+        @if      unit($from-context) == 'em'  { $from-context: $from-context * $base-font-size / 1em }
+        @else if unit($from-context) == 'rem' { $from-context: $from-context * $base-font-size / 1rem }
+        @else if unit($from-context) == '%'   { $from-context: $from-context * $base-font-size / 100% }
+        @else if unit($from-context) == 'ex'  { $from-context: $from-context * $base-font-size / 2ex }
+        @else {
+            @warn "#{$from-context} is unsupported value for paremeter $from-context. Returning original value.";
+            @return $length;
+        }
+    }
+    @if unit($to-context) != 'px' {
+        @warn "Converting paremeter $to-context to pixel units using base-font-size!";
+        // Convert relative units using the base-font-size.
+        @if      unit($to-context) == 'em'  { $to-context: $to-context * $base-font-size / 1em }
+        @else if unit($to-context) == 'rem' { $to-context: $to-context * $base-font-size / 1rem }
+        @else if unit($to-context) == '%'   { $to-context: $to-context * $base-font-size / 100% }
+        @else if unit($to-context) == 'ex'  { $to-context: $to-context * $base-font-size / 2ex }
+        @else {
+            @warn "#{$to-context} is unsupported value for paremeter $to-context. Returning original value.";
+            @return $length;
+        }
+    }
 
     // Convert input length to pixels
     $px-length: $length;
