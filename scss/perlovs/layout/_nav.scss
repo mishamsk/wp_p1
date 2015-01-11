@@ -23,10 +23,10 @@
 	vertical-align: middle;
 
 	@media #{$large-up} {
-		bottom: initial;
+		bottom: auto;
 		left: 50%;
 		margin-left: -$row-width / 2 - $float-nav-button-diameter - $float-nav-offset;
-		right: initial;
+		right: auto;
 		top: 4em; //3em site-header + 1em page-header
 
 		.admin-bar & {
@@ -141,9 +141,9 @@
 			width: em-calc(291);
 
 			@media #{$large-up} {
-				bottom: initial;
+				bottom: auto;
 				left: $float-nav-button-diameter + $float-nav-offset;
-				right: initial;
+				right: auto;
 				top: em-calc(-450);
 				width: auto;
 
@@ -160,7 +160,7 @@
 				right: 0;
 
 				@media #{$large-up} {
-					right: initial;
+					right: auto;
 					top: 0;
 				}
 

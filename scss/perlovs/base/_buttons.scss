@@ -34,7 +34,7 @@
 	}
 	@else {
 		padding: .25em;
-		@include border-radius($button-border-radius);
+		@include border-radius($button-border-radius, $button-border-radius);
 	}
 
 	&:visited {
