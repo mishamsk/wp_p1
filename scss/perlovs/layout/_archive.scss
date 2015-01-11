@@ -28,7 +28,9 @@
 
 	.entry-content {
 		overflow: hidden;
+	}
 
+	* {
 		// bug fix related to font boosting on mobile (different fonts change size differently)
 		// basically disable font scaling on mobile (do not respect user set values too...)
 		max-height: 1000000px;
