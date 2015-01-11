@@ -181,7 +181,8 @@ $off-canvas-menu-box-shadow: $off-canvas-menu-shadow-offset-x 0 em-calc(5) 0px r
 $off-canvas-link-padding: em-calc(10 15);
 $off-canvas-link-border-bottom: none;
 $off-canvas-link-transition: background 500ms ease;
-$off-canvas-child-link-padding: em-calc(10 15 10 30);
+$off-canvas-child-link-padding: em-calc(10 15 10 25, $to-context: 0.83em);
+$off-canvas-grand-child-link-padding: em-calc(10 15 10 40, $to-context: 0.67em);
 $off-canvas-overlay-transition: background 300ms ease;
 $off-canvas-overlay-cursor: pointer;
 $off-canvas-toggle-offset: 0;

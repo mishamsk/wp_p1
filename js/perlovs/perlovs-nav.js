@@ -25,14 +25,17 @@
             offCanvasToggle: ".off-canvas-toggle",
             offCanvasExit: ".exit-off-canvas",
             offCanvasMoveClass: "off-canvas-move",
-            offCanvasPos: 'left'
+            offCanvasPos: 'left',
+            offCanvasHasChildrenContainer: '.menu-item-has-children',
+            offCanvasHasChildrenExpandedClass: 'expanded'
         	},
         	settings = $.extend({}, defaults, options);
 
 		var $this = $(this),
 			eventHandlersBound = false,
 			$floatNav = $(settings.floatNavContainer),
-			$offCanvas = $(settings.offCanvasContainer);
+			$offCanvas = $(settings.offCanvasContainer),
+			$offCanvasHasChildren = $(settings.offCanvasHasChildrenContainer);
 
 		$.fn.openOffCanvas = function(e) {
 			e.preventDefault();
@@ -82,6 +85,14 @@
 			    // Prevent clicks inside the form to fire click event which toggles visibility
 			    $floatNav.find(settings.searchForm).on('click', function (e) {
 			    	e.stopPropagation();
+			    });
+
+			    // Expand/contract menu items with children, prevent standard click when contracted
+			    $offCanvasHasChildren.children('a').on('click', function (e) {
+			    	if (!$(this).parent().hasClass(settings.offCanvasHasChildrenExpandedClass)) e.preventDefault();
+
+			    	$(this).parent().siblings(settings.offCanvasHasChildrenContainer).removeClass(settings.offCanvasHasChildrenExpandedClass).find(settings.offCanvasHasChildrenContainer).removeClass(settings.offCanvasHasChildrenExpandedClass);
+			    	$(this).parent().addClass(settings.offCanvasHasChildrenExpandedClass);
 			    });
         	}
         }
