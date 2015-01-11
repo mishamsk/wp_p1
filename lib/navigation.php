@@ -69,6 +69,25 @@ function perlovs_modify_query( $query )
 }
 endif; // perlovs_modify_query
 
+add_filter( 'nav_menu_css_class', 'perlovs_current_author_class', 10, 2);
+if ( ! function_exists( 'perlovs_current_author_class' ) ) :
+/**
+ * add current author to nav menu classes
+ */
+function perlovs_current_author_class( $classes, $item )
+{
+	global $post;
+	$author_url = parse_url(get_author_posts_url($post->post_author));
+	$cur_url = substr($item->url, -1) == '/' ? $item->url : $item->url . '/';
+
+	if( is_singular() && !in_category( PERLOVS_TRAVEL_CATEGORY_SLUG ) && !in_category( PERLOVS_FF_CATEGORY_SLUG ) && !has_term('', 'travel') && !has_term('', 'countries') && $cur_url == $author_url['path'])
+	{
+		$classes[] = 'current-author';
+	}
+	return $classes;
+}
+endif; // perlovs_current_author_class
+
 /**
  * Display breadcrumbs
  * @visibility - wrapper class (defaults to all)

@@ -271,7 +271,7 @@
 				}
 			}
 
-			&.current-post-parent, &.current-page-parent, &.current-menu-item {
+			&.current-post-parent, &.current-page-parent, &.current-menu-item, &.current-author {
 				> a {
 					background-color: $off-canvas-current-bg-color;
 					color: $off-canvas-current-color;
