@@ -85,3 +85,104 @@
 	line-height: 1.2em;
 	text-align: center;
 }
+
+// -------------------
+// Date archives
+// -------------------
+
+#archive-yearspicker, #archive-monthpicker {
+	> a:after {
+		content: ",";
+	}
+
+	> a:last-of-type:after {
+		content: "";
+	}
+}
+
+#archive-yearspicker + #archive-monthpicker {
+	@include card;
+	margin-top: 0;
+}
+
+#archive-yearspicker .current {
+	background-color: $archive-yearspicker-current-bg-color;
+	cursor: default;
+	color: $archive-yearspicker-current-link-color;
+	display: inline-block;
+	padding: 0 .5em;
+	text-decoration: none;
+
+	@include box-shadow((1px 0px 0px 0px rgba(0, 0, 0, 0.16)), (-1px 0px 0px 0px rgba(0, 0, 0, 0.16)),(0px -1px 0px 0px rgba(0, 0, 0, 0.16)));
+}
+
+#archive-calender-reveal {
+	display: inline-block;
+	margin-top: .5em;
+}
+
+#wp-calendar-container {
+	background: $search-overlay-background;
+	clip: rect(1px,1px,1px,1px);
+	cursor: default;
+	display: block;
+	height: 100%;
+	left: 0;
+	opacity: 0;
+	position: fixed;
+	text-align: center;
+	width: 100%;
+	top: 0;
+	z-index: 100;
+
+	@include transition(clip 500ms ease, opacity 500ms ease);
+
+	&:target {
+		clip: rect(auto,auto,auto,auto);
+		opacity: 1;
+	}
+}
+
+
+#wp-calendar {
+	background-color: $card-bg-color;
+	color: $wp-calendar-color;
+	margin: 0 auto;
+	position: relative;
+	top: 20%;
+
+	@include content-padding();
+	@include container-shadow(2);
+
+	caption {
+		display: none;
+	}
+
+	thead {
+		background-color: $wp-calendar-head-bg-color;
+		border-bottom: 1px solid $th-border-color;
+		color: $wp-calendar-head-color;
+	}
+
+	th, td {
+		border: none;
+		line-height: 1.2em;
+		padding: .25em;
+		text-align: center;
+	}
+
+	th {
+		font-weight: normal;
+	}
+
+	.current {
+		background-color: $wp-calendar-current-bg-color;
+		a,
+		a:hover,
+		a:active {
+			color: $wp-calendar-current-link-color;
+			cursor: default;
+			text-decoration: none;
+		}
+	}
+}

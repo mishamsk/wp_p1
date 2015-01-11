@@ -10,18 +10,68 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 	get_header();
+
+	$archive = '';
+	$page_title = '';
+	$archive_year  = get_the_time('Y');
+	$archive_month = get_the_time('m');
+	$archive_day   = get_the_time('d');
+
+	if (is_year()) {
+		$args = array(
+			'type' => 'yearly', 'limit' => '',
+			'format' => '', 'before' => '',
+			'after' => '', 'show_post_count' => false,
+			'echo' => 0, 'order' => 'ASC',
+		);
+
+		// Remove current year and add it as the last
+		$archive .= '<div id="archive-yearspicker">' . __('Other years archives: ', 'perlovs') . preg_replace('/<a href=["\']' . preg_quote(get_year_link( $archive_year), '/') . '["\'].*>(.*)<\/a>/iU', '<!-- del -->', wp_get_archives($args)) . '<span class="current" href="#">' . $archive_year . '</span></div>';
+
+		$args = array(
+			'type' => 'monthly', 'limit' => '',
+			'format' => '', 'before' => '',
+			'after' => '', 'show_post_count' => false,
+			'echo' => 0, 'order' => 'ASC',
+		);
+
+		$archive .= '<div id="archive-monthpicker">' . preg_replace('/\s\d{4}/','',wp_get_archives($args)) . '</div>';
+		$page_title = sprintf(_x('All posts written in %s', 'year archive page title', 'perlovs'), get_the_date('Y'));
+	}
+
+	if (is_month()) {
+		$args = array(
+			'type' => 'monthly', 'limit' => '',
+			'format' => '', 'before' => '',
+			'after' => '', 'show_post_count' => false,
+			'echo' => 0, 'order' => 'ASC',
+		);
+
+		// Remove current month
+		$archive .= '<div id="archive-monthpicker">' . __('Other months archives: ', 'perlovs') . preg_replace('/<a href=["\']' . preg_quote(get_month_link( $archive_year, $archive_month), '/') . '["\'].*>(.*)<\/a>/iU', ' ', preg_replace('/\s\d{4}/','',wp_get_archives($args))) . '</div>';
+		$archive .= '<a id="archive-calender-reveal" class="button" href="#wp-calendar-container">' . __('Display calendar', 'perlovs') . '</a>';
+
+		// Calendar must be echoed on higher than everything else for overlay to work
+		echo '<a id="wp-calendar-container" href="#">' . get_calendar(true, false) . '</a>';
+
+		$page_title = sprintf(_x('All posts written in %s %s', 'month archive page title', 'perlovs'), get_the_date('F'), get_the_date('Y'));
+	}
+
+	if (is_day()) {
+		$archive .= '<a id="archive-calender-reveal" class="button" href="#wp-calendar-container">' . __('Display calendar', 'perlovs') . '</a>';
+		// Calendar must be echoed on higher than everything else for overlay to work
+		// Also need to higlight current day
+		echo '<a id="wp-calendar-container" href="#">' . preg_replace('/(?:<td id="today">|<td>)\s*<a href="' . preg_quote(get_day_link( $archive_year, $archive_month, $archive_day), '/') . '".*>(.*)<\/a>\s*<\/td>/iU', '\<td class="current"><a href="#">\1</a></td>', get_calendar(true, false)) . '</a>';
+
+		$page_title = sprintf(_x('All posts written on %s/%s/%s', 'day archive page title', 'perlovs'), get_the_date('d'), get_the_date('m'), get_the_date('Y'));
+	}
 ?>
 	<div class="row">
 		<div class="small-12 columns">
 			<header id="archive-header">
 				<h5><?php perlovs_breadcrumbs(); ?></h5>
-
-					<?php get_calendar(); wp_get_archives(); ?>
-
-				<h1 class="page-title"><?php echo (is_tag() ? __('All posts tagged: ', 'perlovs') : __('All posts in category: ', 'perlovs')) . single_term_title("", false) ?></h1>
-<?php
-				if (!have_posts()) echo '<h6 class="archive-description">' . __('Nothing in here ;-(', 'perlovs') . '</h6>';
-?>
+				<h1 class="page-title"><?php echo $page_title; ?></h1>
+				<div id="archive-datepicker"><?php echo $archive; ?></div>
 			</header>
 		</div> <!-- .small-12 columns -->
 	</div> <!-- .row-->

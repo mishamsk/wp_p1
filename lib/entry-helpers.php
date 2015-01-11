@@ -160,4 +160,18 @@ function modify_excerpt_more($more) {
 }
 endif; // modify_excerpt_more
 
+add_filter('getarchives_where', 'filter_get_archives_by_year', 10, 2);
+if ( ! function_exists( 'filter_get_archives_by_year' ) ) :
+/**
+ * Adjust get_arhives where close for monthly archives so that only current year month is visible
+ */
+function filter_get_archives_by_year($where, $r) {
+    if ( 'monthly' == $r['type'] ) {
+        return $where .= 'AND YEAR(post_date)=' . get_the_date('Y');
+    }
+
+    return $where;
+}
+endif; // filter_get_archives_by_year
+
 ?>

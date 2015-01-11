@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Perlovs v1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2015-01-10 20:04:48+0000\n"
+"PO-Revision-Date: 2015-01-11 21:29:53+0000\n"
 "Last-Translator: misha <mishamsk@gmail.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -56,14 +56,16 @@ msgstr "Читать дальше..."
 msgid "here"
 msgstr "здесь"
 
-#: lib/navigation.php:58
-#: lib/navigation.php:112
+#: lib/navigation.php:86
+#: lib/navigation.php:91
+#: lib/navigation.php:127
+#: lib/navigation.php:156
 #: lib/travel.php:36
 #@ perlovs
 msgid "Travel"
 msgstr "Путешествия"
 
-#: lib/navigation.php:184
+#: lib/navigation.php:228
 #@ perlovs
 msgid "&hellip;"
 msgstr "&hellip;"
@@ -223,20 +225,17 @@ msgid "Pages:"
 msgstr "Страницы: "
 
 #: archive.php:18
-#: date.php:21
 #@ perlovs
 msgid "All posts tagged: "
 msgstr "Все посты с тэгом: "
 
 #: archive.php:18
-#: date.php:21
 #@ perlovs
 msgid "All posts in category: "
 msgstr "Все записи в категории: "
 
 #: archive.php:21
 #: category-friends-family.php:21
-#: date.php:23
 #@ perlovs
 msgid "Nothing in here ;-("
 msgstr "Здесь ничего нет ;-("
@@ -262,48 +261,49 @@ msgstr "Все, что мы написали"
 msgid "No title"
 msgstr "Без названия"
 
-#: lib/navigation.php:71
+#: lib/navigation.php:108
 #@ perlovs
 msgid "tag archives"
 msgstr "архивы тэгов"
 
-#: lib/navigation.php:78
+#: lib/navigation.php:115
+#: lib/navigation.php:130
 #@ perlovs
 msgid "category archives"
 msgstr "архивы категорий"
 
-#: lib/navigation.php:90
+#: lib/navigation.php:134
 #@ perlovs
 msgid "date archives"
 msgstr "архивы по датам"
 
-#: lib/navigation.php:117
+#: lib/navigation.php:161
 #@ perlovs
 msgid "search results"
 msgstr "поиск"
 
-#: lib/navigation.php:123
+#: lib/navigation.php:167
 #@ perlovs
 msgid "blog"
 msgstr "блог"
 
-#: lib/navigation.php:143
+#: lib/navigation.php:187
 #@ perlovs
 msgid "Home"
 msgstr "Главная"
 
-#: lib/navigation.php:166
-#: lib/navigation.php:178
-#: lib/navigation.php:243
-#: lib/navigation.php:245
+#: lib/navigation.php:210
+#: lib/navigation.php:222
+#: lib/navigation.php:301
+#: lib/navigation.php:303
 #@ perlovs
 msgid "&lt;"
 msgstr "&lt;"
 
-#: lib/navigation.php:167
-#: lib/navigation.php:197
-#: lib/navigation.php:255
-#: lib/navigation.php:257
+#: lib/navigation.php:211
+#: lib/navigation.php:241
+#: lib/navigation.php:313
+#: lib/navigation.php:315
 #@ perlovs
 msgid "&gt;"
 msgstr "&gt;"
@@ -363,11 +363,6 @@ msgstr "Имя пользователя в Vkontakte"
 msgid "Google+ Username"
 msgstr "Имя пользователя в Google+"
 
-#: lib/navigation.php:138
-#@ perlovs
-msgid "authors"
-msgstr "авторы"
-
 #: 404.php:19
 #@ perlovs
 msgid "The page you are looking for might have been removed, had its name changed, or is temporarily unavailable. You can try to go <a href=\"javascript:history.back()\">back</a> or use the search below."
@@ -393,4 +388,41 @@ msgstr "Оглавление путешествия \"%s\""
 #@ perlovs
 msgid "This trip is empty for now. Come back later!"
 msgstr "Про это путешествие мы еще ничего не написали. Возвращайся чуть позже!"
+
+#: date.php:39
+#, php-format
+#@ perlovs
+msgctxt "year archive page title"
+msgid "All posts written in %s"
+msgstr "Все записи в %s году"
+
+#: date.php:52
+#: date.php:61
+#@ perlovs
+msgid "Display calendar"
+msgstr "Показать календарь"
+
+#: date.php:57
+#, php-format
+#@ perlovs
+msgctxt "month archive page title"
+msgid "All posts written in %s %s"
+msgstr "Все записи за %s %s"
+
+#: date.php:66
+#, php-format
+#@ perlovs
+msgctxt "day archive page title"
+msgid "All posts written on %s/%s/%s"
+msgstr "Все записи за %s/%s/%s"
+
+#: date.php:29
+#@ perlovs
+msgid "Other years archives: "
+msgstr "Архивы за другие года: "
+
+#: date.php:51
+#@ perlovs
+msgid "Other months archives: "
+msgstr "Архивы за другие месяцы: "
 
