@@ -285,7 +285,7 @@
 		"outputAbbreviatedPath": "\/js\/min\/app-front-min.js",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
-		"outputStyle": 0,
+		"outputStyle": 2,
 		"syntaxCheckerStyle": 1
 		},
 	"\/js\/app.js": {
@@ -296,7 +296,7 @@
 		"outputAbbreviatedPath": "\/js\/min\/app-min.js",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
-		"outputStyle": 0,
+		"outputStyle": 2,
 		"syntaxCheckerStyle": 1
 		},
 	"\/js\/min\/app-front-min.js": {
@@ -830,7 +830,7 @@
 		"outputAbbreviatedPath": "\/style-front.css",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
-		"outputStyle": 0,
+		"outputStyle": 3,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
 		"useLibsass": 0
@@ -846,7 +846,7 @@
 		"outputAbbreviatedPath": "\/style.css",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
-		"outputStyle": 0,
+		"outputStyle": 3,
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
 		"useLibsass": 0
