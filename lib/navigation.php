@@ -60,7 +60,7 @@ function perlovs_modify_query( $query )
     }
 
     // Separate blog parts, show travel and ff posts only on corresponging archives
-    if ( !$query->is_tax('travel') && !$query->is_tax('countries') && !is_category(PERLOVS_FF_CATEGORY_SLUG) && !is_category(PERLOVS_TRAVEL_CATEGORY_SLUG) ) {
+    if ( !$query->is_tax('travel') && !$query->is_tax('countries') && !is_category(PERLOVS_FF_CATEGORY_SLUG) && !is_category(PERLOVS_TRAVEL_CATEGORY_SLUG) && !$query->is_date() && !$query->is_tag() && !$query->is_search()) {
     	global $perlovs_ff_category_id, $perlovs_travel_category_id;
 
     	$query->set( 'cat', '-' . $perlovs_ff_category_id . ',-' . $perlovs_travel_category_id);
