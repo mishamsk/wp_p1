@@ -30,9 +30,7 @@
             	$this = $(this),
             	enableMove = false;
 
-            var Modernizr = window.Modernizr || {};
-
-            if (!Modernizr.touch) { return true; }
+            if (!("ontouchstart" in window)) { return true; }
 
             function touchstart(event) {
                 var touches = event.originalEvent.touches;

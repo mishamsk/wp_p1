@@ -157,9 +157,9 @@ function perlovs_scripts() {
     wp_register_script( 'jquery', '//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js', array(), null, true );
 
 	// enqueue head scripts
-    if(!is_front_page()) {
-        wp_enqueue_script( 'modernizr', PERLOVS_THEME_URL .'/js/modernizr/modernizr.perlovs.js', array(), null, false );
-    }
+    // if(!is_front_page()) {
+    //     wp_enqueue_script( 'modernizr', PERLOVS_THEME_URL .'/js/modernizr/modernizr.perlovs.js', array(), null, false );
+    // }
 
 	// enqueue footer scripts
 	//wp_enqueue_script( 'jq', PERLOVS_THEME_URL . '/bower_components/foundation/js/vendor/jquery.js', array(), null, true );
