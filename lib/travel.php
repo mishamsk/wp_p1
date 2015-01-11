@@ -79,6 +79,7 @@ function create_travel_taxonomies() {
 	register_taxonomy( 'countries', array( 'post' ), $args );
 }
 
+add_filter( 'body_class', 'perlovs_taxonomy_body_class' );
 if ( ! function_exists( 'perlovs_taxonomy_body_class' ) ) :
 /**
  * add taxoonomy and terms to body_class
@@ -97,9 +98,6 @@ function perlovs_taxonomy_body_class( $classes )
 	return $classes;
 }
 endif; // perlovs_taxonomy_body_class
-
-// add taxoonomy and terms to body_class
-add_filter( 'body_class', 'perlovs_taxonomy_body_class' );
 
 if ( ! function_exists( 'perlovs_gmaps_load' ) ) :
 /**
