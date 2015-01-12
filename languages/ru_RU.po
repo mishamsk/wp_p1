@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Perlovs v1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2015-01-12 12:52:42+0000\n"
+"PO-Revision-Date: 2015-01-12 16:32:50+0000\n"
 "Last-Translator: misha <mishamsk@gmail.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -214,11 +214,6 @@ msgstr "Что ищем?"
 msgid "Go!"
 msgstr "Искать!"
 
-#: travel.php:19
-#@ perlovs
-msgid "Pages:"
-msgstr "Страницы: "
-
 #: archive.php:18
 #@ perlovs
 msgid "All posts tagged: "
@@ -421,12 +416,14 @@ msgstr "Архивы за другие года: "
 msgid "Other months archives: "
 msgstr "Архивы за другие месяцы: "
 
-#: lib/travel.php:145
+#: lib/travel.php:154
+#: travel-index.php:31
+#: travel-index.php:61
 #, php-format
 #@ perlovs
 msgctxt "countries list"
 msgid "View all post from %s"
-msgstr ""
+msgstr "Все записи из"
 
 #: taxonomy-countries.php:18
 #, php-format
@@ -445,6 +442,7 @@ msgid "Other countries: "
 msgstr "Другие страны: "
 
 #: taxonomy-countries.php:25
+#: travel-index.php:71
 #@ perlovs
 msgid "Show on map"
 msgstr "Посмотреть на карте"

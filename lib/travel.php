@@ -101,30 +101,39 @@ endif; // perlovs_taxonomy_body_class
 
 if ( ! function_exists( 'perlovs_gmaps_localize' ) ) :
 /**
- * Localize gmaps scripts to provide it with all countries in the blog and current country
+ * Localize gmaps scripts to provide it with all countries in the blog and current country if present
  */
 function perlovs_gmaps_localize( $handle )
 {
     global $wp_query, $post;
-    if (is_tax( 'countries' )) {
-	    $current_country = $wp_query->get_queried_object()->slug;
-		$terms = get_terms( 'countries' );
-		if ( ! empty( $terms ) && ! is_wp_error( $terms ) ) {
-			$all_country_slugs = array_map(function($o) { return ucfirst($o->slug); }, $terms);
+
+    $gmaps_all_query = '';
+    $gmaps_other_query = '';
+    $current_query = '';
+
+    $terms = get_terms( 'countries' );
+
+	if ( ! empty( $terms ) && ! is_wp_error( $terms ) ) {
+		$all_country_slugs = array_map(function($o) { return ucfirst($o->slug); }, $terms);
+		$gmaps_all_query = "Name IN ('" . implode($all_country_slugs, "','") . "')";
+		$gmaps_other_query = $gmaps_all_query;
+
+		if (is_tax( 'countries' )) {
+		    $current_country = $wp_query->get_queried_object()->slug;
 			$other_country_slugs = array_filter($all_country_slugs, function($a) use($current_country) { return $a !== ucfirst($current_country); });
-			$gmaps_all_query = "Name IN ('" . implode($all_country_slugs, "','") . "')";
 			$gmaps_other_query = "Name IN ('" . implode($other_country_slugs, "','") . "')";
 			$current_query = "Name IN ('" . ucfirst($current_country) . "')";
+	    }
+	}
 
-			$gmaps_vars = array(
-		        'allQuery' => $gmaps_all_query,
-		        'otherQuery' => $gmaps_other_query,
-		        'currentQuery' => $current_query
-		    );
+    $gmaps_vars = array(
+        'allQuery' => $gmaps_all_query,
+        'otherQuery' => $gmaps_other_query,
+        'currentQuery' => $current_query
+    );
 
-		    wp_localize_script( $handle, 'gmapsVars', $gmaps_vars );
-		}
-    }
+    wp_localize_script( $handle, 'gmapsVars', $gmaps_vars );
+
 }
 endif; // perlovs_gmaps_localize
 
@@ -150,5 +159,33 @@ function perlovs_get_country_links( $echo = true )
 	else return $term_list;
 }
 endif; // perlovs_get_country_links
+
+if(!function_exists('perlovs_get_tax_bg_image_style')) :
+    /*
+        Echoes style="background-image: ..." with latest post in given taxonomy term featured image
+    */
+    function perlovs_get_tax_bg_image_style($taxonomy, $term, $size = 'full') {
+    	$args = array( 'numberposts' => 1, 'post_status' => 'publish',
+    					'tax_query' => array(
+								array(
+									'taxonomy' => $taxonomy,
+									'field' => 'slug',
+									'terms' => $term
+								)
+							));
+        $recent_posts = wp_get_recent_posts( $args, OBJECT );
+        $post_id = $recent_posts[0]->ID;
+        $bg_image = '';
+
+        if ( get_the_post_thumbnail( $post_id, $size )) {
+            $bg_image = get_the_post_thumbnail( $post_id, $size );
+            $preg_ar = array();
+            preg_match('/src="([^"]*)"/i', $bg_image, $preg_ar);
+            $bg_image = 'background-image: url(' . $preg_ar[1] . ');';
+        }
+
+        if ( $bg_image != '' ) echo 'style="' . $bg_image . '"';
+    }
+endif; // perlovs_get_tax_bg_image_style
 
 ?>

@@ -80,7 +80,7 @@ function perlovs_current_author_class( $classes, $item )
 	$author_url = parse_url(get_author_posts_url($post->post_author));
 	$cur_url = substr($item->url, -1) == '/' ? $item->url : $item->url . '/';
 
-	if( is_singular() && !in_category( PERLOVS_TRAVEL_CATEGORY_SLUG ) && !in_category( PERLOVS_FF_CATEGORY_SLUG ) && !has_term('', 'travel') && !has_term('', 'countries') && !is_page_template( 'travel.php' ) && $cur_url == $author_url['path'])
+	if( is_singular() && !in_category( PERLOVS_TRAVEL_CATEGORY_SLUG ) && !in_category( PERLOVS_FF_CATEGORY_SLUG ) && !has_term('', 'travel') && !has_term('', 'countries') && !is_page_template( 'travel-index.php' ) && $cur_url == $author_url['path'])
 	{
 		$classes[] = 'current-author';
 	}

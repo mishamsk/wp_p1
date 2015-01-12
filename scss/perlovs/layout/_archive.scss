@@ -3,9 +3,10 @@
 */
 
 // -------------------
-// Header area
+// General archives
 // -------------------
 
+// Header area
 #archive-header, .secondary-title {
 	margin: .5em 0 0;
 
@@ -16,10 +17,8 @@
 	margin-top: .2em;
 }
 
-// -------------------
-// Article
-// -------------------
 
+// Article
 .archive-article {
 	img {
 		display: block;
@@ -78,13 +77,58 @@
 	display: inline-block;
 }
 
+// -------------------
 // 404
+// -------------------
 .err-404 {
 	color: $err-404-color;
 	font-size: 7em;
 	line-height: 1.2em;
 	text-align: center;
 }
+
+// -------------------
+// Travel index
+// -------------------
+.archive-travel-country {
+	background-position: 50% 50%;
+	background-repeat: no-repeat;
+	background-size: cover;
+	float: left;
+	height: em-calc(100px);
+	margin: .5em .5em;
+	padding: 2.5em .25em .25em;
+	text-align: center;
+	width: em-calc(150px);
+
+	@include container-shadow(1);
+
+	a {
+		background-color: $card-bg-color;
+		display: inline-block;
+		padding: .25em;
+
+		@include container-shadow(1);
+	}
+}
+
+#archive-travel-map {
+	margin: .5em 0;
+	text-align: center;
+
+	button {
+		display: inline-block;
+
+		@include perlovs-button($font-size: 16px, $transparent: 0);
+	}
+
+	#map-canvas {
+		height: 15em;
+
+		@include card;
+	}
+}
+
 
 // -------------------
 // Countries archives
