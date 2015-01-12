@@ -46,6 +46,7 @@
 		$.fn.closeOffCanvas = function(e) {
 			e.preventDefault();
 			$('body').removeClass(settings.offCanvasMoveClass);
+			$offCanvasHasChildren.removeClass(settings.offCanvasHasChildrenExpandedClass);
 		};
 
 		// Bind events, check for mediaQuery (responsive)
@@ -93,6 +94,11 @@
 
 			    	$(this).parent().siblings(settings.offCanvasHasChildrenContainer).removeClass(settings.offCanvasHasChildrenExpandedClass).find(settings.offCanvasHasChildrenContainer).removeClass(settings.offCanvasHasChildrenExpandedClass);
 			    	$(this).parent().addClass(settings.offCanvasHasChildrenExpandedClass);
+			    });
+
+			    // Prevent click on a.current-menu-item
+			    $('li.current-menu-item > a').on('click', function (e) {
+			    	e.preventDefault();
 			    });
         	}
         }

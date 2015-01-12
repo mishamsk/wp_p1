@@ -298,12 +298,14 @@
 			&.current-menu-ancestor:not(.expanded), &.current-menu-parent:not(.expanded) {
 				> a {
 					background-color: $off-canvas-current-bg-color;
-					color: $off-canvas-current-color;
+					color: $off-canvas-current-color !important;
 				}
 			}
 
 			&.menu-item-has-children:not(.expanded) {
 				> a {
+					color: $off-canvas-has-children-color;
+
 					&:after {
 						content: "\f14f";
 						display: inline-block;
@@ -323,9 +325,12 @@
 			}
 
 			ul {
-				display: none;
 				margin: 0;
+				max-height: 0;
 				padding: 0;
+				overflow: hidden;
+
+				@include transition(max-height 100ms ease);
 
 				li {
 					margin: 0;
@@ -344,7 +349,9 @@
 			}
 
 			&.expanded > ul {
-				display: block;
+				max-height: 50em;
+
+				@include transition(max-height 1000ms ease);
 			}
 		}
 	}

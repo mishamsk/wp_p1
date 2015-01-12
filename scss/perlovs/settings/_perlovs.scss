@@ -54,7 +54,7 @@ $primary-grey: #515151;
 
 $border-color: $primary-grey;
 $hover-bg-color: #EEE;
-$current-bg-color: #808080;
+$current-bg-color: #C3C3C3;
 $overlay-color: rgba(#FFF, 0.5);
 
 // Type
@@ -110,6 +110,7 @@ $off-canvas-current-bg-color: $current-bg-color;
 $off-canvas-current-color: #FFF;
 $off-canvas-overlay-background: $overlay-color;
 $off-canvas-overlay-background-hover: $overlay-color;
+$off-canvas-has-children-color: $h-color;
 
 // Article
 $article-footer-bg-color: #F4F4F4;
