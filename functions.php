@@ -170,6 +170,8 @@ function perlovs_scripts() {
         wp_enqueue_script( 'theme_js', PERLOVS_THEME_URL .'/js/min/app-front-min.js', array(), null, true );
     }
     else {
+        wp_register_script( 'theme_js', PERLOVS_THEME_URL .'/js/min/app-min.js', array('jquery'), null, true );
+        perlovs_gmaps_localize('theme_js');
         wp_enqueue_script( 'theme_js', PERLOVS_THEME_URL .'/js/min/app-min.js', array('jquery'), null, true );
     }
 
@@ -198,21 +200,6 @@ function perlovs_wp_title_for_home( $title )
     return $title;
 }
 endif; // perlovs_wp_title_for_home
-
-add_action( 'wp_footer', 'perlovs_disqus_lazy_load', 100 );
-if ( ! function_exists( 'perlovs_disqus_lazy_load' ) ) :
-/**
- * Bind disqus to comment-toggle buttons
- */
-function perlovs_disqus_lazy_load(  )
-{
-    global $post;
-    if (is_single() && ( have_comments() || 'open' == $post->comment_status )) {
-        echo '
-            <script type="text/javascript">$(".comment-toggle").perlovsDisqus({disqus_shortname: disqus_shortname});</script>';
-    }
-}
-endif; // perlovs_disqus_lazy_load
 
 add_filter('user_contactmethods', 'perlovs_add_user_contactdata');
 if ( ! function_exists( 'perlovs_add_user_contactdata' ) ) :

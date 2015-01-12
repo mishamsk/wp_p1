@@ -1,5 +1,5 @@
 /* ===========================================================
- * Gisqus lazy load scripts for p1 theme
+ * Disqus lazy load scripts for p1 theme
  * ===========================================================
  * Copyright 2014 Mikhail Perlov.
  * http://perlovs.com

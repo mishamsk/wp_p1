@@ -296,7 +296,7 @@
 		"outputAbbreviatedPath": "\/js\/min\/app-min.js",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
-		"outputStyle": 2,
+		"outputStyle": 0,
 		"syntaxCheckerStyle": 1
 		},
 	"\/js\/min\/app-front-min.js": {
@@ -349,6 +349,17 @@
 		"ignoreWasSetByUser": 1,
 		"inputAbbreviatedPath": "\/js\/perlovs\/perlovs-general.js",
 		"outputAbbreviatedPath": "\/js\/perlovs\/min\/perlovs-general-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/js\/perlovs\/perlovs-gmaps.js": {
+		"fileType": 64,
+		"ignore": 1,
+		"ignoreWasSetByUser": 1,
+		"inputAbbreviatedPath": "\/js\/perlovs\/perlovs-gmaps.js",
+		"outputAbbreviatedPath": "\/js\/perlovs\/min\/perlovs-gmaps-min.js",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 1,
@@ -959,6 +970,12 @@
 			"followForSyntaxChecking": 1,
 			"linkedFileAbbreviatedPath": "\/js\/perlovs\/perlovs-disqus.js",
 			"position": 3,
+			"type": 0
+			},
+		{
+			"followForSyntaxChecking": 1,
+			"linkedFileAbbreviatedPath": "\/js\/perlovs\/perlovs-gmaps.js",
+			"position": 4,
 			"type": 0
 			}
 		]
