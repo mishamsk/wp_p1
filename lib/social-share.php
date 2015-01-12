@@ -22,7 +22,7 @@ if ( ! function_exists( 'perlovs_social' ) ) :
 		?>
 
 		<div <?php echo $id ? 'id="' . $id . '"' : ''; ?> class="social-sharing-bar">
-		  <a class="social-facebook" rel="external nofollow" href="https://www.facebook.com/dialog/share?app_class=386141574823982&amp;display=popup&amp;href=<?php echo $url; ?>&amp;redirect_uri=<?php echo $url; ?>" target="_blank" title="Поделись в Facebook!">
+		  <a class="social-facebook" rel="external nofollow" href="https://www.facebook.com/dialog/share?app_id=386141574823982&amp;display=popup&amp;href=<?php echo $url; ?>&amp;redirect_uri=<?php echo $url; ?>" target="_blank" title="Поделись в Facebook!">
 		    <i class="icon-social-facebook"></i>
 		  </a>
 		  <a class="social-twitter" rel="external nofollow" href="http://twitter.com/intent/tweet/?url=<?php echo $url; ?>&amp;text=%22<?php echo $title; ?>%22 - это стоит прочесть %23perlovs" target="_blank" title="Поделись в Твиттере!">

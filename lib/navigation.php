@@ -283,12 +283,12 @@ if ( ! function_exists( 'perlovs_single_pagination') ) :
 				previous_post_link( $previous, '&lt;&lt; %title', true, '', 'travel' );
 			}
 			elseif (in_category( PERLOVS_FF_CATEGORY_SLUG )) {
-				$prev_post = get_previous_post(true, $perlovs_ff_category_id);
-				previous_post_link( $previous, '&lt;&lt; %title', true, $perlovs_ff_category_id );
+				$prev_post = get_previous_post(true);
+				previous_post_link( $previous, '&lt;&lt; %title', true );
 			}
 			elseif (in_category( PERLOVS_TRAVEL_CATEGORY_SLUG )) {
 				$prev_post = get_previous_post(true, $perlovs_travel_category_id);
-				previous_post_link( $previous, '&lt;&lt; %title', true, $perlovs_travel_category_id );
+				previous_post_link( $previous, '&lt;&lt; %title', true );
 			}
 			else {
 				$travel_terms = get_terms( 'travel', array('fields' => 'ids') );
@@ -343,10 +343,10 @@ if ( ! function_exists( 'perlovs_single_pagination') ) :
 				next_post_link( $next, '%title &gt;&gt;', true, '', 'travel' );
 			}
 			elseif (in_category( PERLOVS_FF_CATEGORY_SLUG )) {
-				next_post_link( $next, '%title &gt;&gt;', true, $perlovs_ff_category_id );
+				next_post_link( $next, '%title &gt;&gt;', true );
 			}
 			elseif (in_category( PERLOVS_TRAVEL_CATEGORY_SLUG )) {
-				next_post_link( $next, '%title &gt;&gt;', true, $perlovs_travel_category_id );
+				next_post_link( $next, '%title &gt;&gt;', true );
 			}
 			else {
 				next_post_link( $next, '%title &gt;&gt;', false, $travel_terms);

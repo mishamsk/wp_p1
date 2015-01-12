@@ -30,8 +30,8 @@
 
 			var script = document.createElement('script');
 			script.type = 'text/javascript';
-			//script.src = 'http://maps.googleapis.com/maps/api/js?v=3.exp&key=' + settings.api_key + '&' + 'callback=initMap';
-		  	script.src = 'http://maps.googleapis.com/maps/api/js?v=3.exp' + '&' + 'callback=initMap';
+			script.src = 'http://maps.googleapis.com/maps/api/js?v=3.exp&key=' + settings.api_key + '&' + 'callback=initMap';
+		  	//script.src = 'http://maps.googleapis.com/maps/api/js?v=3.exp' + '&' + 'callback=initMap';
 			document.head.appendChild(script);
 		}
 
