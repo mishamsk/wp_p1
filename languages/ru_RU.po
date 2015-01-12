@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Perlovs v1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2015-01-11 21:29:53+0000\n"
+"PO-Revision-Date: 2015-01-12 12:52:42+0000\n"
 "Last-Translator: misha <mishamsk@gmail.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -41,11 +41,6 @@ msgstr "Такой страницы здесь нет..."
 msgid "Cheating is bad!"
 msgstr "Хакерам здесь не место!"
 
-#: comments.php:9
-#@ perlovs
-msgid "This post is password protected. Enter the password to view comments."
-msgstr ""
-
 #: content.php:60
 #@ perlovs
 msgid "Continue reading..."
@@ -56,16 +51,16 @@ msgstr "Читать дальше..."
 msgid "here"
 msgstr "здесь"
 
-#: lib/navigation.php:86
-#: lib/navigation.php:91
-#: lib/navigation.php:127
-#: lib/navigation.php:156
+#: lib/navigation.php:105
+#: lib/navigation.php:110
+#: lib/navigation.php:146
+#: lib/navigation.php:175
 #: lib/travel.php:36
 #@ perlovs
 msgid "Travel"
 msgstr "Путешествия"
 
-#: lib/navigation.php:228
+#: lib/navigation.php:247
 #@ perlovs
 msgid "&hellip;"
 msgstr "&hellip;"
@@ -261,49 +256,49 @@ msgstr "Все, что мы написали"
 msgid "No title"
 msgstr "Без названия"
 
-#: lib/navigation.php:108
+#: lib/navigation.php:127
 #@ perlovs
 msgid "tag archives"
 msgstr "архивы тэгов"
 
-#: lib/navigation.php:115
-#: lib/navigation.php:130
+#: lib/navigation.php:134
+#: lib/navigation.php:149
 #@ perlovs
 msgid "category archives"
 msgstr "архивы категорий"
 
-#: lib/navigation.php:134
+#: lib/navigation.php:153
 #@ perlovs
 msgid "date archives"
 msgstr "архивы по датам"
 
-#: lib/navigation.php:161
+#: lib/navigation.php:180
 #@ perlovs
 msgid "search results"
 msgstr "поиск"
 
-#: lib/navigation.php:167
+#: lib/navigation.php:186
 #@ perlovs
 msgid "blog"
 msgstr "блог"
 
-#: lib/navigation.php:187
+#: lib/navigation.php:206
 #@ perlovs
 msgid "Home"
 msgstr "Главная"
 
-#: lib/navigation.php:210
-#: lib/navigation.php:222
-#: lib/navigation.php:301
-#: lib/navigation.php:303
+#: lib/navigation.php:229
+#: lib/navigation.php:241
+#: lib/navigation.php:320
+#: lib/navigation.php:322
 #@ perlovs
 msgid "&lt;"
 msgstr "&lt;"
 
-#: lib/navigation.php:211
-#: lib/navigation.php:241
-#: lib/navigation.php:313
-#: lib/navigation.php:315
+#: lib/navigation.php:230
+#: lib/navigation.php:260
+#: lib/navigation.php:332
+#: lib/navigation.php:334
 #@ perlovs
 msgid "&gt;"
 msgstr "&gt;"
@@ -333,32 +328,32 @@ msgstr "Прости, мы искали искали, но не смогли н�
 msgid "Leave a thought!"
 msgstr "Что скажешь?"
 
-#: functions.php:225
+#: functions.php:212
 #@ perlovs
 msgid "Facebook Username"
 msgstr "Имя пользователя в Facebook"
 
-#: functions.php:226
+#: functions.php:213
 #@ perlovs
 msgid "Twitter Username"
 msgstr "Имя пользователя в Twitter"
 
-#: functions.php:227
+#: functions.php:214
 #@ perlovs
 msgid "Instagram Username"
 msgstr "Имя пользователя в Instagram"
 
-#: functions.php:228
+#: functions.php:215
 #@ perlovs
 msgid "Linkedin Username"
 msgstr "Имя пользователя в LinkedIn"
 
-#: functions.php:229
+#: functions.php:216
 #@ perlovs
 msgid "Vkontakte Username"
 msgstr "Имя пользователя в Vkontakte"
 
-#: functions.php:230
+#: functions.php:217
 #@ perlovs
 msgid "Google+ Username"
 msgstr "Имя пользователя в Google+"
@@ -425,4 +420,38 @@ msgstr "Архивы за другие года: "
 #@ perlovs
 msgid "Other months archives: "
 msgstr "Архивы за другие месяцы: "
+
+#: lib/travel.php:145
+#, php-format
+#@ perlovs
+msgctxt "countries list"
+msgid "View all post from %s"
+msgstr ""
+
+#: taxonomy-countries.php:18
+#, php-format
+#@ perlovs
+msgid "%s: all posts about this country"
+msgstr "%s: все записи о стране"
+
+#: taxonomy-countries.php:21
+#@ perlovs
+msgid "Unfortunately we have never visited this country, but we certainly are going to do this in future. For now you can select a different country or search for other posts below!"
+msgstr "К сожалению, мы еще не бывали в этой стране или не успели о ней написать. Мы обязательно это исправим, а пока выбирай другую страну или пользуйся поиском!"
+
+#: taxonomy-countries.php:24
+#@ perlovs
+msgid "Other countries: "
+msgstr "Другие страны: "
+
+#: taxonomy-countries.php:25
+#@ perlovs
+msgid "Show on map"
+msgstr "Посмотреть на карте"
+
+#: date.php:38
+#, php-format
+#@ perlovs
+msgid "%s year by month: "
+msgstr "%s год по месяцам: "
 

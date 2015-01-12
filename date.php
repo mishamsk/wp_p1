@@ -26,7 +26,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		);
 
 		// Remove current year and add it as the last
-		$archive .= '<div id="archive-yearspicker">' . __('Other years archives: ', 'perlovs') . preg_replace('/<a href=["\']' . preg_quote(get_year_link( $archive_year), '/') . '["\'].*>(.*)<\/a>/iU', '<!-- del -->', wp_get_archives($args)) . '<span class="current" href="#">' . $archive_year . '</span></div>';
+		$archive .= '<h6 id="archive-yearspicker">' . __('Other years archives: ', 'perlovs') . preg_replace('/<a href=["\']' . preg_quote(get_year_link( $archive_year), '/') . '["\'].*>(.*)<\/a>/iU', ' ', wp_get_archives($args)) . '</h6>';
 
 		$args = array(
 			'type' => 'monthly', 'limit' => '',
@@ -35,7 +35,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			'echo' => 0, 'order' => 'ASC',
 		);
 
-		$archive .= '<div id="archive-monthpicker">' . preg_replace('/\s\d{4}/','',wp_get_archives($args)) . '</div>';
+		$archive .= '<h6 id="archive-monthpicker">' . sprintf(__('%s year by month: ', 'perlovs'), $archive_year) . preg_replace('/\s\d{4}/','',wp_get_archives($args)) . '</h6>';
 		$page_title = sprintf(_x('All posts written in %s', 'year archive page title', 'perlovs'), get_the_date('Y'));
 	}
 
@@ -48,8 +48,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 		);
 
 		// Remove current month
-		$archive .= '<div id="archive-monthpicker">' . __('Other months archives: ', 'perlovs') . preg_replace('/<a href=["\']' . preg_quote(get_month_link( $archive_year, $archive_month), '/') . '["\'].*>(.*)<\/a>/iU', ' ', preg_replace('/\s\d{4}/','',wp_get_archives($args))) . '</div>';
-		$archive .= '<a id="archive-calender-reveal" class="button" href="#wp-calendar-container">' . __('Display calendar', 'perlovs') . '</a>';
+		$archive .= '<h6 id="archive-monthpicker">' . __('Other months archives: ', 'perlovs') . preg_replace('/<a href=["\']' . preg_quote(get_month_link( $archive_year, $archive_month), '/') . '["\'].*>(.*)<\/a>/iU', ' ', preg_replace('/\s\d{4}/','',wp_get_archives($args))) . '</h6>';
+		$archive .= '<a id="archive-calender-reveal" href="#wp-calendar-container">' . __('Display calendar', 'perlovs') . '</a>';
 
 		// Calendar must be echoed on higher than everything else for overlay to work
 		echo '<a id="wp-calendar-container" href="#">' . get_calendar(true, false) . '</a>';
@@ -58,7 +58,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	}
 
 	if (is_day()) {
-		$archive .= '<a id="archive-calender-reveal" class="button" href="#wp-calendar-container">' . __('Display calendar', 'perlovs') . '</a>';
+		$archive .= '<a id="archive-calender-reveal" href="#wp-calendar-container">' . __('Display calendar', 'perlovs') . '</a>';
 		// Calendar must be echoed on higher than everything else for overlay to work
 		// Also need to higlight current day
 		echo '<a id="wp-calendar-container" href="#">' . preg_replace('/(?:<td id="today">|<td>)\s*<a href="' . preg_quote(get_day_link( $archive_year, $archive_month, $archive_day), '/') . '".*>(.*)<\/a>\s*<\/td>/iU', '\<td class="current"><a href="#">\1</a></td>', get_calendar(true, false)) . '</a>';

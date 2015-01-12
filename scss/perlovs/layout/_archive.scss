@@ -87,6 +87,33 @@
 }
 
 // -------------------
+// Countries archives
+// -------------------
+
+#archive-countrypicker {
+	a:after {
+		content: ",";
+	}
+
+	a:last-of-type:after {
+		content: "";
+	}
+
+	#map-canvas {
+		height: 15em;
+
+		@include card;
+	}
+
+	button {
+		display: block;
+		margin-top: .5em;
+
+		@include perlovs-button($font-size: 16px, $transparent: 0);
+	}
+}
+
+// -------------------
 // Date archives
 // -------------------
 
@@ -100,25 +127,11 @@
 	}
 }
 
-#archive-yearspicker + #archive-monthpicker {
-	@include card;
-	margin-top: 0;
-}
-
-#archive-yearspicker .current {
-	background-color: $archive-yearspicker-current-bg-color;
-	cursor: default;
-	color: $archive-yearspicker-current-link-color;
-	display: inline-block;
-	padding: 0 .5em;
-	text-decoration: none;
-
-	@include box-shadow((1px 0px 0px 0px rgba(0, 0, 0, 0.16)), (-1px 0px 0px 0px rgba(0, 0, 0, 0.16)),(0px -1px 0px 0px rgba(0, 0, 0, 0.16)));
-}
-
 #archive-calender-reveal {
 	display: inline-block;
 	margin-top: .5em;
+
+	@include perlovs-button($font-size: 16px, $transparent: 0);
 }
 
 #wp-calendar-container {
