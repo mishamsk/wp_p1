@@ -169,39 +169,6 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
-	"\/img\/fback-authors.jpg": {
-		"fileType": 16384,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"initialSize": 287341,
-		"inputAbbreviatedPath": "\/img\/fback-authors.jpg",
-		"outputAbbreviatedPath": "\/img\/fback-authors.jpg",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"processed": 0
-		},
-	"\/img\/fback-greeting.jpg": {
-		"fileType": 16384,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"initialSize": 263473,
-		"inputAbbreviatedPath": "\/img\/fback-greeting.jpg",
-		"outputAbbreviatedPath": "\/img\/fback-greeting.jpg",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"processed": 0
-		},
-	"\/img\/fback-travel.jpg": {
-		"fileType": 16384,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"initialSize": 375836,
-		"inputAbbreviatedPath": "\/img\/fback-travel.jpg",
-		"outputAbbreviatedPath": "\/img\/fback-travel.jpg",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"processed": 0
-		},
 	"\/img\/icons\/perlovs-icon-120x120.png": {
 		"fileType": 32768,
 		"ignore": 0,
@@ -242,28 +209,6 @@
 		"initialSize": 559,
 		"inputAbbreviatedPath": "\/img\/icons\/perlovs-icon-76x76.png",
 		"outputAbbreviatedPath": "\/img\/icons\/perlovs-icon-76x76.png",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"processed": 0
-		},
-	"\/img\/masha-avatar.jpg": {
-		"fileType": 16384,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"initialSize": 8999,
-		"inputAbbreviatedPath": "\/img\/masha-avatar.jpg",
-		"outputAbbreviatedPath": "\/img\/masha-avatar.jpg",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"processed": 0
-		},
-	"\/img\/misha-avatar.jpg": {
-		"fileType": 16384,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"initialSize": 170989,
-		"inputAbbreviatedPath": "\/img\/misha-avatar.jpg",
-		"outputAbbreviatedPath": "\/img\/misha-avatar.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
@@ -316,17 +261,6 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/js\/min\/app-min.js",
 		"outputAbbreviatedPath": "\/js\/min\/min\/app-min-min.js",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"outputStyle": 1,
-		"syntaxCheckerStyle": 1
-		},
-	"\/js\/modernizr\/modernizr.perlovs.js": {
-		"fileType": 64,
-		"ignore": 1,
-		"ignoreWasSetByUser": 1,
-		"inputAbbreviatedPath": "\/js\/modernizr\/modernizr.perlovs.js",
-		"outputAbbreviatedPath": "\/js\/modernizr\/min\/modernizr.perlovs-min.js",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 1,
@@ -494,22 +428,6 @@
 		"shouldRunBless": 0,
 		"useLibsass": 0
 		},
-	"\/scss\/perlovs\/base\/_cat-colorize.scss": {
-		"createSourceMap": 0,
-		"debugStyle": 0,
-		"decimalPrecision": 5,
-		"fileType": 4,
-		"ignore": 1,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/scss\/perlovs\/base\/_cat-colorize.scss",
-		"outputAbbreviatedPath": "\/_cat-colorize.css",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"outputStyle": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
-		"useLibsass": 0
-		},
 	"\/scss\/perlovs\/base\/_grid.scss": {
 		"createSourceMap": 0,
 		"debugStyle": 0,
@@ -535,22 +453,6 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/scss\/perlovs\/base\/_icons.scss",
 		"outputAbbreviatedPath": "\/_icons.css",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"outputStyle": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
-		"useLibsass": 0
-		},
-	"\/scss\/perlovs\/base\/_logo.scss": {
-		"createSourceMap": 0,
-		"debugStyle": 0,
-		"decimalPrecision": 5,
-		"fileType": 4,
-		"ignore": 1,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/scss\/perlovs\/base\/_logo.scss",
-		"outputAbbreviatedPath": "\/_logo.css",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
@@ -925,11 +827,11 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
-	"\/travel.php": {
+	"\/travel-index.php": {
 		"fileType": 8192,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/travel.php",
+		"inputAbbreviatedPath": "\/travel-index.php",
 		"outputAbbreviatedPath": "No Output Path",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
