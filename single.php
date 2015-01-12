@@ -14,7 +14,10 @@
 			<div class="entry-content">
 
 				<?php the_content(); ?>
-				<h6><p class="icon-g-tag post-tags"><?php the_tags('',', ',''); ?></p></h6>
+				<?php 	$posttags = get_the_tags();
+						if ($posttags) : ?>
+					<h6><p class="icon-g-tag post-tags"><?php the_tags('',', ',''); ?></p></h6>
+				<?php 	endif; ?>
 			</div>
 			<footer id="single-footer">
 
