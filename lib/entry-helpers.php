@@ -115,6 +115,21 @@ if(!function_exists('filter_ptags_on_images')) :
 	}
 endif; // filter_ptags_on_images
 
+add_filter('the_content', 'filter_images_archives');
+if(!function_exists('filter_images_archives')) :
+    /*
+        Delete all images from content when on archive page
+    */
+    function filter_images_archives($content)
+    {
+        if (!is_singular()) {
+            return preg_replace('/<img .* \/>/iU', '', $content);
+        }
+
+        return $content;
+    }
+endif; // filter_images_archives
+
 add_filter( 'the_title', 'add_default_title', 10, 2 );
 if ( ! function_exists( 'add_default_title' ) ) :
 /**
