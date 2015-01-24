@@ -135,10 +135,10 @@ p {
 	@include leader(1);
 }
 
-// Remove margin between paragraph and adjacent heading, remove margin of descendant paragraphs
+// Remove margin between paragraph and other block elements and adjacent heading, remove margin of descendant paragraphs
 #{headings(1,6)} {
-	& + p, & p {
-		margin-top: 0;
+	& + p, & + pre, & + ul, & + ol, & + dl, & + blockquote, & + table, & p {
+		margin-top: 0 !important;
 	}
 }
 
