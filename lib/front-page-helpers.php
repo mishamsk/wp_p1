@@ -16,7 +16,11 @@ if(!function_exists('perlovs_get_bg_image_style')) :
         Echoes style="background-image: ..." with latest post in given category featured image
     */
     function perlovs_get_bg_image_style($category_name, $size = 'full') {
-    	$args = array( 'numberposts' => 1, 'post_status' => 'publish', 'category_name' => $category_name);
+    	$args = array(  'numberposts' => 1,
+                        'post_status' => 'publish',
+                        'category_name' => $category_name,
+                        'meta_key' => '_thumbnail_id'
+                    );
         $recent_posts = wp_get_recent_posts( $args, OBJECT );
         $post_id = $recent_posts[0]->ID;
         $bg_image = '';
