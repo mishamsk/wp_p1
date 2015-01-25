@@ -15,6 +15,7 @@
 	// -----------------------
 	$.fn.perlovsNav = function(options) {
 		var defaults = {
+			commentToggle: ".comment-toggle",
             floatNavContainer: "#float-nav",
             floatNavToggle: ".nav-toggle",
             floatNavExpandedClass: "expanded",
@@ -26,6 +27,7 @@
             offCanvasExit: ".exit-off-canvas",
             offCanvasMoveClass: "off-canvas-move",
             offCanvasPos: 'left',
+            offCanvasCurrent: 'li.current-menu-item > a',
             offCanvasHasChildrenContainer: '.menu-item-has-children',
             offCanvasHasChildrenExpandedClass: 'expanded'
         	},
@@ -72,6 +74,7 @@
 			        	.bind("swipeRight", $this.closeOffCanvas);
 			    }
 
+			    // Open/close search/share closing everything else
 			    $floatNav.find(settings.floatNavToggle).on('click', function () {
 			    	$(this).parent().toggleClass(settings.floatNavExpandedClass);
 
@@ -81,6 +84,12 @@
 			    	if ($(this).is(settings.searchToggle) && $(this).parent().hasClass(settings.floatNavExpandedClass)) {
 			    		$floatNav.find(settings.searchInput).val('').focus();
 			    	}
+			    });
+
+			    // Close search/share/offcanvas on comment open
+			    $floatNav.find(settings.commentToggle).on('click', function () {
+			    	$('body').removeClass(settings.offCanvasMoveClass);
+			    	$floatNav.find(settings.floatNavToggle).parent().removeClass(settings.floatNavExpandedClass);
 			    });
 
 			    // Prevent clicks inside the form to fire click event which toggles visibility
@@ -97,7 +106,7 @@
 			    });
 
 			    // Prevent click on a.current-menu-item
-			    $('li.current-menu-item > a').on('click', function (e) {
+			    $(settings.offCanvasCurrent).on('click', function (e) {
 			    	e.preventDefault();
 			    });
         	}
