@@ -34,7 +34,7 @@
 			    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
 			}
 
-			if ($scroll_wrapper.scrollTop() < $comment_wrapper.position().top - $(window).height()) {
+			if ($scroll_wrapper.scrollTop() < $comment_wrapper.position().top) {
 				$scroll_wrapper.scrollTop($comment_wrapper.position().top);
 			}
 
