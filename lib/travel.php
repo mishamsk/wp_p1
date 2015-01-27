@@ -165,7 +165,9 @@ if(!function_exists('perlovs_get_tax_bg_image_style')) :
         Echoes style="background-image: ..." with latest post in given taxonomy term featured image
     */
     function perlovs_get_tax_bg_image_style($taxonomy, $term, $size = 'full') {
-    	$args = array( 'numberposts' => 1, 'post_status' => 'publish',
+    	$args = array( 	'numberposts' => 1,
+    					'post_status' => 'publish',
+    					'meta_key' => '_thumbnail_id',
     					'tax_query' => array(
 								array(
 									'taxonomy' => $taxonomy,
