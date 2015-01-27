@@ -51,7 +51,7 @@
 		}
 
 		@include container-shadow(2, 1000, false);
-		@include perlovs-button($font-size: $float-nav-button-font-size, $round: $float-nav-button-diameter, $transparent: 0.5);
+		@include perlovs-button($font-size: $float-nav-button-font-size, $round: $float-nav-button-diameter);
 	}
 
 	.off-canvas-toggle {
