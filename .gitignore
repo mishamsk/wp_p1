@@ -5,7 +5,7 @@
 /stylesheets/*
 /js/min/*
 *.fuse*
-/style*.css
+/*.css
 /fonts/icons_*
 /fontcustom/icons-preview.html
 /scss/perlovs/base/_icons.scss
