@@ -135,6 +135,13 @@ p {
 	@include leader(1);
 }
 
+// Add space between icon and following links
+p, span, time {
+	&[class*="icon"] a:first-child {
+		margin-left: .25em;
+	}
+}
+
 // Remove margin between paragraph and other block elements and adjacent heading, remove margin of descendant paragraphs
 #{headings(1,6)} {
 	& + p, & + pre, & + ul, & + ol, & + dl, & + blockquote, & + table, & p {
