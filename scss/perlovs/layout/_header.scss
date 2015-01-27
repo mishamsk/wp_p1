@@ -16,6 +16,10 @@
 	// Shadow
 	@include container-shadow(1);
 
+	@media #{$header-fixed} {
+		position: fixed;
+	}
+
 	.home & {
 		margin: 2em 0;
 
