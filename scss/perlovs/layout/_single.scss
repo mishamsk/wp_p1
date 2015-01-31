@@ -27,7 +27,7 @@
 		}
 
 		// Set smaller margin between caption and img
-		p + .image-container {
+		p:not(.image-container) + .image-container {
 			margin: .25em -1em 0;
 		}
 
