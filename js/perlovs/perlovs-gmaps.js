@@ -12,7 +12,6 @@
 
 	$.fn.perlovsGMaps = function(options) {
 		var defaults = {
-            	api_key: "",
             	canvasParent: "",
             	canvasId: "map-canvas"
         	},
@@ -30,8 +29,7 @@
 
 			var script = document.createElement('script');
 			script.type = 'text/javascript';
-			script.src = 'http://maps.googleapis.com/maps/api/js?v=3.exp&key=' + settings.api_key + '&' + 'callback=initMap';
-		  	//script.src = 'http://maps.googleapis.com/maps/api/js?v=3.exp' + '&' + 'callback=initMap';
+			script.src = window.gmapsVars.apiKey === "" ? script.src = 'http://maps.googleapis.com/maps/api/js?v=3.exp&callback=initMap' : 'http://maps.googleapis.com/maps/api/js?v=3&key=' + window.gmapsVars.apiKey + '&' + 'callback=initMap';
 			document.head.appendChild(script);
 		}
 

@@ -129,7 +129,8 @@ function perlovs_gmaps_localize( $handle )
     $gmaps_vars = array(
         'allQuery' => $gmaps_all_query,
         'otherQuery' => $gmaps_other_query,
-        'currentQuery' => $current_query
+        'currentQuery' => $current_query,
+        'apiKey' => get_theme_mod('gmaps_api_key')
     );
 
     wp_localize_script( $handle, 'gmapsVars', $gmaps_vars );
