@@ -29,6 +29,12 @@ require_once('lib/travel.php');
 // Travel taxonomies
 require_once('lib/search-func.php');
 
+// Theme options
+require_once('lib/theme-options.php');
+
+// Helper functions for editor
+require_once('lib/editor-helpers.php');
+
 /**
  * Functions
  */
@@ -104,6 +110,7 @@ function perlovs_setup() {
     global $perlovs_ff_category_id, $perlovs_travel_category_id;
     $perlovs_ff_category_id = get_category_by_slug(PERLOVS_FF_CATEGORY_SLUG)->term_id;
     $perlovs_travel_category_id = get_category_by_slug(PERLOVS_TRAVEL_CATEGORY_SLUG)->term_id;
+
 }
 endif; // perlovs_setup
 
