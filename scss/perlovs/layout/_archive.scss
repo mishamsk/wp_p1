@@ -77,6 +77,25 @@
 	display: inline-block;
 }
 
+// Map canvas in archives
+#map-canvas {
+	height: 15em;
+
+	@include card;
+}
+
+// List pickers (sass placeholder)
+%list-picker {
+	a:after {
+		content: ",";
+	}
+
+	a:last-of-type:after {
+		content: "";
+	}
+}
+
+
 // -------------------
 // 404
 // -------------------
@@ -121,12 +140,6 @@
 
 		@include perlovs-button($font-size: 16px, $transparent: 0);
 	}
-
-	#map-canvas {
-		height: 15em;
-
-		@include card;
-	}
 }
 
 
@@ -135,19 +148,7 @@
 // -------------------
 
 #archive-countrypicker {
-	a:after {
-		content: ",";
-	}
-
-	a:last-of-type:after {
-		content: "";
-	}
-
-	#map-canvas {
-		height: 15em;
-
-		@include card;
-	}
+	@extend %list-picker;
 
 	button {
 		display: block;
@@ -162,13 +163,7 @@
 // -------------------
 
 #archive-yearspicker, #archive-monthpicker {
-	> a:after {
-		content: ",";
-	}
-
-	> a:last-of-type:after {
-		content: "";
-	}
+	@extend %list-picker;
 }
 
 #archive-calender-reveal {

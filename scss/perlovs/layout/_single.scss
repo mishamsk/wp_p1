@@ -57,7 +57,7 @@
 // Post footer
 // -------------------
 
-article.single-article footer {
+.single-article footer {
 	background-color: $article-footer-bg-color;
 	margin: .5em (-($content-side-padding)) -.5em;
 
@@ -66,17 +66,10 @@ article.single-article footer {
 	}
 
 	@include content-padding($padding-top: .25em);
-
-	// @include box-shadow(inset 0 7px 5px -4px rgba(0, 0, 0, 0.16));
 }
 
 // Next previous links
-.previous-post-link {
-	margin-top: .25em !important;
-	margin-bottom: .25em !important;
-}
-
-.next-post-link {
+.previous-post-link, .next-post-link {
 	margin-top: .25em !important;
 	margin-bottom: .25em !important;
 }
