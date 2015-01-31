@@ -1,0 +1,29 @@
+/*
+	Perlovs Wordpress theme editor styles
+*/
+
+// -------------------
+// Post content area
+// -------------------
+
+body#tinymce {
+	@include content-padding($important: true);
+
+	img {
+		display: block;
+		margin: 1.5em auto 0;
+	}
+
+	.image-container {
+		margin: 1.5em -1em 0;
+
+		img {
+			margin: 0 auto;
+		}
+	}
+
+	// Set smaller margin between caption and img
+	p:not(.image-container) + .image-container {
+		margin: .25em -1em 0;
+	}
+}

@@ -14,11 +14,11 @@
 // Mixins
 //----------------------
 
-@mixin content-padding($padding-top: .5em) {
-	padding: $padding-top $content-side-padding;
+@mixin content-padding($padding-top: .5em, $important: false) {
+	padding: if($important == true, $padding-top $content-side-padding !important, $padding-top $content-side-padding);
 
 	@media #{$medium-up} {
-		padding: $padding-top $content-side-padding-medium-up;
+		padding: if($important == true, $padding-top $content-side-padding-medium-up !important, $padding-top $content-side-padding-medium-up);
 	}
 }
 

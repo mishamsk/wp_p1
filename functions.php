@@ -56,7 +56,13 @@ function perlovs_setup() {
 	// Add menu support
     add_theme_support('menus');
 
+    // Editor styles
+    add_editor_style( 'editor-style.css' );
+    add_editor_style( str_replace( ',', '%2C', '//fonts.googleapis.com/css?family=Open+Sans:400,300,700&subset=latin,cyrillic') );
+
+    // -------
     // CleanUp
+    // -------
 
     // EditURI link
     remove_action( 'wp_head', 'rsd_link' );
