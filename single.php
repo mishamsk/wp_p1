@@ -24,7 +24,7 @@ get_header(); ?>
 				<?php the_content(); ?>
 				<?php 	$posttags = get_the_tags();
 						if ($posttags) : ?>
-					<h6><p class="icon-g-tag post-tags"><?php the_tags('',', ',''); ?></p></h6>
+					<h6 class="icon-g-tag post-tags"><?php the_tags('',', ',''); ?></h6>
 				<?php 	endif; ?>
 			</div>
 			<footer id="single-footer">
