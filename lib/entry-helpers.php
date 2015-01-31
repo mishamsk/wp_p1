@@ -115,6 +115,24 @@ if(!function_exists('filter_ptags_on_images')) :
 	}
 endif; // filter_ptags_on_images
 
+add_filter('tiny_mce_before_init', 'filter_ptags_on_images_tinymce');
+if(!function_exists('filter_ptags_on_images_tinymce')) :
+    /*
+        WP wraps all images in <p> tags, add special class for styling
+    */
+    function filter_ptags_on_images_tinymce($init)
+    {
+        $init['setup'] = "function(ed) {
+                ed.on('BeforeSetContent', function(e) {
+                    if ( e.content ) {
+                        e.content = e.content.replace( /<p>\s*(<a [^>]*>)?\s*(<img [^>]*>)\s*(<\/a>)?\s*<\/p>/ig, '<p class=\"image-container\">$1$2$3<p>' );
+                    }
+                });
+            }";
+        return $init;
+    }
+endif; // filter_ptags_on_images_tinymce
+
 add_filter('the_content', 'filter_images_archives');
 if(!function_exists('filter_images_archives')) :
     /*
