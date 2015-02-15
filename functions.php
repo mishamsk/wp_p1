@@ -35,6 +35,9 @@ require_once('lib/theme-options.php');
 // Helper functions for editor
 require_once('lib/editor-helpers.php');
 
+// Responsive images settings and functions
+require_once('lib/responsive-images.php');
+
 /**
  * Functions
  */
