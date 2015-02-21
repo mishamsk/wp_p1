@@ -37,4 +37,25 @@ if(!function_exists('perlovs_add_styles_tinymce')) :
     }
 endif; // perlovs_add_styles_tinymce
 
+
+add_filter('tiny_mce_before_init', 'filter_ptags_on_images_tinymce');
+if(!function_exists('filter_ptags_on_images_tinymce')) :
+    /*
+        WP wraps all images in <p> tags, add special class for styling
+    */
+    function filter_ptags_on_images_tinymce($init)
+    {
+        $init['setup'] = "function(ed) {
+                addPClass = function(e) {
+                    if ( e.content ) {
+                        e.content = e.content.replace( /<p>\s*(<a [^>]*>)?\s*(<img [^>]*>)\s*(<\/a>)?\s*<\/p>/ig, '<p class=\"image-container\">$1$2$3<p>' );
+                    }
+                };
+
+                ed.on('BeforeSetContent', addPClass);
+            }";
+        return $init;
+    }
+endif; // filter_ptags_on_images_tinymce
+
 ?>
