@@ -57,7 +57,6 @@ function perlovs_setup() {
 
 	// This theme uses Featured Images (also known as post thumbnails) for archive pages
 	add_theme_support( 'post-thumbnails' );
-    set_post_thumbnail_size( 470, 470 );
 
 	// Add HTML5 elements
 	add_theme_support( 'html5', array( 'comment-list', 'search-form', 'comment-form') );

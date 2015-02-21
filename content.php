@@ -31,7 +31,7 @@ $use_bg_image = $use_bg_image && $article_bg_image != '';
 		<div class="small-12 medium-6 columns">
 			<?php if ( !$use_bg_image) : ?>
 				<a id="feature-<?php the_ID(); ?>" href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
-					<?php the_post_thumbnail(); ?>
+					<?php the_post_thumbnail('medium'); ?>
 				</a>
 			<?php else : ?>
 				<div class="archive-article-placeholder"></div>
