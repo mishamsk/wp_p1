@@ -17,8 +17,9 @@ if ( ! function_exists( 'perlovs_social' ) ) :
  */
 	function perlovs_social($id = NULL)
 	{
-		$title = urlencode( get_the_title() );
-		$url = urlencode( get_permalink() );
+		global $wp;
+		$title = urlencode( wp_title( '|', false, 'right' ) );
+		$url = urlencode( home_url( $wp->request ) );
 		?>
 
 		<div <?php echo $id ? 'id="' . $id . '"' : ''; ?> class="social-sharing-bar">
