@@ -18,6 +18,10 @@
 
 	@media #{$header-fixed} {
 		position: fixed;
+
+		.home & {
+			position: relative;
+		}
 	}
 
 	.home & {
