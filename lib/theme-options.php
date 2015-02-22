@@ -32,7 +32,7 @@ function perlovs_customize_register( $wp_customize )
     $wp_customize->add_control(
         'gmaps_api_key_control',
         array(
-            'label'    => __( 'Gmaps Api key', 'mytheme' ),
+            'label'    => __( 'Gmaps Api key', 'perlovs' ),
             'section'  => 'gmaps_section',
             'settings' => 'gmaps_api_key',
             'type'     => 'text',

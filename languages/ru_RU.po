@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Perlovs v1.0.0\n"
+"Project-Id-Version: Perlovs v1.1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2015-01-12 16:32:50+0000\n"
+"PO-Revision-Date: 2015-02-22 08:12:32+0000\n"
 "Last-Translator: misha <mishamsk@gmail.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -20,7 +20,7 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Textdomain-Support: yes"
 
-#: footer.php:10
+#: footer.php:17
 #, php-format
 #@ perlovs
 msgid "Copyright &copy; %s %s. All Rights Reserved."
@@ -32,6 +32,7 @@ msgid "Mobile Menu"
 msgstr "Мобильное меню"
 
 #: 404.php:18
+#: index.php:18
 #@ perlovs
 msgid "File Not Found"
 msgstr "Такой страницы здесь нет..."
@@ -46,7 +47,7 @@ msgstr "Хакерам здесь не место!"
 msgid "Continue reading..."
 msgstr "Читать дальше..."
 
-#: footer.php:13
+#: footer.php:20
 #@ perlovs
 msgid "here"
 msgstr "здесь"
@@ -235,7 +236,7 @@ msgstr "Здесь ничего нет ;-("
 msgid "Recent posts"
 msgstr "Последние записи"
 
-#: footer.php:13
+#: footer.php:20
 #, php-format
 #@ perlovs
 msgid "Credits and honors: %s"
@@ -246,7 +247,7 @@ msgstr "Благодарности: %s"
 msgid "Everything we've written"
 msgstr "Все, что мы написали"
 
-#: lib/entry-helpers.php:125
+#: lib/entry-helpers.php:140
 #@ perlovs
 msgid "No title"
 msgstr "Без названия"
@@ -318,42 +319,43 @@ msgstr "Кто ищет, тот всегда найдет!"
 msgid "Sorry, we have tried but could not find what you were looking for. Please try something different ;-)"
 msgstr "Прости, мы искали искали, но не смогли найти то, что ты просил. Попробуй что-нибудь другое;-)"
 
-#: single.php:25
+#: single.php:36
 #@ perlovs
 msgid "Leave a thought!"
 msgstr "Что скажешь?"
 
-#: functions.php:212
+#: functions.php:227
 #@ perlovs
 msgid "Facebook Username"
 msgstr "Имя пользователя в Facebook"
 
-#: functions.php:213
+#: functions.php:228
 #@ perlovs
 msgid "Twitter Username"
 msgstr "Имя пользователя в Twitter"
 
-#: functions.php:214
+#: functions.php:229
 #@ perlovs
 msgid "Instagram Username"
 msgstr "Имя пользователя в Instagram"
 
-#: functions.php:215
+#: functions.php:230
 #@ perlovs
 msgid "Linkedin Username"
 msgstr "Имя пользователя в LinkedIn"
 
-#: functions.php:216
+#: functions.php:231
 #@ perlovs
 msgid "Vkontakte Username"
 msgstr "Имя пользователя в Vkontakte"
 
-#: functions.php:217
+#: functions.php:232
 #@ perlovs
 msgid "Google+ Username"
 msgstr "Имя пользователя в Google+"
 
 #: 404.php:19
+#: index.php:19
 #@ perlovs
 msgid "The page you are looking for might have been removed, had its name changed, or is temporarily unavailable. You can try to go <a href=\"javascript:history.back()\">back</a> or use the search below."
 msgstr "Страницу, которую ты искал либо удалили, либо зачем-то переименовали, а может быть тебе дали неправильную ссылку. Можешь вернуться <a href=\"javascript:history.back()\">назад</a> или воспользоваться поиском ниже."
@@ -416,9 +418,9 @@ msgstr "Архивы за другие года: "
 msgid "Other months archives: "
 msgstr "Архивы за другие месяцы: "
 
-#: lib/travel.php:154
-#: travel-index.php:31
-#: travel-index.php:61
+#: lib/travel.php:155
+#: travel-index.php:37
+#: travel-index.php:67
 #, php-format
 #@ perlovs
 msgctxt "countries list"
@@ -431,18 +433,18 @@ msgstr "Все записи из"
 msgid "%s: all posts about this country"
 msgstr "%s: все записи о стране"
 
-#: taxonomy-countries.php:21
+#: taxonomy-countries.php:20
 #@ perlovs
 msgid "Unfortunately we have never visited this country, but we certainly are going to do this in future. For now you can select a different country or search for other posts below!"
 msgstr "К сожалению, мы еще не бывали в этой стране или не успели о ней написать. Мы обязательно это исправим, а пока выбирай другую страну или пользуйся поиском!"
 
-#: taxonomy-countries.php:24
+#: taxonomy-countries.php:23
 #@ perlovs
 msgid "Other countries: "
 msgstr "Другие страны: "
 
-#: taxonomy-countries.php:25
-#: travel-index.php:71
+#: taxonomy-countries.php:24
+#: travel-index.php:77
 #@ perlovs
 msgid "Show on map"
 msgstr "Посмотреть на карте"
@@ -452,4 +454,19 @@ msgstr "Посмотреть на карте"
 #@ perlovs
 msgid "%s year by month: "
 msgstr "%s год по месяцам: "
+
+#: lib/editor-helpers.php:24
+#@ perlovs
+msgid "Small text"
+msgstr "Маленький шрифт"
+
+#: lib/theme-options.php:28
+#@ perlovs
+msgid "Gmaps settings"
+msgstr "Настройки Google Maps"
+
+#: lib/theme-options.php:35
+#@ perlovs
+msgid "Gmaps Api key"
+msgstr ""
 
