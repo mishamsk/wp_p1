@@ -82,6 +82,10 @@
 	height: 15em;
 
 	@include card;
+
+	img {
+		max-width:none;
+	}
 }
 
 // List pickers (sass placeholder)
