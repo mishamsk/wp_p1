@@ -136,7 +136,7 @@ p {
 }
 
 // Add space between icon and following links
-p, span, time {
+p, span, time, #{headings(1,6)} {
 	&[class*="icon"] a:first-child {
 		margin-left: .25em;
 	}
