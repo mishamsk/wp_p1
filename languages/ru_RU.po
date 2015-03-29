@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Perlovs v1.1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2015-02-22 08:12:32+0000\n"
+"PO-Revision-Date: 2015-03-29 18:52:37+0000\n"
 "Last-Translator: misha <mishamsk@gmail.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -468,5 +468,10 @@ msgstr "Настройки Google Maps"
 #: lib/theme-options.php:35
 #@ perlovs
 msgid "Gmaps Api key"
+msgstr ""
+
+#: lib/editor-helpers.php:28
+#@ perlovs
+msgid "YouTube 16x9"
 msgstr ""
 

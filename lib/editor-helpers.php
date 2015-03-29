@@ -24,7 +24,14 @@ if(!function_exists('perlovs_add_styles_tinymce')) :
                 'title' => __('Small text', 'perlovs'),
                 'inline' => 'small',
             ),
+            array(
+                'title' => __('YouTube 16x9', 'perlovs'),
+                'block' => 'div',
+                'classes' => 'vWrapper16x9',
+                //'wrapper' => 'true',
+            ),
         );
+
         // Insert the array, JSON ENCODED, into 'style_formats'
         $init['style_formats'] = json_encode( $style_formats );
         $init['style_formats_merge'] = 'true';
