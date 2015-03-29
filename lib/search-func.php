@@ -22,7 +22,7 @@ if ( ! function_exists( 'perlovs_searchform') ) :
 		if (is_null($search_placeholder_text)) $search_placeholder_text = __( 'Type in and hit enter...', 'perlovs' );
 		if (is_null($search_submit_text)) $search_submit_text = __( 'Go!', 'perlovs' );
 
-		echo '<form role="search" method="get"' . ($id ? 'id="' . $id . '"' : '') . 'class="search-form ' . $form_classes . '" action="' . home_url( '/' ) . '">';
+		echo '<form role="search" method="get"' . ($id ? ' id="' . $id . '"' : '') . ' class="search-form ' . $form_classes . '" action="' . home_url( '/' ) . '">';
 		echo '	<p class="search-label">' . $search_label_text . '</p>';
 		echo '	<div class="search-inner-container">';
 		echo '		<input type="text" class="search-field" placeholder="' . $search_placeholder_text . '" value="" name="s" />';
